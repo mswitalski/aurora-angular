@@ -1,7 +1,10 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
 import {AppComponent} from './app.component';
 import {HeaderComponent, FooterComponent} from './shared';
+
+const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 
 @NgModule({
     declarations: [
@@ -10,7 +13,8 @@ import {HeaderComponent, FooterComponent} from './shared';
         FooterComponent
     ],
     imports: [
-        BrowserModule
+        BrowserModule,
+        rootRouting
     ],
     providers: [],
     bootstrap: [AppComponent]
