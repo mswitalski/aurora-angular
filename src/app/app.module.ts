@@ -3,6 +3,7 @@ import {ModuleWithProviders, NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {AppComponent} from './app.component';
 import {HeaderComponent, FooterComponent} from './shared';
+import {ApiService, JwtService, AuthService} from './shared/service/';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 
@@ -16,7 +17,11 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
         BrowserModule,
         rootRouting
     ],
-    providers: [],
+    providers: [
+        ApiService,
+        AuthService,
+        JwtService
+    ],
     bootstrap: [AppComponent]
 })
 
