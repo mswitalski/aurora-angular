@@ -1,6 +1,6 @@
-import {NgModule} from "@angular/core";
-import {HttpModule} from "@angular/http";
-import {RouterModule} from "@angular/router";
+import {NgModule} from '@angular/core';
+import {HttpModule} from '@angular/http';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
     imports: [
@@ -12,5 +12,6 @@ import {RouterModule} from "@angular/router";
         RouterModule
     ]
 })
+
 export class SharedModule {
 }
