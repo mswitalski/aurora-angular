@@ -13,6 +13,7 @@ export class LoginComponent {
     errors: Errors;
     isSubmitting = false;
     loginForm: FormGroup;
+    isBadCredentials = false;
 
     constructor(
         private authService: AuthService,
@@ -27,12 +28,17 @@ export class LoginComponent {
 
     submitForm() {
         this.isSubmitting = true;
+        this.isBadCredentials = false;
         this.errors = new Errors();
         const credentials = this.loginForm.value;
+
         this.authService.attemptAuthentication(credentials).subscribe(
             data => this.router.navigateByUrl('/'),
-            err => {
-                this.errors = err;
+            (err: Response) => {
+                if (err.status === 401) {
+                    this.isBadCredentials = true;
+                }
+
                 this.isSubmitting = false;
             }
         );

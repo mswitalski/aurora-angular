@@ -1,6 +1,5 @@
 <div class="container">
     <div class="row">
-
         <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
             <fieldset [disabled]="isSubmitting">
                 <fieldset class="form-group">
@@ -15,6 +14,9 @@
                         placeholder="Password"
                         type="password" />
                 </fieldset>
+
+                <div *ngIf="isBadCredentials" class="text-danger">Bad username or/and password!</div>
+
                 <button class="btn" [disabled]="!loginForm.valid" type="submit">
                     Login
                 </button>

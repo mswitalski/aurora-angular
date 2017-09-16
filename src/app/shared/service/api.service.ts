@@ -72,7 +72,6 @@ export class ApiService {
         return this.http.post(
             `${environment.loginUrl}`,
             JSON.stringify(credentials),
-            {headers: this.prepareHeaders()})
-            .catch(this.processErrors).share();
+            {headers: this.prepareHeaders()}).share();
     }
 }

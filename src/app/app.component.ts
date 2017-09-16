@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from './shared/service/auth.service';
 
 @Component({
     selector: 'app-aurora',
@@ -6,6 +7,11 @@ import {Component} from '@angular/core';
     styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
-    title = 'Aurora';
+export class AppComponent implements OnInit {
+
+    constructor(private authService: AuthService) {}
+
+    ngOnInit(): void {
+        this.authService.populate();
+    }
 }

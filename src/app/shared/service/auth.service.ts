@@ -7,6 +7,7 @@ import {JwtService} from './jwt.service';
 import {User} from '../model/user.model';
 import {Response} from '@angular/http';
 import {LoginCredentials} from '../model/login-credentials.model';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class AuthService {
@@ -16,20 +17,24 @@ export class AuthService {
     private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
     public isAuthenticated = this.isAuthenticatedSubject.asObservable();
 
-    constructor(private apiService: ApiService, private jwtService: JwtService) {
+    constructor(private apiService: ApiService, private jwtService: JwtService, private router: Router) {
         this.isAuthenticatedSubject.next(false);
     }
 
     populate() {
         if (this.jwtService.getToken()) {
-            this.apiService.get('/user').subscribe(
-                data => this.authenticate(data),
-                err => this.invalidateAuthentication()
-            );
+            this.fetchLoggedUserData();
 
         } else {
             this.invalidateAuthentication();
         }
+    }
+
+    private fetchLoggedUserData() {
+        this.apiService.get('user').subscribe(
+            data => this.authenticate(data),
+            err => this.invalidateAuthentication()
+        );
     }
 
     private authenticate(user: User) {
@@ -48,14 +53,14 @@ export class AuthService {
         response.subscribe(
             data => {
                 this.jwtService.setToken(data.headers.get('Authorization'));
-                this.apiService.get('users/' + userCredentials.username)
-                    .subscribe(loggedUser => this.authenticate(loggedUser));
+                this.fetchLoggedUserData();
             });
 
         return response;
     }
 
-    getLoggedUser(): User {
-        return this.loggedUserSubject.value;
+    logout(): void {
+        this.invalidateAuthentication();
+        this.router.navigateByUrl('/');
     }
 }

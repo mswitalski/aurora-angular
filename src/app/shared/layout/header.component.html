@@ -1,3 +1,20 @@
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">Aurora</a>
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="#">Aurora</a>
+
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav float-sm-right">
+            <li *appAuthenticatedOnly="false" class="nav-item active">
+                <a class="nav-link" routerLink="/login"
+                   routerLinkActive="active">Login</a>
+            </li>
+            <li *appAuthenticatedOnly="true" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Hello, {{loggedUser.username}}!
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" (click)="logout()">Logout</a>
+                </div>
+            </li>
+        </ul>
+    </div>
 </nav>

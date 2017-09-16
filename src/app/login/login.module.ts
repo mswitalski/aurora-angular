@@ -4,6 +4,7 @@ import {LoginComponent} from './login.component';
 import {SharedModule} from '../shared/shared.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NotAuthenticatedGuard} from './not-authenticated-guard.service';
+import {CommonModule} from '@angular/common';
 
 const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
@@ -15,6 +16,7 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
 
 @NgModule({
     imports: [
+        CommonModule,
         moduleRouting,
         SharedModule,
         ReactiveFormsModule

@@ -5,6 +5,7 @@ import {AppComponent} from './app.component';
 import {HeaderComponent, FooterComponent} from './shared';
 import {ApiService, JwtService, AuthService} from './shared/service/';
 import {LoginModule} from './login/login.module';
+import {AuthenticatedOnlyDirective} from './shared/authenticated-only.directive';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 
@@ -12,7 +13,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     declarations: [
         AppComponent,
         HeaderComponent,
-        FooterComponent
+        FooterComponent,
+        AuthenticatedOnlyDirective
     ],
     imports: [
         LoginModule,
