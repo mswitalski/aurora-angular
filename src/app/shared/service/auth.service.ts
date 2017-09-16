@@ -3,19 +3,21 @@ import {Observable} from 'rxjs/Observable';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {ApiService} from './api.service';
-import {environment} from '../../../environments/environment';
 import {JwtService} from './jwt.service';
 import {User} from '../model/user.model';
+import {Response} from '@angular/http';
+import {LoginCredentials} from '../model/login-credentials.model';
 
 @Injectable()
 export class AuthService {
 
     private loggedUserSubject = new BehaviorSubject<User>(new User());
-    private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
     public loggedUser = this.loggedUserSubject.asObservable().distinctUntilChanged();
+    private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
     public isAuthenticated = this.isAuthenticatedSubject.asObservable();
 
     constructor(private apiService: ApiService, private jwtService: JwtService) {
+        this.isAuthenticatedSubject.next(false);
     }
 
     populate() {
@@ -41,12 +43,16 @@ export class AuthService {
         this.isAuthenticatedSubject.next(false);
     }
 
-    attemptAuthentication(userCredentials): Observable<User> {
-        return this.apiService.post(`${environment.loginUrl}`, userCredentials)
-            .map(data => {
-                this.authenticate(data);
-                return data;
+    attemptAuthentication(userCredentials: LoginCredentials): Observable<Response> {
+        const response = this.apiService.login(userCredentials);
+        response.subscribe(
+            data => {
+                this.jwtService.setToken(data.headers.get('Authorization'));
+                this.apiService.get('users/' + userCredentials.username)
+                    .subscribe(loggedUser => this.authenticate(loggedUser));
             });
+
+        return response;
     }
 
     getLoggedUser(): User {

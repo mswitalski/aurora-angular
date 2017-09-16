@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/Rx';
 
 import {environment} from '../../../environments/environment';
 import {JwtService} from './jwt.service';
+import {LoginCredentials} from '../model/login-credentials.model';
 
 /**
  * Service providing interaction with backend api.
@@ -65,5 +66,13 @@ export class ApiService {
         }
 
         return headers;
+    }
+
+    login(credentials: LoginCredentials): Observable<Response> {
+        return this.http.post(
+            `${environment.loginUrl}`,
+            JSON.stringify(credentials),
+            {headers: this.prepareHeaders()})
+            .catch(this.processErrors).share();
     }
 }

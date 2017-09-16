@@ -4,6 +4,7 @@ import {RouterModule} from '@angular/router';
 import {AppComponent} from './app.component';
 import {HeaderComponent, FooterComponent} from './shared';
 import {ApiService, JwtService, AuthService} from './shared/service/';
+import {LoginModule} from './login/login.module';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 
@@ -14,6 +15,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
         FooterComponent
     ],
     imports: [
+        LoginModule,
         BrowserModule,
         rootRouting
     ],
