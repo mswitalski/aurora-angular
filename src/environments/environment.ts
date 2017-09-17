@@ -6,5 +6,8 @@
 export const environment = {
     production: false,
     backendUrl: 'http://localhost:8080/api/',
-    loginUrl: 'http://localhost:8080/login'
+    loginUrl: 'http://localhost:8080/login',
+    adminRole: 'ADMIN',
+    unitLeaderRole: 'UNIT_LEADER',
+    employeeRole: 'EMPLOYEE'
 };

@@ -8,6 +8,8 @@ import {User} from '../model/user.model';
 import {Response} from '@angular/http';
 import {LoginCredentials} from '../model/login-credentials.model';
 import {Router} from '@angular/router';
+import {environment} from '../../../environments/environment';
+import {Role} from '../model/role.model';
 
 @Injectable()
 export class AuthService {
@@ -16,6 +18,12 @@ export class AuthService {
     public loggedUser = this.loggedUserSubject.asObservable().distinctUntilChanged();
     private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
     public isAuthenticated = this.isAuthenticatedSubject.asObservable();
+    private hasAdminRoleSubject = new ReplaySubject<boolean>(1);
+    public hasAdminRole = this.hasAdminRoleSubject.asObservable();
+    private hasUnitLeaderRoleSubject = new ReplaySubject<boolean>(1);
+    public hasUnitLeaderRole = this.hasUnitLeaderRoleSubject.asObservable();
+    private hasEmployeeRoleSubject = new ReplaySubject<boolean>(1);
+    public hasEmployeeRole = this.hasEmployeeRoleSubject.asObservable();
 
     constructor(private apiService: ApiService, private jwtService: JwtService, private router: Router) {
         this.isAuthenticatedSubject.next(false);
@@ -40,12 +48,23 @@ export class AuthService {
     private authenticate(user: User) {
         this.loggedUserSubject.next(user);
         this.isAuthenticatedSubject.next(true);
+        this.populateRoles(user);
+    }
+
+    private populateRoles(user: User) {
+        this.hasAdminRoleSubject
+            .next(user.roles.find(r => r.name === `${environment.adminRole}`) !== undefined);
+        this.hasUnitLeaderRoleSubject
+            .next(user.roles.find(r => r.name === `${environment.unitLeaderRole}`) !== undefined);
+        this.hasEmployeeRoleSubject
+            .next(user.roles.find(r => r.name === `${environment.employeeRole}`) !== undefined);
     }
 
     private invalidateAuthentication() {
         this.jwtService.invalidateToken();
         this.loggedUserSubject.next(new User());
         this.isAuthenticatedSubject.next(false);
+        this.hasAdminRoleSubject.next(false);
     }
 
     attemptAuthentication(userCredentials: LoginCredentials): Observable<Response> {

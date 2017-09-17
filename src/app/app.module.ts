@@ -6,6 +6,9 @@ import {HeaderComponent, FooterComponent} from './shared';
 import {ApiService, JwtService, AuthService} from './shared/service/';
 import {LoginModule} from './login/login.module';
 import {AuthenticatedOnlyDirective} from './shared/authenticated-only.directive';
+import {ShowAdminDirective} from './shared/show-admin.directive';
+import {ShowEmployeeDirective} from './shared/show-employee.directive';
+import {ShowUnitLeaderDirective} from './shared/show-unit-leader.directive';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 
@@ -14,7 +17,10 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
         AppComponent,
         HeaderComponent,
         FooterComponent,
-        AuthenticatedOnlyDirective
+        AuthenticatedOnlyDirective,
+        ShowAdminDirective,
+        ShowEmployeeDirective,
+        ShowUnitLeaderDirective
     ],
     imports: [
         LoginModule,
