@@ -5,11 +5,10 @@ import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {ApiService} from './api.service';
 import {JwtService} from './jwt.service';
 import {User} from '../model/user.model';
-import {Response} from '@angular/http';
 import {LoginCredentials} from '../model/login-credentials.model';
 import {Router} from '@angular/router';
 import {environment} from '../../../environments/environment';
-import {Role} from '../model/role.model';
+import 'rxjs/add/operator/distinctUntilChanged';
 
 @Injectable()
 export class AuthService {
@@ -67,13 +66,15 @@ export class AuthService {
         this.hasAdminRoleSubject.next(false);
     }
 
-    attemptAuthentication(userCredentials: LoginCredentials): Observable<Response> {
+    attemptAuthentication(userCredentials: LoginCredentials): Observable<any> {
         const response = this.apiService.login(userCredentials);
         response.subscribe(
             data => {
+                console.log(data);
                 this.jwtService.setToken(data.headers.get('Authorization'));
                 this.fetchLoggedUserData();
-            });
+            },
+            error => error);
 
         return response;
     }

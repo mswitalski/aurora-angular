@@ -1,15 +1,25 @@
 import {NgModule} from '@angular/core';
-import {HttpModule} from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
+import {AuthenticatedGuard} from './service/guard/authenticated-guard.service';
+import {IsAdminGuard} from './service/guard/is-admin.service';
+import {IsUnitLeaderGuard} from './service/guard/is-unit-leader.service';
+import {IsEmployeeGuard} from './service/guard/is-employee.service';
 
 @NgModule({
     imports: [
-        HttpModule,
+        HttpClientModule ,
         RouterModule
     ],
     exports: [
-        HttpModule,
+        HttpClientModule ,
         RouterModule
+    ],
+    providers: [
+        AuthenticatedGuard,
+        IsAdminGuard,
+        IsUnitLeaderGuard,
+        IsEmployeeGuard
     ]
 })
 

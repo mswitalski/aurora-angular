@@ -9,6 +9,8 @@ import {AuthenticatedOnlyDirective} from './shared/authenticated-only.directive'
 import {ShowAdminDirective} from './shared/show-admin.directive';
 import {ShowEmployeeDirective} from './shared/show-employee.directive';
 import {ShowUnitLeaderDirective} from './shared/show-unit-leader.directive';
+import {HttpErrorInterceptorService} from './shared/listener/http-error-interceptor.service';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 
@@ -30,7 +32,12 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     providers: [
         ApiService,
         AuthService,
-        JwtService
+        JwtService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: HttpErrorInterceptorService,
+            multi: true
+        }
     ],
     bootstrap: [AppComponent]
 })

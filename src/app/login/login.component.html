@@ -16,6 +16,7 @@
                 </fieldset>
 
                 <div *ngIf="isBadCredentials" class="text-danger">Bad username or/and password!</div>
+                <div *ngIf="isTimeout" class="text-danger">Could not connect to the server! Try again later</div>
 
                 <button class="btn" [disabled]="!loginForm.valid" type="submit">
                     Login
