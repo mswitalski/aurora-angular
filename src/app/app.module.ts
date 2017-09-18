@@ -11,6 +11,8 @@ import {ShowEmployeeDirective} from './shared/show-employee.directive';
 import {ShowUnitLeaderDirective} from './shared/show-unit-leader.directive';
 import {HttpErrorInterceptorService} from './shared/listener/http-error-interceptor.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {EtagInterceptorService} from './shared/listener/etag-interceptor.service';
+import {EtagService} from './shared/service/etag.service';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 
@@ -32,10 +34,16 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     providers: [
         ApiService,
         AuthService,
+        EtagService,
         JwtService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: HttpErrorInterceptorService,
+            multi: true
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: EtagInterceptorService,
             multi: true
         }
     ],

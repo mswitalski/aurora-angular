@@ -39,7 +39,9 @@ export class AuthService {
 
     private fetchLoggedUserData() {
         this.apiService.get('user').subscribe(
-            data => this.authenticate(data),
+            data => {
+                this.authenticate(data);
+            },
             err => this.invalidateAuthentication()
         );
     }
@@ -70,7 +72,6 @@ export class AuthService {
         const response = this.apiService.login(userCredentials);
         response.subscribe(
             data => {
-                console.log(data);
                 this.jwtService.setToken(data.headers.get('Authorization'));
                 this.fetchLoggedUserData();
             },
