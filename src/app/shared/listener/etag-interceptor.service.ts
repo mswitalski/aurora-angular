@@ -5,26 +5,24 @@ import {
 } from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
-import {EtagService} from '../service/etag.service';
 
 @Injectable()
 export class EtagInterceptorService implements HttpInterceptor {
 
-    constructor(private etagService: EtagService) {
-    }
+    private etagPlaceholderName = 'ETag';
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         if (req.method === 'GET') {
             return next.handle(req).do(
                 event => {
                     if (event instanceof HttpResponse && event.status === 200) {
-                        this.etagService.etag = event.headers.get('Etag');
+                        window.localStorage[this.etagPlaceholderName] = event.headers.get('Etag').replace(/"/g, '');
                     }
                 });
 
         } else if (req.method === 'PUT') {
             // TODO: check this
-            req.headers.append('ETag', this.etagService.etag);
+            req.headers.append('ETag', window.localStorage[this.etagPlaceholderName]);
 
             return next.handle(req);
 

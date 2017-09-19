@@ -12,9 +12,9 @@ import {ShowUnitLeaderDirective} from './shared/show-unit-leader.directive';
 import {HttpErrorInterceptorService} from './shared/listener/http-error-interceptor.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {EtagInterceptorService} from './shared/listener/etag-interceptor.service';
-import {EtagService} from './shared/service/etag.service';
 import {DashboardModule} from './dashboard/dashboard.module';
 import {ProfileModule} from './profile/profile.module';
+import {UsersService} from './shared/service/users.service';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([
     {
@@ -44,8 +44,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([
     providers: [
         ApiService,
         AuthService,
-        EtagService,
         JwtService,
+        UsersService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: HttpErrorInterceptorService,
