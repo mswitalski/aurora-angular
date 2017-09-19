@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+        <form [formGroup]="loginForm" (ngSubmit)="submitForm()" class="mx-auto">
             <fieldset [disabled]="isSubmitting">
                 <fieldset class="form-group">
                     <input
@@ -18,7 +18,7 @@
                 <div *ngIf="isBadCredentials" class="text-danger">Bad username or/and password!</div>
                 <div *ngIf="isTimeout" class="text-danger">Could not connect to the server! Try again later</div>
 
-                <button class="btn" [disabled]="!loginForm.valid" type="submit">
+                <button class="btn btn-success btn-lg btn-block" [disabled]="!loginForm.valid" type="submit">
                     Login
                 </button>
             </fieldset>
