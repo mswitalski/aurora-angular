@@ -12,9 +12,7 @@ export class NotAuthenticatedGuard implements CanActivate {
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-        // return this.authService.isAuthenticated.take(1).map(is => !is);
         return this.authService.isAuthenticated.map(value => {
-            console.log(value);
             if (value) {
                 this.router.navigate(['/dashboard']);
 

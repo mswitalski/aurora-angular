@@ -14,6 +14,7 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {EtagInterceptorService} from './shared/listener/etag-interceptor.service';
 import {EtagService} from './shared/service/etag.service';
 import {DashboardModule} from './dashboard/dashboard.module';
+import {ProfileModule} from './profile/profile.module';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([
     {
@@ -34,9 +35,10 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([
         ShowUnitLeaderDirective
     ],
     imports: [
+        BrowserModule,
         DashboardModule,
         LoginModule,
-        BrowserModule,
+        ProfileModule,
         rootRouting
     ],
     providers: [

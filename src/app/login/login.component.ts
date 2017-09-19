@@ -31,7 +31,6 @@ export class LoginComponent {
         this.authService.attemptAuthentication(credentials).subscribe(
             () => {
                 setTimeout(() => {
-                    this.isSubmitting = false;
                     this.router.navigate(['/dashboard']);
                 }, 50);
 
