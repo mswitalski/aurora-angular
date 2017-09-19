@@ -7,18 +7,15 @@ import {AuthService} from '../shared/service/auth.service';
     selector: 'app-login-page',
     templateUrl: './login.component.html'
 })
-
 export class LoginComponent {
     isSubmitting = false;
     loginForm: FormGroup;
     isBadCredentials = false;
     isTimeout = false;
 
-    constructor(
-        private authService: AuthService,
-        private router: Router,
-        private formBuilder: FormBuilder
-    ) {
+    constructor(private authService: AuthService,
+                private router: Router,
+                private formBuilder: FormBuilder) {
         this.loginForm = this.formBuilder.group({
             'username': ['', Validators.required],
             'password': ['', Validators.required]
@@ -32,7 +29,13 @@ export class LoginComponent {
         const credentials = this.loginForm.value;
 
         this.authService.attemptAuthentication(credentials).subscribe(
-            data => this.router.navigateByUrl('/'),
+            () => {
+                setTimeout(() => {
+                    this.isSubmitting = false;
+                    this.router.navigate(['/dashboard']);
+                }, 50);
+
+            },
             (err) => {
                 if (err.status === 401) {
                     this.isBadCredentials = true;

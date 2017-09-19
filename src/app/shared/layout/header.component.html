@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" *appAuthenticatedOnly="true">
     <a class="navbar-brand" href="#">Aurora</a>
 
     <div class="collapse navbar-collapse">
-        <ul class="navbar-nav float-sm-right">
+        <ul class="navbar-nav ml-auto">
             <li *appAuthenticatedOnly="false" class="nav-item active">
                 <a class="nav-link" routerLink="/login"
                    routerLinkActive="active">Login</a>

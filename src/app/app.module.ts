@@ -13,8 +13,15 @@ import {HttpErrorInterceptorService} from './shared/listener/http-error-intercep
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {EtagInterceptorService} from './shared/listener/etag-interceptor.service';
 import {EtagService} from './shared/service/etag.service';
+import {DashboardModule} from './dashboard/dashboard.module';
 
-const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
+const rootRouting: ModuleWithProviders = RouterModule.forRoot([
+    {
+        path: '',
+        redirectTo: '/dashboard',
+        pathMatch: 'full'
+    }
+], { useHash: true });
 
 @NgModule({
     declarations: [
@@ -27,6 +34,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
         ShowUnitLeaderDirective
     ],
     imports: [
+        DashboardModule,
         LoginModule,
         BrowserModule,
         rootRouting

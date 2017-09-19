@@ -1,14 +1,14 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {ApiService} from './api.service';
 import {JwtService} from './jwt.service';
 import {User} from '../model/user.model';
 import {LoginCredentials} from '../model/login-credentials.model';
-import {Router} from '@angular/router';
 import {environment} from '../../../environments/environment';
 import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/skip';
+import {ReplaySubject} from 'rxjs/ReplaySubject';
 
 @Injectable()
 export class AuthService {
@@ -16,16 +16,21 @@ export class AuthService {
     private loggedUserSubject = new BehaviorSubject<User>(new User());
     public loggedUser = this.loggedUserSubject.asObservable().distinctUntilChanged();
     private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
-    public isAuthenticated = this.isAuthenticatedSubject.asObservable();
-    private hasAdminRoleSubject = new ReplaySubject<boolean>(1);
+    public isAuthenticated = this.isAuthenticatedSubject;
+    private hasAdminRoleSubject = new BehaviorSubject<boolean>(false);
     public hasAdminRole = this.hasAdminRoleSubject.asObservable();
-    private hasUnitLeaderRoleSubject = new ReplaySubject<boolean>(1);
+    private hasUnitLeaderRoleSubject = new BehaviorSubject<boolean>(false);
     public hasUnitLeaderRole = this.hasUnitLeaderRoleSubject.asObservable();
-    private hasEmployeeRoleSubject = new ReplaySubject<boolean>(1);
+    private hasEmployeeRoleSubject = new BehaviorSubject<boolean>(false);
     public hasEmployeeRole = this.hasEmployeeRoleSubject.asObservable();
 
-    constructor(private apiService: ApiService, private jwtService: JwtService, private router: Router) {
-        this.isAuthenticatedSubject.next(false);
+    constructor(
+        private apiService: ApiService,
+        private jwtService: JwtService,
+        ) {
+        this.hasAdminRoleSubject.next(false);
+        this.hasUnitLeaderRoleSubject.next(false);
+        this.hasEmployeeRoleSubject.next(false);
     }
 
     populate() {
@@ -66,6 +71,8 @@ export class AuthService {
         this.loggedUserSubject.next(new User());
         this.isAuthenticatedSubject.next(false);
         this.hasAdminRoleSubject.next(false);
+        this.hasUnitLeaderRoleSubject.next(false);
+        this.hasEmployeeRoleSubject.next(false);
     }
 
     attemptAuthentication(userCredentials: LoginCredentials): Observable<any> {
@@ -82,6 +89,5 @@ export class AuthService {
 
     logout(): void {
         this.invalidateAuthentication();
-        this.router.navigateByUrl('/');
     }
 }

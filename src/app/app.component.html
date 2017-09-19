@@ -2,10 +2,11 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-2 sidebar navbar-dark bg-dark" *appAuthenticatedOnly="true">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Dashboard</a>
+                    <a class="nav-link" routerLink="/dashboard"
+                       routerLinkActive="active">Dashboard</a>
                 </li>
                 <li *appShowAdmin="true" class="nav-item">
                     <a class="nav-link" href="#">Admin link</a>
@@ -15,10 +16,9 @@
                 </li>
             </ul>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-10 mx-auto">
             <router-outlet></router-outlet>
+            <app-layout-footer></app-layout-footer>
         </div>
     </div>
 </div>
-
-<app-layout-footer></app-layout-footer>
