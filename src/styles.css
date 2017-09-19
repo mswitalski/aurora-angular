@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+.sidebar {
+    min-height: calc(100vh - 50px);
+    margin-left: -1rem;
+    max-width: 250px;
+}
+
+.bg-darker {
+    background-color: #282828 !important;
+}
+
+.sidebar-entry__active {
+    background-color: #474747 !important;
+}
+
+.link__white {
+    color: #ffffff;
+}
+
+.vertical-center {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+}
+
+.minh-100 {
+    min-height: 100vh;
+}

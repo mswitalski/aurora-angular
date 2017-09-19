@@ -2,21 +2,21 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-2 sidebar navbar-dark bg-dark" *appAuthenticatedOnly="true">
-            <ul class="nav flex-column">
+        <div class="col-md-2" *appAuthenticatedOnly="true">
+            <ul class="nav flex-column sidebar bg-darker pt-3">
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/dashboard"
-                       routerLinkActive="active">Dashboard</a>
+                    <a class="nav-link link__white" routerLink="/dashboard"
+                       routerLinkActive="sidebar-entry__active">Dashboard</a>
                 </li>
                 <li *appShowAdmin="true" class="nav-item">
-                    <a class="nav-link" href="#">Admin link</a>
+                    <a class="nav-link link__white" href="#">Admin link</a>
                 </li>
                 <li *appShowEmployee="true" class="nav-item">
-                    <a class="nav-link" href="#">Employee link</a>
+                    <a class="nav-link link__white" href="#">Employee link</a>
                 </li>
             </ul>
         </div>
-        <div class="col-md-10 mx-auto">
+        <div class="col-md-10 mx-auto pt-3">
             <router-outlet></router-outlet>
             <app-layout-footer></app-layout-footer>
         </div>
