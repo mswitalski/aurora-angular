@@ -1,0 +1,48 @@
+<h1>Edit profile</h1>
+
+<form [formGroup]="editProfileForm" (ngSubmit)="submitForm()">
+    <fieldset [disabled]="isSubmitting">
+        <fieldset class="form-group">
+            <input
+                formControlName="email"
+                [(ngModel)]="loggedUser.email"
+                placeholder="E-mail"
+                type="text" />
+        </fieldset>
+        <fieldset class="form-group">
+            <input
+                formControlName="name"
+                [(ngModel)]="loggedUser.name"
+                placeholder="Name"
+                type="text" />
+        </fieldset>
+        <fieldset class="form-group">
+            <input
+                formControlName="surname"
+                [(ngModel)]="loggedUser.surname"
+                placeholder="Surname"
+                type="text" />
+        </fieldset>
+        <fieldset class="form-group">
+            <input
+                formControlName="position"
+                [(ngModel)]="loggedUser.position"
+                placeholder="Position"
+                type="text" />
+        </fieldset>
+        <fieldset class="form-group">
+            <textarea
+                formControlName="goals"
+                [(ngModel)]="loggedUser.goals"
+                placeholder="Position"
+                rows="5"></textarea>
+        </fieldset>
+
+        <button class="btn btn-success" [disabled]="!loginForm.valid" type="submit">
+            Save
+        </button>
+        <button class="btn btn-dark" routerLink="/profile">
+            Go back
+        </button>
+    </fieldset>
+</form>

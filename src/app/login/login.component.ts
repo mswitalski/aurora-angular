@@ -6,7 +6,6 @@ import {HttpResponse} from '@angular/common/http';
 import {Subscription} from 'rxjs/Subscription';
 
 @Component({
-    selector: 'app-login-page',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
 })
