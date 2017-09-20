@@ -26,3 +26,12 @@
 .minh-100 {
     min-height: 100vh;
 }
+
+.right-0__no-left {
+    right: 0;
+    left: auto;
+}
+
+.act-as-pointer {
+    cursor: pointer;
+}

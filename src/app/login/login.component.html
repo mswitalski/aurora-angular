@@ -1,12 +1,12 @@
-<div class="container-fluid minh-100">
+<div class="container-fluid minh-100 login-page">
     <div class="row">
-        <form [formGroup]="loginForm" (ngSubmit)="submitForm()" class="mx-auto vertical-center">
+        <form [formGroup]="loginForm" (ngSubmit)="submitForm()" class="mx-auto vertical-center form-control-lg">
             <fieldset [disabled]="isSubmitting">
                 <fieldset class="form-group">
                     <input
                         formControlName="username"
                         placeholder="Username"
-                        type="text" />
+                        type="text" autofocus />
                 </fieldset>
                 <fieldset class="form-group">
                     <input

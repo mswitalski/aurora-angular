@@ -7,7 +7,8 @@ import {Subscription} from 'rxjs/Subscription';
 
 @Component({
     selector: 'app-login-page',
-    templateUrl: './login.component.html'
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnDestroy {
     isSubmitting = false;
