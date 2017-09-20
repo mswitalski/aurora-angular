@@ -1,17 +1,22 @@
-import {Component} from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {AuthService} from '../shared/service/auth.service';
+import {HttpResponse} from '@angular/common/http';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
     selector: 'app-login-page',
     templateUrl: './login.component.html'
 })
-export class LoginComponent {
+export class LoginComponent implements OnDestroy {
     isSubmitting = false;
     loginForm: FormGroup;
     isBadCredentials = false;
     isTimeout = false;
+    private response: HttpResponse<any>;
+    private attemptSubscription: Subscription;
+    private isAuthenticatedSubscription: Subscription;
 
     constructor(private authService: AuthService,
                 private router: Router,
@@ -28,23 +33,38 @@ export class LoginComponent {
         this.isTimeout = false;
         const credentials = this.loginForm.value;
 
-        this.authService.attemptAuthentication(credentials).subscribe(
-            () => {
-                setTimeout(() => {
-                    this.router.navigate(['/dashboard']);
-                }, 50);
-
-            },
-            (err) => {
-                if (err.status === 401) {
-                    this.isBadCredentials = true;
-
-                } else if (err.status === 0) {
-                    this.isTimeout = true;
-                }
-
-                this.isSubmitting = false;
+        this.attemptSubscription = this.authService.attemptAuthentication(credentials).subscribe(
+            result => {
+                this.response = result;
             }
         );
+
+        this.isAuthenticatedSubscription = this.authService.isAuthenticated.subscribe(
+            (isAuthenticated) => {
+                if (isAuthenticated) {
+                    this.processResponse();
+                    this.router.navigate(['/dashboard']);
+                }
+            });
+    }
+
+    private processResponse() {
+        switch (this.response.status) {
+            case 401: {
+                this.isBadCredentials = true;
+                break;
+            }
+            case 0: {
+                this.isTimeout = true;
+                break;
+            }
+        }
+
+        this.isSubmitting = false;
+    }
+
+    ngOnDestroy() {
+        this.attemptSubscription.unsubscribe();
+        this.isAuthenticatedSubscription.unsubscribe();
     }
 }
