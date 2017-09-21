@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/timeout';
 import 'rxjs/add/operator/share';
@@ -14,13 +14,24 @@ import {LoginCredentials} from '../model/login-credentials.model';
 @Injectable()
 export class ApiService {
 
+    private etagPlaceholderName = 'ETag';
+
     constructor(private http: HttpClient, private jwtService: JwtService) {
     }
 
     get(partialUrl: string): Observable<any> {
         const url = `${environment.backendUrl}${partialUrl}`;
+        const response = this.http.get(url, {headers: this.prepareHeaders(), observe: 'response'});
 
-        return this.http.get(url, {headers: this.prepareHeaders()});
+        const responseSubscription = response.subscribe(
+            data => {
+                window.localStorage[this.etagPlaceholderName] =
+                    data.headers.get(this.etagPlaceholderName).replace(/"/g, '');
+                responseSubscription.unsubscribe();
+            }
+        );
+
+        return response;
     }
 
     private prepareHeaders(): HttpHeaders {
@@ -44,20 +55,18 @@ export class ApiService {
         return this.http.post(url, JSON.stringify(objectToPost), {headers: this.prepareHeaders()});
     }
 
-    put(partialUrl: string, objectToPut: Object, eTag: string): Observable<any> {
+    put(partialUrl: string, objectToPut: Object): Observable<HttpResponse<any>> {
         const url = `${environment.backendUrl}${partialUrl}`;
 
-        return this.http.post(url, JSON.stringify(objectToPut), {headers: this.prepareHeadersForUpdate(eTag)});
+        return this.http.put(url, JSON.stringify(objectToPut), {headers: this.prepareHeadersForUpdate(), observe: 'response'});
     }
 
-    private prepareHeadersForUpdate(eTag: string): HttpHeaders {
-        const headers = this.prepareHeaders();
+    private prepareHeadersForUpdate(): HttpHeaders {
+        const defaultHeaders = this.prepareHeaders();
+        const updatedHeaders = defaultHeaders.append(this.etagPlaceholderName, window.localStorage[this.etagPlaceholderName]);
+        window.localStorage.removeItem(this.etagPlaceholderName);
 
-        if (eTag) {
-            headers['ETag'] = eTag;
-        }
-
-        return headers;
+        return updatedHeaders;
     }
 
     login(credentials: LoginCredentials): Observable<any> {

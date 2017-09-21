@@ -44,8 +44,8 @@ export class AuthService {
 
     private fetchLoggedUserData() {
         this.apiService.get('user').subscribe(
-            data => {
-                this.authenticate(data);
+            user => {
+                this.authenticate(user.body);
             },
             err => this.invalidateAuthentication()
         );

@@ -14,7 +14,7 @@ export class UserResolver implements Resolve<User> {
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<User> {
         return this.authService.loggedUser
-            .flatMap(u => this.usersService.getSingle(u.username))
+            .flatMap(u => this.usersService.getSingle(u.username).map(response => response.body))
             .take(1);
     }
 

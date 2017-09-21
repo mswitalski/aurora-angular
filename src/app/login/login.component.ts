@@ -36,6 +36,12 @@ export class LoginComponent implements OnDestroy {
         this.attemptSubscription = this.authService.attemptAuthentication(credentials).subscribe(
             result => {
                 this.response = result;
+            },
+            err => {
+                switch (err.status) {
+                    case 0: { this.isTimeout = true; break; }
+                    case 401: { this.isBadCredentials = true; break; }
+                }
             }
         );
 
