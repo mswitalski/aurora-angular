@@ -47,6 +47,7 @@ export class LoginComponent implements OnDestroy {
 
         this.isAuthenticatedSubscription = this.authService.isAuthenticated.subscribe(
             (isAuthenticated) => {
+                this.isSubmitting = false;
                 if (isAuthenticated) {
                     this.processResponse();
                     this.router.navigate(['/dashboard']);

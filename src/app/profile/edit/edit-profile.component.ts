@@ -2,8 +2,11 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {User} from '../../shared/model/user.model';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Subscription} from 'rxjs/Subscription';
 import {UsersService} from '../../shared/service/users.service';
+import {Subject} from 'rxjs/Subject';
+import 'rxjs/add/operator/takeUntil';
+import {ValidationError} from '../../shared/model/validation-error.model';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
     templateUrl: './edit-profile.component.html'
@@ -13,8 +16,8 @@ export class EditProfileComponent implements OnInit, OnDestroy {
     editProfileForm: FormGroup;
     isSubmitting = false;
     loggedUser: User;
-    private routeDataSubscription: Subscription;
-    private updateSubscription: Subscription;
+    validationErrors: ValidationError[];
+    private ngUnsubscribe: Subject<void> = new Subject<void>();
 
     constructor(private formBuilder: FormBuilder,
                 private route: ActivatedRoute,
@@ -30,7 +33,7 @@ export class EditProfileComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.routeDataSubscription = this.route.data.subscribe(
+        this.route.data.takeUntil(this.ngUnsubscribe).subscribe(
             (data: {user: User}) => {
                 this.loggedUser = data.user;
             }
@@ -39,20 +42,23 @@ export class EditProfileComponent implements OnInit, OnDestroy {
 
     submitForm() {
         this.isSubmitting = true;
-        this.updateSubscription = this.usersService.update(this.loggedUser).subscribe(
+        this.usersService.update(this.loggedUser).subscribe(
             () => {
                 this.router.navigate(['/profile']);
+                this.isSubmitting = false;
+            },
+            error => {
+                if (error.status === 400) {
+                    this.validationErrors = error.error;
+                }
+
                 this.isSubmitting = false;
             }
         );
     }
 
     ngOnDestroy() {
-        if (this.routeDataSubscription) {
-            this.routeDataSubscription.unsubscribe();
-        }
-        if (this.updateSubscription) {
-            this.updateSubscription.unsubscribe();
-        }
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }

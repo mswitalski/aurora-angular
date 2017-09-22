@@ -38,6 +38,8 @@
                 rows="5"></textarea>
         </fieldset>
 
+        <app-list-errors [errors]="validationErrors"></app-list-errors>
+
         <button class="btn btn-success" [disabled]="!editProfileForm.valid" type="submit">
             Save
         </button>

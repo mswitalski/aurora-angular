@@ -18,5 +18,4 @@ export class UsersService {
     update(user: User): Observable<HttpResponse<any>> {
         return this.api.put('users/', user);
     }
-
 }
