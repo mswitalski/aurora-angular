@@ -21,17 +21,8 @@ export class ApiService {
 
     get(partialUrl: string): Observable<any> {
         const url = `${environment.backendUrl}${partialUrl}`;
-        const response = this.http.get(url, {headers: this.prepareHeaders(), observe: 'response'});
-
-        const responseSubscription = response.subscribe(
-            data => {
-                window.localStorage[this.etagPlaceholderName] =
-                    data.headers.get(this.etagPlaceholderName).replace(/"/g, '');
-                responseSubscription.unsubscribe();
-            }
-        );
-
-        return response;
+        return this.http.get(url, {headers: this.prepareHeaders(), observe: 'response'})
+            .do(data => this.storeETag(data.headers));
     }
 
     private prepareHeaders(): HttpHeaders {
@@ -49,6 +40,11 @@ export class ApiService {
         return new HttpHeaders(defaultHeaders);
     }
 
+    private storeETag(responseHeaders: HttpHeaders) {
+        window.localStorage[this.etagPlaceholderName] =
+            responseHeaders.get(this.etagPlaceholderName).replace(/"/g, '');
+    }
+
     post(partialUrl: string, objectToPost: Object): Observable<any> {
         const url = `${environment.backendUrl}${partialUrl}`;
 
@@ -64,7 +60,6 @@ export class ApiService {
     private prepareHeadersForUpdate(): HttpHeaders {
         const defaultHeaders = this.prepareHeaders();
         const updatedHeaders = defaultHeaders.append(this.etagPlaceholderName, window.localStorage[this.etagPlaceholderName]);
-        window.localStorage.removeItem(this.etagPlaceholderName);
 
         return updatedHeaders;
     }
