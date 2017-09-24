@@ -1,0 +1,8 @@
+{
+    "DASHBOARD": "Dashboard",
+    "BTN": {
+        "PROFILE": "Profile",
+        "LOGOUT": "Logout",
+        "EDIT-PROFILE": "Edit profile"
+    }
+}

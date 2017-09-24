@@ -1,7 +1,9 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient} from '@angular/common/http';
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import {ApiService, AuthService, JwtService} from './shared/service';
 import {AppComponent} from './app.component';
@@ -27,6 +29,10 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([
     }
 ], {useHash: true});
 
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+}
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -42,7 +48,14 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([
         DashboardModule,
         LoginModule,
         ProfileModule,
-        rootRouting
+        rootRouting,
+        TranslateModule.forRoot({
+            loader: {
+                deps: [HttpClient],
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory
+            }
+        })
     ],
     providers: [
         ApiService,

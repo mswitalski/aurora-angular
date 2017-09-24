@@ -1,13 +1,15 @@
+import {CommonModule} from '@angular/common';
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
+import {TranslateModule} from '@ngx-translate/core';
+
 import {AuthenticatedGuard} from './service/guard/authenticated-guard.service';
+import {ErrorPageComponent} from './error-page';
 import {IsAdminGuard} from './service/guard/is-admin-guard.service';
 import {IsUnitLeaderGuard} from './service/guard/is-unit-leader-guard.service';
 import {IsEmployeeGuard} from './service/guard/is-employee-guard.service';
-import {ErrorPageComponent} from './error-page/error-page.component';
 import {ListErrorsComponent} from './list-errors.component';
-import {CommonModule} from '@angular/common';
 
 const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
@@ -31,7 +33,8 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     exports: [
         ListErrorsComponent,
         HttpClientModule ,
-        RouterModule
+        RouterModule,
+        TranslateModule
     ],
     providers: [
         AuthenticatedGuard,
