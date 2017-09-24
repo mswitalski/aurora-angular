@@ -1,28 +1,29 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {LoginComponent} from './login.component';
-import {SharedModule} from '../shared/shared.module';
 import {ReactiveFormsModule} from '@angular/forms';
-import {NotAuthenticatedGuard} from './not-authenticated-guard.service';
 import {CommonModule} from '@angular/common';
+
+import {LoginComponent} from './login.component';
+import {SharedModule} from '../shared';
+import {NotAuthenticatedGuard} from './not-authenticated-guard.service';
 
 const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
-        path: 'login',
+        canActivate: [NotAuthenticatedGuard],
         component: LoginComponent,
-        canActivate: [NotAuthenticatedGuard]
+        path: 'login'
     }
 ]);
 
 @NgModule({
+    declarations: [
+        LoginComponent
+    ],
     imports: [
         CommonModule,
         moduleRouting,
-        SharedModule,
-        ReactiveFormsModule
-    ],
-    declarations: [
-        LoginComponent
+        ReactiveFormsModule,
+        SharedModule
     ],
     providers: [
         NotAuthenticatedGuard

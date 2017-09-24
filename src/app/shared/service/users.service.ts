@@ -1,8 +1,9 @@
-import {Injectable} from '@angular/core';
-import {ApiService} from './api.service';
-import {Observable} from 'rxjs/Observable';
-import {User} from '../model/user.model';
 import {HttpResponse} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs/Observable';
+
+import {ApiService} from './api.service';
+import {User} from '../model';
 
 @Injectable()
 export class UsersService {

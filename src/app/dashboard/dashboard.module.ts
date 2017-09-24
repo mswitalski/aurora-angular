@@ -1,27 +1,29 @@
+import {CommonModule} from '@angular/common';
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
+
+import {AuthenticatedGuard} from '../shared/service/guard';
 import {DashboardComponent} from './dashboard.component';
-import {AuthenticatedGuard} from '../shared/service/guard/authenticated-guard.service';
-import {CommonModule} from '@angular/common';
-import {SharedModule} from '../shared/shared.module';
+import {SharedModule} from '../shared';
 
 const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
-        path: 'dashboard',
+        canActivate: [AuthenticatedGuard],
         component: DashboardComponent,
-        canActivate: [AuthenticatedGuard]
+        path: 'dashboard'
     }
 ]);
 
 @NgModule({
+    declarations: [
+        DashboardComponent
+    ],
     imports: [
         CommonModule,
         moduleRouting,
         SharedModule
-    ],
-    declarations: [
-        DashboardComponent
     ]
 })
+
 export class DashboardModule {
 }

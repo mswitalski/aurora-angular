@@ -1,33 +1,31 @@
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import 'rxjs/add/operator/distinctUntilChanged';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {ApiService} from './api.service';
-import {JwtService} from './jwt.service';
-import {User} from '../model/user.model';
-import {LoginCredentials} from '../model/login-credentials.model';
-import {environment} from '../../../environments/environment';
-import 'rxjs/add/operator/distinctUntilChanged';
-import 'rxjs/add/operator/skip';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
+import 'rxjs/add/operator/skip';
+
+import {ApiService} from './api.service';
+import {environment} from '../../../environments/environment';
+import {JwtService} from './jwt.service';
+import {LoginCredentials, User} from '../model';
 
 @Injectable()
 export class AuthService {
 
-    private loggedUserSubject = new BehaviorSubject<User>(new User());
-    public loggedUser = this.loggedUserSubject.asObservable().distinctUntilChanged();
     private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
     public isAuthenticated = this.isAuthenticatedSubject;
     private hasAdminRoleSubject = new BehaviorSubject<boolean>(false);
     public hasAdminRole = this.hasAdminRoleSubject.asObservable();
-    private hasUnitLeaderRoleSubject = new BehaviorSubject<boolean>(false);
-    public hasUnitLeaderRole = this.hasUnitLeaderRoleSubject.asObservable();
     private hasEmployeeRoleSubject = new BehaviorSubject<boolean>(false);
     public hasEmployeeRole = this.hasEmployeeRoleSubject.asObservable();
+    private hasUnitLeaderRoleSubject = new BehaviorSubject<boolean>(false);
+    public hasUnitLeaderRole = this.hasUnitLeaderRoleSubject.asObservable();
+    private loggedUserSubject = new BehaviorSubject<User>(new User());
+    public loggedUser = this.loggedUserSubject.asObservable().distinctUntilChanged();
 
-    constructor(
-        private apiService: ApiService,
-        private jwtService: JwtService,
-        ) {
+    constructor(private apiService: ApiService,
+                private jwtService: JwtService) {
         this.hasAdminRoleSubject.next(false);
         this.hasUnitLeaderRoleSubject.next(false);
         this.hasEmployeeRoleSubject.next(false);
@@ -60,19 +58,19 @@ export class AuthService {
     private populateRoles(user: User) {
         this.hasAdminRoleSubject
             .next(user.roles.find(r => r.name === `${environment.adminRole}`) !== undefined);
-        this.hasUnitLeaderRoleSubject
-            .next(user.roles.find(r => r.name === `${environment.unitLeaderRole}`) !== undefined);
         this.hasEmployeeRoleSubject
             .next(user.roles.find(r => r.name === `${environment.employeeRole}`) !== undefined);
+        this.hasUnitLeaderRoleSubject
+            .next(user.roles.find(r => r.name === `${environment.unitLeaderRole}`) !== undefined);
     }
 
     private invalidateAuthentication() {
         this.jwtService.invalidateToken();
-        this.loggedUserSubject.next(new User());
         this.isAuthenticatedSubject.next(false);
         this.hasAdminRoleSubject.next(false);
-        this.hasUnitLeaderRoleSubject.next(false);
         this.hasEmployeeRoleSubject.next(false);
+        this.hasUnitLeaderRoleSubject.next(false);
+        this.loggedUserSubject.next(new User());
     }
 
     attemptAuthentication(userCredentials: LoginCredentials): Observable<any> {

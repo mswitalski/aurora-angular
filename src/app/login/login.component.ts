@@ -1,26 +1,33 @@
 import {Component, OnDestroy} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
-import {AuthService} from '../shared/service/auth.service';
 import {HttpResponse} from '@angular/common/http';
-import {Subscription} from 'rxjs/Subscription';
+import {Router} from '@angular/router';
+import 'rxjs/add/operator/takeUntil';
+import {Subject} from 'rxjs/Subject';
+
+import {AuthService} from '../shared/service';
 
 @Component({
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnDestroy {
-    isSubmitting = false;
-    loginForm: FormGroup;
+
     isBadCredentials = false;
+    isSubmitting = false;
     isTimeout = false;
+    loginForm: FormGroup;
+    private ngUnsubscribe: Subject<void> = new Subject<void>();
     private response: HttpResponse<any>;
-    private attemptSubscription: Subscription;
-    private isAuthenticatedSubscription: Subscription;
 
     constructor(private authService: AuthService,
-                private router: Router,
-                private formBuilder: FormBuilder) {
+                private formBuilder: FormBuilder,
+                private router: Router) {
+        this.createFormControls();
+    }
+
+    private createFormControls() {
         this.loginForm = this.formBuilder.group({
             'username': ['', Validators.required],
             'password': ['', Validators.required]
@@ -28,50 +35,45 @@ export class LoginComponent implements OnDestroy {
     }
 
     submitForm() {
-        this.isSubmitting = true;
-        this.isBadCredentials = false;
-        this.isTimeout = false;
         const credentials = this.loginForm.value;
+        this.isBadCredentials = false;
+        this.isSubmitting = true;
+        this.isTimeout = false;
 
-        this.attemptSubscription = this.authService.attemptAuthentication(credentials).subscribe(
+        this.authService.attemptAuthentication(credentials).takeUntil(this.ngUnsubscribe).subscribe(
             result => {
+                this.isSubmitting = false;
                 this.response = result;
             },
             err => {
-                switch (err.status) {
-                    case 0: { this.isTimeout = true; break; }
-                    case 401: { this.isBadCredentials = true; break; }
-                }
+                this.isSubmitting = false;
+                this.handleErrorResponse(err.status);
             }
         );
 
-        this.isAuthenticatedSubscription = this.authService.isAuthenticated.subscribe(
+        this.authService.isAuthenticated.takeUntil(this.ngUnsubscribe).subscribe(
             (isAuthenticated) => {
-                this.isSubmitting = false;
                 if (isAuthenticated) {
-                    this.processResponse();
                     this.router.navigate(['/dashboard']);
                 }
             });
     }
 
-    private processResponse() {
-        switch (this.response.status) {
-            case 401: {
-                this.isBadCredentials = true;
-                break;
-            }
+    private handleErrorResponse(statusCode: number) {
+        switch (statusCode) {
             case 0: {
                 this.isTimeout = true;
                 break;
             }
+            case 401: {
+                this.isBadCredentials = true;
+                break;
+            }
         }
-
-        this.isSubmitting = false;
     }
 
     ngOnDestroy() {
-        this.attemptSubscription.unsubscribe();
-        this.isAuthenticatedSubscription.unsubscribe();
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }

@@ -6,7 +6,7 @@ import 'rxjs/add/operator/share';
 
 import {environment} from '../../../environments/environment';
 import {JwtService} from './jwt.service';
-import {LoginCredentials} from '../model/login-credentials.model';
+import {LoginCredentials} from '../model';
 
 /**
  * Service providing interaction with backend api.
@@ -21,11 +21,12 @@ export class ApiService {
 
     get(partialUrl: string): Observable<any> {
         const url = `${environment.backendUrl}${partialUrl}`;
-        return this.http.get(url, {headers: this.prepareHeaders(), observe: 'response'})
+
+        return this.http.get(url, {headers: this.prepareDefaultHeaders(), observe: 'response'})
             .do(data => this.storeETag(data.headers));
     }
 
-    private prepareHeaders(): HttpHeaders {
+    private prepareDefaultHeaders(): HttpHeaders {
         const defaultHeaders = {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
@@ -48,27 +49,29 @@ export class ApiService {
     post(partialUrl: string, objectToPost: Object): Observable<any> {
         const url = `${environment.backendUrl}${partialUrl}`;
 
-        return this.http.post(url, JSON.stringify(objectToPost), {headers: this.prepareHeaders()});
+        return this.http.post(url, JSON.stringify(objectToPost), {headers: this.prepareDefaultHeaders()});
     }
 
     put(partialUrl: string, objectToPut: Object): Observable<HttpResponse<any>> {
         const url = `${environment.backendUrl}${partialUrl}`;
 
-        return this.http.put(url, JSON.stringify(objectToPut), {headers: this.prepareHeadersForUpdate(), observe: 'response'});
+        return this.http.put(
+            url,
+            JSON.stringify(objectToPut),
+            {headers: this.prepareHeadersForUpdate(), observe: 'response'});
     }
 
     private prepareHeadersForUpdate(): HttpHeaders {
-        const defaultHeaders = this.prepareHeaders();
-        const updatedHeaders = defaultHeaders.append(this.etagPlaceholderName, window.localStorage[this.etagPlaceholderName]);
+        const defaultHeaders = this.prepareDefaultHeaders();
 
-        return updatedHeaders;
+        return defaultHeaders.append(this.etagPlaceholderName, window.localStorage[this.etagPlaceholderName]);
     }
 
     login(credentials: LoginCredentials): Observable<any> {
         return this.http.post(
             `${environment.loginUrl}`,
             JSON.stringify(credentials),
-            {headers: this.prepareHeaders(), observe: 'response'})
+            {headers: this.prepareDefaultHeaders(), observe: 'response'})
             .timeout(5000)
             .share();
     }

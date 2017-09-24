@@ -1,16 +1,16 @@
+import {ActivatedRoute, Router} from '@angular/router';
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {User} from '../../shared/model/user.model';
-import {ActivatedRoute, Router} from '@angular/router';
-import {UsersService} from '../../shared/service/users.service';
-import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/takeUntil';
-import {ValidationError} from '../../shared/model/validation-error.model';
-import {Subscription} from 'rxjs/Subscription';
+import {Subject} from 'rxjs/Subject';
+
+import {User, ValidationError} from '../../shared/model';
+import {UsersService} from '../../shared/service';
 
 @Component({
     templateUrl: './edit-profile.component.html'
 })
+
 export class EditProfileComponent implements OnInit, OnDestroy {
 
     editProfileForm: FormGroup;
@@ -23,6 +23,10 @@ export class EditProfileComponent implements OnInit, OnDestroy {
                 private route: ActivatedRoute,
                 private router: Router,
                 private usersService: UsersService) {
+        this.createFormControls();
+    }
+
+    private createFormControls() {
         this.editProfileForm = this.formBuilder.group({
             'email': ['', Validators.required],
             'name': ['', Validators.required],

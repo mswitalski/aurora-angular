@@ -1,19 +1,23 @@
 import {BrowserModule} from '@angular/platform-browser';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
+
+import {ApiService, AuthService, JwtService} from './shared/service';
 import {AppComponent} from './app.component';
-import {HeaderComponent, FooterComponent} from './shared';
-import {ApiService, JwtService, AuthService} from './shared/service/';
-import {LoginModule} from './login/login.module';
-import {AuthenticatedOnlyDirective} from './shared/authenticated-only.directive';
-import {ShowAdminDirective} from './shared/show-admin.directive';
-import {ShowEmployeeDirective} from './shared/show-employee.directive';
-import {ShowUnitLeaderDirective} from './shared/show-unit-leader.directive';
-import {HttpErrorInterceptorService} from './shared/listener/http-error-interceptor.service';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
-import {DashboardModule} from './dashboard/dashboard.module';
-import {ProfileModule} from './profile/profile.module';
-import {UsersService} from './shared/service/users.service';
+import {
+    AuthenticatedOnlyDirective,
+    HeaderComponent,
+    FooterComponent,
+    ShowAdminDirective,
+    ShowEmployeeDirective,
+    ShowUnitLeaderDirective
+} from './shared';
+import {DashboardModule} from './dashboard';
+import {HttpErrorInterceptorService} from './shared/listener';
+import {LoginModule} from './login';
+import {ProfileModule} from './profile';
+import {UsersService} from './shared/service';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([
     {
@@ -21,14 +25,14 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([
         redirectTo: '/dashboard',
         pathMatch: 'full'
     }
-], { useHash: true });
+], {useHash: true});
 
 @NgModule({
     declarations: [
         AppComponent,
-        HeaderComponent,
-        FooterComponent,
         AuthenticatedOnlyDirective,
+        FooterComponent,
+        HeaderComponent,
         ShowAdminDirective,
         ShowEmployeeDirective,
         ShowUnitLeaderDirective

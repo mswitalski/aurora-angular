@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
+
 import {AuthService} from './shared/service/auth.service';
 
 @Component({
     selector: 'app-aurora',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    styleUrls: ['./app.component.css'],
+    templateUrl: './app.component.html'
 })
 
 export class AppComponent implements OnInit {

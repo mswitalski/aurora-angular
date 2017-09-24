@@ -1,33 +1,34 @@
-import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Subject} from 'rxjs/Subject';
+import 'rxjs/add/operator/takeUntil';
 
 @Component({
     templateUrl: './error-page.component.html'
 })
+
 /**
  * TODO
  */
-export class ErrorPageComponent implements OnInit {
+export class ErrorPageComponent implements OnInit, OnDestroy {
 
     code: number;
-    title: string;
     description: string;
+    title: string;
     private content: Map<string, string> = new Map<string, string>();
     private handledCodes: Array<number> = [409];
+    private ngUnsubscribe: Subject<void> = new Subject<void>();
 
     constructor(private route: ActivatedRoute) {
-        this.title = 'Conflict!';
-        this.description = 'The entity you tried to modify is outdated';
+        this.content.set('error.default.title', 'Unexpected error');
+        this.content.set('error.default.description', 'Something went wrong and we don\'t know what, sorry!');
 
         this.content.set('error.409.title', 'Conflict');
         this.content.set('error.409.description', 'You tried to update something while having outdated data');
-
-        this.content.set('error.default.title', 'Unexpected error');
-        this.content.set('error.default.description', 'Something went wrong and we don\'t know what, sorry!');
     }
 
     ngOnInit() {
-        this.route.params.subscribe(
+        this.route.params.takeUntil(this.ngUnsubscribe).subscribe(
             (params: Params) => {
                 this.code = parseInt(params['code'], 10);
 
@@ -41,5 +42,10 @@ export class ErrorPageComponent implements OnInit {
                 }
             }
         );
+    }
+
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }

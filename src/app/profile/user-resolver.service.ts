@@ -1,11 +1,11 @@
-import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
-import {User} from '../shared/model/user.model';
-import {Observable} from 'rxjs/Observable';
-import {AuthService} from '../shared/service/auth.service';
-import {UsersService} from '../shared/service/users.service';
+import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/mergeMap';
+import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/take';
+
+import {AuthService, UsersService} from '../shared/service';
+import {User} from '../shared/model';
 
 @Injectable()
 export class UserResolver implements Resolve<User> {
