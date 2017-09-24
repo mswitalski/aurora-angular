@@ -28,11 +28,10 @@ export class EditProfileComponent implements OnInit, OnDestroy {
 
     private createFormControls() {
         this.editProfileForm = this.formBuilder.group({
-            'email': ['', Validators.required],
-            'name': ['', Validators.required],
-            'surname': ['', Validators.required],
-            'position': ['', Validators.required],
-            'goals': ['', Validators.required]
+            'email': ['', [Validators.required, Validators.email, Validators.maxLength(40)]],
+            'name': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+            'surname': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+            'goals': ['', Validators.maxLength(200)]
         });
     }
 

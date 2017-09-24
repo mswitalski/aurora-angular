@@ -2,40 +2,85 @@
 
 <form [formGroup]="editProfileForm" (ngSubmit)="submitForm()">
     <fieldset [disabled]="isSubmitting">
-        <fieldset class="form-group">
-            <input
-                formControlName="email"
-                [(ngModel)]="loggedUser.email"
-                placeholder="E-mail"
-                type="text" />
+        <fieldset class="form-group row">
+            <label for="user-email" class="col-md-2 col-form-label">Email address</label>
+            <div class="col-md-5">
+                <input
+                    id="user-email"
+                    class="form-control"
+                    formControlName="email"
+                    [(ngModel)]="loggedUser.email"
+                    placeholder="E-mail"
+                    type="text"/>
+                <div *ngIf="editProfileForm.controls['email'].errors && !editProfileForm.controls['email'].pristine"
+                     class="text-danger">
+                    <div [hidden]="!editProfileForm.controls['email'].errors.required">Email is required</div>
+                    <div [hidden]="!editProfileForm.controls['email'].errors.email">Email is invalid</div>
+                </div>
+            </div>
         </fieldset>
-        <fieldset class="form-group">
-            <input
-                formControlName="name"
-                [(ngModel)]="loggedUser.name"
-                placeholder="Name"
-                type="text" />
+        <fieldset class="form-group row">
+            <label for="user-name" class="col-md-2 col-form-label">Name</label>
+            <div class="col-md-5">
+                <input
+                    id="user-name"
+                    class="form-control"
+                    formControlName="name"
+                    [(ngModel)]="loggedUser.name"
+                    placeholder="Name"
+                    type="text"/>
+                <div *ngIf="editProfileForm.controls['name'].errors && !editProfileForm.controls['name'].pristine"
+                     class="text-danger">
+                    <div [hidden]="!editProfileForm.controls['name'].errors.required">Name is required</div>
+                    <div [hidden]="!editProfileForm.controls['name'].errors.minlength">Name must be at least 3
+                        characters long
+                    </div>
+                    <div [hidden]="!editProfileForm.controls['name'].errors.maxlength">Name must be at most 20
+                        characters long
+                    </div>
+                </div>
+            </div>
         </fieldset>
-        <fieldset class="form-group">
-            <input
-                formControlName="surname"
-                [(ngModel)]="loggedUser.surname"
-                placeholder="Surname"
-                type="text" />
+        <fieldset class="form-group row">
+            <label for="user-surname" class="col-md-2 col-form-label">Surname</label>
+            <div class="col-md-5">
+                <input
+                    id="user-surname"
+                    class="form-control"
+                    formControlName="surname"
+                    [(ngModel)]="loggedUser.surname"
+                    placeholder="Surame"
+                    type="text"/>
+                <div *ngIf="editProfileForm.controls['surname'].errors && !editProfileForm.controls['surname'].pristine"
+                     class="text-danger">
+                    <div [hidden]="!editProfileForm.controls['surname'].errors.required">Surname is required</div>
+                    <div [hidden]="!editProfileForm.controls['surname'].errors.minlength">Surname must be at least 3
+                        characters long
+                    </div>
+                    <div [hidden]="!editProfileForm.controls['surname'].errors.maxlength">Surname must be at most 30
+                        characters long
+                    </div>
+                </div>
+            </div>
         </fieldset>
-        <fieldset class="form-group">
-            <input
-                formControlName="position"
-                [(ngModel)]="loggedUser.position"
-                placeholder="Position"
-                type="text" />
-        </fieldset>
-        <fieldset class="form-group">
-            <textarea
-                formControlName="goals"
-                [(ngModel)]="loggedUser.goals"
-                placeholder="Position"
-                rows="5"></textarea>
+        <fieldset class="form-group row">
+            <label for="user-goals" class="col-md-2 col-form-label">Career goals</label>
+            <div class="col-md-5">
+                <textarea
+                    id="user-goals"
+                    class="form-control"
+                    formControlName="goals"
+                    [(ngModel)]="loggedUser.goals"
+                    placeholder="Goals"
+                    rows="3"
+                    cols="50"></textarea>
+                <div *ngIf="editProfileForm.controls['goals'].errors && !editProfileForm.controls['goals'].pristine"
+                     class="text-danger">
+                    <div [hidden]="!editProfileForm.controls['goals'].errors.maxlength">Goals must be at most 200
+                        characters long
+                    </div>
+                </div>
+            </div>
         </fieldset>
 
         <app-list-errors [errors]="validationErrors"></app-list-errors>
