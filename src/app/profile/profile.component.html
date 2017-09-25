@@ -1,16 +1,16 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-12">
-            <h2>Your profile</h2>
+            <h2 translate>HEADER.PROFILE</h2>
             <p>
-            Username: {{loggedUser.username}} <br/>
-            E-mail: {{loggedUser.email}} <br/>
-            Name: {{loggedUser.name}} <br/>
-            Surname: {{loggedUser.surname}} <br/>
-            Position: {{loggedUser.position}} <br/>
-            Goals: {{loggedUser.goals}}
+            {{ 'USER.USERNAME' | translate }}: {{loggedUser.username}} <br/>
+            {{ 'USER.EMAIL' | translate }}: {{loggedUser.email}} <br/>
+            {{ 'USER.NAME' | translate }}: {{loggedUser.name}} <br/>
+            {{ 'USER.SURNAME' | translate }}: {{loggedUser.surname}} <br/>
+            {{ 'USER.POSITION' | translate }}: {{loggedUser.position}} <br/>
+            {{ 'USER.GOALS' | translate }}: {{loggedUser.goals}}
             </p>
-            <a class="btn btn-lg btn-primary" routerLink="/profile/edit">{{ 'BTN.EDIT-PROFILE' | translate }}</a>
+            <a class="btn btn-lg btn-primary" routerLink="/profile/edit" translate>BTN.EDIT-PROFILE</a>
         </div>
     </div>
 </div>

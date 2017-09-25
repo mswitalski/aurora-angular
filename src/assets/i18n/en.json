@@ -2,7 +2,43 @@
     "DASHBOARD": "Dashboard",
     "BTN": {
         "PROFILE": "Profile",
+        "LOGIN": "Login",
         "LOGOUT": "Logout",
-        "EDIT-PROFILE": "Edit profile"
+        "EDIT-PROFILE": "Edit profile",
+        "SAVE": "Save",
+        "BACK": "Go back",
+        "HOME": "Homepage"
+    },
+    "ERROR": {
+        "INVALID-CREDENTIALS": "Bad username or/and password!",
+        "CONNECTION": "Could not connect to the server! Try again later...",
+        "REQUIRED": "This field is required",
+        "INVALID": "This field is incorrectly filled",
+        "MIN-LEN": "This field must contain not less than {{value}} characters",
+        "MAX-LEN": "This field must contain not more than {{value}} characters"
+    },
+    "ERROR-PAGE": {
+        "DEFAULT": {
+            "TITLE": "Unexpected error",
+            "DESC": "Something went wrong and we don't know what, sorry!"
+        },
+        "409": {
+            "TITLE": "Conflict",
+            "DESC": "You tried to update something while having outdated data"
+        }
+    },
+    "HEADER": {
+        "GREETER": "Hello, {{name}}!",
+        "PROFILE": "Your profile",
+        "EDIT-PROFILE": "Edit your profile"
+    },
+    "USER": {
+        "USERNAME": "Username",
+        "PASSWORD": "Password",
+        "EMAIL": "E-mail address",
+        "NAME": "Name",
+        "SURNAME": "Surname",
+        "POSITION": "Position",
+        "GOALS": "Goals"
     }
 }

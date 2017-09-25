@@ -2,7 +2,43 @@
     "DASHBOARD": "Pulpit",
     "BTN": {
         "PROFILE": "Profil",
+        "LOGIN": "Zaloguj się",
         "LOGOUT": "Wyloguj się",
-        "EDIT-PROFILE": "Edytuj profil"
+        "EDIT-PROFILE": "Edytuj profil",
+        "SAVE": "Zapisz",
+        "BACK": "Powrót",
+        "HOME": "Strona główna"
+    },
+    "ERROR": {
+        "INVALID-CREDENTIALS": "Podano nieprawidłową nazwę użytkownika i/lub hasło",
+        "CONNECTION": "Nie można połączyć się z serwerem. Prosimy spróbować później...",
+        "REQUIRED": "To pole jest wymagane",
+        "INVALID": "Podano nieprawidłową wartość dla tego pola",
+        "MIN-LEN": "To pole może zawierać nie mniej niż {{value}} znaki/-ów",
+        "MAX-LEN": "To pole może zawierać nie więcej niż {{value}} znaki/-ów"
+    },
+    "ERROR-PAGE": {
+        "DEFAULT": {
+            "TITLE": "Unexpected error",
+            "DESC": "Something went wrong and we don't know what, sorry!"
+        },
+        "409": {
+            "TITLE": "Conflict",
+            "DESC": "You tried to update something while having outdated data"
+        }
+    },
+    "HEADER": {
+        "GREETER": "Witaj, {{name}}!",
+        "PROFILE": "Twój profil",
+        "EDIT-PROFILE": "Edytuj swój profil"
+    },
+    "USER": {
+        "USERNAME": "Nazwa użytkownika",
+        "PASSWORD": "Hasło",
+        "EMAIL": "Adres e-mail",
+        "NAME": "Imię",
+        "SURNAME": "Nazwisko",
+        "POSITION": "Stanowisko",
+        "GOALS": "Cele zawodowe"
     }
 }

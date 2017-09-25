@@ -1,83 +1,84 @@
-<h1>Edit profile</h1>
+<h2 translate>HEADER.EDIT-PROFILE</h2>
 
 <form [formGroup]="editProfileForm" (ngSubmit)="submitForm()">
     <fieldset [disabled]="isSubmitting">
         <fieldset class="form-group row">
-            <label for="user-email" class="col-md-2 col-form-label">Email address</label>
+            <label for="user-email" class="col-md-2 col-form-label" translate>USER.EMAIL</label>
             <div class="col-md-5">
                 <input
                     id="user-email"
                     class="form-control"
                     formControlName="email"
                     [(ngModel)]="loggedUser.email"
-                    placeholder="E-mail"
+                    placeholder="{{ 'USER.EMAIL' | translate }}"
                     type="text"/>
                 <div *ngIf="editProfileForm.controls['email'].errors && !editProfileForm.controls['email'].pristine"
                      class="text-danger">
-                    <div [hidden]="!editProfileForm.controls['email'].errors.required">Email is required</div>
-                    <div [hidden]="!editProfileForm.controls['email'].errors.email">Email is invalid</div>
+                    <div [hidden]="!editProfileForm.controls['email'].errors.required" translate>ERROR.REQUIRED</div>
+                    <div [hidden]="!editProfileForm.controls['email'].errors.email" translate>ERROR.INVALID</div>
                 </div>
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="user-name" class="col-md-2 col-form-label">Name</label>
+            <label for="user-name" class="col-md-2 col-form-label">{{ 'USER.NAME' | translate }}</label>
             <div class="col-md-5">
                 <input
                     id="user-name"
                     class="form-control"
                     formControlName="name"
                     [(ngModel)]="loggedUser.name"
-                    placeholder="Name"
+                    placeholder="{{ 'USER.NAME' | translate }}"
                     type="text"/>
                 <div *ngIf="editProfileForm.controls['name'].errors && !editProfileForm.controls['name'].pristine"
                      class="text-danger">
-                    <div [hidden]="!editProfileForm.controls['name'].errors.required">Name is required</div>
-                    <div [hidden]="!editProfileForm.controls['name'].errors.minlength">Name must be at least 3
-                        characters long
+                    <div [hidden]="!editProfileForm.controls['name'].errors.required" translate>ERROR.REQUIRED</div>
+                    <div [hidden]="!editProfileForm.controls['name'].errors.minlength" translate
+                         [translateParams]="{value: 3}">ERROR.MIN-LEN
                     </div>
-                    <div [hidden]="!editProfileForm.controls['name'].errors.maxlength">Name must be at most 20
-                        characters long
+                    <div [hidden]="!editProfileForm.controls['name'].errors.maxlength" translate
+                         [translateParams]="{value: 20}">ERROR.MAX-LEN
                     </div>
                 </div>
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="user-surname" class="col-md-2 col-form-label">Surname</label>
+            <label for="user-surname" class="col-md-2 col-form-label" translate>USER.SURNAME</label>
             <div class="col-md-5">
                 <input
                     id="user-surname"
                     class="form-control"
                     formControlName="surname"
                     [(ngModel)]="loggedUser.surname"
-                    placeholder="Surame"
+                    placeholder="{{ 'USER.SURNAME' | translate }}"
                     type="text"/>
                 <div *ngIf="editProfileForm.controls['surname'].errors && !editProfileForm.controls['surname'].pristine"
                      class="text-danger">
-                    <div [hidden]="!editProfileForm.controls['surname'].errors.required">Surname is required</div>
-                    <div [hidden]="!editProfileForm.controls['surname'].errors.minlength">Surname must be at least 3
-                        characters long
+                    <div [hidden]="!editProfileForm.controls['surname'].errors.required" translate>ERROR.REQUIRED
                     </div>
-                    <div [hidden]="!editProfileForm.controls['surname'].errors.maxlength">Surname must be at most 30
-                        characters long
+                    <div [hidden]="!editProfileForm.controls['surname'].errors.minlength" translate
+                         [translateParams]="{value: 3}">ERROR.MIN-LEN
+                    </div>
+                    <div [hidden]="!editProfileForm.controls['surname'].errors.maxlength" translate
+                         [translateParams]="{value: 30}">ERROR.MAX-LEN
                     </div>
                 </div>
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="user-goals" class="col-md-2 col-form-label">Career goals</label>
+            <label for="user-goals" class="col-md-2 col-form-label" translate>USER.GOALS</label>
             <div class="col-md-5">
                 <textarea
                     id="user-goals"
                     class="form-control"
                     formControlName="goals"
                     [(ngModel)]="loggedUser.goals"
-                    placeholder="Goals"
+                    placeholder="{{ 'USER.GOALS' | translate }}"
                     rows="3"
                     cols="50"></textarea>
                 <div *ngIf="editProfileForm.controls['goals'].errors && !editProfileForm.controls['goals'].pristine"
                      class="text-danger">
-                    <div [hidden]="!editProfileForm.controls['goals'].errors.maxlength">Goals must be at most 200
-                        characters long
+                    <div [hidden]="!editProfileForm.controls['goals'].errors.maxlength" translate
+                         [translateParams]="{value: 200}">ERROR.MAX-LEN
                     </div>
                 </div>
             </div>
@@ -85,11 +86,11 @@
 
         <app-list-errors [errors]="validationErrors"></app-list-errors>
 
-        <button class="btn btn-success" [disabled]="!editProfileForm.valid" type="submit">
-            Save
+        <button class="btn btn-success" [disabled]="!editProfileForm.valid" type="submit" translate>
+            BTN.SAVE
         </button>
-        <button class="btn btn-dark" routerLink="/profile">
-            Go back
+        <button class="btn btn-dark" routerLink="/profile" translate>
+            BTN.BACK
         </button>
     </fieldset>
 </form>

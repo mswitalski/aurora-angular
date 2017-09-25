@@ -2,46 +2,41 @@ import {ActivatedRoute, Params} from '@angular/router';
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/takeUntil';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     templateUrl: './error-page.component.html'
 })
 
-/**
- * TODO
- */
 export class ErrorPageComponent implements OnInit, OnDestroy {
 
-    code: number;
     description: string;
     title: string;
-    private content: Map<string, string> = new Map<string, string>();
-    private handledCodes: Array<number> = [409];
+    private handledCodes: Array<string> = ['409'];
     private ngUnsubscribe: Subject<void> = new Subject<void>();
 
-    constructor(private route: ActivatedRoute) {
-        this.content.set('error.default.title', 'Unexpected error');
-        this.content.set('error.default.description', 'Something went wrong and we don\'t know what, sorry!');
-
-        this.content.set('error.409.title', 'Conflict');
-        this.content.set('error.409.description', 'You tried to update something while having outdated data');
+    constructor(private route: ActivatedRoute, private translate: TranslateService) {
     }
 
     ngOnInit() {
         this.route.params.takeUntil(this.ngUnsubscribe).subscribe(
             (params: Params) => {
-                this.code = parseInt(params['code'], 10);
+                const translationKeyToGet = this.specifyErrorTranslationKey(params['code']);
+                const titleKey = 'ERROR-PAGE.' + translationKeyToGet + '.TITLE';
+                const descKey = 'ERROR-PAGE.' + translationKeyToGet + '.DESC';
 
-                if (this.handledCodes.includes(this.code)) {
-                    this.title = this.content.get('error.' + this.code + '.title');
-                    this.description = this.content.get('error.' + this.code + '.description');
-
-                } else {
-                    this.title = this.content.get('error.default.title');
-                    this.description = this.content.get('error.default.description');
-                }
+                this.translate.get(titleKey).takeUntil(this.ngUnsubscribe).subscribe((res: string) => {
+                    this.title = res;
+                });
+                this.translate.get(descKey).takeUntil(this.ngUnsubscribe).subscribe((res: string) => {
+                    this.description = res;
+                });
             }
         );
+    }
+
+    private specifyErrorTranslationKey(code: string): string {
+        return this.handledCodes.includes(code) ? code : 'DEFAULT';
     }
 
     ngOnDestroy() {

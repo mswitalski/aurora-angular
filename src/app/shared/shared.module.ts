@@ -28,7 +28,8 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         CommonModule,
         HttpClientModule,
         moduleRouting,
-        RouterModule
+        RouterModule,
+        TranslateModule.forChild()
     ],
     exports: [
         ListErrorsComponent,

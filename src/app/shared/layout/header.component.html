@@ -5,16 +5,18 @@
         <ul class="navbar-nav ml-auto">
             <li *appAuthenticatedOnly="true" class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Hello, {{loggedUser.username}}!
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" translate
+                   [translateParams]="{name: loggedUser.username}">
+                    HEADER.GREETER
                 </a>
                 <div class="dropdown-menu right-0__no-left" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" routerLink="/profile"><i class="fa fa-user-o mr-1" aria-hidden="true"></i>
-                        {{ 'BTN.PROFILE' | translate }}</a>
+                    <a class="dropdown-item" routerLink="/profile" translate><i class="fa fa-user-o mr-1"
+                                                                                aria-hidden="true"></i>
+                        BTN.PROFILE</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item act-as-pointer" (click)="logout()"><i class="fa fa-power-off mr-1"
-                                                                                  aria-hidden="true"></i>
-                        {{ 'BTN.LOGOUT' | translate }}</a>
+                    <a class="dropdown-item act-as-pointer" (click)="logout()" translate><i class="fa fa-power-off mr-1"
+                                                                                            aria-hidden="true"></i>
+                        BTN.LOGOUT</a>
                 </div>
             </li>
         </ul>
