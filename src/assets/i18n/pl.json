@@ -40,5 +40,11 @@
         "SURNAME": "Nazwisko",
         "POSITION": "Stanowisko",
         "GOALS": "Cele zawodowe"
+    },
+    "TITLE": {
+        "LOGIN": "Logowanie",
+        "DASHBOARD": "Pulpit",
+        "PROFILE": "Profil",
+        "EDIT-PROFILE": "Edytuj profil"
     }
 }

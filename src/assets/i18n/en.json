@@ -40,5 +40,11 @@
         "SURNAME": "Surname",
         "POSITION": "Position",
         "GOALS": "Goals"
+    },
+    "TITLE": {
+        "LOGIN": "Login",
+        "DASHBOARD": "Dashboard",
+        "PROFILE": "Profile",
+        "EDIT-PROFILE": "Edit profile"
     }
 }

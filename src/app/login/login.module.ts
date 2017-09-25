@@ -11,6 +11,7 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [NotAuthenticatedGuard],
         component: LoginComponent,
+        data: { title: 'TITLE.LOGIN' },
         path: 'login'
     }
 ]);

@@ -13,6 +13,7 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [AuthenticatedGuard],
         component: ProfileComponent,
+        data: { title: 'TITLE.PROFILE' },
         path: 'profile',
         resolve: {
             user: UserResolver
@@ -21,6 +22,7 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [AuthenticatedGuard],
         component: EditProfileComponent,
+        data: { title: 'TITLE.EDIT-PROFILE' },
         path: 'profile/edit',
         resolve: {
             user: UserResolver
