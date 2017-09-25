@@ -45,6 +45,7 @@
         "LOGIN": "Logowanie",
         "DASHBOARD": "Pulpit",
         "PROFILE": "Profil",
-        "EDIT-PROFILE": "Edytuj profil"
+        "EDIT-PROFILE": "Edytuj profil",
+        "ERROR": "Błąd"
     }
 }

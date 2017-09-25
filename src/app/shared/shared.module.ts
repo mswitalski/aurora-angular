@@ -13,9 +13,10 @@ import {ListErrorsComponent} from './list-errors.component';
 
 const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
-        path: 'error/:code',
+        canActivate: [AuthenticatedGuard],
         component: ErrorPageComponent,
-        canActivate: [AuthenticatedGuard]
+        data: { title: 'TITLE.ERROR' },
+        path: 'error/:code'
     }
 ]);
 

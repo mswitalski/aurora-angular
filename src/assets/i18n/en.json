@@ -45,6 +45,7 @@
         "LOGIN": "Login",
         "DASHBOARD": "Dashboard",
         "PROFILE": "Profile",
-        "EDIT-PROFILE": "Edit profile"
+        "EDIT-PROFILE": "Edit profile",
+        "ERROR": "Error"
     }
 }
