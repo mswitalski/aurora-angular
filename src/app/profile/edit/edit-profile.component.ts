@@ -26,7 +26,7 @@ export class EditProfileComponent implements OnInit, OnDestroy {
         this.createFormControls();
     }
 
-    private createFormControls() {
+    private createFormControls(): void {
         this.editProfileForm = this.formBuilder.group({
             'email': ['', [Validators.required, Validators.email, Validators.maxLength(40)]],
             'name': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
@@ -35,7 +35,7 @@ export class EditProfileComponent implements OnInit, OnDestroy {
         });
     }
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.route.data.takeUntil(this.ngUnsubscribe).subscribe(
             (data: {user: User}) => {
                 this.loggedUser = data.user;
@@ -43,9 +43,9 @@ export class EditProfileComponent implements OnInit, OnDestroy {
         );
     }
 
-    submitForm() {
+    submitForm(): void {
         this.isSubmitting = true;
-        this.usersService.update(this.loggedUser).subscribe(
+        this.usersService.updateOwnAccount(this.loggedUser).takeUntil(this.ngUnsubscribe).subscribe(
             () => {
                 this.router.navigate(['/profile']);
                 this.isSubmitting = false;
@@ -60,7 +60,7 @@ export class EditProfileComponent implements OnInit, OnDestroy {
         );
     }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         this.ngUnsubscribe.next();
         this.ngUnsubscribe.complete();
     }

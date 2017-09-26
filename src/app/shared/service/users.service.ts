@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/Observable';
 
 import {ApiService} from './api.service';
 import {User} from '../model';
+import {PasswordChangeFormModel} from '../model/password-change-form.model';
 
 @Injectable()
 export class UsersService {
@@ -16,7 +17,11 @@ export class UsersService {
         return this.api.get(partialUrl);
     }
 
-    update(user: User): Observable<HttpResponse<any>> {
+    updateOwnAccount(user: User): Observable<HttpResponse<any>> {
         return this.api.put('users/', user);
+    }
+
+    updateOwnPassword(formData: PasswordChangeFormModel): Observable<HttpResponse<any>> {
+        return this.api.put('users/password', formData);
     }
 }

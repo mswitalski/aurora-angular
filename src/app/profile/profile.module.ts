@@ -4,7 +4,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 
 import {AuthenticatedGuard} from '../shared/service/guard';
-import {EditProfileComponent} from './edit';
+import {EditPasswordComponent, EditProfileComponent} from './edit';
 import {ProfileComponent} from './profile.component';
 import {SharedModule} from '../shared';
 import {UserResolver} from './user-resolver.service';
@@ -27,11 +27,21 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         resolve: {
             user: UserResolver
         }
+    },
+    {
+        canActivate: [AuthenticatedGuard],
+        component: EditPasswordComponent,
+        data: { title: 'TITLE.EDIT-PASSWORD' },
+        path: 'profile/edit/password',
+        resolve: { // Necessary to get an ETag for update
+            user: UserResolver
+        }
     }
 ]);
 
 @NgModule({
     declarations: [
+        EditPasswordComponent,
         EditProfileComponent,
         ProfileComponent
     ],

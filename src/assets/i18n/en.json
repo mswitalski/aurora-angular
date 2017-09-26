@@ -5,6 +5,7 @@
         "LOGIN": "Login",
         "LOGOUT": "Logout",
         "EDIT-PROFILE": "Edit profile",
+        "EDIT-PASSWORD": "Edit password",
         "SAVE": "Save",
         "BACK": "Go back",
         "HOME": "Homepage"
@@ -15,7 +16,8 @@
         "REQUIRED": "This field is required",
         "INVALID": "This field is incorrectly filled",
         "MIN-LEN": "This field must contain not less than {{value}} characters",
-        "MAX-LEN": "This field must contain not more than {{value}} characters"
+        "MAX-LEN": "This field must contain not more than {{value}} characters",
+        "INVALID-REPEATED-PASSWORD": "You must correctly repeat the new password"
     },
     "ERROR-PAGE": {
         "DEFAULT": {
@@ -30,7 +32,8 @@
     "HEADER": {
         "GREETER": "Hello, {{name}}!",
         "PROFILE": "Your profile",
-        "EDIT-PROFILE": "Edit your profile"
+        "EDIT-PROFILE": "Edit profile",
+        "EDIT-PASSWORD": "Edit password"
     },
     "USER": {
         "USERNAME": "Username",
@@ -39,13 +42,17 @@
         "NAME": "Name",
         "SURNAME": "Surname",
         "POSITION": "Position",
-        "GOALS": "Goals"
+        "GOALS": "Goals",
+        "CURRENT-PASSWORD": "Current password",
+        "NEW-PASSWORD": "New password",
+        "NEW-PASSWORD-REPEATED": "Repeated new password"
     },
     "TITLE": {
         "LOGIN": "Login",
         "DASHBOARD": "Dashboard",
         "PROFILE": "Profile",
         "EDIT-PROFILE": "Edit profile",
+        "EDIT-PASSWORD": "Edit password",
         "ERROR": "Error"
     }
 }

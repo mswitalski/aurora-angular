@@ -11,6 +11,7 @@ export class ListErrorsComponent {
 
     @Input() set errors(errorList: ValidationError[]) {
         this.errorList = errorList;
+        console.log(this.errors);
     }
 
     get errors(): ValidationError[] {
