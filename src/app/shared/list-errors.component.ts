@@ -7,11 +7,10 @@ import {ValidationError} from './model/validation-error.model';
 })
 export class ListErrorsComponent {
 
-    private errorList: ValidationError[];
+    errorList: ValidationError[];
 
     @Input() set errors(errorList: ValidationError[]) {
         this.errorList = errorList;
-        console.log(this.errors);
     }
 
     get errors(): ValidationError[] {
