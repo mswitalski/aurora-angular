@@ -56,7 +56,7 @@ export class EditPasswordComponent implements OnDestroy {
             },
             error => {
                 if (error.status === 400) {
-                    this.validationErrors = JSON.parse(error.error);
+                    this.validationErrors = error.error;
                 }
 
                 this.isSubmitting = false;
