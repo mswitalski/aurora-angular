@@ -20,6 +20,7 @@ import {HttpErrorInterceptorService} from './shared/listener';
 import {LoginModule} from './login';
 import {ProfileModule} from './profile';
 import {UsersService} from './shared/service';
+import {AdminModule} from './admin/admin.module';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([
     {
@@ -44,6 +45,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         ShowUnitLeaderDirective
     ],
     imports: [
+        AdminModule,
         BrowserModule,
         DashboardModule,
         LoginModule,
