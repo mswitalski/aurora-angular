@@ -41,7 +41,8 @@
         "PROFILE": "Twój profil",
         "EDIT-PROFILE": "Edytuj profil",
         "EDIT-PASSWORD": "Edytuj hasło",
-        "ACTION": "Dzia\u0142anie"
+        "ACTION": "Dzia\u0142anie",
+        "USERS": "U\u017cytkownicy"
     },
     "USER": {
         "USERNAME": "Nazwa użytkownika",

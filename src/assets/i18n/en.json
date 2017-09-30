@@ -41,7 +41,8 @@
         "PROFILE": "Your profile",
         "EDIT-PROFILE": "Edit profile",
         "EDIT-PASSWORD": "Edit password",
-        "ACTION": "Action"
+        "ACTION": "Action",
+        "USERS": "Users"
     },
     "USER": {
         "USERNAME": "Username",
