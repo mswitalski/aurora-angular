@@ -13,9 +13,7 @@ import {UsersService} from '../../../shared/service/users.service';
 export class UsersListComponent implements OnInit, OnDestroy {
 
     usersList: User[];
-    activePage: number;
-    totalPages: number;
-    numberOfUsers: number;
+    pagedResults: PagedResults<User>;
     private ngUnsubscribe: Subject<void> = new Subject<void>();
 
     constructor(private route: ActivatedRoute, private usersService: UsersService) {
@@ -24,47 +22,17 @@ export class UsersListComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.route.data.takeUntil(this.ngUnsubscribe).subscribe(
             (data: { pagedResults: PagedResults<User> }) => {
-                this.processResponse(data.pagedResults);
+                this.usersList = data.pagedResults.content;
+                this.pagedResults = data.pagedResults;
             }
         );
     }
 
-    private processResponse(response: PagedResults<User>) {
-        this.usersList = response.content;
-        this.activePage = response.number;
-        this.totalPages = response.totalPages;
-        this.numberOfUsers = response.numberOfElements;
-    }
-
-    firstPage() {
-        this.activePage = 0;
-        this.getUsersByActivePage();
-    }
-
-    lastPage() {
-        this.activePage = this.totalPages - 1;
-        this.getUsersByActivePage();
-    }
-
-    previousPage() {
-        if (this.activePage !== 0) {
-            this.activePage--;
-            this.getUsersByActivePage();
-        }
-    }
-
-    private getUsersByActivePage() {
-        this.usersService.getAllByPage(this.activePage).takeUntil(this.ngUnsubscribe).subscribe(
+    pageChanged(activePage: number) {
+        this.usersService.getAllByPage(activePage).takeUntil(this.ngUnsubscribe).subscribe(
             (data) => {
-                this.processResponse(data);
+                this.usersList = data.content;
             });
-    }
-
-    nextPage() {
-        if (this.activePage + 1 < this.totalPages) {
-            this.activePage++;
-            this.getUsersByActivePage();
-        }
     }
 
     ngOnDestroy() {

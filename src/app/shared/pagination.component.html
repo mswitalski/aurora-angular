@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="mx-auto">
+        <button class="btn" [disabled]="activePage === 0" (click)="firstPage()" translate>PAGINATION.FIRST</button>
+        <button class="btn mr-3" [disabled]="activePage === 0" (click)="previousPage()" translate>PAGINATION.PREV
+        </button>
+        {{'PAGINATION.PAGE' | translate}} {{activePage + 1}} {{'PAGINATION.OF' | translate}} {{totalPages}}
+        <button class="btn ml-3" [disabled]="activePage + 1 >= totalPages" (click)="nextPage()" translate>
+            PAGINATION.NEXT
+        </button>
+        <button class="btn" [disabled]="activePage + 1 >= totalPages" (click)="lastPage()" translate>PAGINATION.LAST
+        </button>
+    </div>
+</div>

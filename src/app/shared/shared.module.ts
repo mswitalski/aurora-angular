@@ -10,6 +10,7 @@ import {IsAdminGuard} from './service/guard/is-admin-guard.service';
 import {IsUnitLeaderGuard} from './service/guard/is-unit-leader-guard.service';
 import {IsEmployeeGuard} from './service/guard/is-employee-guard.service';
 import {ListErrorsComponent} from './list-errors.component';
+import {PaginationComponent} from './pagination.component';
 
 const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
@@ -23,7 +24,8 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
 @NgModule({
     declarations: [
         ErrorPageComponent,
-        ListErrorsComponent
+        ListErrorsComponent,
+        PaginationComponent
     ],
     imports: [
         CommonModule,
@@ -34,7 +36,8 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     ],
     exports: [
         ListErrorsComponent,
-        HttpClientModule ,
+        HttpClientModule,
+        PaginationComponent,
         RouterModule,
         TranslateModule
     ],
