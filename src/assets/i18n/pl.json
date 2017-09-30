@@ -1,5 +1,9 @@
 {
-    "DASHBOARD": "Pulpit",
+    "SIDEBAR": {
+        "ADMIN": "Admin",
+        "DASHBOARD": "Pulpit",
+        "USERS": "U\u017cytkownicy"
+    },
     "BTN": {
         "PROFILE": "Profil",
         "LOGIN": "Zaloguj się",
@@ -8,7 +12,8 @@
         "EDIT-PASSWORD": "Edytuj hasło",
         "SAVE": "Zapisz",
         "BACK": "Powrót",
-        "HOME": "Strona główna"
+        "HOME": "Strona główna",
+        "DETAILS": "Szczeg\u00f3\u0142y"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Podano nieprawidłową nazwę użytkownika i/lub hasło",
@@ -33,7 +38,8 @@
         "GREETER": "Witaj, {{name}}!",
         "PROFILE": "Twój profil",
         "EDIT-PROFILE": "Edytuj profil",
-        "EDIT-PASSWORD": "Edytuj hasło"
+        "EDIT-PASSWORD": "Edytuj hasło",
+        "ACTION": "Dzia\u0142anie"
     },
     "USER": {
         "USERNAME": "Nazwa użytkownika",
@@ -43,6 +49,7 @@
         "SURNAME": "Nazwisko",
         "POSITION": "Stanowisko",
         "GOALS": "Cele zawodowe",
+        "ENABLED": "Aktywny",
         "CURRENT-PASSWORD": "Obecne hasło",
         "NEW-PASSWORD": "Nowe hasło",
         "NEW-PASSWORD-REPEATED": "Powtórzone nowe hasło"
@@ -53,6 +60,17 @@
         "PROFILE": "Profil",
         "EDIT-PROFILE": "Edytuj profil",
         "EDIT-PASSWORD": "Edytuj hasło",
-        "ERROR": "Błąd"
+        "ERROR": "Błąd",
+        "ADMIN": {
+            "USERS": "Admin: u\u017cytkownicy"
+        }
+    },
+    "PAGINATION": {
+        "FIRST": "Pierwsza",
+        "LAST": "Ostatnia",
+        "NEXT": "Nast\u0119pna",
+        "PREV": "Poprzednia",
+        "PAGE": "Strona",
+        "OF": "z"
     }
 }

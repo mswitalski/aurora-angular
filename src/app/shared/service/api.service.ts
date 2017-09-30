@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/timeout';
 import 'rxjs/add/operator/share';
@@ -20,10 +20,16 @@ export class ApiService {
     }
 
     get(partialUrl: string): Observable<any> {
-        const url = `${environment.backendUrl}${partialUrl}`;
+        const url = environment.backendUrl + partialUrl;
 
         return this.http.get(url, {headers: this.prepareDefaultHeaders(), observe: 'response'})
             .do(data => this.storeETag(data.headers));
+    }
+
+    getWithParams(partialUrl: string, params: HttpParams): Observable<any> {
+        const url = environment.backendUrl + partialUrl;
+
+        return this.http.get(url, {params: params, headers: this.prepareDefaultHeaders()});
     }
 
     private prepareDefaultHeaders(): HttpHeaders {
@@ -47,13 +53,13 @@ export class ApiService {
     }
 
     post(partialUrl: string, objectToPost: Object): Observable<any> {
-        const url = `${environment.backendUrl}${partialUrl}`;
+        const url = environment.backendUrl + partialUrl;
 
         return this.http.post(url, JSON.stringify(objectToPost), {headers: this.prepareDefaultHeaders()});
     }
 
     put(partialUrl: string, objectToPut: Object): Observable<HttpResponse<any>> {
-        const url = `${environment.backendUrl}${partialUrl}`;
+        const url = environment.backendUrl + partialUrl;
 
         return this.http.put(
             url,
@@ -69,7 +75,7 @@ export class ApiService {
 
     login(credentials: LoginCredentials): Observable<any> {
         return this.http.post(
-            `${environment.loginUrl}`,
+            environment.loginUrl,
             JSON.stringify(credentials),
             {headers: this.prepareDefaultHeaders(), observe: 'response'})
             .timeout(5000)

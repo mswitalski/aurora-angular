@@ -1,0 +1,39 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th translate>USER.NAME</th>
+        <th translate>USER.SURNAME</th>
+        <th translate>USER.USERNAME</th>
+        <th translate>USER.POSITION</th>
+        <th translate>USER.ENABLED</th>
+        <th translate>HEADER.ACTION</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of usersList">
+        <td>{{user.name}}</td>
+        <td>{{user.surname}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.position}}</td>
+        <td *ngIf="user.enabled" class="text-success">Yes</td>
+        <td *ngIf="!user.enabled" class="text-danger">No</td>
+        <td>
+            <button class="btn" [routerLink]="user.username" translate>BTN.DETAILS</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="mx-auto">
+        <button class="btn" [disabled]="activePage === 0" (click)="firstPage()" translate>PAGINATION.FIRST</button>
+        <button class="btn mr-3" [disabled]="activePage === 0" (click)="previousPage()" translate>PAGINATION.PREV
+        </button>
+        {{'PAGINATION.PAGE' | translate}} {{activePage + 1}} {{'PAGINATION.OF' | translate}} {{totalPages}}
+        <button class="btn ml-3" [disabled]="activePage + 1 >= totalPages" (click)="nextPage()" translate>
+            PAGINATION.NEXT
+        </button>
+        <button class="btn" [disabled]="activePage + 1 >= totalPages" (click)="lastPage()" translate>PAGINATION.LAST
+        </button>
+    </div>
+</div>

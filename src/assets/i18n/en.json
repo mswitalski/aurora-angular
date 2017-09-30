@@ -1,5 +1,9 @@
 {
-    "DASHBOARD": "Dashboard",
+    "SIDEBAR": {
+        "ADMIN": "Admin",
+        "DASHBOARD": "Dashboard",
+        "USERS": "Users"
+    },
     "BTN": {
         "PROFILE": "Profile",
         "LOGIN": "Login",
@@ -8,7 +12,8 @@
         "EDIT-PASSWORD": "Edit password",
         "SAVE": "Save",
         "BACK": "Go back",
-        "HOME": "Homepage"
+        "HOME": "Homepage",
+        "DETAILS": "Details"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Bad username or/and password!",
@@ -33,7 +38,8 @@
         "GREETER": "Hello, {{name}}!",
         "PROFILE": "Your profile",
         "EDIT-PROFILE": "Edit profile",
-        "EDIT-PASSWORD": "Edit password"
+        "EDIT-PASSWORD": "Edit password",
+        "ACTION": "Action"
     },
     "USER": {
         "USERNAME": "Username",
@@ -43,6 +49,7 @@
         "SURNAME": "Surname",
         "POSITION": "Position",
         "GOALS": "Goals",
+        "ENABLED": "Enabled",
         "CURRENT-PASSWORD": "Current password",
         "NEW-PASSWORD": "New password",
         "NEW-PASSWORD-REPEATED": "Repeated new password"
@@ -53,6 +60,17 @@
         "PROFILE": "Profile",
         "EDIT-PROFILE": "Edit profile",
         "EDIT-PASSWORD": "Edit password",
-        "ERROR": "Error"
+        "ERROR": "Error",
+        "ADMIN": {
+            "USERS": "Admin: users"
+        }
+    },
+    "PAGINATION": {
+        "FIRST": "First",
+        "LAST": "Last",
+        "NEXT": "Next",
+        "PREV": "Previous",
+        "PAGE": "Page",
+        "OF": "of"
     }
 }
