@@ -11,6 +11,7 @@ import {IsUnitLeaderGuard} from './service/guard/is-unit-leader-guard.service';
 import {IsEmployeeGuard} from './service/guard/is-employee-guard.service';
 import {ListErrorsComponent} from './list-errors.component';
 import {PaginationComponent} from './pagination.component';
+import {UserDetailsComponent} from './users/user-details.component';
 
 const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
@@ -25,7 +26,8 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     declarations: [
         ErrorPageComponent,
         ListErrorsComponent,
-        PaginationComponent
+        PaginationComponent,
+        UserDetailsComponent
     ],
     imports: [
         CommonModule,
@@ -39,7 +41,8 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         HttpClientModule,
         PaginationComponent,
         RouterModule,
-        TranslateModule
+        TranslateModule,
+        UserDetailsComponent
     ],
     providers: [
         AuthenticatedGuard,

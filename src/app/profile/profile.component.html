@@ -2,14 +2,7 @@
     <div class="row">
         <div class="col-xs-12">
             <h2 translate>HEADER.PROFILE</h2>
-            <p>
-            {{ 'USER.USERNAME' | translate }}: {{loggedUser.username}} <br/>
-            {{ 'USER.EMAIL' | translate }}: {{loggedUser.email}} <br/>
-            {{ 'USER.NAME' | translate }}: {{loggedUser.name}} <br/>
-            {{ 'USER.SURNAME' | translate }}: {{loggedUser.surname}} <br/>
-            {{ 'USER.POSITION' | translate }}: {{loggedUser.position}} <br/>
-            {{ 'USER.GOALS' | translate }}: {{loggedUser.goals}}
-            </p>
+            <app-user-details [user]="loggedUser"></app-user-details>
             <a class="btn btn-lg btn-primary" routerLink="/profile/edit" translate>BTN.EDIT-PROFILE</a>
             <a class="btn btn-lg btn-primary" routerLink="/profile/edit/password" translate>BTN.EDIT-PASSWORD</a>
         </div>

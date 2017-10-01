@@ -4,8 +4,10 @@ import {RouterModule} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
 
 import {SharedModule} from '../shared';
-import {UsersListComponent, UsersResolverService} from './users/list';
-import {IsAdminGuard} from '../shared/service/guard/is-admin-guard.service';
+import {UsersListComponent, UsersListResolver} from './users/list';
+import {IsAdminGuard} from '../shared/service/guard';
+import {UserManagementComponent} from './users/user-management';
+import {UserResolver} from './users';
 
 const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
@@ -14,13 +16,23 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         data: { title: 'TITLE.ADMIN.USERS' },
         path: 'admin/users',
         resolve: {
-            pagedResults: UsersResolverService
+            pagedResults: UsersListResolver
+        }
+    },
+    {
+        canActivate: [IsAdminGuard],
+        component: UserManagementComponent,
+        data: { title: 'TITLE.ADMIN.USER' },
+        path: 'admin/users/:username',
+        resolve: {
+            user: UserResolver
         }
     }
 ]);
 
 @NgModule({
     declarations: [
+        UserManagementComponent,
         UsersListComponent
     ],
     imports: [
@@ -30,7 +42,8 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         SharedModule
     ],
     providers: [
-        UsersResolverService
+        UsersListResolver,
+        UserResolver
     ]
 })
 

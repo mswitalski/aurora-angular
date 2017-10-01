@@ -1,2 +1,2 @@
 export * from './users-list.component';
-export * from './users-resolver.service';
+export * from './users-list-resolver.service';

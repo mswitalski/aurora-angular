@@ -6,7 +6,7 @@ import {PagedResults, User} from '../../../shared/model';
 import {UsersService} from '../../../shared/service';
 
 @Injectable()
-export class UsersResolverService implements Resolve<PagedResults<User>> {
+export class UsersListResolver implements Resolve<PagedResults<User>> {
 
     constructor(private usersService: UsersService) {}
 

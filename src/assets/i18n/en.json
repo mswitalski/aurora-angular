@@ -42,7 +42,8 @@
         "EDIT-PROFILE": "Edit profile",
         "EDIT-PASSWORD": "Edit password",
         "ACTION": "Action",
-        "USERS": "Users"
+        "USERS": "Users",
+        "USERS-MANAGEMENT": "User management"
     },
     "USER": {
         "USERNAME": "Username",
@@ -65,7 +66,8 @@
         "EDIT-PASSWORD": "Edit password",
         "ERROR": "Error",
         "ADMIN": {
-            "USERS": "Admin: users"
+            "USERS": "Admin: users",
+            "USER": "Admin: user management"
         }
     },
     "PAGINATION": {

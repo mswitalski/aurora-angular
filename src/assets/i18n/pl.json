@@ -42,7 +42,8 @@
         "EDIT-PROFILE": "Edytuj profil",
         "EDIT-PASSWORD": "Edytuj hasło",
         "ACTION": "Dzia\u0142anie",
-        "USERS": "U\u017cytkownicy"
+        "USERS": "U\u017cytkownicy",
+        "USERS-MANAGEMENT": "Zarz\u0105dzanie u\u017cytkownikami"
     },
     "USER": {
         "USERNAME": "Nazwa użytkownika",
@@ -65,7 +66,8 @@
         "EDIT-PASSWORD": "Edytuj hasło",
         "ERROR": "Błąd",
         "ADMIN": {
-            "USERS": "Admin: u\u017cytkownicy"
+            "USERS": "Admin: u\u017cytkownicy",
+            "USER": "Admin: zarz\u0105dzanie u\u017cytkownikiem"
         }
     },
     "PAGINATION": {
