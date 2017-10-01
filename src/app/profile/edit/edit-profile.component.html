@@ -3,23 +3,6 @@
 <form [formGroup]="editProfileForm" (ngSubmit)="submitForm()">
     <fieldset [disabled]="isSubmitting">
         <fieldset class="form-group row">
-            <label for="user-email" class="col-md-2 col-form-label" translate>USER.EMAIL</label>
-            <div class="col-md-5">
-                <input
-                    id="user-email"
-                    class="form-control"
-                    formControlName="email"
-                    [(ngModel)]="loggedUser.email"
-                    placeholder="{{ 'USER.EMAIL' | translate }}"
-                    type="text"/>
-                <div *ngIf="editProfileForm.controls['email'].errors && !editProfileForm.controls['email'].pristine"
-                     class="text-danger">
-                    <div [hidden]="!editProfileForm.controls['email'].errors.required" translate>ERROR.REQUIRED</div>
-                    <div [hidden]="!editProfileForm.controls['email'].errors.email" translate>ERROR.INVALID</div>
-                </div>
-            </div>
-        </fieldset>
-        <fieldset class="form-group row">
             <label for="user-name" class="col-md-2 col-form-label">{{ 'USER.NAME' | translate }}</label>
             <div class="col-md-5">
                 <input

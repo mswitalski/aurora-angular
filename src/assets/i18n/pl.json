@@ -1,6 +1,6 @@
 {
     "YES": "Tak",
-    "No": "Nie",
+    "NO": "Nie",
     "SIDEBAR": {
         "ADMIN": "Admin",
         "DASHBOARD": "Pulpit",
@@ -11,6 +11,7 @@
         "LOGIN": "Zaloguj się",
         "LOGOUT": "Wyloguj się",
         "EDIT-PROFILE": "Edytuj profil",
+        "EDIT-DETAILS": "Edytuj dane",
         "EDIT-PASSWORD": "Edytuj hasło",
         "SAVE": "Zapisz",
         "BACK": "Powrót",

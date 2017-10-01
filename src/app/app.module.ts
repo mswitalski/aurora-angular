@@ -20,7 +20,7 @@ import {HttpErrorInterceptorService} from './shared/listener';
 import {LoginModule} from './login';
 import {ProfileModule} from './profile';
 import {UsersService} from './shared/service';
-import {AdminModule} from './admin/admin.module';
+import {AdminModule} from './admin';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([
     {

@@ -1,6 +1,6 @@
 {
     "YES": "Yes",
-    "No": "No",
+    "NO": "No",
     "SIDEBAR": {
         "ADMIN": "Admin",
         "DASHBOARD": "Dashboard",
@@ -11,6 +11,7 @@
         "LOGIN": "Login",
         "LOGOUT": "Logout",
         "EDIT-PROFILE": "Edit profile",
+        "EDIT-DETAILS": "Edit details",
         "EDIT-PASSWORD": "Edit password",
         "SAVE": "Save",
         "BACK": "Go back",

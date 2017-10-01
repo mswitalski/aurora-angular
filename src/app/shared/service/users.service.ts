@@ -36,4 +36,14 @@ export class UsersService {
     updateOwnPassword(formData: PasswordChangeFormModel): Observable<HttpResponse<any>> {
         return this.api.put('users/password', formData);
     }
+
+    updateOtherAccountAsAdmin(user: User): Observable<HttpResponse<any>> {
+        return this.api.put('admin/users/', user);
+    }
+
+    updateOtherPassword(username: string, formData: PasswordChangeFormModel): Observable<HttpResponse<any>> {
+        const partialUrl = 'admin/users/' + username + '/password';
+
+        return this.api.put(partialUrl, formData);
+    }
 }
