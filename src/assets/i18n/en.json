@@ -54,6 +54,7 @@
         "POSITION": "Position",
         "GOALS": "Goals",
         "ENABLED": "Enabled",
+        "ROLES": "Roles",
         "CURRENT-PASSWORD": "Current password",
         "NEW-PASSWORD": "New password",
         "NEW-PASSWORD-REPEATED": "Repeated new password"
@@ -77,5 +78,10 @@
         "PREV": "Previous",
         "PAGE": "Page",
         "OF": "of"
+    },
+    "ROLE": {
+        "ADMIN": "Administrator",
+        "EMPLOYEE": "Employee",
+        "UNIT_LEADER": "Unit leader"
     }
 }

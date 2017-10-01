@@ -1,8 +1,20 @@
-<p>
+<div>
     {{ 'USER.USERNAME' | translate }}: {{selectedUser.username}} <br/>
     {{ 'USER.EMAIL' | translate }}: {{selectedUser.email}} <br/>
     {{ 'USER.NAME' | translate }}: {{selectedUser.name}} <br/>
     {{ 'USER.SURNAME' | translate }}: {{selectedUser.surname}} <br/>
     {{ 'USER.POSITION' | translate }}: {{selectedUser.position}} <br/>
     {{ 'USER.GOALS' | translate }}: {{selectedUser.goals}}
-</p>
+    <div *ngIf="extendedInformation">
+        {{ 'USER.ENABLED' | translate }}:
+        <span *ngIf="selectedUser.enabled" class="text-success" translate>YES</span>
+        <span *ngIf="!selectedUser.enabled" class="text-danger" translate>NO</span>
+        <br />
+        <div *ngIf="selectedUser.roles">
+            {{ 'USER.ROLES' | translate }}:
+            <ul>
+                <li *ngFor="let role of selectedUser.roles" translate>ROLE.{{role.name}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

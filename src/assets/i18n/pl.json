@@ -54,6 +54,7 @@
         "POSITION": "Stanowisko",
         "GOALS": "Cele zawodowe",
         "ENABLED": "Aktywny",
+        "ROLES": "Role",
         "CURRENT-PASSWORD": "Obecne hasło",
         "NEW-PASSWORD": "Nowe hasło",
         "NEW-PASSWORD-REPEATED": "Powtórzone nowe hasło"
@@ -77,5 +78,10 @@
         "PREV": "Poprzednia",
         "PAGE": "Strona",
         "OF": "z"
+    },
+    "ROLE": {
+        "ADMIN": "Administrator",
+        "EMPLOYEE": "Employee",
+        "UNIT_LEADER": "Unit leader"
     }
 }
