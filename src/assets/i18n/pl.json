@@ -8,68 +8,70 @@
     },
     "BTN": {
         "PROFILE": "Profil",
-        "LOGIN": "Zaloguj się",
-        "LOGOUT": "Wyloguj się",
+        "LOGIN": "Zaloguj si\u0119",
+        "LOGOUT": "Wyloguj si\u0119",
         "EDIT-PROFILE": "Edytuj profil",
         "EDIT-DETAILS": "Edytuj dane",
-        "EDIT-PASSWORD": "Edytuj hasło",
+        "EDIT-PASSWORD": "Edytuj has\u0142o",
         "SAVE": "Zapisz",
-        "BACK": "Powrót",
-        "HOME": "Strona główna",
+        "BACK": "Powr\u00f3t",
+        "HOME": "Strona g\u0142\u00f3wna",
         "DETAILS": "Szczeg\u00f3\u0142y"
     },
     "ERROR": {
-        "INVALID-CREDENTIALS": "Podano nieprawidłową nazwę użytkownika i/lub hasło",
-        "CONNECTION": "Nie można połączyć się z serwerem. Prosimy spróbować później...",
+        "INVALID-CREDENTIALS": "Podano nieprawid\u0142ow\u0105 nazw\u0119 użytkownika i/lub has\u0142o",
+        "CONNECTION": "Nie mo\u017cna po\u0142\u0105czy\u0107 si\u0119 z serwerem. Prosimy spr\u00f3bowa\u0107 p\u00f3\u017aniej...",
         "REQUIRED": "To pole jest wymagane",
-        "INVALID": "Podano nieprawidłową wartość dla tego pola",
-        "MIN-LEN": "To pole może zawierać nie mniej niż {{value}} znaki/-ów",
-        "MAX-LEN": "To pole może zawierać nie więcej niż {{value}} znaki/-ów",
-        "INVALID-REPEATED-PASSWORD": "Należy poprawnie ponownie wpisać nowe hasło"
+        "INVALID": "Podano nieprawid\u0142ow\u0105 warto\u015b\u0107 dla tego pola",
+        "MIN-LEN": "To pole mo\u017ce zawiera\u0107 nie mniej ni\u017c {{value}} znaki/-\u00f3w",
+        "MAX-LEN": "To pole mo\u017ce zawiera\u0107 nie mniej ni\u017c {{value}} znaki/-\u00f3w",
+        "INVALID-REPEATED-PASSWORD": "Nale\u017cy poprawnie ponownie wpisa\u0107 nowe has\u0142o"
     },
     "ERROR-PAGE": {
         "DEFAULT": {
-            "TITLE": "Unexpected error",
-            "DESC": "Something went wrong and we don't know what, sorry!"
+            "TITLE": "Wyst\u0105pi\u0142 niespodziewany b\u0142\u0105d",
+            "DESC": "W trakcie dzia\u0142ania aplikacji wyst\u0105pi\u0142 b\u0142\u0105d, przepraszamy za utrudnienia"
         },
         "409": {
-            "TITLE": "Conflict",
-            "DESC": "You tried to update something while having outdated data"
+            "TITLE": "Konflikt",
+            "DESC": "Próbowałeś edytować dane, których posiadałeś przestarzałą kopię - prosimy spróbować ponownie"
         }
     },
     "HEADER": {
         "GREETER": "Witaj, {{name}}!",
-        "PROFILE": "Twój profil",
+        "PROFILE": "Tw\u00f3j profil",
         "EDIT-PROFILE": "Edytuj profil",
-        "EDIT-PASSWORD": "Edytuj hasło",
+        "EDIT-PASSWORD": "Edytuj has\u0142o",
         "ACTION": "Dzia\u0142anie",
         "USERS": "U\u017cytkownicy",
         "USERS-MANAGEMENT": "Zarz\u0105dzanie u\u017cytkownikami"
     },
     "USER": {
-        "USERNAME": "Nazwa użytkownika",
-        "PASSWORD": "Hasło",
+        "USERNAME": "Nazwa u\u017cytkownika",
+        "PASSWORD": "Has\u0142o",
         "EMAIL": "Adres e-mail",
-        "NAME": "Imię",
+        "NAME": "Imi\u0119",
         "SURNAME": "Nazwisko",
         "POSITION": "Stanowisko",
         "GOALS": "Cele zawodowe",
         "ENABLED": "Aktywny",
         "ROLES": "Role",
-        "CURRENT-PASSWORD": "Obecne hasło",
-        "NEW-PASSWORD": "Nowe hasło",
-        "NEW-PASSWORD-REPEATED": "Powtórzone nowe hasło"
+        "CURRENT-PASSWORD": "Obecne has\u0142o",
+        "NEW-PASSWORD": "Nowe has\u0142o",
+        "NEW-PASSWORD-REPEATED": "Powt\u00f3rzone nowe has\u0142o"
     },
     "TITLE": {
         "LOGIN": "Logowanie",
         "DASHBOARD": "Pulpit",
         "PROFILE": "Profil",
         "EDIT-PROFILE": "Edytuj profil",
-        "EDIT-PASSWORD": "Edytuj hasło",
-        "ERROR": "Błąd",
+        "EDIT-PASSWORD": "Edytuj has\u0142o",
+        "ERROR": "B\u0142\u0105d",
         "ADMIN": {
             "USERS": "Admin: u\u017cytkownicy",
-            "USER": "Admin: zarz\u0105dzanie u\u017cytkownikiem"
+            "USER": "Admin: zarz\u0105dzanie u\u017cytkownikiem",
+            "USER-EDIT": "Admin: edycja danych u\u017cytkownika",
+            "PASSWORD": "Admin: edycja has\u0142a u\u017cytkownika"
         }
     },
     "PAGINATION": {
@@ -82,7 +84,7 @@
     },
     "ROLE": {
         "ADMIN": "Administrator",
-        "EMPLOYEE": "Employee",
+        "EMPLOYEE": "Pracownik",
         "UNIT_LEADER": "Unit leader"
     }
 }

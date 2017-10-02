@@ -69,7 +69,9 @@
         "ERROR": "Error",
         "ADMIN": {
             "USERS": "Admin: users",
-            "USER": "Admin: user management"
+            "USER": "Admin: user management",
+            "USER-EDIT": "Admin: edit user details",
+            "PASSWORD": "Admin: edit user password"
         }
     },
     "PAGINATION": {

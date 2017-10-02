@@ -8,7 +8,7 @@ import {UsersListComponent, UsersListResolver} from './users/list';
 import {IsAdminGuard} from '../shared/service/guard';
 import {UserManagementComponent} from './users/user-management';
 import {UserResolver} from './users';
-import {EditUserComponent} from './users/user-management/edit';
+import {EditPasswordComponent, EditUserComponent} from './users/user-management/edit';
 
 const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
@@ -37,12 +37,22 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         resolve: {
             user: UserResolver
         }
+    },
+    {
+        canActivate: [IsAdminGuard],
+        component: EditPasswordComponent,
+        data: { title: 'TITLE.ADMIN.PASSWORD' },
+        path: 'admin/users/:username/password',
+        resolve: {
+            user: UserResolver
+        }
     }
 ]);
 
 @NgModule({
     declarations: [
         EditUserComponent,
+        EditPasswordComponent,
         UserManagementComponent,
         UsersListComponent
     ],

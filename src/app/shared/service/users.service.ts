@@ -3,10 +3,8 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
 import {ApiService} from './api.service';
-import {User} from '../model';
-import {PasswordChangeFormModel} from '../model/password-change-form.model';
+import {AdminPasswordChangeFormModel, PagedResults, PasswordChangeFormModel, User} from '../model';
 import {environment} from '../../../environments/environment';
-import {PagedResults} from '../model/paged-results.model';
 
 @Injectable()
 export class UsersService {
@@ -41,7 +39,7 @@ export class UsersService {
         return this.api.put('admin/users/', user);
     }
 
-    updateOtherPassword(username: string, formData: PasswordChangeFormModel): Observable<HttpResponse<any>> {
+    updateOtherPassword(username: string, formData: AdminPasswordChangeFormModel): Observable<HttpResponse<any>> {
         const partialUrl = 'admin/users/' + username + '/password';
 
         return this.api.put(partialUrl, formData);
