@@ -13,10 +13,13 @@
         "EDIT-PROFILE": "Edit profile",
         "EDIT-DETAILS": "Edit details",
         "EDIT-PASSWORD": "Edit password",
+        "EDIT-ROLES": "Edit roles",
         "SAVE": "Save",
         "BACK": "Go back",
         "HOME": "Homepage",
-        "DETAILS": "Details"
+        "DETAILS": "Details",
+        "ASSIGN": "Assign",
+        "RETRACT": "Retract"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Bad username or/and password!",
@@ -42,6 +45,7 @@
         "PROFILE": "Your profile",
         "EDIT-PROFILE": "Edit profile",
         "EDIT-PASSWORD": "Edit password",
+        "EDIT-ROLES": "Edit roles",
         "ACTION": "Action",
         "USERS": "Users",
         "USERS-MANAGEMENT": "User management"
@@ -71,7 +75,8 @@
             "USERS": "Admin: users",
             "USER": "Admin: user management",
             "USER-EDIT": "Admin: edit user details",
-            "PASSWORD": "Admin: edit user password"
+            "PASSWORD": "Admin: edit user password",
+            "ROLES": "Admin: edit user roles"
         }
     },
     "PAGINATION": {

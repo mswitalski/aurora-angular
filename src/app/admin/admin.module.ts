@@ -9,6 +9,7 @@ import {IsAdminGuard} from '../shared/service/guard';
 import {UserManagementComponent} from './users/user-management';
 import {UserResolver} from './users';
 import {EditPasswordComponent, EditUserComponent} from './users/user-management/edit';
+import {EditRolesComponent} from './users/user-management/edit/edit-roles.component';
 
 const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
@@ -46,6 +47,15 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         resolve: {
             user: UserResolver
         }
+    },
+    {
+        canActivate: [IsAdminGuard],
+        component: EditRolesComponent,
+        data: { title: 'TITLE.ADMIN.ROLES' },
+        path: 'admin/users/:username/roles',
+        resolve: {
+            user: UserResolver
+        }
     }
 ]);
 
@@ -53,6 +63,7 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     declarations: [
         EditUserComponent,
         EditPasswordComponent,
+        EditRolesComponent,
         UserManagementComponent,
         UsersListComponent
     ],

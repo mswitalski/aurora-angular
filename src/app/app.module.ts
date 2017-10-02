@@ -19,7 +19,7 @@ import {DashboardModule} from './dashboard';
 import {HttpErrorInterceptorService} from './shared/listener';
 import {LoginModule} from './login';
 import {ProfileModule} from './profile';
-import {UsersService} from './shared/service';
+import {RolesService, UsersService} from './shared/service';
 import {AdminModule} from './admin';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([
@@ -63,6 +63,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         ApiService,
         AuthService,
         JwtService,
+        RolesService,
         UsersService,
         {
             provide: HTTP_INTERCEPTORS,

@@ -5,6 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import {ApiService} from './api.service';
 import {AdminPasswordChangeFormModel, PagedResults, PasswordChangeFormModel, User} from '../model';
 import {environment} from '../../../environments/environment';
+import {Role} from '../model/role.model';
 
 @Injectable()
 export class UsersService {
@@ -43,5 +44,17 @@ export class UsersService {
         const partialUrl = 'admin/users/' + username + '/password';
 
         return this.api.put(partialUrl, formData);
+    }
+
+    assignRole(user: User, role: Role): Observable<HttpResponse<any>> {
+        const partialUrl = 'admin/users/' + user.id + '/role/' + role.name;
+
+        return this.api.put(partialUrl, null);
+    }
+
+    retractRole(user: User, role: Role): Observable<HttpResponse<any>> {
+        const partialUrl = 'admin/users/' + user.id + '/role/' + role.name;
+
+        return this.api.delete(partialUrl);
     }
 }

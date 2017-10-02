@@ -13,10 +13,13 @@
         "EDIT-PROFILE": "Edytuj profil",
         "EDIT-DETAILS": "Edytuj dane",
         "EDIT-PASSWORD": "Edytuj has\u0142o",
+        "EDIT-ROLES": "Edytuj role",
         "SAVE": "Zapisz",
         "BACK": "Powr\u00f3t",
         "HOME": "Strona g\u0142\u00f3wna",
-        "DETAILS": "Szczeg\u00f3\u0142y"
+        "DETAILS": "Szczeg\u00f3\u0142y",
+        "ASSIGN": "Przypisz",
+        "RETRACT": "Odbierz"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Podano nieprawid\u0142ow\u0105 nazw\u0119 użytkownika i/lub has\u0142o",
@@ -42,6 +45,7 @@
         "PROFILE": "Tw\u00f3j profil",
         "EDIT-PROFILE": "Edytuj profil",
         "EDIT-PASSWORD": "Edytuj has\u0142o",
+        "EDIT-ROLES": "Edytuj role",
         "ACTION": "Dzia\u0142anie",
         "USERS": "U\u017cytkownicy",
         "USERS-MANAGEMENT": "Zarz\u0105dzanie u\u017cytkownikami"
@@ -71,7 +75,8 @@
             "USERS": "Admin: u\u017cytkownicy",
             "USER": "Admin: zarz\u0105dzanie u\u017cytkownikiem",
             "USER-EDIT": "Admin: edycja danych u\u017cytkownika",
-            "PASSWORD": "Admin: edycja has\u0142a u\u017cytkownika"
+            "PASSWORD": "Admin: edycja has\u0142a u\u017cytkownika",
+            "ROLES": "Admin: edycja r\u00f3l u\u017cytkownika"
         }
     },
     "PAGINATION": {

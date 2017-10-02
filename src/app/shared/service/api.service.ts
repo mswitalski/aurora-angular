@@ -48,8 +48,10 @@ export class ApiService {
     }
 
     private storeETag(responseHeaders: HttpHeaders) {
-        window.localStorage[this.etagPlaceholderName] =
-            responseHeaders.get(this.etagPlaceholderName).replace(/"/g, '');
+        if (responseHeaders.get(this.etagPlaceholderName)) {
+            window.localStorage[this.etagPlaceholderName] =
+                responseHeaders.get(this.etagPlaceholderName).replace(/"/g, '');
+        }
     }
 
     post(partialUrl: string, objectToPost: Object): Observable<any> {
@@ -71,6 +73,14 @@ export class ApiService {
         const defaultHeaders = this.prepareDefaultHeaders();
 
         return defaultHeaders.append(this.etagPlaceholderName, window.localStorage[this.etagPlaceholderName]);
+    }
+
+    delete(partialUrl: string): Observable<HttpResponse<any>> {
+        const url = environment.backendUrl + partialUrl;
+
+        return this.http.delete(
+            url,
+            {headers: this.prepareHeadersForUpdate(), observe: 'response'});
     }
 
     login(credentials: LoginCredentials): Observable<any> {
