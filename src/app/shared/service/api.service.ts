@@ -14,7 +14,7 @@ import {LoginCredentials} from '../model';
 @Injectable()
 export class ApiService {
 
-    private etagPlaceholderName = 'ETag';
+    private eTag: string;
 
     constructor(private http: HttpClient, private jwtService: JwtService) {
     }
@@ -48,9 +48,8 @@ export class ApiService {
     }
 
     private storeETag(responseHeaders: HttpHeaders) {
-        if (responseHeaders.get(this.etagPlaceholderName)) {
-            window.localStorage[this.etagPlaceholderName] =
-                responseHeaders.get(this.etagPlaceholderName).replace(/"/g, '');
+        if (responseHeaders.get('ETag')) {
+            this.eTag = responseHeaders.get('ETag').replace(/"/g, '');
         }
     }
 
@@ -72,7 +71,7 @@ export class ApiService {
     private prepareHeadersForUpdate(): HttpHeaders {
         const defaultHeaders = this.prepareDefaultHeaders();
 
-        return defaultHeaders.append(this.etagPlaceholderName, window.localStorage[this.etagPlaceholderName]);
+        return defaultHeaders.append('If-Match', this.eTag);
     }
 
     delete(partialUrl: string): Observable<HttpResponse<any>> {
