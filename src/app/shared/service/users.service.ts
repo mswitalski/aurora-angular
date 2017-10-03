@@ -40,8 +40,8 @@ export class UsersService {
         return this.api.put('admin/users/', user);
     }
 
-    updateOtherPassword(username: string, formData: AdminPasswordChangeFormModel): Observable<HttpResponse<any>> {
-        const partialUrl = 'admin/users/' + username + '/password';
+    updateOtherPassword(user: User, formData: AdminPasswordChangeFormModel): Observable<HttpResponse<any>> {
+        const partialUrl = 'admin/users/' + user.id + '/password';
 
         return this.api.put(partialUrl, formData);
     }

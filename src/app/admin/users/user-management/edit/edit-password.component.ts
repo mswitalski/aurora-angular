@@ -53,7 +53,7 @@ export class EditPasswordComponent implements OnInit, OnDestroy {
 
     submitForm(): void {
         this.isSubmitting = true;
-        this.usersService.updateOtherPassword(this.user.username, this.formData).takeUntil(this.ngUnsubscribe).subscribe(
+        this.usersService.updateOtherPassword(this.user, this.formData).takeUntil(this.ngUnsubscribe).subscribe(
             () => {
                 const url = 'admin/users/' + this.user.username;
                 this.router.navigate([url]);
