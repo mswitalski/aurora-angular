@@ -50,6 +50,9 @@ export class ApiService {
     private storeETag(responseHeaders: HttpHeaders) {
         if (responseHeaders.get('ETag')) {
             this.eTag = responseHeaders.get('ETag').replace(/"/g, '');
+
+        } else {
+            this.eTag = null;
         }
     }
 

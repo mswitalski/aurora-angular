@@ -35,8 +35,8 @@
             "TITLE": "Unexpected error",
             "DESC": "Something went wrong and we don't know what, sorry!"
         },
-        "409": {
-            "TITLE": "Conflict",
+        "412": {
+            "TITLE": "Edit failed",
             "DESC": "You tried to update something while having outdated data"
         }
     },
