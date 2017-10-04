@@ -128,10 +128,10 @@
 
         <app-list-errors [errors]="validationErrors"></app-list-errors>
 
-        <button class="btn btn-success" [disabled]="!editUserForm.valid" type="submit" translate>
+        <button [disabled]="!editUserForm.valid" type="submit" class="btn btn-success" translate>
             BTN.SAVE
         </button>
-        <button class="btn btn-dark" [routerLink]="['/admin/users', user.username]" translate>
+        <button [routerLink]="['/admin/users', user.username]" type="button" class="btn btn-dark" translate>
             BTN.BACK
         </button>
     </fieldset>

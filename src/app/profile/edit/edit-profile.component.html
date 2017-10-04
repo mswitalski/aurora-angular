@@ -69,10 +69,10 @@
 
         <app-list-errors [errors]="validationErrors"></app-list-errors>
 
-        <button class="btn btn-success" [disabled]="!editProfileForm.valid" type="submit" translate>
+        <button [disabled]="!editProfileForm.valid" type="submit" class="btn btn-success" translate>
             BTN.SAVE
         </button>
-        <button class="btn btn-dark" routerLink="/profile" translate>
+        <button routerLink="/profile" type="button" class="btn btn-dark" translate>
             BTN.BACK
         </button>
     </fieldset>
