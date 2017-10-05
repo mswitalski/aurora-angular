@@ -1,3 +1,4 @@
+import 'rxjs/add/operator/do';
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Rx';
