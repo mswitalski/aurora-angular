@@ -12,7 +12,7 @@ export class ErrorPageComponent implements OnInit, OnDestroy {
 
     description: string;
     title: string;
-    private handledCodes: Array<string> = ['412'];
+    private handledCodes: Array<string> = ['404', '412'];
     private ngUnsubscribe: Subject<void> = new Subject<void>();
 
     constructor(private route: ActivatedRoute, private translate: TranslateService) {

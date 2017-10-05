@@ -1,15 +1,11 @@
+import {ActivatedRoute, Router} from '@angular/router';
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {User} from '../../../../shared/model/user.model';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {HttpResponse} from '@angular/common/http';
 import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/takeUntil';
-import {ActivatedRoute, Router} from '@angular/router';
-import {UsersService} from '../../../../shared/service/users.service';
-import {ValidationError} from '../../../../shared/model/validation-error.model';
-import {Role} from '../../../../shared/model/role.model';
-import {RolesService} from '../../../../shared/service';
-import {HttpResponse} from '@angular/common/http';
-import {isUndefined} from 'util';
+
+import {RolesService, UsersService} from '../../../../shared/service';
+import {Role, User} from '../../../../shared/model';
 
 @Component({
     templateUrl: './edit-roles.component.html'
@@ -20,7 +16,6 @@ export class EditRolesComponent implements OnInit, OnDestroy {
     isSubmitting = false;
     user: User;
     roles: Role[];
-    validationErrors: ValidationError[];
     private ngUnsubscribe: Subject<void> = new Subject<void>();
 
     constructor(private rolesService: RolesService,
@@ -47,9 +42,12 @@ export class EditRolesComponent implements OnInit, OnDestroy {
             () => {
                 const url = 'admin/users/' + this.user.username;
                 this.router.navigate([url]);
-            },
-            error => {}
+            }
         );
+    }
+
+    hasRole(role: Role): boolean {
+        return this.user.roles.findIndex(r => r.name === role.name) !== -1;
     }
 
     retractRole(role: Role): void {
@@ -57,13 +55,8 @@ export class EditRolesComponent implements OnInit, OnDestroy {
             () => {
                 const url = 'admin/users/' + this.user.username;
                 this.router.navigate([url]);
-            },
-            error => {}
+            }
         );
-    }
-
-    hasRole(role: Role): boolean {
-        return this.user.roles.findIndex(r => r.name === role.name) !== -1;
     }
 
     ngOnDestroy(): void {

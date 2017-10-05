@@ -77,7 +77,7 @@ export class ApiService {
         return defaultHeaders.append('If-Match', this.eTag);
     }
 
-    delete(partialUrl: string): Observable<HttpResponse<any>> {
+    deleteMethod(partialUrl: string): Observable<HttpResponse<any>> {
         const url = environment.backendUrl + partialUrl;
 
         return this.http.delete(

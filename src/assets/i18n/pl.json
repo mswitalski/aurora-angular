@@ -35,6 +35,10 @@
             "TITLE": "Wyst\u0105pi\u0142 niespodziewany b\u0142\u0105d",
             "DESC": "W trakcie dzia\u0142ania aplikacji wyst\u0105pi\u0142 b\u0142\u0105d, przepraszamy za utrudnienia"
         },
+        "404": {
+            "TITLE": "Nie znaleziono",
+            "DESC": "Wybrany zas\u00f3b nie istnieje"
+        },
         "412": {
             "TITLE": "Edycja nie powiod\u0142a si\u0119",
             "DESC": "Pr\u00f3bowa\u0142e\u015b edytowa\u0107 dane, kt\u00f3rych posiada\u0142e\u015b przestarza\u0142\u0105 kopi\u0119 - prosimy spr\u00f3bowa\u0107 ponownie"

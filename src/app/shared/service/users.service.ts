@@ -3,19 +3,20 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
 import {ApiService} from './api.service';
-import {AdminPasswordChangeFormModel, PagedResults, PasswordChangeFormModel, User} from '../model';
+import {AdminPasswordChangeFormModel, PagedResults, PasswordChangeFormModel, Role, User} from '../model';
 import {environment} from '../../../environments/environment';
-import {Role} from '../model/role.model';
 
 @Injectable()
 export class UsersService {
 
+    public cachedUser: User;
+
     constructor(private api: ApiService) {}
 
-    getSingle(username: string): Observable<HttpResponse<any>> {
-        const partialUrl = 'users/' + username;
+    assignRole(user: User, role: Role): Observable<HttpResponse<any>> {
+        const partialUrl = 'admin/users/' + user.id + '/role/' + role.name;
 
-        return this.api.get(partialUrl);
+        return this.api.put(partialUrl, null);
     }
 
     getAllByPage(page: number = 0): Observable<PagedResults<User>> {
@@ -28,12 +29,25 @@ export class UsersService {
         return this.api.getWithParams(partialUrl, queryParams);
     }
 
-    updateOwnAccount(user: User): Observable<HttpResponse<any>> {
-        return this.api.put('users/', user);
+    getSingle(username: string): Observable<User> {
+        const partialUrl = 'users/' + username;
+
+        return this.api.get(partialUrl).map(user => user.body).do(user => this.cachedUser = user);
     }
 
-    updateOwnPassword(formData: PasswordChangeFormModel): Observable<HttpResponse<any>> {
-        return this.api.put('users/password', formData);
+    getCachedUser(username: string): Observable<User> {
+        if (this.cachedUser && this.cachedUser.username === username) {
+            return Observable.of(this.cachedUser);
+
+        } else {
+            return this.getSingle(username);
+        }
+    }
+
+    retractRole(user: User, role: Role): Observable<HttpResponse<any>> {
+        const partialUrl = 'admin/users/' + user.id + '/role/' + role.name;
+
+        return this.api.deleteMethod(partialUrl);
     }
 
     updateOtherAccountAsAdmin(user: User): Observable<HttpResponse<any>> {
@@ -46,15 +60,11 @@ export class UsersService {
         return this.api.put(partialUrl, formData);
     }
 
-    assignRole(user: User, role: Role): Observable<HttpResponse<any>> {
-        const partialUrl = 'admin/users/' + user.id + '/role/' + role.name;
-
-        return this.api.put(partialUrl, null);
+    updateOwnAccount(user: User): Observable<HttpResponse<any>> {
+        return this.api.put('users/', user);
     }
 
-    retractRole(user: User, role: Role): Observable<HttpResponse<any>> {
-        const partialUrl = 'admin/users/' + user.id + '/role/' + role.name;
-
-        return this.api.delete(partialUrl);
+    updateOwnPassword(formData: PasswordChangeFormModel): Observable<HttpResponse<any>> {
+        return this.api.put('users/password', formData);
     }
 }

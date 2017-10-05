@@ -1,5 +1,5 @@
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import 'rxjs/add/operator/filter';
 import {Title} from '@angular/platform-browser';
 import {TranslateService} from '@ngx-translate/core';

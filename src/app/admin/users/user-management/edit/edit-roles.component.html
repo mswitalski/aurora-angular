@@ -2,8 +2,8 @@
 
 <div *ngFor="let role of roles" class="row mb-2">
     <div class="col-md-2">
-        <button *ngIf="!hasRole(role)" (click)="assignRole(role)" type="button" class="btn btn-success btn-block" translate>BTN.ASSIGN</button>
-        <button *ngIf="hasRole(role)" (click)="retractRole(role)" type="button" class="btn btn-danger btn-block" translate>BTN.RETRACT</button>
+        <button *ngIf="!hasRole(role)" (click)="assignRole(role)" class="btn btn-success btn-block" translate>BTN.ASSIGN</button>
+        <button *ngIf="hasRole(role)" (click)="retractRole(role)" class="btn btn-danger btn-block" translate>BTN.RETRACT</button>
     </div>
     <div class="col-md-5" translate>
         ROLE.{{role.name}}

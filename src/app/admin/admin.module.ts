@@ -7,9 +7,9 @@ import {SharedModule} from '../shared';
 import {UsersListComponent, UsersListResolver} from './users/list';
 import {IsAdminGuard} from '../shared/service/guard';
 import {UserManagementComponent} from './users/user-management';
-import {UserResolver} from './users';
+import {CachedUserResolver, UserResolver} from './users';
 import {EditPasswordComponent, EditUserComponent} from './users/user-management/edit';
-import {EditRolesComponent} from './users/user-management/edit/edit-roles.component';
+import {EditRolesComponent} from './users/user-management/edit';
 
 const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
@@ -36,7 +36,7 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         data: { title: 'TITLE.ADMIN.USER' },
         path: 'admin/users/:username/edit',
         resolve: {
-            user: UserResolver
+            user: CachedUserResolver
         }
     },
     {
@@ -45,7 +45,7 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         data: { title: 'TITLE.ADMIN.PASSWORD' },
         path: 'admin/users/:username/password',
         resolve: {
-            user: UserResolver
+            user: CachedUserResolver
         }
     },
     {
@@ -54,7 +54,7 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         data: { title: 'TITLE.ADMIN.ROLES' },
         path: 'admin/users/:username/roles',
         resolve: {
-            user: UserResolver
+            user: CachedUserResolver
         }
     }
 ]);
@@ -75,6 +75,7 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         SharedModule
     ],
     providers: [
+        CachedUserResolver,
         UsersListResolver,
         UserResolver
     ]
