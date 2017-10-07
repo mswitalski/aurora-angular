@@ -1,15 +1,22 @@
 <h2 translate>HEADER.EDIT-ROLES</h2>
 
-<div *ngFor="let role of roles" class="row mb-2">
-    <div class="col-md-2">
-        <button *ngIf="!hasRole(role)" (click)="assignRole(role)" class="btn btn-success btn-block" translate>BTN.ASSIGN</button>
-        <button *ngIf="hasRole(role)" (click)="retractRole(role)" class="btn btn-danger btn-block" translate>BTN.RETRACT</button>
-    </div>
-    <div class="col-md-5" translate>
-        ROLE.{{role.name}}
+<div class="row mb-2">
+    <div class="col-md-2 col-form-label" translate>USER.ROLES</div>
+    <div class="col-md-5">
+        <div *ngFor="let role of availableRoles" class="row">
+            <button *ngIf="!hasRole(role)" (click)="assignRole(role)" class="btn-camouflaged" translate><i
+                class="fa fa-square-o mr-2"></i>ROLE.{{role.name}}
+            </button>
+            <button *ngIf="hasRole(role)" (click)="retractRole(role)" class="btn-camouflaged" translate><i
+                class="fa fa-check-square-o mr-2"></i>ROLE.{{role.name}}
+            </button>
+        </div>
     </div>
 </div>
 
 <button [routerLink]="['/admin/users', user.username]" type="button" class="btn btn-dark" translate>
     BTN.BACK
+</button>
+<button (click)="submitRoles()" type="button" class="btn btn-success" translate>
+    BTN.SAVE
 </button>

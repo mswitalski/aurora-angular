@@ -9,6 +9,7 @@ import {ApiService} from './api.service';
 import {environment} from '../../../environments/environment';
 import {JwtService} from './jwt.service';
 import {LoginCredentials, User} from '../model';
+import {isUndefined} from 'util';
 
 @Injectable()
 export class AuthService {
@@ -57,11 +58,11 @@ export class AuthService {
 
     private populateRoles(user: User) {
         this.hasAdminRoleSubject
-            .next(user.roles.find(r => r.name === `${environment.adminRole}`) !== undefined);
+            .next(!isUndefined(user.roles.find(r => r.name === `${environment.adminRole}`)));
         this.hasEmployeeRoleSubject
-            .next(user.roles.find(r => r.name === `${environment.employeeRole}`) !== undefined);
+            .next(!isUndefined(user.roles.find(r => r.name === `${environment.employeeRole}`)));
         this.hasUnitLeaderRoleSubject
-            .next(user.roles.find(r => r.name === `${environment.unitLeaderRole}`) !== undefined);
+            .next(!isUndefined(user.roles.find(r => r.name === `${environment.unitLeaderRole}`)));
     }
 
     private invalidateAuthentication() {

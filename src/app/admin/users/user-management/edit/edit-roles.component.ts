@@ -1,11 +1,11 @@
 import {ActivatedRoute, Router} from '@angular/router';
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {HttpResponse} from '@angular/common/http';
 import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/takeUntil';
 
-import {RolesService, UsersService} from '../../../../shared/service';
+import {UsersService} from '../../../../shared/service';
 import {Role, User} from '../../../../shared/model';
+import {isUndefined} from 'util';
 
 @Component({
     templateUrl: './edit-roles.component.html'
@@ -15,35 +15,23 @@ export class EditRolesComponent implements OnInit, OnDestroy {
 
     isSubmitting = false;
     user: User;
-    roles: Role[];
+    availableRoles: Role[];
     private ngUnsubscribe: Subject<void> = new Subject<void>();
 
-    constructor(private rolesService: RolesService,
-                private route: ActivatedRoute,
+    constructor(private route: ActivatedRoute,
                 private router: Router,
                 private usersService: UsersService) {
     }
 
     ngOnInit(): void {
-        this.route.data.takeUntil(this.ngUnsubscribe).subscribe(
-            (data: {user: User}) => {
-                this.user = data.user;
-            }
-        );
-        this.rolesService.getAll().takeUntil(this.ngUnsubscribe).subscribe(
-            (data: HttpResponse<Role[]>) => {
-                this.roles = data.body;
-            }
-        );
+        this.user = JSON.parse(JSON.stringify(this.route.snapshot.data['user']));
+        this.availableRoles = this.route.snapshot.data['roles'];
     }
 
     assignRole(role: Role): void {
-        this.usersService.assignRole(this.user, role).takeUntil(this.ngUnsubscribe).subscribe(
-            () => {
-                const url = 'admin/users/' + this.user.username;
-                this.router.navigate([url]);
-            }
-        );
+        if (isUndefined(this.user.roles.find(r => r.name === role.name))) {
+            this.user.roles.push(role);
+        }
     }
 
     hasRole(role: Role): boolean {
@@ -51,10 +39,22 @@ export class EditRolesComponent implements OnInit, OnDestroy {
     }
 
     retractRole(role: Role): void {
-        this.usersService.retractRole(this.user, role).takeUntil(this.ngUnsubscribe).subscribe(
+        const roleIndex: number = this.user.roles.findIndex(r => r.name === role.name);
+
+        if (roleIndex !== -1) {
+            this.user.roles.splice(roleIndex, 1);
+        }
+    }
+
+    submitRoles() {
+        this.usersService.updateOtherAccountAsAdmin(this.user).takeUntil(this.ngUnsubscribe).subscribe(
             () => {
                 const url = 'admin/users/' + this.user.username;
                 this.router.navigate([url]);
+                this.isSubmitting = false;
+            },
+            error => {
+                this.router.navigate(['/error/' + error.status], {skipLocationChange: true});
             }
         );
     }

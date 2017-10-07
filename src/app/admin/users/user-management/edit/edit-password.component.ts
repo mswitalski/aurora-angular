@@ -44,11 +44,7 @@ export class EditPasswordComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        this.route.data.takeUntil(this.ngUnsubscribe).subscribe(
-            (data: {user: User}) => {
-                this.user = data.user;
-            }
-        );
+        this.user = JSON.parse(JSON.stringify(this.route.snapshot.data['user']));
     }
 
     submitForm(): void {

@@ -8,8 +8,8 @@ import {UsersListComponent, UsersListResolver} from './users/list';
 import {IsAdminGuard} from '../shared/service/guard';
 import {UserManagementComponent} from './users/user-management';
 import {CachedUserResolver, UserResolver} from './users';
-import {EditPasswordComponent, EditUserComponent} from './users/user-management/edit';
-import {EditRolesComponent} from './users/user-management/edit';
+import {EditPasswordComponent, EditRolesComponent, EditUserComponent} from './users/user-management/edit';
+import {RolesResolver} from './users/roles-resolver.service';
 
 const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
@@ -54,7 +54,8 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         data: { title: 'TITLE.ADMIN.ROLES' },
         path: 'admin/users/:username/roles',
         resolve: {
-            user: CachedUserResolver
+            user: CachedUserResolver,
+            roles: RolesResolver
         }
     }
 ]);
@@ -76,6 +77,7 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     ],
     providers: [
         CachedUserResolver,
+        RolesResolver,
         UsersListResolver,
         UserResolver
     ]
