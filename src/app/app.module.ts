@@ -27,6 +27,11 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([
         path: '',
         redirectTo: '/dashboard',
         pathMatch: 'full'
+    },
+    {
+        path: '**',
+        redirectTo: '/error/404',
+        pathMatch: 'full'
     }
 ], {useHash: true});
 
