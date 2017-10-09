@@ -30,6 +30,6 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
     }
 
     private isNotLoginAction(): boolean {
-        return window.location.pathname.indexOf('login') !== -1;
+        return window.location.href.indexOf('/login') === -1;
     }
 }
