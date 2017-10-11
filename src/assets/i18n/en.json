@@ -1,6 +1,9 @@
 {
     "YES": "Yes",
     "NO": "No",
+    "DIALOG": {
+        "CONFIRMATION": "Are you sure?"
+    },
     "SIDEBAR": {
         "ADMIN": "Admin",
         "DASHBOARD": "Dashboard",
@@ -20,7 +23,8 @@
         "DETAILS": "Details",
         "ASSIGN": "Assign",
         "RETRACT": "Retract",
-        "CREATE-USER": "Create new user"
+        "CREATE-USER": "Create new user",
+        "DELETE": "Delete"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Bad username or/and password!",

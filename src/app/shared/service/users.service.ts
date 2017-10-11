@@ -17,6 +17,10 @@ export class UsersService {
         return this.api.post('admin/users/', user);
     }
 
+    deleteUser(user: User): Observable<HttpResponse<any>> {
+        return this.api.deleteMethod('admin/users/' + user.id);
+    }
+
     getAllByPage(page: number = 0): Observable<PagedResults<User>> {
         const resultPageSize = environment.resultsOnPage;
         const partialUrl = 'users/';

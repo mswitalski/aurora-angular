@@ -1,6 +1,9 @@
 {
     "YES": "Tak",
     "NO": "Nie",
+    "DIALOG": {
+        "CONFIRMATION": "Czy na pewno chcesz to zrobi\u0107?"
+    },
     "SIDEBAR": {
         "ADMIN": "Admin",
         "DASHBOARD": "Pulpit",
@@ -20,7 +23,8 @@
         "DETAILS": "Szczeg\u00f3\u0142y",
         "ASSIGN": "Przypisz",
         "RETRACT": "Odbierz",
-        "CREATE-USER": "Stw\u00f3rz nowego u\u017cytkownika"
+        "CREATE-USER": "Stw\u00f3rz nowego u\u017cytkownika",
+        "DELETE": "Usu\u0144"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Podano nieprawid\u0142ow\u0105 nazw\u0119 użytkownika i/lub has\u0142o",
