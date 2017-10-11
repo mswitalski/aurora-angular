@@ -1,0 +1,196 @@
+<h2 translate>HEADER.CREATE-USER</h2>
+
+<form [formGroup]="createUserForm" (ngSubmit)="submitForm()">
+    <fieldset [disabled]="isSubmitting">
+        <fieldset class="form-group row">
+            <label for="user-username" class="col-md-2 col-form-label" translate>USER.USERNAME</label>
+            <div class="col-md-5">
+                <input
+                    id="user-username"
+                    class="form-control"
+                    formControlName="username"
+                    [(ngModel)]="user.username"
+                    placeholder="{{ 'USER.USERNAME' | translate }}"
+                    type="text"/>
+                <div *ngIf="createUserForm.controls['username'].errors && !createUserForm.controls['username'].pristine"
+                     class="text-danger">
+                    <div [hidden]="!createUserForm.controls['username'].errors.required" translate>ERROR.REQUIRED</div>
+                    <div [hidden]="!createUserForm.controls['username'].errors.minlength" translate
+                         [translateParams]="{value: 3}">ERROR.MIN-LEN
+                    </div>
+                    <div [hidden]="!createUserForm.controls['username'].errors.maxlength" translate
+                         [translateParams]="{value: 20}">ERROR.MAX-LEN
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="form-group row">
+            <label for="user-password" class="col-md-2 col-form-label" translate>USER.PASSWORD</label>
+            <div class="col-md-5">
+                <input
+                    id="user-password"
+                    class="form-control"
+                    formControlName="password"
+                    [(ngModel)]="user.password"
+                    placeholder="{{ 'USER.PASSWORD' | translate }}"
+                    type="text"/>
+                <div *ngIf="createUserForm.controls['password'].errors && !createUserForm.controls['password'].pristine"
+                     class="text-danger">
+                    <div [hidden]="!createUserForm.controls['password'].errors.required" translate>ERROR.REQUIRED</div>
+                    <div [hidden]="!createUserForm.controls['password'].errors.minlength" translate
+                         [translateParams]="{value: 3}">ERROR.MIN-LEN
+                    </div>
+                    <div [hidden]="!createUserForm.controls['password'].errors.maxlength" translate
+                         [translateParams]="{value: 20}">ERROR.MAX-LEN
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="form-group row">
+            <label for="user-email" class="col-md-2 col-form-label" translate>USER.EMAIL</label>
+            <div class="col-md-5">
+                <input
+                    id="user-email"
+                    class="form-control"
+                    formControlName="email"
+                    [(ngModel)]="user.email"
+                    placeholder="{{ 'USER.EMAIL' | translate }}"
+                    type="text"/>
+                <div *ngIf="createUserForm.controls['email'].errors && !createUserForm.controls['email'].pristine"
+                     class="text-danger">
+                    <div [hidden]="!createUserForm.controls['email'].errors.required" translate>ERROR.REQUIRED</div>
+                    <div [hidden]="!createUserForm.controls['email'].errors.email" translate>ERROR.INVALID</div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="form-group row">
+            <label for="user-name" class="col-md-2 col-form-label">{{ 'USER.NAME' | translate }}</label>
+            <div class="col-md-5">
+                <input
+                    id="user-name"
+                    class="form-control"
+                    formControlName="name"
+                    [(ngModel)]="user.name"
+                    placeholder="{{ 'USER.NAME' | translate }}"
+                    type="text"/>
+                <div *ngIf="createUserForm.controls['name'].errors && !createUserForm.controls['name'].pristine"
+                     class="text-danger">
+                    <div [hidden]="!createUserForm.controls['name'].errors.required" translate>ERROR.REQUIRED</div>
+                    <div [hidden]="!createUserForm.controls['name'].errors.minlength" translate
+                         [translateParams]="{value: 3}">ERROR.MIN-LEN
+                    </div>
+                    <div [hidden]="!createUserForm.controls['name'].errors.maxlength" translate
+                         [translateParams]="{value: 20}">ERROR.MAX-LEN
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="form-group row">
+            <label for="user-surname" class="col-md-2 col-form-label" translate>USER.SURNAME</label>
+            <div class="col-md-5">
+                <input
+                    id="user-surname"
+                    class="form-control"
+                    formControlName="surname"
+                    [(ngModel)]="user.surname"
+                    placeholder="{{ 'USER.SURNAME' | translate }}"
+                    type="text"/>
+                <div *ngIf="createUserForm.controls['surname'].errors && !createUserForm.controls['surname'].pristine"
+                     class="text-danger">
+                    <div [hidden]="!createUserForm.controls['surname'].errors.required" translate>ERROR.REQUIRED
+                    </div>
+                    <div [hidden]="!createUserForm.controls['surname'].errors.minlength" translate
+                         [translateParams]="{value: 3}">ERROR.MIN-LEN
+                    </div>
+                    <div [hidden]="!createUserForm.controls['surname'].errors.maxlength" translate
+                         [translateParams]="{value: 30}">ERROR.MAX-LEN
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="form-group row">
+            <label for="user-position" class="col-md-2 col-form-label" translate>USER.POSITION</label>
+            <div class="col-md-5">
+                <input
+                    id="user-position"
+                    class="form-control"
+                    formControlName="position"
+                    [(ngModel)]="user.position"
+                    placeholder="{{ 'USER.POSITION' | translate }}"
+                    type="text"/>
+                <div *ngIf="createUserForm.controls['position'].errors && !createUserForm.controls['position'].pristine"
+                     class="text-danger">
+                    <div [hidden]="!createUserForm.controls['position'].errors.required" translate>ERROR.REQUIRED
+                    </div>
+                    <div [hidden]="!createUserForm.controls['position'].errors.minlength" translate
+                         [translateParams]="{value: 2}">ERROR.MIN-LEN
+                    </div>
+                    <div [hidden]="!createUserForm.controls['position'].errors.maxlength" translate
+                         [translateParams]="{value: 40}">ERROR.MAX-LEN
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="form-group row">
+            <label for="user-goals" class="col-md-2 col-form-label" translate>USER.GOALS</label>
+            <div class="col-md-5">
+                <textarea
+                    id="user-goals"
+                    class="form-control"
+                    formControlName="goals"
+                    [(ngModel)]="user.goals"
+                    placeholder="{{ 'USER.GOALS' | translate }}"
+                    rows="3"
+                    cols="50"></textarea>
+                <div *ngIf="createUserForm.controls['goals'].errors && !createUserForm.controls['goals'].pristine"
+                     class="text-danger">
+                    <div [hidden]="!createUserForm.controls['goals'].errors.maxlength" translate
+                         [translateParams]="{value: 200}">ERROR.MAX-LEN
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset class="form-group row">
+            <label for="user-enabled" class="col-md-2 col-form-label" translate>USER.ENABLED</label>
+            <div class="col-md-5" id="user-enabled">
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="radio" formControlName="enabled" [value]="true" [(ngModel)]="user.enabled">
+                        {{'YES' | translate}}
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="radio" formControlName="enabled" [value]="false" [(ngModel)]="user.enabled">
+                        {{'NO' | translate}}
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset class="form-group row">
+            <label for="user-roles" class="col-md-2 col-form-label" translate>USER.ROLES</label>
+            <div class="col-md-5" id="user-roles">
+                <div *ngFor="let role of availableRoles">
+                    <button *ngIf="!hasRole(role)" (click)="assignRole(role)" class="btn-camouflaged" translate><i
+                        class="fa fa-square-o mr-2"></i>ROLE.{{role.name}}
+                    </button>
+                    <button *ngIf="hasRole(role)" (click)="retractRole(role)" class="btn-camouflaged" translate><i
+                        class="fa fa-check-square-o mr-2"></i>ROLE.{{role.name}}
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+
+
+        <app-list-errors [errors]="validationErrors"></app-list-errors>
+
+        <button routerLink="/admin/users" type="button" class="btn btn-dark" translate>
+            BTN.BACK
+        </button>
+        <button [disabled]="!createUserForm.valid" type="submit" class="btn btn-success" translate>
+            BTN.SAVE
+        </button>
+    </fieldset>
+</form>

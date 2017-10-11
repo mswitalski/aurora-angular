@@ -19,7 +19,8 @@
         "HOME": "Strona g\u0142\u00f3wna",
         "DETAILS": "Szczeg\u00f3\u0142y",
         "ASSIGN": "Przypisz",
-        "RETRACT": "Odbierz"
+        "RETRACT": "Odbierz",
+        "CREATE-USER": "Stw\u00f3rz nowego u\u017cytkownika"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Podano nieprawid\u0142ow\u0105 nazw\u0119 użytkownika i/lub has\u0142o",
@@ -45,11 +46,13 @@
         }
     },
     "HEADER": {
+        "CREATE-USER": "Stw\u00f3rz nowego u\u017cytkownika",
         "GREETER": "Witaj, {{name}}!",
         "PROFILE": "Tw\u00f3j profil",
         "EDIT-PROFILE": "Edytuj profil",
         "EDIT-PASSWORD": "Edytuj has\u0142o",
         "EDIT-ROLES": "Edytuj role",
+        "EDIT-USER": "Edytuj u\u017cytkownika",
         "ACTION": "Dzia\u0142anie",
         "USERS": "U\u017cytkownicy",
         "USERS-MANAGEMENT": "Zarz\u0105dzanie u\u017cytkownikami"
@@ -76,6 +79,7 @@
         "EDIT-PASSWORD": "Edytuj has\u0142o",
         "ERROR": "B\u0142\u0105d",
         "ADMIN": {
+            "CREATE-USER": "Admin: tworzenie u\u017cytkownika",
             "USERS": "Admin: u\u017cytkownicy",
             "USER": "Admin: zarz\u0105dzanie u\u017cytkownikiem",
             "USER-EDIT": "Admin: edycja danych u\u017cytkownika",

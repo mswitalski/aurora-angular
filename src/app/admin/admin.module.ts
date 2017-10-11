@@ -3,13 +3,13 @@ import {ModuleWithProviders, NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 
+import {CachedUserResolver, UserResolver} from './users';
+import {CreateUserComponent, UserManagementComponent} from './users/user-management';
+import {EditPasswordComponent, EditRolesComponent, EditUserComponent} from './users/user-management/edit';
+import {IsAdminGuard} from '../shared/service/guard';
+import {RolesResolver} from './users/roles-resolver.service';
 import {SharedModule} from '../shared';
 import {UsersListComponent, UsersListResolver} from './users/list';
-import {IsAdminGuard} from '../shared/service/guard';
-import {UserManagementComponent} from './users/user-management';
-import {CachedUserResolver, UserResolver} from './users';
-import {EditPasswordComponent, EditRolesComponent, EditUserComponent} from './users/user-management/edit';
-import {RolesResolver} from './users/roles-resolver.service';
 
 const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
@@ -57,11 +57,21 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
             user: CachedUserResolver,
             roles: RolesResolver
         }
+    },
+    {
+        canActivate: [IsAdminGuard],
+        component: CreateUserComponent,
+        data: { title: 'TITLE.ADMIN.CREATE-USER' },
+        path: 'admin/users/create/user',
+        resolve: {
+            roles: RolesResolver
+        }
     }
 ]);
 
 @NgModule({
     declarations: [
+        CreateUserComponent,
         EditUserComponent,
         EditPasswordComponent,
         EditRolesComponent,

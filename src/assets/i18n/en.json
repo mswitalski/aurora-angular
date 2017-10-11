@@ -19,7 +19,8 @@
         "HOME": "Homepage",
         "DETAILS": "Details",
         "ASSIGN": "Assign",
-        "RETRACT": "Retract"
+        "RETRACT": "Retract",
+        "CREATE-USER": "Create new user"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Bad username or/and password!",
@@ -45,11 +46,13 @@
         }
     },
     "HEADER": {
+        "CREATE-USER": "Create new user",
         "GREETER": "Hello, {{name}}!",
         "PROFILE": "Your profile",
         "EDIT-PROFILE": "Edit profile",
         "EDIT-PASSWORD": "Edit password",
         "EDIT-ROLES": "Edit roles",
+        "EDIT-USER": "Edit user",
         "ACTION": "Action",
         "USERS": "Users",
         "USERS-MANAGEMENT": "User management"
@@ -76,6 +79,7 @@
         "EDIT-PASSWORD": "Edit password",
         "ERROR": "Error",
         "ADMIN": {
+            "CREATE-USER": "Admin: create user",
             "USERS": "Admin: users",
             "USER": "Admin: user management",
             "USER-EDIT": "Admin: edit user details",

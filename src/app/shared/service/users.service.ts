@@ -13,10 +13,8 @@ export class UsersService {
 
     constructor(private api: ApiService) {}
 
-    assignRole(user: User, role: Role): Observable<HttpResponse<any>> {
-        const partialUrl = 'admin/users/' + user.id + '/role/' + role.name;
-
-        return this.api.put(partialUrl, null);
+    createUserAsAdmin(user: User): Observable<HttpResponse<any>> {
+        return this.api.post('admin/users/', user);
     }
 
     getAllByPage(page: number = 0): Observable<PagedResults<User>> {
@@ -42,12 +40,6 @@ export class UsersService {
         } else {
             return this.getSingle(username);
         }
-    }
-
-    retractRole(user: User, role: Role): Observable<HttpResponse<any>> {
-        const partialUrl = 'admin/users/' + user.id + '/role/' + role.name;
-
-        return this.api.deleteMethod(partialUrl);
     }
 
     updateOtherAccountAsAdmin(user: User): Observable<HttpResponse<any>> {
