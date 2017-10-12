@@ -12,16 +12,11 @@
                     [(ngModel)]="user.username"
                     placeholder="{{ 'USER.USERNAME' | translate }}"
                     type="text"/>
-                <div *ngIf="createUserForm.controls['username'].errors && !createUserForm.controls['username'].pristine"
-                     class="text-danger">
-                    <div [hidden]="!createUserForm.controls['username'].errors.required" translate>ERROR.REQUIRED</div>
-                    <div [hidden]="!createUserForm.controls['username'].errors.minlength" translate
-                         [translateParams]="{value: 3}">ERROR.MIN-LEN
-                    </div>
-                    <div [hidden]="!createUserForm.controls['username'].errors.maxlength" translate
-                         [translateParams]="{value: 20}">ERROR.MAX-LEN
-                    </div>
-                </div>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'username'"
+                                 [formControl]="createUserForm.controls['username']"
+                                 [maxLength]="20"
+                                 [minLength]="3" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -33,17 +28,12 @@
                     formControlName="password"
                     [(ngModel)]="user.password"
                     placeholder="{{ 'USER.PASSWORD' | translate }}"
-                    type="text"/>
-                <div *ngIf="createUserForm.controls['password'].errors && !createUserForm.controls['password'].pristine"
-                     class="text-danger">
-                    <div [hidden]="!createUserForm.controls['password'].errors.required" translate>ERROR.REQUIRED</div>
-                    <div [hidden]="!createUserForm.controls['password'].errors.minlength" translate
-                         [translateParams]="{value: 3}">ERROR.MIN-LEN
-                    </div>
-                    <div [hidden]="!createUserForm.controls['password'].errors.maxlength" translate
-                         [translateParams]="{value: 20}">ERROR.MAX-LEN
-                    </div>
-                </div>
+                    type="password"/>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'password'"
+                                 [formControl]="createUserForm.controls['password']"
+                                 [maxLength]="60"
+                                 [minLength]="3" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -56,11 +46,9 @@
                     [(ngModel)]="user.email"
                     placeholder="{{ 'USER.EMAIL' | translate }}"
                     type="text"/>
-                <div *ngIf="createUserForm.controls['email'].errors && !createUserForm.controls['email'].pristine"
-                     class="text-danger">
-                    <div [hidden]="!createUserForm.controls['email'].errors.required" translate>ERROR.REQUIRED</div>
-                    <div [hidden]="!createUserForm.controls['email'].errors.email" translate>ERROR.INVALID</div>
-                </div>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'email'"
+                                 [formControl]="createUserForm.controls['email']" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -73,16 +61,11 @@
                     [(ngModel)]="user.name"
                     placeholder="{{ 'USER.NAME' | translate }}"
                     type="text"/>
-                <div *ngIf="createUserForm.controls['name'].errors && !createUserForm.controls['name'].pristine"
-                     class="text-danger">
-                    <div [hidden]="!createUserForm.controls['name'].errors.required" translate>ERROR.REQUIRED</div>
-                    <div [hidden]="!createUserForm.controls['name'].errors.minlength" translate
-                         [translateParams]="{value: 3}">ERROR.MIN-LEN
-                    </div>
-                    <div [hidden]="!createUserForm.controls['name'].errors.maxlength" translate
-                         [translateParams]="{value: 20}">ERROR.MAX-LEN
-                    </div>
-                </div>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'name'"
+                                 [formControl]="createUserForm.controls['name']"
+                                 [maxLength]="20"
+                                 [minLength]="3" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -95,17 +78,11 @@
                     [(ngModel)]="user.surname"
                     placeholder="{{ 'USER.SURNAME' | translate }}"
                     type="text"/>
-                <div *ngIf="createUserForm.controls['surname'].errors && !createUserForm.controls['surname'].pristine"
-                     class="text-danger">
-                    <div [hidden]="!createUserForm.controls['surname'].errors.required" translate>ERROR.REQUIRED
-                    </div>
-                    <div [hidden]="!createUserForm.controls['surname'].errors.minlength" translate
-                         [translateParams]="{value: 3}">ERROR.MIN-LEN
-                    </div>
-                    <div [hidden]="!createUserForm.controls['surname'].errors.maxlength" translate
-                         [translateParams]="{value: 30}">ERROR.MAX-LEN
-                    </div>
-                </div>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'surname'"
+                                 [formControl]="createUserForm.controls['surname']"
+                                 [maxLength]="30"
+                                 [minLength]="3" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -118,17 +95,11 @@
                     [(ngModel)]="user.position"
                     placeholder="{{ 'USER.POSITION' | translate }}"
                     type="text"/>
-                <div *ngIf="createUserForm.controls['position'].errors && !createUserForm.controls['position'].pristine"
-                     class="text-danger">
-                    <div [hidden]="!createUserForm.controls['position'].errors.required" translate>ERROR.REQUIRED
-                    </div>
-                    <div [hidden]="!createUserForm.controls['position'].errors.minlength" translate
-                         [translateParams]="{value: 2}">ERROR.MIN-LEN
-                    </div>
-                    <div [hidden]="!createUserForm.controls['position'].errors.maxlength" translate
-                         [translateParams]="{value: 40}">ERROR.MAX-LEN
-                    </div>
-                </div>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'position'"
+                                 [formControl]="createUserForm.controls['position']"
+                                 [maxLength]="40"
+                                 [minLength]="2" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -142,15 +113,12 @@
                     placeholder="{{ 'USER.GOALS' | translate }}"
                     rows="3"
                     cols="50"></textarea>
-                <div *ngIf="createUserForm.controls['goals'].errors && !createUserForm.controls['goals'].pristine"
-                     class="text-danger">
-                    <div [hidden]="!createUserForm.controls['goals'].errors.maxlength" translate
-                         [translateParams]="{value: 200}">ERROR.MAX-LEN
-                    </div>
-                </div>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'goals'"
+                                 [formControl]="createUserForm.controls['goals']"
+                                 [maxLength]="200" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
-
         <fieldset class="form-group row">
             <label for="user-enabled" class="col-md-2 col-form-label" translate>USER.ENABLED</label>
             <div class="col-md-5" id="user-enabled">
@@ -168,7 +136,6 @@
                 </div>
             </div>
         </fieldset>
-
         <fieldset class="form-group row">
             <label for="user-roles" class="col-md-2 col-form-label" translate>USER.ROLES</label>
             <div class="col-md-5" id="user-roles">
@@ -182,9 +149,6 @@
                 </div>
             </div>
         </fieldset>
-
-
-        <app-list-errors [errors]="validationErrors"></app-list-errors>
 
         <button routerLink="/admin/users" type="button" class="btn btn-dark" translate>
             BTN.BACK

@@ -9,9 +9,9 @@ import {ErrorPageComponent} from './error-page';
 import {IsAdminGuard} from './service/guard/is-admin-guard.service';
 import {IsUnitLeaderGuard} from './service/guard/is-unit-leader-guard.service';
 import {IsEmployeeGuard} from './service/guard/is-employee-guard.service';
-import {ListErrorsComponent} from './list-errors.component';
 import {PaginationComponent} from './pagination.component';
 import {UserDetailsComponent} from './users/user-details.component';
+import {FormErrorsComponent} from './form-errors.component';
 
 const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
@@ -25,7 +25,7 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
 @NgModule({
     declarations: [
         ErrorPageComponent,
-        ListErrorsComponent,
+        FormErrorsComponent,
         PaginationComponent,
         UserDetailsComponent
     ],
@@ -37,7 +37,7 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         TranslateModule.forChild()
     ],
     exports: [
-        ListErrorsComponent,
+        FormErrorsComponent,
         HttpClientModule,
         PaginationComponent,
         RouterModule,

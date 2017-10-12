@@ -16,7 +16,7 @@ export class EditPasswordComponent implements OnDestroy {
 
     editPasswordForm: FormGroup;
     isSubmitting = false;
-    validationErrors: ValidationError[];
+    validationErrors: ValidationError[] = [];
     formData = new PasswordChangeFormModel();
     private ngUnsubscribe: Subject<void> = new Subject<void>();
 

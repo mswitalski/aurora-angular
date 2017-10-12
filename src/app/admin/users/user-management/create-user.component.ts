@@ -18,7 +18,7 @@ export class CreateUserComponent implements OnInit, OnDestroy {
     createUserForm: FormGroup;
     isSubmitting = false;
     user = new User();
-    validationErrors: ValidationError[];
+    validationErrors: ValidationError[] = [];
     private ngUnsubscribe: Subject<void> = new Subject<void>();
 
     constructor(private formBuilder: FormBuilder,

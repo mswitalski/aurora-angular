@@ -12,11 +12,10 @@
                     [(ngModel)]="user.email"
                     placeholder="{{ 'USER.EMAIL' | translate }}"
                     type="text"/>
-                <div *ngIf="editUserForm.controls['email'].errors && !editUserForm.controls['email'].pristine"
-                     class="text-danger">
-                    <div [hidden]="!editUserForm.controls['email'].errors.required" translate>ERROR.REQUIRED</div>
-                    <div [hidden]="!editUserForm.controls['email'].errors.email" translate>ERROR.INVALID</div>
-                </div>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'email'"
+                                 [formControl]="editUserForm.controls['email']"
+                                 [maxLength]="40" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -29,16 +28,11 @@
                     [(ngModel)]="user.name"
                     placeholder="{{ 'USER.NAME' | translate }}"
                     type="text"/>
-                <div *ngIf="editUserForm.controls['name'].errors && !editUserForm.controls['name'].pristine"
-                     class="text-danger">
-                    <div [hidden]="!editUserForm.controls['name'].errors.required" translate>ERROR.REQUIRED</div>
-                    <div [hidden]="!editUserForm.controls['name'].errors.minlength" translate
-                         [translateParams]="{value: 3}">ERROR.MIN-LEN
-                    </div>
-                    <div [hidden]="!editUserForm.controls['name'].errors.maxlength" translate
-                         [translateParams]="{value: 20}">ERROR.MAX-LEN
-                    </div>
-                </div>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'name'"
+                                 [formControl]="editUserForm.controls['name']"
+                                 [maxLength]="20"
+                                 [minLength]="3" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -51,17 +45,11 @@
                     [(ngModel)]="user.surname"
                     placeholder="{{ 'USER.SURNAME' | translate }}"
                     type="text"/>
-                <div *ngIf="editUserForm.controls['surname'].errors && !editUserForm.controls['surname'].pristine"
-                     class="text-danger">
-                    <div [hidden]="!editUserForm.controls['surname'].errors.required" translate>ERROR.REQUIRED
-                    </div>
-                    <div [hidden]="!editUserForm.controls['surname'].errors.minlength" translate
-                         [translateParams]="{value: 3}">ERROR.MIN-LEN
-                    </div>
-                    <div [hidden]="!editUserForm.controls['surname'].errors.maxlength" translate
-                         [translateParams]="{value: 30}">ERROR.MAX-LEN
-                    </div>
-                </div>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'surname'"
+                                 [formControl]="editUserForm.controls['surname']"
+                                 [maxLength]="30"
+                                 [minLength]="3" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -74,17 +62,11 @@
                     [(ngModel)]="user.position"
                     placeholder="{{ 'USER.POSITION' | translate }}"
                     type="text"/>
-                <div *ngIf="editUserForm.controls['position'].errors && !editUserForm.controls['position'].pristine"
-                     class="text-danger">
-                    <div [hidden]="!editUserForm.controls['position'].errors.required" translate>ERROR.REQUIRED
-                    </div>
-                    <div [hidden]="!editUserForm.controls['position'].errors.minlength" translate
-                         [translateParams]="{value: 2}">ERROR.MIN-LEN
-                    </div>
-                    <div [hidden]="!editUserForm.controls['position'].errors.maxlength" translate
-                         [translateParams]="{value: 40}">ERROR.MAX-LEN
-                    </div>
-                </div>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'position'"
+                                 [formControl]="editUserForm.controls['position']"
+                                 [maxLength]="40"
+                                 [minLength]="2" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -98,15 +80,12 @@
                     placeholder="{{ 'USER.GOALS' | translate }}"
                     rows="3"
                     cols="50"></textarea>
-                <div *ngIf="editUserForm.controls['goals'].errors && !editUserForm.controls['goals'].pristine"
-                     class="text-danger">
-                    <div [hidden]="!editUserForm.controls['goals'].errors.maxlength" translate
-                         [translateParams]="{value: 200}">ERROR.MAX-LEN
-                    </div>
-                </div>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'goals'"
+                                 [formControl]="editUserForm.controls['goals']"
+                                 [maxLength]="200" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
-
         <fieldset class="form-group row">
             <label for="user-enabled" class="col-md-2 col-form-label" translate>USER.ENABLED</label>
             <div class="col-md-5" id="user-enabled">
@@ -124,9 +103,6 @@
                 </div>
             </div>
         </fieldset>
-
-
-        <app-list-errors [errors]="validationErrors"></app-list-errors>
 
         <button [routerLink]="['/admin/users', user.username]" type="button" class="btn btn-dark" translate>
             BTN.BACK

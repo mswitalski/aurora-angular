@@ -12,16 +12,11 @@
                     [(ngModel)]="loggedUser.name"
                     placeholder="{{ 'USER.NAME' | translate }}"
                     type="text"/>
-                <div *ngIf="editProfileForm.controls['name'].errors && !editProfileForm.controls['name'].pristine"
-                     class="text-danger">
-                    <div [hidden]="!editProfileForm.controls['name'].errors.required" translate>ERROR.REQUIRED</div>
-                    <div [hidden]="!editProfileForm.controls['name'].errors.minlength" translate
-                         [translateParams]="{value: 3}">ERROR.MIN-LEN
-                    </div>
-                    <div [hidden]="!editProfileForm.controls['name'].errors.maxlength" translate
-                         [translateParams]="{value: 20}">ERROR.MAX-LEN
-                    </div>
-                </div>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'name'"
+                                 [formControl]="editProfileForm.controls['name']"
+                                 [maxLength]="20"
+                                 [minLength]="3" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -34,17 +29,11 @@
                     [(ngModel)]="loggedUser.surname"
                     placeholder="{{ 'USER.SURNAME' | translate }}"
                     type="text"/>
-                <div *ngIf="editProfileForm.controls['surname'].errors && !editProfileForm.controls['surname'].pristine"
-                     class="text-danger">
-                    <div [hidden]="!editProfileForm.controls['surname'].errors.required" translate>ERROR.REQUIRED
-                    </div>
-                    <div [hidden]="!editProfileForm.controls['surname'].errors.minlength" translate
-                         [translateParams]="{value: 3}">ERROR.MIN-LEN
-                    </div>
-                    <div [hidden]="!editProfileForm.controls['surname'].errors.maxlength" translate
-                         [translateParams]="{value: 30}">ERROR.MAX-LEN
-                    </div>
-                </div>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'surname'"
+                                 [formControl]="editProfileForm.controls['surname']"
+                                 [maxLength]="30"
+                                 [minLength]="3" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -58,16 +47,12 @@
                     placeholder="{{ 'USER.GOALS' | translate }}"
                     rows="3"
                     cols="50"></textarea>
-                <div *ngIf="editProfileForm.controls['goals'].errors && !editProfileForm.controls['goals'].pristine"
-                     class="text-danger">
-                    <div [hidden]="!editProfileForm.controls['goals'].errors.maxlength" translate
-                         [translateParams]="{value: 200}">ERROR.MAX-LEN
-                    </div>
-                </div>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'goals'"
+                                 [formControl]="editProfileForm.controls['goals']"
+                                 [maxLength]="200" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
-
-        <app-list-errors [errors]="validationErrors"></app-list-errors>
 
         <button routerLink="/profile" type="button" class="btn btn-dark" translate>
             BTN.BACK

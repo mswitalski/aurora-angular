@@ -15,7 +15,7 @@ export class EditUserComponent implements OnInit, OnDestroy {
     editUserForm: FormGroup;
     isSubmitting = false;
     user: User;
-    validationErrors: ValidationError[];
+    validationErrors: ValidationError[] = [];
     private ngUnsubscribe: Subject<void> = new Subject<void>();
 
     constructor(private formBuilder: FormBuilder,

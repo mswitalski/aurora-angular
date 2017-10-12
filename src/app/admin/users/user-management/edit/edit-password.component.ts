@@ -13,7 +13,7 @@ export class EditPasswordComponent implements OnInit, OnDestroy {
 
     editPasswordForm: FormGroup;
     isSubmitting = false;
-    validationErrors: ValidationError[];
+    validationErrors: ValidationError[] = [];
     formData = new AdminPasswordChangeFormModel();
     user: User;
     private ngUnsubscribe: Subject<void> = new Subject<void>();
