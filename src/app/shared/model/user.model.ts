@@ -1,4 +1,4 @@
-import {Role} from './role.model';
+import {Duty, Role} from './';
 
 export class User {
     id: number;
@@ -11,4 +11,5 @@ export class User {
     goals: string;
     enabled = false;
     roles: Role[] = [];
+    duties: Duty[] = [];
 }

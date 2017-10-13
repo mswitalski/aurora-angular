@@ -1,4 +1,5 @@
 export * from './admin-password-change-form.model';
+export * from './duty.model';
 export * from './errors.model';
 export * from './login-credentials.model';
 export * from './paged-results.model';

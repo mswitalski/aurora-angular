@@ -22,17 +22,13 @@ export class UserManagementComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.route.data.takeUntil(this.ngUnsubscribe).subscribe(
-            (data: { user: User }) => {
-                this.user = data.user;
-            }
-        );
+        this.user = this.route.snapshot.data['user'];
         this.translate.get('DIALOG.CONFIRMATION').takeUntil(this.ngUnsubscribe).subscribe(
             msg => this.deleteDialogMessage = msg
         );
     }
 
-    deleteUser(dialogMessage: string) {
+    deleteUser() {
         if (confirm(this.deleteDialogMessage)) {
             this.usersService.deleteUser(this.user).takeUntil(this.ngUnsubscribe).subscribe(
                 () => {

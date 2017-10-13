@@ -4,6 +4,9 @@
     {{ 'USER.NAME' | translate }}: {{selectedUser.name}} <br/>
     {{ 'USER.SURNAME' | translate }}: {{selectedUser.surname}} <br/>
     {{ 'USER.POSITION' | translate }}: {{selectedUser.position}} <br/>
+    <div *ngIf="selectedUser.duties.length !== 0">
+        {{ 'USER.DUTIES' | translate }}: <span>{{getFormattedDuties()}}</span>
+    </div>
     {{ 'USER.GOALS' | translate }}: {{selectedUser.goals}}
     <div *ngIf="extendedInformation">
         {{ 'USER.ENABLED' | translate }}:

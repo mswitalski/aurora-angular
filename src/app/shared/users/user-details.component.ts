@@ -18,4 +18,8 @@ export class UserDetailsComponent {
     @Input() set extendedInfo(value: boolean) {
         this.extendedInformation = value;
     }
+
+    getFormattedDuties(): string {
+        return this.selectedUser.duties.map(d => d.name).join(', ');
+    }
 }
