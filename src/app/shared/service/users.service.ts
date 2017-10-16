@@ -5,6 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import {ApiService} from './api.service';
 import {AdminPasswordChangeFormModel, PagedResults, PasswordChangeFormModel, Role, User} from '../model';
 import {environment} from '../../../environments/environment';
+import {UserSearchForm} from '../model/user-search-form.model';
 
 @Injectable()
 export class UsersService {
@@ -44,6 +45,16 @@ export class UsersService {
         } else {
             return this.getSingle(username);
         }
+    }
+
+    search(criteria: UserSearchForm, page: number = 0): Observable<PagedResults<User>> {
+        const resultPageSize = environment.resultsOnPage;
+        const partialUrl = 'search/users/';
+        const queryParams = new HttpParams()
+            .set('page', page.toString(10))
+            .set('size', resultPageSize.toString(10));
+
+        return this.api.postWithParams(partialUrl, queryParams, criteria);
     }
 
     updateOtherAccountAsAdmin(user: User): Observable<HttpResponse<any>> {

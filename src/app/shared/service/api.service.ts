@@ -60,6 +60,12 @@ export class ApiService {
         return this.http.post(url, JSON.stringify(objectToPost), {headers: this.prepareDefaultHeaders()});
     }
 
+    postWithParams(partialUrl: string, params: HttpParams, objectToPost: Object): Observable<any> {
+        const url = environment.backendUrl + partialUrl;
+
+        return this.http.post(url, JSON.stringify(objectToPost), {params: params, headers: this.prepareDefaultHeaders()});
+    }
+
     put(partialUrl: string, objectToPut: Object): Observable<HttpResponse<any>> {
         const url = environment.backendUrl + partialUrl;
 

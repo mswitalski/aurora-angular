@@ -6,6 +6,54 @@
     </button>
 </div>
 
+<form [formGroup]="searchUserForm" (ngSubmit)="search()">
+    <fieldset>
+        <fieldset class="form-group col-md-3">
+            <label for="user-username" class="col-form-label" translate>USER.USERNAME</label>
+            <input
+                id="user-username"
+                class="form-control"
+                formControlName="username"
+                [(ngModel)]="formData.username"
+                type="text"/>
+        </fieldset>
+        <fieldset class="form-group col-md-3">
+            <label for="user-name" class="col-form-label" translate>USER.NAME</label>
+            <input
+                id="user-name"
+                class="form-control"
+                formControlName="name"
+                [(ngModel)]="formData.name"
+                type="text"/>
+        </fieldset>
+        <fieldset class="form-group col-md-3">
+            <label for="user-surname" class="col-form-label" translate>USER.SURNAME</label>
+            <input
+                id="user-surname"
+                class="form-control"
+                formControlName="surname"
+                [(ngModel)]="formData.surname"
+                type="text"/>
+        </fieldset>
+        <fieldset class="form-group col-md-3">
+            <label for="user-email" class="col-form-label" translate>USER.EMAIL</label>
+            <input
+                id="user-email"
+                class="form-control"
+                formControlName="email"
+                [(ngModel)]="formData.email"
+                type="text"/>
+        </fieldset>
+
+        <button type="submit" class="btn btn-success" translate>
+            Filtruj
+        </button>
+        <button (click)="resetForm()" type="button" class="btn btn-success" translate>
+            Resetuj
+        </button>
+    </fieldset>
+</form>
+
 <table class="table table-hover">
     <thead>
     <tr>

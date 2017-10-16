@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {ActivatedRoute} from '@angular/router';
-import {User} from '../../../shared/model/user.model';
 import 'rxjs/add/operator/takeUntil';
-import {PagedResults} from '../../../shared/model/paged-results.model';
+import {PagedResults, User, UserSearchForm} from '../../../shared/model';
 import {UsersService} from '../../../shared/service/users.service';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
     templateUrl: 'users-list.component.html'
@@ -13,10 +13,23 @@ import {UsersService} from '../../../shared/service/users.service';
 export class UsersListComponent implements OnInit, OnDestroy {
 
     usersList: User[];
+    formData = new UserSearchForm();
+    searchUserForm: FormGroup;
     pagedResults: PagedResults<User>;
+    private isFilteringEnabled = false;
     private ngUnsubscribe: Subject<void> = new Subject<void>();
 
-    constructor(private route: ActivatedRoute, private usersService: UsersService) {
+    constructor(private formBuilder: FormBuilder, private route: ActivatedRoute, private usersService: UsersService) {
+        this.createFormControls();
+    }
+
+    private createFormControls(): void {
+        this.searchUserForm = this.formBuilder.group({
+            'username': [''],
+            'name': [''],
+            'surname': [''],
+            'email': ['']
+        });
     }
 
     ngOnInit() {
@@ -28,11 +41,32 @@ export class UsersListComponent implements OnInit, OnDestroy {
         );
     }
 
-    pageChanged(activePage: number) {
-        this.usersService.getAllByPage(activePage).takeUntil(this.ngUnsubscribe).subscribe(
-            (data) => {
-                this.usersList = data.content;
-            });
+    resetForm(): void {
+        this.isFilteringEnabled = false;
+        this.pageChanged(0);
+        this.searchUserForm.reset(new UserSearchForm());
+    }
+
+    search(): void {
+        this.isFilteringEnabled = true;
+        this.pageChanged(0);
+    }
+
+    pageChanged(activePage: number): void {
+        if (this.isFilteringEnabled) {
+            this.usersService.search(this.formData, activePage).takeUntil(this.ngUnsubscribe).subscribe(
+                (data) => {
+                    this.usersList = data.content;
+                    this.pagedResults = data;
+                });
+
+        } else {
+            this.usersService.getAllByPage(activePage).takeUntil(this.ngUnsubscribe).subscribe(
+                (data) => {
+                    this.usersList = data.content;
+                    this.pagedResults = data;
+                });
+        }
     }
 
     ngOnDestroy() {
