@@ -24,7 +24,9 @@
         "ASSIGN": "Przypisz",
         "RETRACT": "Odbierz",
         "CREATE-USER": "Stw\u00f3rz nowego u\u017cytkownika",
-        "DELETE": "Usu\u0144"
+        "DELETE": "Usu\u0144",
+        "FILTER": "Filtruj",
+        "RESET": "Wyczy\u015b\u0107"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Podano nieprawid\u0142ow\u0105 nazw\u0119 użytkownika i/lub has\u0142o",

@@ -41,32 +41,31 @@ export class UsersListComponent implements OnInit, OnDestroy {
         );
     }
 
-    resetForm(): void {
+    resetSearchForm(): void {
         this.isFilteringEnabled = false;
-        this.pageChanged(0);
         this.searchUserForm.reset(new UserSearchForm());
+        this.loadPage(0);
     }
 
     search(): void {
         this.isFilteringEnabled = true;
-        this.pageChanged(0);
+        this.loadPage(0);
     }
 
-    pageChanged(activePage: number): void {
+    loadPage(activePage: number): void {
         if (this.isFilteringEnabled) {
             this.usersService.search(this.formData, activePage).takeUntil(this.ngUnsubscribe).subscribe(
-                (data) => {
-                    this.usersList = data.content;
-                    this.pagedResults = data;
-                });
+                data => this.processReceivedData(data));
 
         } else {
             this.usersService.getAllByPage(activePage).takeUntil(this.ngUnsubscribe).subscribe(
-                (data) => {
-                    this.usersList = data.content;
-                    this.pagedResults = data;
-                });
+                data => this.processReceivedData(data));
         }
+    }
+
+    private processReceivedData(data: PagedResults<User>): void {
+        this.usersList = data.content;
+        this.pagedResults = data;
     }
 
     ngOnDestroy() {

@@ -24,7 +24,9 @@
         "ASSIGN": "Assign",
         "RETRACT": "Retract",
         "CREATE-USER": "Create new user",
-        "DELETE": "Delete"
+        "DELETE": "Delete",
+        "FILTER": "Filter",
+        "RESET": "Reset"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Bad username or/and password!",
