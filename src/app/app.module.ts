@@ -5,7 +5,7 @@ import {RouterModule} from '@angular/router';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
-import {ApiService, AuthService, JwtService} from './shared/service';
+import {ApiService, AuthService, DutiesService, JwtService, RolesService, UsersService} from './shared/service';
 import {AppComponent} from './app.component';
 import {
     AuthenticatedOnlyDirective,
@@ -19,7 +19,6 @@ import {DashboardModule} from './dashboard';
 import {HttpErrorInterceptorService} from './shared/listener';
 import {LoginModule} from './login';
 import {ProfileModule} from './profile';
-import {RolesService, UsersService} from './shared/service';
 import {AdminModule} from './admin';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([
@@ -67,6 +66,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     providers: [
         ApiService,
         AuthService,
+        DutiesService,
         JwtService,
         RolesService,
         UsersService,

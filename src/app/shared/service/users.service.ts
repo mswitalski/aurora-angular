@@ -3,14 +3,14 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
 import {ApiService} from './api.service';
-import {AdminPasswordChangeFormModel, PagedResults, PasswordChangeFormModel, Role, User} from '../model';
+import {AdminPasswordChangeFormModel, PagedResults, PasswordChangeFormModel, User} from '../model';
 import {environment} from '../../../environments/environment';
 import {UserSearchForm} from '../model/user-search-form.model';
 
 @Injectable()
 export class UsersService {
 
-    public cachedUser: User;
+    private cachedUser: User;
 
     constructor(private api: ApiService) {}
 
