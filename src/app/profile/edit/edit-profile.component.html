@@ -15,8 +15,8 @@
                 <app-form-errors [serverErrors]="validationErrors"
                                  [controlName]="'name'"
                                  [formControl]="editProfileForm.controls['name']"
-                                 [maxLength]="20"
-                                 [minLength]="3" ngDefaultControl></app-form-errors>
+                                 [maxLength]="validation.name.max"
+                                 [minLength]="validation.name.min" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -32,8 +32,8 @@
                 <app-form-errors [serverErrors]="validationErrors"
                                  [controlName]="'surname'"
                                  [formControl]="editProfileForm.controls['surname']"
-                                 [maxLength]="30"
-                                 [minLength]="3" ngDefaultControl></app-form-errors>
+                                 [maxLength]="validation.surname.max"
+                                 [minLength]="validation.surname.min" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -50,7 +50,7 @@
                 <app-form-errors [serverErrors]="validationErrors"
                                  [controlName]="'goals'"
                                  [formControl]="editProfileForm.controls['goals']"
-                                 [maxLength]="200" ngDefaultControl></app-form-errors>
+                                 [maxLength]="validation.goals.max" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
 

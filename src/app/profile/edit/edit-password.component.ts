@@ -6,6 +6,7 @@ import 'rxjs/add/operator/takeUntil';
 import {AutoUnsubscriberComponent} from '../../shared';
 import {PasswordChangeFormModel, ValidationError} from '../../shared/model';
 import {UsersService} from '../../shared/service';
+import {validationConstraints} from '../../shared/configuration';
 
 @Component({
     templateUrl: './edit-password.component.html'
@@ -15,6 +16,7 @@ export class EditPasswordComponent extends AutoUnsubscriberComponent {
     editPasswordForm: FormGroup;
     formData = new PasswordChangeFormModel();
     isSubmitting = false;
+    validation = validationConstraints.user;
     validationErrors: ValidationError[] = [];
 
     constructor(private formBuilder: FormBuilder,
@@ -35,7 +37,11 @@ export class EditPasswordComponent extends AutoUnsubscriberComponent {
     }
 
     private constructValidators(): any {
-        return [Validators.required, Validators.minLength(3), Validators.maxLength(60)];
+        return [
+            Validators.required,
+            Validators.minLength(this.validation.password.min),
+            Validators.maxLength(this.validation.password.max)
+        ];
     }
 
     private isPasswordProperlyRepeated(group: FormGroup) {

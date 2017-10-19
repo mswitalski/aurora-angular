@@ -6,6 +6,7 @@ import {isUndefined} from 'util';
 import {AutoUnsubscriberComponent} from '../../../shared';
 import {Role, User, ValidationError} from '../../../shared/model';
 import {UsersService} from '../../../shared/service';
+import {validationConstraints} from '../../../shared/configuration';
 
 @Component({
     templateUrl: './create-user.component.html'
@@ -16,6 +17,7 @@ export class CreateUserComponent extends AutoUnsubscriberComponent implements On
     createUserForm: FormGroup;
     isSubmitting = false;
     user = new User();
+    validation = validationConstraints.user;
     validationErrors: ValidationError[] = [];
 
     constructor(private formBuilder: FormBuilder,
@@ -28,13 +30,37 @@ export class CreateUserComponent extends AutoUnsubscriberComponent implements On
 
     private createFormControls(): void {
         this.createUserForm = this.formBuilder.group({
-            'username': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
-            'password': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(60)]],
-            'email': ['', [Validators.required, Validators.email, Validators.maxLength(40)]],
-            'name': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
-            'surname': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
-            'position': ['', [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
-            'goals': ['', Validators.maxLength(200)],
+            'username': ['', [
+                Validators.required,
+                Validators.minLength(this.validation.username.min),
+                Validators.maxLength(this.validation.username.max)]
+            ],
+            'password': ['', [
+                Validators.required,
+                Validators.minLength(this.validation.password.min),
+                Validators.maxLength(this.validation.password.max)]
+            ],
+            'email': ['', [
+                Validators.required,
+                Validators.email,
+                Validators.maxLength(this.validation.email.max)]
+            ],
+            'name': ['', [
+                Validators.required,
+                Validators.minLength(this.validation.name.max),
+                Validators.maxLength(this.validation.name.max)]
+            ],
+            'surname': ['', [
+                Validators.required,
+                Validators.minLength(this.validation.surname.max),
+                Validators.maxLength(this.validation.surname.max)]
+            ],
+            'position': ['', [
+                Validators.required,
+                Validators.minLength(this.validation.position.max),
+                Validators.maxLength(this.validation.position.max)
+            ]],
+            'goals': ['', Validators.maxLength(this.validation.goals.max)],
             'enabled': ['']
         });
     }

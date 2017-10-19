@@ -15,7 +15,7 @@
                 <app-form-errors [serverErrors]="validationErrors"
                                  [controlName]="'email'"
                                  [formControl]="editUserForm.controls['email']"
-                                 [maxLength]="40" ngDefaultControl></app-form-errors>
+                                 [maxLength]="validation.email.max" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -31,8 +31,8 @@
                 <app-form-errors [serverErrors]="validationErrors"
                                  [controlName]="'name'"
                                  [formControl]="editUserForm.controls['name']"
-                                 [maxLength]="20"
-                                 [minLength]="3" ngDefaultControl></app-form-errors>
+                                 [maxLength]="validation.name.max"
+                                 [minLength]="validation.name.min" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -48,8 +48,8 @@
                 <app-form-errors [serverErrors]="validationErrors"
                                  [controlName]="'surname'"
                                  [formControl]="editUserForm.controls['surname']"
-                                 [maxLength]="30"
-                                 [minLength]="3" ngDefaultControl></app-form-errors>
+                                 [maxLength]="validation.surname.max"
+                                 [minLength]="validation.surname.min" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -65,8 +65,8 @@
                 <app-form-errors [serverErrors]="validationErrors"
                                  [controlName]="'position'"
                                  [formControl]="editUserForm.controls['position']"
-                                 [maxLength]="40"
-                                 [minLength]="2" ngDefaultControl></app-form-errors>
+                                 [maxLength]="validation.position.max"
+                                 [minLength]="validation.position.min" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -83,7 +83,7 @@
                 <app-form-errors [serverErrors]="validationErrors"
                                  [controlName]="'goals'"
                                  [formControl]="editUserForm.controls['goals']"
-                                 [maxLength]="200" ngDefaultControl></app-form-errors>
+                                 [maxLength]="validation.goals.max" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">

@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AdminPasswordChangeFormModel, User, ValidationError} from '../../../../shared/model';
 import {AutoUnsubscriberComponent} from '../../../../shared';
 import {UsersService} from '../../../../shared/service';
+import {validationConstraints} from '../../../../shared/configuration';
 
 @Component({
     templateUrl: './edit-password.component.html'
@@ -15,6 +16,7 @@ export class EditPasswordComponent extends AutoUnsubscriberComponent implements 
     formData = new AdminPasswordChangeFormModel();
     isSubmitting = false;
     user: User;
+    validation = validationConstraints.user;
     validationErrors: ValidationError[] = [];
 
     constructor(private formBuilder: FormBuilder,
@@ -33,7 +35,11 @@ export class EditPasswordComponent extends AutoUnsubscriberComponent implements 
     }
 
     private constructValidators(): any {
-        return [Validators.required, Validators.minLength(3), Validators.maxLength(60)];
+        return [
+            Validators.required,
+            Validators.minLength(this.validation.password.min),
+            Validators.maxLength(this.validation.password.max)
+        ];
     }
 
     private isPasswordProperlyRepeated(group: FormGroup) {

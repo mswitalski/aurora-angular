@@ -15,8 +15,8 @@
                 <app-form-errors [serverErrors]="validationErrors"
                                  [controlName]="'username'"
                                  [formControl]="createUserForm.controls['username']"
-                                 [maxLength]="20"
-                                 [minLength]="3" ngDefaultControl></app-form-errors>
+                                 [maxLength]="validation.username.max"
+                                 [minLength]="validation.username.min" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -32,8 +32,8 @@
                 <app-form-errors [serverErrors]="validationErrors"
                                  [controlName]="'password'"
                                  [formControl]="createUserForm.controls['password']"
-                                 [maxLength]="60"
-                                 [minLength]="3" ngDefaultControl></app-form-errors>
+                                 [maxLength]="validation.password.max"
+                                 [minLength]="validation.password.min" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -48,7 +48,8 @@
                     type="text"/>
                 <app-form-errors [serverErrors]="validationErrors"
                                  [controlName]="'email'"
-                                 [formControl]="createUserForm.controls['email']" ngDefaultControl></app-form-errors>
+                                 [formControl]="createUserForm.controls['email']"
+                                 [maxLength]="validation.email.max" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -64,8 +65,8 @@
                 <app-form-errors [serverErrors]="validationErrors"
                                  [controlName]="'name'"
                                  [formControl]="createUserForm.controls['name']"
-                                 [maxLength]="20"
-                                 [minLength]="3" ngDefaultControl></app-form-errors>
+                                 [maxLength]="validation.name.max"
+                                 [minLength]="validation.name.min" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -81,8 +82,8 @@
                 <app-form-errors [serverErrors]="validationErrors"
                                  [controlName]="'surname'"
                                  [formControl]="createUserForm.controls['surname']"
-                                 [maxLength]="30"
-                                 [minLength]="3" ngDefaultControl></app-form-errors>
+                                 [maxLength]="validation.surname.max"
+                                 [minLength]="validation.surname.min" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -98,8 +99,8 @@
                 <app-form-errors [serverErrors]="validationErrors"
                                  [controlName]="'position'"
                                  [formControl]="createUserForm.controls['position']"
-                                 [maxLength]="40"
-                                 [minLength]="2" ngDefaultControl></app-form-errors>
+                                 [maxLength]="validation.position.max"
+                                 [minLength]="validation.position.min" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -116,7 +117,7 @@
                 <app-form-errors [serverErrors]="validationErrors"
                                  [controlName]="'goals'"
                                  [formControl]="createUserForm.controls['goals']"
-                                 [maxLength]="200" ngDefaultControl></app-form-errors>
+                                 [maxLength]="validation.goals.max" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset class="form-group row">
@@ -124,13 +125,15 @@
             <div class="col-md-5" id="user-enabled">
                 <div class="form-check form-check-inline">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" formControlName="enabled" [value]="true" [(ngModel)]="user.enabled">
+                        <input class="form-check-input" type="radio" formControlName="enabled" [value]="true"
+                               [(ngModel)]="user.enabled">
                         {{'YES' | translate}}
                     </label>
                 </div>
                 <div class="form-check form-check-inline">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" formControlName="enabled" [value]="false" [(ngModel)]="user.enabled">
+                        <input class="form-check-input" type="radio" formControlName="enabled" [value]="false"
+                               [(ngModel)]="user.enabled">
                         {{'NO' | translate}}
                     </label>
                 </div>

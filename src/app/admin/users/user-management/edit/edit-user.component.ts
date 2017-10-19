@@ -6,6 +6,7 @@ import 'rxjs/add/operator/takeUntil';
 import {AutoUnsubscriberComponent} from '../../../../shared';
 import {User, ValidationError} from '../../../../shared/model';
 import {UsersService} from '../../../../shared/service';
+import {validationConstraints} from '../../../../shared/configuration';
 
 @Component({
     templateUrl: './edit-user.component.html'
@@ -15,6 +16,7 @@ export class EditUserComponent extends AutoUnsubscriberComponent implements OnIn
     editUserForm: FormGroup;
     isSubmitting = false;
     user: User;
+    validation = validationConstraints.user;
     validationErrors: ValidationError[] = [];
 
     constructor(private formBuilder: FormBuilder,
@@ -27,11 +29,27 @@ export class EditUserComponent extends AutoUnsubscriberComponent implements OnIn
 
     private createFormControls(): void {
         this.editUserForm = this.formBuilder.group({
-            'email': ['', [Validators.required, Validators.email, Validators.maxLength(40)]],
-            'name': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
-            'surname': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
-            'position': ['', [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
-            'goals': ['', Validators.maxLength(200)],
+            'email': ['', [
+                Validators.required,
+                Validators.email,
+                Validators.maxLength(this.validation.email.max)]
+            ],
+            'name': ['', [
+                Validators.required,
+                Validators.minLength(this.validation.name.max),
+                Validators.maxLength(this.validation.name.max)]
+            ],
+            'surname': ['', [
+                Validators.required,
+                Validators.minLength(this.validation.surname.max),
+                Validators.maxLength(this.validation.surname.max)]
+            ],
+            'position': ['', [
+                Validators.required,
+                Validators.minLength(this.validation.position.max),
+                Validators.maxLength(this.validation.position.max)
+            ]],
+            'goals': ['', Validators.maxLength(this.validation.goals.max)],
             'enabled': ['']
         });
     }

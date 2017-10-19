@@ -6,6 +6,7 @@ import 'rxjs/add/operator/takeUntil';
 import {AutoUnsubscriberComponent} from '../../shared';
 import {User, ValidationError} from '../../shared/model';
 import {UsersService} from '../../shared/service';
+import {validationConstraints} from '../../shared/configuration';
 
 @Component({
     templateUrl: './edit-profile.component.html'
@@ -15,6 +16,7 @@ export class EditProfileComponent extends AutoUnsubscriberComponent implements O
     editProfileForm: FormGroup;
     isSubmitting = false;
     loggedUser: User;
+    validation = validationConstraints.user;
     validationErrors: ValidationError[] = [];
 
     constructor(private formBuilder: FormBuilder,
@@ -27,9 +29,17 @@ export class EditProfileComponent extends AutoUnsubscriberComponent implements O
 
     private createFormControls(): void {
         this.editProfileForm = this.formBuilder.group({
-            'name': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
-            'surname': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
-            'goals': ['', Validators.maxLength(200)]
+            'name': ['', [
+                Validators.required,
+                Validators.minLength(this.validation.name.max),
+                Validators.maxLength(this.validation.name.max)]
+            ],
+            'surname': ['', [
+                Validators.required,
+                Validators.minLength(this.validation.surname.max),
+                Validators.maxLength(this.validation.surname.max)]
+            ],
+            'goals': ['', Validators.maxLength(this.validation.goals.max)]
         });
     }
 
