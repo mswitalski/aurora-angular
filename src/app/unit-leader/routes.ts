@@ -1,8 +1,9 @@
 import {RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
-import {IsUnitLeaderGuard} from '../shared/service/guard/is-unit-leader-guard.service';
-import {UsersListComponent} from './users/list/users-list.component';
-import {UsersListResolver} from '../shared/users/resolver/users-list-resolver.service';
+
+import {IsUnitLeaderGuard} from '../shared/service/guard';
+import {UsersListComponent} from './users/list';
+import {UsersListResolver} from '../shared/users/resolver';
 
 export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {

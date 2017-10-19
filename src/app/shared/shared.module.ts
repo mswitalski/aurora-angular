@@ -1,20 +1,22 @@
 import {CommonModule} from '@angular/common';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
 
 import {AuthenticatedGuard, IsAdminGuard, IsEmployeeGuard, IsUnitLeaderGuard} from './service/guard';
-import {CachedUserResolver, UsersListResolver, UserResolver, RolesResolver} from './users/resolver';
+import {CachedUserResolver, RolesResolver, UserResolver, UsersListResolver} from './users/resolver';
 import {ErrorPageComponent} from './error-page';
 import {FormErrorsComponent} from './form-errors.component';
 import {moduleRouting} from './routes';
 import {PaginationComponent} from './pagination.component';
-import {UserDetailsComponent} from './users';
+import {ExpandedUsersListComponent, UserDetailsComponent} from './users';
 
 @NgModule({
     declarations: [
         ErrorPageComponent,
+        ExpandedUsersListComponent,
         FormErrorsComponent,
         PaginationComponent,
         UserDetailsComponent
@@ -22,11 +24,14 @@ import {UserDetailsComponent} from './users';
     imports: [
         CommonModule,
         HttpClientModule,
+        FormsModule,
         moduleRouting,
+        ReactiveFormsModule,
         RouterModule,
         TranslateModule.forChild()
     ],
     exports: [
+        ExpandedUsersListComponent,
         FormErrorsComponent,
         HttpClientModule,
         PaginationComponent,
@@ -36,13 +41,13 @@ import {UserDetailsComponent} from './users';
     ],
     providers: [
         AuthenticatedGuard,
+        CachedUserResolver,
         IsAdminGuard,
         IsUnitLeaderGuard,
         IsEmployeeGuard,
-        CachedUserResolver,
         RolesResolver,
-        UsersListResolver,
-        UserResolver
+        UserResolver,
+        UsersListResolver
     ]
 })
 export class SharedModule {

@@ -4,7 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import {ApiService} from './api.service';
 import {HttpParams, HttpResponse} from '@angular/common/http';
 import {PagedResults} from '../model/paged-results.model';
-import {environment} from '../../../environments/environment.prod';
+import {environment} from '../../../environments/environment';
 
 @Injectable()
 export class DutiesService {
