@@ -1,0 +1,13 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 translate>HEADER.USERS-MANAGEMENT</h2>
+            <app-user-details [user]="user" [extendedInfo]="true"></app-user-details>
+            <a class="btn btn-lg btn-primary" routerLink="/unitleader/users" translate>BTN.BACK</a>
+            <a *ngIf="isNotAdminUser" class="btn btn-lg btn-primary" routerLink="edit" translate>BTN.EDIT-DETAILS</a>
+            <a *ngIf="isNotAdminUser" class="btn btn-lg btn-primary" routerLink="password" translate>BTN.EDIT-PASSWORD</a>
+            <a *ngIf="isNotAdminUser" class="btn btn-lg btn-primary" routerLink="roles" translate>BTN.EDIT-ROLES</a>
+            <a *ngIf="isNotAdminUser" class="btn btn-lg btn-danger" (click)="deleteUser()" translate>BTN.DELETE</a>
+        </div>
+    </div>
+</div>

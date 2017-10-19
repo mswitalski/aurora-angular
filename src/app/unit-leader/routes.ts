@@ -2,8 +2,9 @@ import {RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 
 import {IsUnitLeaderGuard} from '../shared/service/guard';
+import {UserManagementComponent} from './users/user-management';
 import {UsersListComponent} from './users/list';
-import {UsersListResolver} from '../shared/users/resolver';
+import {UsersListResolver, UserResolver} from '../shared/users/resolver';
 
 export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
@@ -14,5 +15,14 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         resolve: {
             pagedResults: UsersListResolver
         }
-    }
+    },
+    {
+        canActivate: [IsUnitLeaderGuard],
+        component: UserManagementComponent,
+        data: { title: 'TITLE.UNIT-LEADER.USER' },
+        path: 'unitleader/users/:username',
+        resolve: {
+            user: UserResolver
+        }
+    },
 ]);

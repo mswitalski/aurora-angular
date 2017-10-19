@@ -3,12 +3,14 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {moduleRouting} from './routes';
-import {UsersListComponent} from './users/list';
 import {SharedModule} from '../shared';
+import {UserManagementComponent} from './users/user-management';
+import {UsersListComponent} from './users/list';
 
 @NgModule({
     declarations: [
-        UsersListComponent
+        UsersListComponent,
+        UserManagementComponent
     ],
     imports: [
         CommonModule,

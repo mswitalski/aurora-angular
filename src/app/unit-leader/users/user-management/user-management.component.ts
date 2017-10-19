@@ -1,10 +1,12 @@
 import {ActivatedRoute, Router} from '@angular/router';
 import {Component, OnInit} from '@angular/core';
+import {isUndefined} from 'util';
 import {TranslateService} from '@ngx-translate/core';
 
 import {AutoUnsubscriberComponent} from '../../../shared';
 import {User} from '../../../shared/model';
 import {UsersService} from '../../../shared/service';
+import {environment} from '../../../../environments/environment';
 
 @Component({
     templateUrl: './user-management.component.html'
@@ -12,6 +14,7 @@ import {UsersService} from '../../../shared/service';
 export class UserManagementComponent extends AutoUnsubscriberComponent implements OnInit {
 
     user: User;
+    isNotAdminUser: boolean;
     private deleteDialogMessage: string;
 
     constructor(private route: ActivatedRoute,
@@ -23,16 +26,17 @@ export class UserManagementComponent extends AutoUnsubscriberComponent implement
 
     ngOnInit() {
         this.user = this.route.snapshot.data['user'];
+        this.isNotAdminUser = isUndefined(this.user.roles.find(r => r.name === environment.adminRole));
         this.translate.get('DIALOG.CONFIRMATION').takeUntil(this.ngUnsubscribe).subscribe(
             msg => this.deleteDialogMessage = msg
         );
     }
 
     deleteUser(): void {
-        if (confirm(this.deleteDialogMessage)) {
+        if (this.isNotAdminUser && confirm(this.deleteDialogMessage)) {
             this.usersService.deleteUser(this.user).takeUntil(this.ngUnsubscribe).subscribe(
                 () => {
-                    this.router.navigate(['/admin/users']);
+                    this.router.navigate(['/unitleader/users']);
                 }
             );
         }
