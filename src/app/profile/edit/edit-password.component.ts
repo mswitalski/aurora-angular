@@ -1,28 +1,26 @@
-import {Component, OnDestroy} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import 'rxjs/add/operator/takeUntil';
-import {Subject} from 'rxjs/Subject';
 
+import {AutoUnsubscriberComponent} from '../../shared';
+import {PasswordChangeFormModel, ValidationError} from '../../shared/model';
 import {UsersService} from '../../shared/service';
-import {ValidationError} from '../../shared/model';
-import {PasswordChangeFormModel} from '../../shared/model/password-change-form.model';
 
 @Component({
     templateUrl: './edit-password.component.html'
 })
-
-export class EditPasswordComponent implements OnDestroy {
+export class EditPasswordComponent extends AutoUnsubscriberComponent {
 
     editPasswordForm: FormGroup;
+    formData = new PasswordChangeFormModel();
     isSubmitting = false;
     validationErrors: ValidationError[] = [];
-    formData = new PasswordChangeFormModel();
-    private ngUnsubscribe: Subject<void> = new Subject<void>();
 
     constructor(private formBuilder: FormBuilder,
                 private router: Router,
                 private usersService: UsersService) {
+        super();
         this.createFormControls();
     }
 
@@ -62,10 +60,5 @@ export class EditPasswordComponent implements OnDestroy {
                 this.isSubmitting = false;
             }
         );
-    }
-
-    ngOnDestroy(): void {
-        this.ngUnsubscribe.next();
-        this.ngUnsubscribe.complete();
     }
 }

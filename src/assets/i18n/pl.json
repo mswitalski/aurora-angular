@@ -6,6 +6,7 @@
     },
     "SIDEBAR": {
         "ADMIN": "Admin",
+        "UNIT-LEADER": "Unit leader",
         "DASHBOARD": "Pulpit",
         "USERS": "U\u017cytkownicy"
     },
@@ -92,6 +93,14 @@
             "USER-EDIT": "Admin: edycja danych u\u017cytkownika",
             "PASSWORD": "Admin: edycja has\u0142a u\u017cytkownika",
             "ROLES": "Admin: edycja r\u00f3l u\u017cytkownika"
+        },
+        "UNIT-LEADER": {
+            "CREATE-USER": "Unit leader: tworzenie u\u017cytkownika",
+            "USERS": "Unit leader: u\u017cytkownicy",
+            "USER": "Unit leader: zarz\u0105dzanie u\u017cytkownikiem",
+            "USER-EDIT": "Unit leader: edycja danych u\u017cytkownika",
+            "PASSWORD": "Unit leader: edycja has\u0142a u\u017cytkownika",
+            "ROLES": "Unit leader: edycja r\u00f3l u\u017cytkownika"
         }
     },
     "PAGINATION": {

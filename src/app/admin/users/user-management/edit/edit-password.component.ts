@@ -1,27 +1,27 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subject} from 'rxjs/Subject';
-import {AdminPasswordChangeFormModel, User, ValidationError} from '../../../../shared/model';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {UsersService} from '../../../../shared/service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+
+import {AdminPasswordChangeFormModel, User, ValidationError} from '../../../../shared/model';
+import {AutoUnsubscriberComponent} from '../../../../shared';
+import {UsersService} from '../../../../shared/service';
 
 @Component({
     templateUrl: './edit-password.component.html'
 })
-
-export class EditPasswordComponent implements OnInit, OnDestroy {
+export class EditPasswordComponent extends AutoUnsubscriberComponent implements OnInit {
 
     editPasswordForm: FormGroup;
-    isSubmitting = false;
-    validationErrors: ValidationError[] = [];
     formData = new AdminPasswordChangeFormModel();
+    isSubmitting = false;
     user: User;
-    private ngUnsubscribe: Subject<void> = new Subject<void>();
+    validationErrors: ValidationError[] = [];
 
     constructor(private formBuilder: FormBuilder,
                 private route: ActivatedRoute,
                 private router: Router,
                 private usersService: UsersService) {
+        super();
         this.createFormControls();
     }
 
@@ -63,10 +63,5 @@ export class EditPasswordComponent implements OnInit, OnDestroy {
                 this.isSubmitting = false;
             }
         );
-    }
-
-    ngOnDestroy(): void {
-        this.ngUnsubscribe.next();
-        this.ngUnsubscribe.complete();
     }
 }

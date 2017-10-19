@@ -1,30 +1,28 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {User} from '../../../shared/model/user.model';
-import {ValidationError} from '../../../shared/model/validation-error.model';
-import {Subject} from 'rxjs/Subject';
 import {ActivatedRoute, Router} from '@angular/router';
-import {UsersService} from '../../../shared/service/users.service';
-import {Role} from '../../../shared/model/role.model';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {isUndefined} from 'util';
+
+import {AutoUnsubscriberComponent} from '../../../shared';
+import {Role, User, ValidationError} from '../../../shared/model';
+import {UsersService} from '../../../shared/service';
 
 @Component({
     templateUrl: './create-user.component.html'
 })
-
-export class CreateUserComponent implements OnInit, OnDestroy {
+export class CreateUserComponent extends AutoUnsubscriberComponent implements OnInit {
 
     availableRoles: Role[];
     createUserForm: FormGroup;
     isSubmitting = false;
     user = new User();
     validationErrors: ValidationError[] = [];
-    private ngUnsubscribe: Subject<void> = new Subject<void>();
 
     constructor(private formBuilder: FormBuilder,
                 private route: ActivatedRoute,
                 private router: Router,
                 private usersService: UsersService) {
+        super();
         this.createFormControls();
     }
 
@@ -79,10 +77,5 @@ export class CreateUserComponent implements OnInit, OnDestroy {
                 this.isSubmitting = false;
             }
         );
-    }
-
-    ngOnDestroy(): void {
-        this.ngUnsubscribe.next();
-        this.ngUnsubscribe.complete();
     }
 }

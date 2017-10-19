@@ -5,11 +5,10 @@ import {User} from '../model/user.model';
     selector: 'app-user-details',
     templateUrl: './user-details.component.html'
 })
-
 export class UserDetailsComponent {
 
-    selectedUser: User;
     extendedInformation = false;
+    selectedUser: User;
 
     @Input() set user(user: User) {
         this.selectedUser = user;

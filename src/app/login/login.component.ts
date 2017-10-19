@@ -3,27 +3,26 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
 import 'rxjs/add/operator/takeUntil';
-import {Subject} from 'rxjs/Subject';
 
 import {AuthService} from '../shared/service';
+import {AutoUnsubscriberComponent} from '../shared';
 
 @Component({
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
 })
-
-export class LoginComponent implements OnDestroy {
+export class LoginComponent extends AutoUnsubscriberComponent implements OnDestroy {
 
     isBadCredentials = false;
     isSubmitting = false;
     isTimeout = false;
     loginForm: FormGroup;
-    private ngUnsubscribe: Subject<void> = new Subject<void>();
     private response: HttpResponse<any>;
 
     constructor(private authService: AuthService,
                 private formBuilder: FormBuilder,
                 private router: Router) {
+        super();
         this.createFormControls();
     }
 
@@ -70,10 +69,5 @@ export class LoginComponent implements OnDestroy {
                 break;
             }
         }
-    }
-
-    ngOnDestroy() {
-        this.ngUnsubscribe.next();
-        this.ngUnsubscribe.complete();
     }
 }

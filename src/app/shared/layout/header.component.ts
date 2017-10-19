@@ -1,22 +1,22 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/takeUntil';
 
 import {AuthService} from '../service';
 import {User} from '../model';
+import {AutoUnsubscriberComponent} from '../auto-unsubscriber.component';
 
 @Component({
     selector: 'app-layout-header',
     templateUrl: './header.component.html'
 })
-
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent extends AutoUnsubscriberComponent implements OnInit {
 
     loggedUser: User;
-    private ngUnsubscribe: Subject<void> = new Subject<void>();
 
-    constructor(private authService: AuthService, private router: Router) {}
+    constructor(private authService: AuthService, private router: Router) {
+        super();
+    }
 
     ngOnInit(): void {
         this.authService.loggedUser.takeUntil(this.ngUnsubscribe).subscribe(user => this.loggedUser = user);
@@ -25,10 +25,5 @@ export class HeaderComponent implements OnInit, OnDestroy {
     logout(): void {
         this.authService.logout();
         this.router.navigate(['/login']);
-    }
-
-    ngOnDestroy() {
-        this.ngUnsubscribe.next();
-        this.ngUnsubscribe.complete();
     }
 }

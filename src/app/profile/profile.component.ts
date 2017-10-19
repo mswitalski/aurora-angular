@@ -1,20 +1,19 @@
 import {ActivatedRoute} from '@angular/router';
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subject} from 'rxjs/Subject';
+import {Component, OnInit} from '@angular/core';
 import 'rxjs/add/operator/takeUntil';
 
 import {User} from '../shared/model';
+import {AutoUnsubscriberComponent} from '../shared/auto-unsubscriber.component';
 
 @Component({
     templateUrl: './profile.component.html'
 })
-
-export class ProfileComponent implements OnInit, OnDestroy {
+export class ProfileComponent extends AutoUnsubscriberComponent implements OnInit {
 
     loggedUser: User;
-    private ngUnsubscribe: Subject<void> = new Subject<void>();
 
     constructor(private route: ActivatedRoute) {
+        super();
     }
 
     ngOnInit() {
@@ -23,10 +22,5 @@ export class ProfileComponent implements OnInit, OnDestroy {
                 this.loggedUser = data.user;
             }
         );
-    }
-
-    ngOnDestroy() {
-        this.ngUnsubscribe.next();
-        this.ngUnsubscribe.complete();
     }
 }

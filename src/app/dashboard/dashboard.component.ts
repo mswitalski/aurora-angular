@@ -1,31 +1,25 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import 'rxjs/add/operator/takeUntil';
-import {Subject} from 'rxjs/Subject';
 
 import {AuthService} from '../shared/service';
+import {AutoUnsubscriberComponent} from '../shared';
 import {User} from '../shared/model';
 
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html'
 })
-
-export class DashboardComponent implements OnInit, OnDestroy {
+export class DashboardComponent extends AutoUnsubscriberComponent implements OnInit {
 
     loggedUser: User;
-    private ngUnsubscribe: Subject<void> = new Subject<void>();
 
     constructor(private authService: AuthService) {
+        super();
     }
 
     ngOnInit() {
         this.authService.loggedUser.takeUntil(this.ngUnsubscribe).subscribe(
             user => this.loggedUser = user
         );
-    }
-
-    ngOnDestroy() {
-        this.ngUnsubscribe.next();
-        this.ngUnsubscribe.complete();
     }
 }

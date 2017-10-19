@@ -5,12 +5,11 @@ import {PagedResults} from './model/paged-results.model';
     selector: 'app-pagination',
     templateUrl: './pagination.component.html'
 })
-
 export class PaginationComponent {
 
     activePage: number;
-    totalPages: number;
     numberOfElements: number;
+    totalPages: number;
 
     @Input() set paginationData(data: PagedResults<any>) {
         this.activePage = data.number;

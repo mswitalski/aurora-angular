@@ -6,6 +6,7 @@
     },
     "SIDEBAR": {
         "ADMIN": "Admin",
+        "UNIT-LEADER": "Unit leader",
         "DASHBOARD": "Dashboard",
         "USERS": "Users"
     },
@@ -92,6 +93,14 @@
             "USER-EDIT": "Admin: edit user details",
             "PASSWORD": "Admin: edit user password",
             "ROLES": "Admin: edit user roles"
+        },
+        "UNIT-LEADER": {
+            "CREATE-USER": "Unit leader: create user",
+            "USERS": "Unit leader: users",
+            "USER": "Unit leader: user management",
+            "USER-EDIT": "Unit leader: edit user details",
+            "PASSWORD": "Unit leader: edit user password",
+            "ROLES": "Unit leader: edit user roles"
         }
     },
     "PAGINATION": {

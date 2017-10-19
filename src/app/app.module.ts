@@ -20,6 +20,7 @@ import {HttpErrorInterceptorService} from './shared/listener';
 import {LoginModule} from './login';
 import {ProfileModule} from './profile';
 import {AdminModule} from './admin';
+import {UnitLeaderModule} from './unit-leader';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([
     {
@@ -61,7 +62,8 @@ export function HttpLoaderFactory(http: HttpClient) {
                 provide: TranslateLoader,
                 useFactory: HttpLoaderFactory
             }
-        })
+        }),
+        UnitLeaderModule
     ],
     providers: [
         ApiService,

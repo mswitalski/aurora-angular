@@ -1,43 +1,12 @@
 import {CommonModule} from '@angular/common';
-import {ModuleWithProviders, NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
 
-import {AuthenticatedGuard} from '../shared/service/guard';
 import {EditPasswordComponent, EditProfileComponent} from './edit';
+import {LoggedUserResolver} from './logged-user-resolver.service';
+import {moduleRouting} from './routes';
 import {ProfileComponent} from './profile.component';
 import {SharedModule} from '../shared';
-import {UserResolver} from './user-resolver.service';
-
-const moduleRouting: ModuleWithProviders = RouterModule.forChild([
-    {
-        canActivate: [AuthenticatedGuard],
-        component: ProfileComponent,
-        data: { title: 'TITLE.PROFILE' },
-        path: 'profile',
-        resolve: {
-            user: UserResolver
-        }
-    },
-    {
-        canActivate: [AuthenticatedGuard],
-        component: EditProfileComponent,
-        data: { title: 'TITLE.EDIT-PROFILE' },
-        path: 'profile/edit',
-        resolve: {
-            user: UserResolver
-        }
-    },
-    {
-        canActivate: [AuthenticatedGuard],
-        component: EditPasswordComponent,
-        data: { title: 'TITLE.EDIT-PASSWORD' },
-        path: 'profile/edit/password',
-        resolve: { // Necessary to get an ETag for update
-            user: UserResolver
-        }
-    }
-]);
 
 @NgModule({
     declarations: [
@@ -52,9 +21,8 @@ const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         SharedModule
     ],
     providers: [
-        UserResolver
+        LoggedUserResolver
     ]
 })
-
 export class ProfileModule {
 }

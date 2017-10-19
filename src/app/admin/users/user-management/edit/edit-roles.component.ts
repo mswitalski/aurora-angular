@@ -1,26 +1,25 @@
 import {ActivatedRoute, Router} from '@angular/router';
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subject} from 'rxjs/Subject';
+import {Component, OnInit} from '@angular/core';
+import {isUndefined} from 'util';
 import 'rxjs/add/operator/takeUntil';
 
-import {UsersService} from '../../../../shared/service';
+import {AutoUnsubscriberComponent} from '../../../../shared';
 import {Role, User} from '../../../../shared/model';
-import {isUndefined} from 'util';
+import {UsersService} from '../../../../shared/service';
 
 @Component({
     templateUrl: './edit-roles.component.html'
 })
+export class EditRolesComponent extends AutoUnsubscriberComponent implements OnInit {
 
-export class EditRolesComponent implements OnInit, OnDestroy {
-
+    availableRoles: Role[];
     isSubmitting = false;
     user: User;
-    availableRoles: Role[];
-    private ngUnsubscribe: Subject<void> = new Subject<void>();
 
     constructor(private route: ActivatedRoute,
                 private router: Router,
                 private usersService: UsersService) {
+        super();
     }
 
     ngOnInit(): void {
@@ -57,10 +56,5 @@ export class EditRolesComponent implements OnInit, OnDestroy {
                 this.router.navigate(['/error/' + error.status], {skipLocationChange: true});
             }
         );
-    }
-
-    ngOnDestroy(): void {
-        this.ngUnsubscribe.next();
-        this.ngUnsubscribe.complete();
     }
 }

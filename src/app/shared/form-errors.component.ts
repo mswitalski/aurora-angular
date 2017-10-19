@@ -6,7 +6,6 @@ import {AbstractControl} from '@angular/forms';
     selector: 'app-form-errors',
     templateUrl: './form-errors.component.html'
 })
-
 export class FormErrorsComponent {
 
     serverErrorList: ValidationError[] = [];

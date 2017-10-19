@@ -1,21 +1,20 @@
 import {ActivatedRoute, Params} from '@angular/router';
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subject} from 'rxjs/Subject';
+import {Component, OnInit} from '@angular/core';
 import 'rxjs/add/operator/takeUntil';
 import {TranslateService} from '@ngx-translate/core';
+import {AutoUnsubscriberComponent} from '../auto-unsubscriber.component';
 
 @Component({
     templateUrl: './error-page.component.html'
 })
-
-export class ErrorPageComponent implements OnInit, OnDestroy {
+export class ErrorPageComponent extends AutoUnsubscriberComponent implements OnInit {
 
     description: string;
     title: string;
     private handledCodes: Array<string> = ['404', '412'];
-    private ngUnsubscribe: Subject<void> = new Subject<void>();
 
     constructor(private route: ActivatedRoute, private translate: TranslateService) {
+        super();
     }
 
     ngOnInit() {
@@ -37,10 +36,5 @@ export class ErrorPageComponent implements OnInit, OnDestroy {
 
     private specifyErrorTranslationKey(code: string): string {
         return this.handledCodes.includes(code) ? code : 'DEFAULT';
-    }
-
-    ngOnDestroy() {
-        this.ngUnsubscribe.next();
-        this.ngUnsubscribe.complete();
     }
 }

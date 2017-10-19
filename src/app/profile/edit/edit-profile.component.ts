@@ -1,28 +1,27 @@
 import {ActivatedRoute, Router} from '@angular/router';
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import 'rxjs/add/operator/takeUntil';
-import {Subject} from 'rxjs/Subject';
 
+import {AutoUnsubscriberComponent} from '../../shared';
 import {User, ValidationError} from '../../shared/model';
 import {UsersService} from '../../shared/service';
 
 @Component({
     templateUrl: './edit-profile.component.html'
 })
-
-export class EditProfileComponent implements OnInit, OnDestroy {
+export class EditProfileComponent extends AutoUnsubscriberComponent implements OnInit {
 
     editProfileForm: FormGroup;
     isSubmitting = false;
     loggedUser: User;
     validationErrors: ValidationError[] = [];
-    private ngUnsubscribe: Subject<void> = new Subject<void>();
 
     constructor(private formBuilder: FormBuilder,
                 private route: ActivatedRoute,
                 private router: Router,
                 private usersService: UsersService) {
+        super();
         this.createFormControls();
     }
 
@@ -57,10 +56,5 @@ export class EditProfileComponent implements OnInit, OnDestroy {
                 this.isSubmitting = false;
             }
         );
-    }
-
-    ngOnDestroy(): void {
-        this.ngUnsubscribe.next();
-        this.ngUnsubscribe.complete();
     }
 }

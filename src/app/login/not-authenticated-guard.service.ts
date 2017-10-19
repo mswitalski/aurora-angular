@@ -20,7 +20,6 @@ export class NotAuthenticatedGuard implements CanActivate {
                 return !value;
 
             } else {
-
                 return true;
             }
         });

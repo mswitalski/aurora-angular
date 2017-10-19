@@ -2,6 +2,7 @@ export * from './layout';
 export * from './listener';
 export * from './model';
 
+export * from './auto-unsubscriber.component';
 export * from './authenticated-only.directive';
 export * from './pagination.component';
 export * from './shared.module';
