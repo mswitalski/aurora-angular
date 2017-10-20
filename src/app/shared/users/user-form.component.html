@@ -1,6 +1,6 @@
 <form [formGroup]="userForm" (ngSubmit)="submitForm()">
     <fieldset [disabled]="isSubmitting">
-        <fieldset *ngIf="!isEdit" class="form-group row">
+        <fieldset *ngIf="!isEditAction" class="form-group row">
             <label for="user-username" class="col-md-2 col-form-label" translate>USER.USERNAME</label>
             <div class="col-md-5">
                 <input
@@ -17,7 +17,7 @@
                                  [minLength]="validation.username.min" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
-        <fieldset *ngIf="!isEdit" class="form-group row">
+        <fieldset *ngIf="!isEditAction" class="form-group row">
             <label for="user-password" class="col-md-2 col-form-label" translate>USER.PASSWORD</label>
             <div class="col-md-5">
                 <input

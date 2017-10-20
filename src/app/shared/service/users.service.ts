@@ -61,8 +61,12 @@ export class UsersService {
         return this.api.postWithParams(partialUrl, queryParams, criteria);
     }
 
-    updateOtherAccountAsAdmin(user: User): Observable<HttpResponse<any>> {
+    updateAsAdmin(user: User): Observable<HttpResponse<any>> {
         return this.api.put('admin/users/', user);
+    }
+
+    updateAsUnitLeader(user: User): Observable<HttpResponse<any>> {
+        return this.api.put('unitleader/users/', user);
     }
 
     updateOtherPassword(user: User, formData: AdminPasswordChangeFormModel): Observable<HttpResponse<any>> {

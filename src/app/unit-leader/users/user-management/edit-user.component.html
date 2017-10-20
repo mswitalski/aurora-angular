@@ -1,0 +1,4 @@
+<h2 translate>HEADER.EDIT-USER</h2>
+
+<app-user-form [editedUser]="user" [module]="'unitleader'" [response]="responseSubject.asObservable()"
+               (formSubmitted)="submit($event)"></app-user-form>

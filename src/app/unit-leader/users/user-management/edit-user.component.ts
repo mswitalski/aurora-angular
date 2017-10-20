@@ -4,9 +4,9 @@ import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {ActivatedRoute, Router} from '@angular/router';
 import 'rxjs/add/operator/takeUntil';
 
-import {AutoUnsubscriberComponent} from '../../../../shared';
-import {User} from '../../../../shared/model';
-import {UsersService} from '../../../../shared/service';
+import {AutoUnsubscriberComponent} from '../../../shared';
+import {User} from '../../../shared/model';
+import {UsersService} from '../../../shared/service';
 
 @Component({
     templateUrl: './edit-user.component.html'
@@ -22,10 +22,10 @@ export class EditUserComponent extends AutoUnsubscriberComponent {
     }
 
     submit(user: User): void {
-        this.usersService.updateAsAdmin(user).takeUntil(this.ngUnsubscribe).subscribe(
+        this.usersService.updateAsUnitLeader(user).takeUntil(this.ngUnsubscribe).subscribe(
             () => {
                 this.responseSubject.complete();
-                const url = 'admin/users/' + user.username;
+                const url = 'unitleader/users/' + user.username;
                 this.router.navigate([url]);
             },
             err => this.responseSubject.next(err)

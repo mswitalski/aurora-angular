@@ -1,7 +1,7 @@
-import {ActivatedRoute, UrlSegment} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {HttpErrorResponse, HttpResponse} from '@angular/common/http';
+import {HttpErrorResponse} from '@angular/common/http';
 import {isUndefined} from 'util';
 import {Location} from '@angular/common';
 import {Observable} from 'rxjs/Observable';
@@ -19,7 +19,7 @@ export class UserFormComponent extends AutoUnsubscriberComponent implements OnIn
     allowRolesSelect: boolean;
     availableRoles: Role[];
     userForm: FormGroup;
-    isEditAction: boolean;
+    isEditAction = false;
     isSubmitting = false;
     moduleUrl: string;
     serverResponse: Observable<HttpErrorResponse>;
@@ -27,8 +27,9 @@ export class UserFormComponent extends AutoUnsubscriberComponent implements OnIn
     validation = validationConstraints.user;
     validationErrors: ValidationError[] = [];
 
-    @Input() set isEdit(value: boolean) {
-        this.isEditAction = value;
+    @Input() set editedUser(value: User) {
+        this.user = value;
+        this.isEditAction = true;
     }
 
     @Input() set response(value: Observable<HttpErrorResponse>) {
@@ -37,7 +38,6 @@ export class UserFormComponent extends AutoUnsubscriberComponent implements OnIn
 
     @Input() set module(value: string) {
         this.moduleUrl = value;
-        this.allowRolesSelect = value.includes('admin');
     }
 
     @Output()
@@ -47,21 +47,16 @@ export class UserFormComponent extends AutoUnsubscriberComponent implements OnIn
                 private route: ActivatedRoute,
                 private location: Location) {
         super();
+    }
+
+    ngOnInit(): void {
+        this.availableRoles = this.route.snapshot.data['roles'];
+        this.allowRolesSelect = this.moduleUrl.includes('admin') && !this.isEditAction;
         this.createFormControls();
     }
 
     private createFormControls(): void {
-        this.userForm = this.formBuilder.group({
-            'username': ['', [
-                Validators.required,
-                Validators.minLength(this.validation.username.min),
-                Validators.maxLength(this.validation.username.max)]
-            ],
-            'password': ['', [
-                Validators.required,
-                Validators.minLength(this.validation.password.min),
-                Validators.maxLength(this.validation.password.max)]
-            ],
+        const formControls = {
             'email': ['', [
                 Validators.required,
                 Validators.email,
@@ -84,11 +79,22 @@ export class UserFormComponent extends AutoUnsubscriberComponent implements OnIn
             ]],
             'goals': ['', Validators.maxLength(this.validation.goals.max)],
             'enabled': ['']
-        });
-    }
+        };
 
-    ngOnInit(): void {
-        this.availableRoles = this.route.snapshot.data['roles'];
+        if (!this.isEditAction) {
+            formControls['username'] = ['', [
+                Validators.required,
+                Validators.minLength(this.validation.username.min),
+                Validators.maxLength(this.validation.username.max)]
+            ];
+            formControls['password'] = ['', [
+                Validators.required,
+                Validators.minLength(this.validation.password.min),
+                Validators.maxLength(this.validation.password.max)]
+            ];
+        }
+
+        this.userForm = this.formBuilder.group(formControls);
     }
 
     assignRole(role: Role): void {
@@ -125,5 +131,11 @@ export class UserFormComponent extends AutoUnsubscriberComponent implements OnIn
                 this.isSubmitting = false;
             }
         );
+    }
+
+    console() {
+        console.log(this.userForm.errors);
+        console.log(this.userForm.valid);
+        console.log(this.userForm.status);
     }
 }

@@ -46,7 +46,7 @@ export class EditRolesComponent extends AutoUnsubscriberComponent implements OnI
     }
 
     submitRoles() {
-        this.usersService.updateOtherAccountAsAdmin(this.user).takeUntil(this.ngUnsubscribe).subscribe(
+        this.usersService.updateAsAdmin(this.user).takeUntil(this.ngUnsubscribe).subscribe(
             () => {
                 const url = 'admin/users/' + this.user.username;
                 this.router.navigate([url]);
