@@ -4,11 +4,12 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {moduleRouting} from './routes';
 import {SharedModule} from '../shared';
-import {UserManagementComponent} from './users/user-management';
+import {CreateUserComponent, UserManagementComponent} from './users/user-management';
 import {UsersListComponent} from './users/list';
 
 @NgModule({
     declarations: [
+        CreateUserComponent,
         UsersListComponent,
         UserManagementComponent
     ],

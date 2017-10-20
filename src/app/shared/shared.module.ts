@@ -11,7 +11,7 @@ import {ErrorPageComponent} from './error-page';
 import {FormErrorsComponent} from './form-errors.component';
 import {moduleRouting} from './routes';
 import {PaginationComponent} from './pagination.component';
-import {ExpandedUsersListComponent, UserDetailsComponent} from './users';
+import {ExpandedUsersListComponent, UserDetailsComponent, UserFormComponent} from './users';
 
 @NgModule({
     declarations: [
@@ -19,7 +19,8 @@ import {ExpandedUsersListComponent, UserDetailsComponent} from './users';
         ExpandedUsersListComponent,
         FormErrorsComponent,
         PaginationComponent,
-        UserDetailsComponent
+        UserDetailsComponent,
+        UserFormComponent
     ],
     imports: [
         CommonModule,
@@ -37,7 +38,8 @@ import {ExpandedUsersListComponent, UserDetailsComponent} from './users';
         PaginationComponent,
         RouterModule,
         TranslateModule,
-        UserDetailsComponent
+        UserDetailsComponent,
+        UserFormComponent
     ],
     providers: [
         AuthenticatedGuard,

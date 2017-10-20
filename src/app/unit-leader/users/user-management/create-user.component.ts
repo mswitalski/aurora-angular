@@ -1,0 +1,31 @@
+import {Component} from '@angular/core';
+import {HttpErrorResponse} from '@angular/common/http';
+import {Router} from '@angular/router';
+
+import {AutoUnsubscriberComponent} from '../../../shared';
+import {User} from '../../../shared/model';
+import {UsersService} from '../../../shared/service';
+import {ReplaySubject} from 'rxjs/ReplaySubject';
+
+@Component({
+    templateUrl: './create-user.component.html'
+})
+export class CreateUserComponent extends AutoUnsubscriberComponent {
+
+    responseSubject = new ReplaySubject<HttpErrorResponse>(1);
+
+    constructor(private router: Router, private usersService: UsersService) {
+        super();
+    }
+
+    submit(user: User): void {
+        this.usersService.createUserAsUnitLeader(user).takeUntil(this.ngUnsubscribe).subscribe(
+            () => {
+                this.responseSubject.complete();
+                const url = 'unitleader/users/' + user.username;
+                this.router.navigate([url]);
+            },
+            err => this.responseSubject.next(err)
+        );
+    }
+}

@@ -18,6 +18,10 @@ export class UsersService {
         return this.api.post('admin/users/', user);
     }
 
+    createUserAsUnitLeader(user: User): Observable<HttpResponse<any>> {
+        return this.api.post('unitleader/users/', user);
+    }
+
     deleteUser(user: User): Observable<HttpResponse<any>> {
         return this.api.deleteMethod('admin/users/' + user.id);
     }
