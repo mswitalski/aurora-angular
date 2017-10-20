@@ -12,6 +12,9 @@ import {FormErrorsComponent} from './form-errors.component';
 import {moduleRouting} from './routes';
 import {PaginationComponent} from './pagination.component';
 import {ExpandedUsersListComponent, UserDetailsComponent, UserFormComponent} from './users';
+import {ShowAdminDirective} from './show-admin.directive';
+import {ShowUnitLeaderDirective} from './show-unit-leader.directive';
+import {ShowEmployeeDirective} from './show-employee.directive';
 
 @NgModule({
     declarations: [
@@ -20,7 +23,10 @@ import {ExpandedUsersListComponent, UserDetailsComponent, UserFormComponent} fro
         FormErrorsComponent,
         PaginationComponent,
         UserDetailsComponent,
-        UserFormComponent
+        UserFormComponent,
+        ShowAdminDirective,
+        ShowEmployeeDirective,
+        ShowUnitLeaderDirective
     ],
     imports: [
         CommonModule,
@@ -39,7 +45,10 @@ import {ExpandedUsersListComponent, UserDetailsComponent, UserFormComponent} fro
         RouterModule,
         TranslateModule,
         UserDetailsComponent,
-        UserFormComponent
+        UserFormComponent,
+        ShowAdminDirective,
+        ShowEmployeeDirective,
+        ShowUnitLeaderDirective
     ],
     providers: [
         AuthenticatedGuard,

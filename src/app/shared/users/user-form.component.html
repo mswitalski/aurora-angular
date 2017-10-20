@@ -137,7 +137,7 @@
                 </div>
             </div>
         </fieldset>
-        <fieldset class="form-group row">
+        <fieldset *ngIf="allowRolesSelect" class="form-group row">
             <label for="user-roles" class="col-md-2 col-form-label" translate>USER.ROLES</label>
             <div class="col-md-5" id="user-roles">
                 <div *ngFor="let role of availableRoles">

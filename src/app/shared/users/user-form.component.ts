@@ -1,4 +1,4 @@
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, UrlSegment} from '@angular/router';
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpErrorResponse, HttpResponse} from '@angular/common/http';
@@ -16,6 +16,7 @@ import {validationConstraints} from '../configuration';
 })
 export class UserFormComponent extends AutoUnsubscriberComponent implements OnInit {
 
+    allowRolesSelect: boolean;
     availableRoles: Role[];
     userForm: FormGroup;
     isEditAction: boolean;
@@ -36,6 +37,7 @@ export class UserFormComponent extends AutoUnsubscriberComponent implements OnIn
 
     @Input() set module(value: string) {
         this.moduleUrl = value;
+        this.allowRolesSelect = value.includes('admin');
     }
 
     @Output()

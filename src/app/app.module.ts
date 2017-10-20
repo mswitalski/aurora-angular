@@ -21,6 +21,7 @@ import {LoginModule} from './login';
 import {ProfileModule} from './profile';
 import {AdminModule} from './admin';
 import {UnitLeaderModule} from './unit-leader';
+import {SharedModule} from './shared/shared.module';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([
     {
@@ -44,10 +45,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         AppComponent,
         AuthenticatedOnlyDirective,
         FooterComponent,
-        HeaderComponent,
-        ShowAdminDirective,
-        ShowEmployeeDirective,
-        ShowUnitLeaderDirective
+        HeaderComponent
     ],
     imports: [
         AdminModule,
@@ -56,6 +54,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         LoginModule,
         ProfileModule,
         rootRouting,
+        SharedModule,
         TranslateModule.forRoot({
             loader: {
                 deps: [HttpClient],
