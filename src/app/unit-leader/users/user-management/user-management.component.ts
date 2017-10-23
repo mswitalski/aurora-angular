@@ -14,7 +14,7 @@ import {environment} from '../../../../environments/environment';
 export class UserManagementComponent extends AutoUnsubscriberComponent implements OnInit {
 
     user: User;
-    isNotAdminUser: boolean;
+    isEmployeeUser: boolean;
     private deleteDialogMessage: string;
 
     constructor(private route: ActivatedRoute,
@@ -26,14 +26,14 @@ export class UserManagementComponent extends AutoUnsubscriberComponent implement
 
     ngOnInit() {
         this.user = this.route.snapshot.data['user'];
-        this.isNotAdminUser = isUndefined(this.user.roles.find(r => r.name === environment.adminRole));
+        this.isEmployeeUser = this.user.roles.length === 1 && this.user.roles[0].name === environment.employeeRole;
         this.translate.get('DIALOG.CONFIRMATION').takeUntil(this.ngUnsubscribe).subscribe(
             msg => this.deleteDialogMessage = msg
         );
     }
 
     deleteUser(): void {
-        if (this.isNotAdminUser && confirm(this.deleteDialogMessage)) {
+        if (this.isEmployeeUser && confirm(this.deleteDialogMessage)) {
             this.usersService.deleteUser(this.user).takeUntil(this.ngUnsubscribe).subscribe(
                 () => {
                     this.router.navigate(['/unitleader/users']);
