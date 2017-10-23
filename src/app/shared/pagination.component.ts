@@ -20,6 +20,15 @@ export class PaginationComponent {
     @Output()
     pageChanged: EventEmitter<number> = new EventEmitter();
 
+    determineActivePage(): number {
+        if (this.totalPages > 0) {
+            return this.activePage + 1;
+
+        } else {
+            return this.activePage;
+        }
+    }
+
     firstPage() {
         this.activePage = 0;
         this.pageChanged.emit(this.activePage);
