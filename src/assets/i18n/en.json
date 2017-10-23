@@ -41,7 +41,11 @@
     "ERROR-PAGE": {
         "DEFAULT": {
             "TITLE": "Unexpected error",
-            "DESC": "Something went wrong and we don't know what, sorry!"
+            "DESC": "Something went wrong and we do not know what, sorry!"
+        },
+        "403": {
+            "TITLE": "Access forbidden",
+            "DESC": "You do not have sufficient permissions to access this resource"
         },
         "404": {
             "TITLE": "Not found",

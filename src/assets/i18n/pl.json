@@ -43,6 +43,10 @@
             "TITLE": "Wyst\u0105pi\u0142 niespodziewany b\u0142\u0105d",
             "DESC": "W trakcie dzia\u0142ania aplikacji wyst\u0105pi\u0142 b\u0142\u0105d, przepraszamy za utrudnienia"
         },
+        "403": {
+            "TITLE": "Odmowa dost\u0119pu",
+            "DESC": "Nie masz wystarczaj\u0105cych uprawnie\u0144, aby przegl\u0105da\u0107 \u017c\u0105dany zas\u00f3b"
+        },
         "404": {
             "TITLE": "Nie znaleziono",
             "DESC": "Wybrany zas\u00f3b nie istnieje"

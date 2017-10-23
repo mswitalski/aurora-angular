@@ -7,6 +7,7 @@ import 'rxjs/add/operator/takeUntil';
 import {AutoUnsubscriberComponent} from '../../../shared';
 import {User} from '../../../shared/model';
 import {UsersService} from '../../../shared/service';
+import {environment} from '../../../../environments/environment';
 
 @Component({
     templateUrl: './edit-user.component.html'
@@ -19,6 +20,13 @@ export class EditUserComponent extends AutoUnsubscriberComponent {
     constructor(private route: ActivatedRoute, private router: Router, private usersService: UsersService) {
         super();
         this.user = this.route.snapshot.data['user'];
+        this.redirectIfNotEmployeeUser();
+    }
+
+    private redirectIfNotEmployeeUser() {
+        if (this.user.roles.length !== 1 || this.user.roles[0].name !== environment.employeeRole) {
+            this.router.navigate(['/error/403'], { skipLocationChange: true });
+        }
     }
 
     submit(user: User): void {

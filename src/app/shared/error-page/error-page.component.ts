@@ -11,7 +11,7 @@ export class ErrorPageComponent extends AutoUnsubscriberComponent implements OnI
 
     description: string;
     title: string;
-    private handledCodes: Array<string> = ['404', '412'];
+    private handledCodes: Array<string> = ['403', '404', '412'];
 
     constructor(private route: ActivatedRoute, private translate: TranslateService) {
         super();
