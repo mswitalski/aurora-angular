@@ -2,11 +2,12 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgModule} from '@angular/core';
 
-import {CreateUserComponent, UserManagementComponent} from './users/user-management';
-import {EditPasswordComponent, EditRolesComponent, EditUserComponent} from './users/user-management/edit';
+import {CreateUserComponent, UserManagementComponent} from './user-management';
+import {EditPasswordComponent, EditRolesComponent, EditUserComponent} from './user-management/edit';
 import {moduleRouting} from './routes';
-import {UsersListComponent} from './users/list';
-import {SharedModule} from '../shared';
+import {UsersListComponent} from './list';
+import {SharedModule} from '../../shared';
+import {UsersSharedModule} from '../shared';
 
 @NgModule({
     declarations: [
@@ -22,8 +23,9 @@ import {SharedModule} from '../shared';
         FormsModule,
         moduleRouting,
         ReactiveFormsModule,
-        SharedModule
+        SharedModule,
+        UsersSharedModule
     ]
 })
-export class AdminModule {
+export class UsersAdminModule {
 }

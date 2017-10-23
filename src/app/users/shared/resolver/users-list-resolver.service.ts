@@ -2,8 +2,8 @@ import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/rou
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
-import {PagedResults, User} from '../../model';
-import {UsersService} from '../../service';
+import {PagedResults, User} from '../../../shared/model';
+import {UsersService} from '../../../shared/service';
 
 @Injectable()
 export class UsersListResolver implements Resolve<PagedResults<User>> {

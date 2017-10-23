@@ -8,7 +8,8 @@
         "ADMIN": "Admin",
         "UNIT-LEADER": "Unit leader",
         "DASHBOARD": "Dashboard",
-        "USERS": "Users"
+        "USERS": "Users",
+        "DUTIES": "Duties"
     },
     "BTN": {
         "PROFILE": "Profile",
@@ -25,6 +26,7 @@
         "ASSIGN": "Assign",
         "RETRACT": "Retract",
         "CREATE-USER": "Create new user",
+        "CREATE-DUTY": "Create new duty",
         "DELETE": "Delete",
         "FILTER": "Filter",
         "RESET": "Reset"
@@ -66,7 +68,11 @@
         "EDIT-USER": "Edit user",
         "ACTION": "Action",
         "USERS": "Users",
-        "USERS-MANAGEMENT": "User management"
+        "USERS-MANAGEMENT": "User management",
+        "DUTIES": "Duties"
+    },
+    "DUTY": {
+        "NAME": "Name"
     },
     "USER": {
         "USERNAME": "Username",
@@ -96,7 +102,8 @@
             "USER": "Admin: user management",
             "USER-EDIT": "Admin: edit user details",
             "PASSWORD": "Admin: edit user password",
-            "ROLES": "Admin: edit user roles"
+            "ROLES": "Admin: edit user roles",
+            "DUTIES": "Admin: duties"
         },
         "UNIT-LEADER": {
             "CREATE-USER": "Unit leader: create user",

@@ -8,7 +8,8 @@
         "ADMIN": "Admin",
         "UNIT-LEADER": "Unit leader",
         "DASHBOARD": "Pulpit",
-        "USERS": "U\u017cytkownicy"
+        "USERS": "U\u017cytkownicy",
+        "DUTIES": "Obowi\u0105zki"
     },
     "BTN": {
         "PROFILE": "Profil",
@@ -25,6 +26,7 @@
         "ASSIGN": "Przypisz",
         "RETRACT": "Odbierz",
         "CREATE-USER": "Stw\u00f3rz nowego u\u017cytkownika",
+        "CREATE-DUTY": "Stw\u00f3rz nowy obowi\u0105zek",
         "DELETE": "Usu\u0144",
         "FILTER": "Filtruj",
         "RESET": "Wyczy\u015b\u0107"
@@ -66,7 +68,11 @@
         "EDIT-USER": "Edytuj u\u017cytkownika",
         "ACTION": "Dzia\u0142anie",
         "USERS": "U\u017cytkownicy",
-        "USERS-MANAGEMENT": "Zarz\u0105dzanie u\u017cytkownikami"
+        "USERS-MANAGEMENT": "Zarz\u0105dzanie u\u017cytkownikami",
+        "DUTIES": "Obowi\u0105zki"
+    },
+    "DUTY": {
+        "NAME": "Nazwa"
     },
     "USER": {
         "USERNAME": "Nazwa u\u017cytkownika",
@@ -96,7 +102,8 @@
             "USER": "Admin: zarz\u0105dzanie u\u017cytkownikiem",
             "USER-EDIT": "Admin: edycja danych u\u017cytkownika",
             "PASSWORD": "Admin: edycja has\u0142a u\u017cytkownika",
-            "ROLES": "Admin: edycja r\u00f3l u\u017cytkownika"
+            "ROLES": "Admin: edycja r\u00f3l u\u017cytkownika",
+            "DUTIES": "Admin: obowi\u0105zki"
         },
         "UNIT-LEADER": {
             "CREATE-USER": "Unit leader: tworzenie u\u017cytkownika",

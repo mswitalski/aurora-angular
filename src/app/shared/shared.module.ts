@@ -5,13 +5,12 @@ import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
 
+import {ApiService, AuthService, DutiesService, JwtService, RolesService, UsersService} from './service';
 import {AuthenticatedGuard, IsAdminGuard, IsEmployeeGuard, IsUnitLeaderGuard} from './service/guard';
-import {CachedUserResolver, RolesResolver, UserResolver, UsersListResolver} from './users/resolver';
 import {ErrorPageComponent} from './error-page';
 import {FormErrorsComponent} from './form-errors.component';
 import {moduleRouting} from './routes';
 import {PaginationComponent} from './pagination.component';
-import {ExpandedUsersListComponent, UserDetailsComponent, UserFormComponent} from './users';
 import {ShowAdminDirective} from './show-admin.directive';
 import {ShowUnitLeaderDirective} from './show-unit-leader.directive';
 import {ShowEmployeeDirective} from './show-employee.directive';
@@ -19,11 +18,8 @@ import {ShowEmployeeDirective} from './show-employee.directive';
 @NgModule({
     declarations: [
         ErrorPageComponent,
-        ExpandedUsersListComponent,
         FormErrorsComponent,
         PaginationComponent,
-        UserDetailsComponent,
-        UserFormComponent,
         ShowAdminDirective,
         ShowEmployeeDirective,
         ShowUnitLeaderDirective
@@ -38,27 +34,26 @@ import {ShowEmployeeDirective} from './show-employee.directive';
         TranslateModule.forChild()
     ],
     exports: [
-        ExpandedUsersListComponent,
         FormErrorsComponent,
         HttpClientModule,
         PaginationComponent,
         RouterModule,
         TranslateModule,
-        UserDetailsComponent,
-        UserFormComponent,
         ShowAdminDirective,
         ShowEmployeeDirective,
         ShowUnitLeaderDirective
     ],
     providers: [
+        ApiService,
+        AuthService,
+        DutiesService,
+        JwtService,
+        RolesService,
+        UsersService,
         AuthenticatedGuard,
-        CachedUserResolver,
         IsAdminGuard,
         IsUnitLeaderGuard,
-        IsEmployeeGuard,
-        RolesResolver,
-        UserResolver,
-        UsersListResolver
+        IsEmployeeGuard
     ]
 })
 export class SharedModule {

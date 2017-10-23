@@ -3,9 +3,10 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {moduleRouting} from './routes';
-import {SharedModule} from '../shared';
-import {CreateUserComponent, EditUserComponent, UserManagementComponent} from './users/user-management';
-import {UsersListComponent} from './users/list';
+import {SharedModule} from '../../shared';
+import {CreateUserComponent, EditUserComponent, UserManagementComponent} from './user-management';
+import {UsersListComponent} from './list';
+import {UsersSharedModule} from '../shared';
 
 @NgModule({
     declarations: [
@@ -19,8 +20,9 @@ import {UsersListComponent} from './users/list';
         FormsModule,
         moduleRouting,
         ReactiveFormsModule,
-        SharedModule
+        SharedModule,
+        UsersSharedModule
     ]
 })
-export class UnitLeaderModule {
+export class UsersUnitLeaderModule {
 }

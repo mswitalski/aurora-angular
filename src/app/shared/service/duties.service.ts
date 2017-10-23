@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {Duty} from '../model';
-import {Observable} from 'rxjs/Observable';
-import {ApiService} from './api.service';
 import {HttpParams, HttpResponse} from '@angular/common/http';
-import {PagedResults} from '../model/paged-results.model';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs/Observable';
+
+import {ApiService} from './api.service';
+import {Duty, DutySearchForm, PagedResults} from '../model';
 import {environment} from '../../../environments/environment';
 
 @Injectable()
@@ -52,6 +52,16 @@ export class DutiesService {
         } else {
             return this.getSingle(dutyId);
         }
+    }
+
+    search(criteria: DutySearchForm, page: number = 0): Observable<PagedResults<Duty>> {
+        const resultPageSize = environment.resultsOnPage;
+        const partialUrl = 'search/duties/';
+        const queryParams = new HttpParams()
+            .set('page', page.toString(10))
+            .set('size', resultPageSize.toString(10));
+
+        return this.api.postWithParams(partialUrl, queryParams, criteria);
     }
 
     updateAsAdmin(duty: Duty): Observable<HttpResponse<any>> {

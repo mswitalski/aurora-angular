@@ -1,11 +1,11 @@
 import {ModuleWithProviders} from '@angular/core';
 import {RouterModule} from '@angular/router';
 
-import {CachedUserResolver, UsersListResolver, UserResolver, RolesResolver} from '../shared/users/resolver';
-import {CreateUserComponent, UserManagementComponent} from './users/user-management';
-import {EditPasswordComponent, EditRolesComponent, EditUserComponent} from './users/user-management/edit';
-import {IsAdminGuard} from '../shared/service/guard';
-import {UsersListComponent} from './users/list';
+import {CachedUserResolver, UsersListResolver, UserResolver, RolesResolver} from '../shared/resolver';
+import {CreateUserComponent, UserManagementComponent} from './user-management';
+import {EditPasswordComponent, EditRolesComponent, EditUserComponent} from './user-management/edit';
+import {IsAdminGuard} from '../../shared/service/guard';
+import {UsersListComponent} from './list';
 
 export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {

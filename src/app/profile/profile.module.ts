@@ -7,6 +7,7 @@ import {LoggedUserResolver} from './logged-user-resolver.service';
 import {moduleRouting} from './routes';
 import {ProfileComponent} from './profile.component';
 import {SharedModule} from '../shared';
+import {UsersSharedModule} from '../users/shared';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import {SharedModule} from '../shared';
         CommonModule,
         moduleRouting,
         ReactiveFormsModule,
-        SharedModule
+        SharedModule,
+        UsersSharedModule
     ],
     providers: [
         LoggedUserResolver

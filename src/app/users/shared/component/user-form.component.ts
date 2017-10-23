@@ -6,9 +6,9 @@ import {isUndefined} from 'util';
 import {Location} from '@angular/common';
 import {Observable} from 'rxjs/Observable';
 
-import {AutoUnsubscriberComponent} from '../auto-unsubscriber.component';
-import {Role, User, ValidationError} from '../model';
-import {validationConstraints} from '../configuration';
+import {AutoUnsubscriberComponent} from '../../../shared/auto-unsubscriber.component';
+import {Role, User, ValidationError} from '../../../shared/model';
+import {validationConstraints} from '../../../shared/configuration';
 
 @Component({
     selector: 'app-user-form',
