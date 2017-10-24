@@ -68,11 +68,13 @@
         "EDIT-USER": "Edit user",
         "ACTION": "Action",
         "USERS": "Users",
-        "USERS-MANAGEMENT": "User management",
-        "DUTIES": "Duties"
+        "USER-MANAGEMENT": "User management",
+        "DUTIES": "Duties",
+        "DUTY-MANAGEMENT": "Duty management"
     },
     "DUTY": {
-        "NAME": "Name"
+        "NAME": "Name",
+        "USERS": "Users"
     },
     "USER": {
         "USERNAME": "Username",

@@ -2,14 +2,17 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgModule} from '@angular/core';
 
+import {DutiesListComponent} from './list';
 import {DutiesSharedModule} from '../shared';
+import {DutyManagementComponent} from './management';
 import {SharedModule} from '../../shared';
 import {moduleRouting} from './routes';
-import {DutiesListComponent} from './list';
+import {UsersSharedModule} from '../../users/shared';
 
 @NgModule({
     declarations: [
-        DutiesListComponent
+        DutiesListComponent,
+        DutyManagementComponent
     ],
     imports: [
         CommonModule,
@@ -17,7 +20,8 @@ import {DutiesListComponent} from './list';
         FormsModule,
         moduleRouting,
         ReactiveFormsModule,
-        SharedModule
+        SharedModule,
+        UsersSharedModule
     ]
 })
 export class DutiesUnitLeaderModule {

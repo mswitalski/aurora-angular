@@ -2,7 +2,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgModule} from '@angular/core';
 
-import {DutiesListResolver} from './resolver';
+import {DutiesListResolver, DutyResolver} from './resolver';
 import {SharedModule} from '../../shared';
 
 @NgModule({
@@ -13,7 +13,8 @@ import {SharedModule} from '../../shared';
         SharedModule
     ],
     providers: [
-        DutiesListResolver
+        DutiesListResolver,
+        DutyResolver
     ]
 })
 export class DutiesSharedModule {

@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 translate>HEADER.DUTY-MANAGEMENT</h2>
+
+            {{ 'DUTY.NAME' | translate }}: {{duty.name}} <br/>
+            {{ 'DUTY.USERS' | translate }}:
+            <app-simple-users-list [listData]="duty.users"></app-simple-users-list><br/>
+
+            <a class="btn btn-lg btn-primary" routerLink="/unitleader/duties" translate>BTN.BACK</a>
+            <a class="btn btn-lg btn-primary" routerLink="edit" translate>BTN.EDIT-DETAILS</a>
+            <a class="btn btn-lg btn-danger" (click)="deleteDuty()" translate>BTN.DELETE</a>
+        </div>
+    </div>
+</div>
