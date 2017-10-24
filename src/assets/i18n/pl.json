@@ -111,7 +111,8 @@
             "USER": "Unit leader: zarz\u0105dzanie u\u017cytkownikiem",
             "USER-EDIT": "Unit leader: edycja danych u\u017cytkownika",
             "PASSWORD": "Unit leader: edycja has\u0142a u\u017cytkownika",
-            "ROLES": "Unit leader: edycja r\u00f3l u\u017cytkownika"
+            "ROLES": "Unit leader: edycja r\u00f3l u\u017cytkownika",
+            "DUTIES": "Unit leader: obowi\u0105zki"
         }
     },
     "PAGINATION": {

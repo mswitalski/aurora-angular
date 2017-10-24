@@ -111,7 +111,8 @@
             "USER": "Unit leader: user management",
             "USER-EDIT": "Unit leader: edit user details",
             "PASSWORD": "Unit leader: edit user password",
-            "ROLES": "Unit leader: edit user roles"
+            "ROLES": "Unit leader: edit user roles",
+            "DUTIES": "Unit leader: duties"
         }
     },
     "PAGINATION": {
