@@ -132,10 +132,4 @@ export class UserFormComponent extends AutoUnsubscriberComponent implements OnIn
             }
         );
     }
-
-    console() {
-        console.log(this.userForm.errors);
-        console.log(this.userForm.valid);
-        console.log(this.userForm.status);
-    }
 }

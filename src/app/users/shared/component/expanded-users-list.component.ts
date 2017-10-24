@@ -3,8 +3,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 
 import {UserSearchForm} from '../../../shared/model';
 import {PagedResults} from '../../../shared/model';
-import {User} from '../../../shared/model';
-import {ListEventData} from '../../../shared/model/list-event-data.model';
+import {ListEventData, User} from '../../../shared/model';
 
 @Component({
     selector: 'app-expanded-users-list',

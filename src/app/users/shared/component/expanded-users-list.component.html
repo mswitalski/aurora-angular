@@ -1,4 +1,4 @@
-<form [formGroup]="searchUserForm" (ngSubmit)="search()" >
+<form [formGroup]="searchUserForm" (ngSubmit)="search()">
     <fieldset class="col-md-3">
         <label for="user-username" class="col-form-label" translate>USER.USERNAME</label>
         <input
@@ -39,7 +39,8 @@
     <button type="submit" class="btn btn-success" translate>
         BTN.FILTER
     </button>
-    <button [disabled]="!isFilteringEnabled" (click)="resetSearchForm()" type="button" class="btn btn-success" translate>
+    <button [disabled]="!isFilteringEnabled" (click)="resetSearchForm()" type="button" class="btn btn-success"
+            translate>
         BTN.RESET
     </button>
 </form>
@@ -55,7 +56,7 @@
         <th translate>HEADER.ACTION</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="usersList.length !== 0">
     <tr *ngFor="let user of usersList">
         <td>{{user.surname}}</td>
         <td>{{user.name}}</td>
@@ -68,6 +69,12 @@
         </td>
     </tr>
     </tbody>
+    <tbody *ngIf="usersList.length === 0">
+    <tr>
+        <td colspan="7" class="text-center">- {{'NO-RESULTS' | translate}} -</td>
+    </tr>
+    </tbody>
 </table>
 
-<app-pagination (pageChanged)="loadPage($event)" [paginationData]="pagedResults"></app-pagination>
+<app-pagination *ngIf="usersList.length !== 0" (pageChanged)="loadPage($event)"
+                [paginationData]="pagedResults"></app-pagination>

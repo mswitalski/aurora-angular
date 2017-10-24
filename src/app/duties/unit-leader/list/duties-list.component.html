@@ -6,7 +6,7 @@
     </button>
 </div>
 
-<form [formGroup]="searchDutyForm" (ngSubmit)="search()" >
+<form [formGroup]="searchDutyForm" (ngSubmit)="search()">
     <fieldset class="col-md-3">
         <label for="duty-name" class="col-form-label" translate>USER.NAME</label>
         <input
@@ -20,7 +20,8 @@
     <button type="submit" class="btn btn-success" translate>
         BTN.FILTER
     </button>
-    <button [disabled]="!isFilteringEnabled" (click)="resetSearchForm()" type="button" class="btn btn-success" translate>
+    <button [disabled]="!isFilteringEnabled" (click)="resetSearchForm()" type="button" class="btn btn-success"
+            translate>
         BTN.RESET
     </button>
 </form>
@@ -32,7 +33,7 @@
         <th translate>HEADER.ACTION</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="dutiesList.length !== 0">
     <tr *ngFor="let duty of dutiesList">
         <td>{{duty.name}}</td>
         <td>
@@ -40,6 +41,12 @@
         </td>
     </tr>
     </tbody>
+    <tbody *ngIf="dutiesList.length === 0">
+    <tr>
+        <td colspan="2" class="text-center">- {{'NO-RESULTS' | translate}} -</td>
+    </tr>
+    </tbody>
 </table>
 
-<app-pagination (pageChanged)="loadPage($event)" [paginationData]="pagedResults"></app-pagination>
+<app-pagination *ngIf="dutiesList.length !== 0" (pageChanged)="loadPage($event)"
+                [paginationData]="pagedResults"></app-pagination>

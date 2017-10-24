@@ -1,6 +1,5 @@
 import {ActivatedRoute, Router} from '@angular/router';
 import {Component, OnInit} from '@angular/core';
-import {isUndefined} from 'util';
 import {TranslateService} from '@ngx-translate/core';
 
 import {AutoUnsubscriberComponent} from '../../../shared';

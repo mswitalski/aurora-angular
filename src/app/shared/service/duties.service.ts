@@ -13,11 +13,11 @@ export class DutiesService {
 
     constructor(private api: ApiService) {}
 
-    create(duty: Duty): Observable<HttpResponse<any>> {
+    create(duty: Duty): Observable<Duty> {
         return this.api.post('unitleader/duties/', duty);
     }
 
-    delete(duty: Duty): Observable<HttpResponse<any>> {
+    deleteDuty(duty: Duty): Observable<HttpResponse<any>> {
         return this.api.deleteMethod('unitleader/duties/' + duty.id);
     }
 

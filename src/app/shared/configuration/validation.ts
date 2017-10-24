@@ -1,4 +1,9 @@
 export const validationConstraints = {
+    'duty': {
+        'name': {
+            'max': 100
+        }
+    },
     'user': {
         'username': {
             'min': 2,

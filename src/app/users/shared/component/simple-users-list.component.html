@@ -6,11 +6,16 @@
         <th translate>USER.USERNAME</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="usersList.length !== 0">
     <tr *ngFor="let user of usersList">
         <td>{{user.surname}}</td>
         <td>{{user.name}}</td>
         <td>{{user.username}}</td>
+    </tr>
+    </tbody>
+    <tbody *ngIf="usersList.length === 0">
+    <tr>
+        <td colspan="3" class="text-center">- {{'NO-RESULTS' | translate}} -</td>
     </tr>
     </tbody>
 </table>

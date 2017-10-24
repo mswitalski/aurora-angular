@@ -1,6 +1,7 @@
 {
     "YES": "Tak",
     "NO": "Nie",
+    "NO-RESULTS": "brak wynik\u00f3w",
     "DIALOG": {
         "CONFIRMATION": "Czy na pewno chcesz to zrobi\u0107?"
     },
@@ -70,7 +71,8 @@
         "USERS": "U\u017cytkownicy",
         "USER-MANAGEMENT": "Zarz\u0105dzanie u\u017cytkownikiem",
         "DUTIES": "Obowi\u0105zki",
-        "DUTY-MANAGEMENT": "Zarz\u0105dzanie obowi\u0105zkiem"
+        "DUTY-MANAGEMENT": "Zarz\u0105dzanie obowi\u0105zkiem",
+        "CREATE-DUTY": "Stw\u00f3rz nowy obowi\u0105zek"
     },
     "DUTY": {
         "NAME": "Nazwa",
@@ -113,7 +115,9 @@
             "USER-EDIT": "Unit leader: edycja danych u\u017cytkownika",
             "PASSWORD": "Unit leader: edycja has\u0142a u\u017cytkownika",
             "ROLES": "Unit leader: edycja r\u00f3l u\u017cytkownika",
-            "DUTIES": "Unit leader: obowi\u0105zki"
+            "DUTIES": "Unit leader: obowi\u0105zki",
+            "DUTY": "Unit leader: obowi\u0105zek",
+            "CREATE-DUTY": "Unit leader: tworzenie obowi\u0105zku"
         }
     },
     "PAGINATION": {

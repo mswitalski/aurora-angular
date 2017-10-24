@@ -3,9 +3,16 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgModule} from '@angular/core';
 
 import {DutiesListResolver, DutyResolver} from './resolver';
+import {DutyFormComponent} from './component';
 import {SharedModule} from '../../shared';
 
 @NgModule({
+    declarations: [
+        DutyFormComponent
+    ],
+    exports: [
+        DutyFormComponent
+    ],
     imports: [
         CommonModule,
         FormsModule,

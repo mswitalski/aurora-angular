@@ -1,0 +1,27 @@
+<form [formGroup]="dutyForm" (ngSubmit)="submitForm()">
+    <fieldset [disabled]="isSubmitting">
+        <fieldset class="form-group row">
+            <label for="duty-name" class="col-md-2 col-form-label">{{ 'DUTY.NAME' | translate }}</label>
+            <div class="col-md-5">
+                <input
+                    id="duty-name"
+                    class="form-control"
+                    formControlName="name"
+                    [(ngModel)]="duty.name"
+                    placeholder="{{ 'DUTY.NAME' | translate }}"
+                    type="text"/>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'name'"
+                                 [formControl]="dutyForm.controls['name']"
+                                 [maxLength]="validation.name.max" ngDefaultControl></app-form-errors>
+            </div>
+        </fieldset>
+
+        <button (click)="goBack()" type="button" class="btn btn-dark" translate>
+            BTN.BACK
+        </button>
+        <button [disabled]="!dutyForm.valid" type="submit" class="btn btn-success" translate>
+            BTN.SAVE
+        </button>
+    </fieldset>
+</form>

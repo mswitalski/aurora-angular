@@ -1,6 +1,7 @@
 {
     "YES": "Yes",
     "NO": "No",
+    "NO-RESULTS": "no results",
     "DIALOG": {
         "CONFIRMATION": "Are you sure?"
     },
@@ -70,7 +71,8 @@
         "USERS": "Users",
         "USER-MANAGEMENT": "User management",
         "DUTIES": "Duties",
-        "DUTY-MANAGEMENT": "Duty management"
+        "DUTY-MANAGEMENT": "Duty management",
+        "CREATE-DUTY": "Create new duty"
     },
     "DUTY": {
         "NAME": "Name",
@@ -113,7 +115,9 @@
             "USER-EDIT": "Unit leader: edit user details",
             "PASSWORD": "Unit leader: edit user password",
             "ROLES": "Unit leader: edit user roles",
-            "DUTIES": "Unit leader: duties"
+            "DUTIES": "Unit leader: duties",
+            "DUTY": "Unit leader: duty",
+            "CREATE-DUTY": "Unit leader: create duty"
         }
     },
     "PAGINATION": {

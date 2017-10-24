@@ -1,9 +1,9 @@
 import {ModuleWithProviders} from '@angular/core';
 import {RouterModule} from '@angular/router';
 
+import {CreateDutyComponent, DutyManagementComponent} from './management';
 import {DutiesListComponent} from './list';
 import {DutiesListResolver, DutyResolver} from '../shared/resolver';
-import {DutyManagementComponent} from './management';
 import {IsUnitLeaderGuard} from '../../shared/service/guard';
 
 export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
@@ -25,4 +25,10 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
             duty: DutyResolver
         }
     },
+    {
+        canActivate: [IsUnitLeaderGuard],
+        component: CreateDutyComponent,
+        data: { title: 'TITLE.UNIT-LEADER.CREATE-DUTY' },
+        path: 'unitleader/duties/create/duty'
+    }
 ]);
