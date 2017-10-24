@@ -102,8 +102,7 @@
             "USER": "Admin: user management",
             "USER-EDIT": "Admin: edit user details",
             "PASSWORD": "Admin: edit user password",
-            "ROLES": "Admin: edit user roles",
-            "DUTIES": "Admin: duties"
+            "ROLES": "Admin: edit user roles"
         },
         "UNIT-LEADER": {
             "CREATE-USER": "Unit leader: create user",

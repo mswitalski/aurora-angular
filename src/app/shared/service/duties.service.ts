@@ -13,19 +13,11 @@ export class DutiesService {
 
     constructor(private api: ApiService) {}
 
-    createAsAdmin(duty: Duty): Observable<HttpResponse<any>> {
-        return this.api.post('admin/duties/', duty);
-    }
-
-    createAsUnitLeader(duty: Duty): Observable<HttpResponse<any>> {
+    create(duty: Duty): Observable<HttpResponse<any>> {
         return this.api.post('unitleader/duties/', duty);
     }
 
-    deleteAsAdmin(duty: Duty): Observable<HttpResponse<any>> {
-        return this.api.deleteMethod('admin/duties/' + duty.id);
-    }
-
-    deleteAsUnitLeader(duty: Duty): Observable<HttpResponse<any>> {
+    delete(duty: Duty): Observable<HttpResponse<any>> {
         return this.api.deleteMethod('unitleader/duties/' + duty.id);
     }
 
@@ -64,11 +56,7 @@ export class DutiesService {
         return this.api.postWithParams(partialUrl, queryParams, criteria);
     }
 
-    updateAsAdmin(duty: Duty): Observable<HttpResponse<any>> {
-        return this.api.put('admin/duties/', duty);
-    }
-
-    updateAsUnitLeader(duty: Duty): Observable<HttpResponse<any>> {
+    update(duty: Duty): Observable<HttpResponse<any>> {
         return this.api.put('unitleader/duties/', duty);
     }
 }

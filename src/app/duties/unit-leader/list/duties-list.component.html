@@ -6,5 +6,40 @@
     </button>
 </div>
 
-<app-duties-basic-list [paginationData]="pagedResults" [listData]="dutiesList"
-                       (userInteracted)="loadListData($event)"></app-duties-basic-list>
+<form [formGroup]="searchDutyForm" (ngSubmit)="search()" >
+    <fieldset class="col-md-3">
+        <label for="duty-name" class="col-form-label" translate>USER.NAME</label>
+        <input
+            id="duty-name"
+            class="form-control"
+            formControlName="name"
+            [(ngModel)]="formData.name"
+            type="text"/>
+    </fieldset>
+
+    <button type="submit" class="btn btn-success" translate>
+        BTN.FILTER
+    </button>
+    <button [disabled]="!isFilteringEnabled" (click)="resetSearchForm()" type="button" class="btn btn-success" translate>
+        BTN.RESET
+    </button>
+</form>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th translate>DUTY.NAME</th>
+        <th translate>HEADER.ACTION</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let duty of dutiesList">
+        <td>{{duty.name}}</td>
+        <td>
+            <button class="btn" [routerLink]="duty.name" translate>BTN.DETAILS</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<app-pagination (pageChanged)="loadPage($event)" [paginationData]="pagedResults"></app-pagination>
