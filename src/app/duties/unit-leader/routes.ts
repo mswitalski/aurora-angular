@@ -1,9 +1,10 @@
 import {ModuleWithProviders} from '@angular/core';
 import {RouterModule} from '@angular/router';
 
+import {CachedDutyResolver, DutiesListResolver, DutyResolver} from '../shared/resolver';
 import {CreateDutyComponent, DutyManagementComponent} from './management';
 import {DutiesListComponent} from './list';
-import {DutiesListResolver, DutyResolver} from '../shared/resolver';
+import {EditDutyComponent} from './management/edit';
 import {IsUnitLeaderGuard} from '../../shared/service/guard';
 
 export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
@@ -30,5 +31,14 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         component: CreateDutyComponent,
         data: { title: 'TITLE.UNIT-LEADER.CREATE-DUTY' },
         path: 'unitleader/duties/create/duty'
+    },
+    {
+        canActivate: [IsUnitLeaderGuard],
+        component: EditDutyComponent,
+        data: { title: 'TITLE.UNIT-LEADER.EDIT-DUTY' },
+        path: 'unitleader/duties/:dutyId/edit',
+        resolve: {
+            duty: CachedDutyResolver
+        }
     }
 ]);

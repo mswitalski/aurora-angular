@@ -2,7 +2,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgModule} from '@angular/core';
 
-import {DutiesListResolver, DutyResolver} from './resolver';
+import {CachedDutyResolver, DutiesListResolver, DutyResolver} from './resolver';
 import {DutyFormComponent} from './component';
 import {SharedModule} from '../../shared';
 
@@ -20,6 +20,7 @@ import {SharedModule} from '../../shared';
         SharedModule
     ],
     providers: [
+        CachedDutyResolver,
         DutiesListResolver,
         DutyResolver
     ]

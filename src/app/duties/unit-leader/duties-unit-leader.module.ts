@@ -5,6 +5,7 @@ import {NgModule} from '@angular/core';
 import {CreateDutyComponent, DutyManagementComponent} from './management';
 import {DutiesListComponent} from './list';
 import {DutiesSharedModule} from '../shared';
+import {EditDutyComponent} from './management/edit';
 import {SharedModule} from '../../shared';
 import {moduleRouting} from './routes';
 import {UsersSharedModule} from '../../users/shared';
@@ -13,7 +14,8 @@ import {UsersSharedModule} from '../../users/shared';
     declarations: [
         CreateDutyComponent,
         DutiesListComponent,
-        DutyManagementComponent
+        DutyManagementComponent,
+        EditDutyComponent
     ],
     imports: [
         CommonModule,

@@ -72,7 +72,8 @@
         "USER-MANAGEMENT": "User management",
         "DUTIES": "Duties",
         "DUTY-MANAGEMENT": "Duty management",
-        "CREATE-DUTY": "Create new duty"
+        "CREATE-DUTY": "Create new duty",
+        "EDIT-DUTY": "Edit duty"
     },
     "DUTY": {
         "NAME": "Name",
@@ -117,7 +118,8 @@
             "ROLES": "Unit leader: edit user roles",
             "DUTIES": "Unit leader: duties",
             "DUTY": "Unit leader: duty",
-            "CREATE-DUTY": "Unit leader: create duty"
+            "CREATE-DUTY": "Unit leader: create duty",
+            "EDIT-DUTY": "Unit leader: edit duty"
         }
     },
     "PAGINATION": {

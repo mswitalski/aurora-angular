@@ -1,0 +1,4 @@
+<h2 translate>HEADER.EDIT-DUTY</h2>
+
+<app-duty-form [editedDuty]="duty" [response]="responseSubject.asObservable()"
+               (formSubmitted)="submit($event)"></app-duty-form>
