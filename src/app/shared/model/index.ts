@@ -1,4 +1,5 @@
 export * from './admin-password-change-form.model';
+export * from './data-checkbox.model';
 export * from './duty.model';
 export * from './duty-search-form.model';
 export * from './errors.model';

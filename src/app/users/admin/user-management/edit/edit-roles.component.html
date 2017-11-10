@@ -3,13 +3,13 @@
 <div class="row mb-2">
     <div class="col-md-2 col-form-label" translate>USER.ROLES</div>
     <div class="col-md-5">
-        <div *ngFor="let role of availableRoles" class="row">
-            <button *ngIf="!hasRole(role)" (click)="assignRole(role)" class="btn-camouflaged" translate><i
-                class="fa fa-square-o mr-2"></i>ROLE.{{role.name}}
-            </button>
-            <button *ngIf="hasRole(role)" (click)="retractRole(role)" class="btn-camouflaged" translate><i
-                class="fa fa-check-square-o mr-2"></i>ROLE.{{role.name}}
-            </button>
+        <div *ngFor="let role of checkboxes">
+            <div class="form-check">
+                <label class="form-check-label" translate>
+                    <input class="form-check-input" type="checkbox" [checked]="role.value" (change)="role.value = !role.value">
+                    ROLE.{{role.item.name}}
+                </label>
+            </div>
         </div>
     </div>
 </div>
