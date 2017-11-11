@@ -3,16 +3,15 @@ import {Component, OnInit} from '@angular/core';
 import 'rxjs/add/operator/takeUntil';
 
 import {AutoUnsubscriberComponent} from '../../../../shared';
-import {Role, User} from '../../../../shared/model';
+import {DataCheckbox, Role, User} from '../../../../shared/model';
 import {UsersService} from '../../../../shared/service';
-import {DataCheckbox} from '../../../../shared/model/data-checkbox.model';
 
 @Component({
     templateUrl: './edit-roles.component.html'
 })
 export class EditRolesComponent extends AutoUnsubscriberComponent implements OnInit {
 
-    checkboxes: DataCheckbox<Role>[] = [];
+    rolesCheckboxes: DataCheckbox<Role>[] = [];
     isSubmitting = false;
     user: User;
 
@@ -25,7 +24,7 @@ export class EditRolesComponent extends AutoUnsubscriberComponent implements OnI
     ngOnInit(): void {
         this.user = JSON.parse(JSON.stringify(this.route.snapshot.data['user']));
         this.route.snapshot.data['roles'].forEach(
-            role => this.checkboxes.push(new DataCheckbox(role, this.hasRole(role)))
+            role => this.rolesCheckboxes.push(new DataCheckbox(role, this.hasRole(role)))
         );
     }
 
@@ -34,7 +33,7 @@ export class EditRolesComponent extends AutoUnsubscriberComponent implements OnI
     }
 
     submitRoles() {
-        this.user.roles = this.checkboxes.filter(c => c.value).map(c => c.item);
+        this.user.roles = this.rolesCheckboxes.filter(c => c.value).map(c => c.item);
         this.usersService.updateAsAdmin(this.user).takeUntil(this.ngUnsubscribe).subscribe(
             () => {
                 const url = 'admin/users/' + this.user.username;

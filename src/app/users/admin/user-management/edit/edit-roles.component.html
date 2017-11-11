@@ -3,11 +3,12 @@
 <div class="row mb-2">
     <div class="col-md-2 col-form-label" translate>USER.ROLES</div>
     <div class="col-md-5">
-        <div *ngFor="let role of checkboxes">
+        <div *ngFor="let item of rolesCheckboxes">
             <div class="form-check">
                 <label class="form-check-label" translate>
-                    <input class="form-check-input" type="checkbox" [checked]="role.value" (change)="role.value = !role.value">
-                    ROLE.{{role.item.name}}
+                    <input class="form-check-input" type="checkbox" [checked]="item.value"
+                           (change)="item.value = !item.value">
+                    ROLE.{{item.item.name}}
                 </label>
             </div>
         </div>
