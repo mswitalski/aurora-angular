@@ -20,7 +20,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         canActivate: [IsUnitLeaderGuard],
         component: UserManagementComponent,
         data: { title: 'TITLE.UNIT-LEADER.USER' },
-        path: 'unitleader/users/:username',
+        path: 'unitleader/users/:userId',
         resolve: {
             user: UserResolver
         }
@@ -35,7 +35,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         canActivate: [IsUnitLeaderGuard],
         component: EditUserComponent,
         data: { title: 'TITLE.UNIT-LEADER.USER' },
-        path: 'unitleader/users/:username/edit',
+        path: 'unitleader/users/:userId/edit',
         resolve: {
             user: CachedUserResolver
         }

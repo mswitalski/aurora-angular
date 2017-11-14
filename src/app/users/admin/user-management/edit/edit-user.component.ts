@@ -25,7 +25,7 @@ export class EditUserComponent extends AutoUnsubscriberComponent {
         this.usersService.updateAsAdmin(user).takeUntil(this.ngUnsubscribe).subscribe(
             () => {
                 this.responseSubject.complete();
-                const url = 'admin/users/' + user.username;
+                const url = 'admin/users/' + user.id;
                 this.router.navigate([url]);
             },
             err => this.responseSubject.next(err)

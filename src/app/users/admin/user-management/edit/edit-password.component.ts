@@ -57,7 +57,7 @@ export class EditPasswordComponent extends AutoUnsubscriberComponent implements 
         this.isSubmitting = true;
         this.usersService.updateOtherPassword(this.user, this.formData).takeUntil(this.ngUnsubscribe).subscribe(
             () => {
-                const url = 'admin/users/' + this.user.username;
+                const url = 'admin/users/' + this.user.id;
                 this.router.navigate([url]);
                 this.isSubmitting = false;
             },

@@ -14,27 +14,27 @@ export class DutiesService {
     constructor(private api: ApiService) {}
 
     create(duty: Duty): Observable<Duty> {
-        return this.api.post('unitleader/duties/', duty);
+        return this.api.post('duties/', duty, environment.api.role.unitleader);
     }
 
     deleteDuty(duty: Duty): Observable<HttpResponse<any>> {
-        return this.api.deleteMethod('unitleader/duties/' + duty.id);
+        return this.api.deleteMethod('duties/' + duty.id, environment.api.role.unitleader);
     }
 
     getAllByPage(page: number = 0): Observable<PagedResults<Duty>> {
         const resultPageSize = environment.resultsOnPage;
-        const partialUrl = 'duties/';
+        const partialUrl = 'duties/paged/';
         const queryParams = new HttpParams()
             .set('page', page.toString(10))
             .set('size', resultPageSize.toString(10));
 
-        return this.api.getWithParams(partialUrl, queryParams);
+        return this.api.getWithParams(partialUrl, queryParams, environment.api.role.unitleader);
     }
 
     getSingle(dutyId: number): Observable<Duty> {
         const partialUrl = 'duties/' + dutyId;
 
-        return this.api.get(partialUrl).map(duty => duty.body).do(duty => this.cachedDuty = duty);
+        return this.api.get(partialUrl, environment.api.role.unitleader).map(duty => duty.body).do(duty => this.cachedDuty = duty);
     }
 
     getCachedUser(dutyId: number): Observable<Duty> {
@@ -48,15 +48,15 @@ export class DutiesService {
 
     search(criteria: DutySearchForm, page: number = 0): Observable<PagedResults<Duty>> {
         const resultPageSize = environment.resultsOnPage;
-        const partialUrl = 'search/duties/';
+        const partialUrl = 'duties/search';
         const queryParams = new HttpParams()
             .set('page', page.toString(10))
             .set('size', resultPageSize.toString(10));
 
-        return this.api.postWithParams(partialUrl, queryParams, criteria);
+        return this.api.postWithParams(partialUrl, queryParams, criteria, environment.api.role.unitleader);
     }
 
     update(duty: Duty): Observable<HttpResponse<any>> {
-        return this.api.put('unitleader/duties/', duty);
+        return this.api.put('duties/' + duty.id, duty, environment.api.role.unitleader);
     }
 }

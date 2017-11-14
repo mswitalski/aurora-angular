@@ -20,27 +20,29 @@ export class ApiService {
     constructor(private http: HttpClient, private jwtService: JwtService) {
     }
 
-    get(partialUrl: string): Observable<any> {
+    get(partialUrl: string, requesterRole: string): Observable<any> {
         const url = environment.backendUrl + partialUrl;
 
-        return this.http.get(url, {headers: this.prepareDefaultHeaders(), observe: 'response'})
+        return this.http.get(url, {headers: this.prepareDefaultHeaders(requesterRole), observe: 'response'})
             .do(data => this.storeETag(data.headers));
     }
 
-    getWithParams(partialUrl: string, params: HttpParams): Observable<any> {
+    getWithParams(partialUrl: string, params: HttpParams, requesterRole: string): Observable<any> {
         const url = environment.backendUrl + partialUrl;
 
-        return this.http.get(url, {params: params, headers: this.prepareDefaultHeaders()});
+        return this.http.get(url, {params: params, headers: this.prepareDefaultHeaders(requesterRole)});
     }
 
-    private prepareDefaultHeaders(): HttpHeaders {
+    private prepareDefaultHeaders(header: string): HttpHeaders {
         const defaultHeaders = {
             'Content-Type': 'application/json',
-            'Accept': 'application/json'
+            'Accept': 'application/json',
         };
-
         const token = this.jwtService.getToken();
 
+        if (header) {
+            defaultHeaders[environment.api.header] = header;
+        }
         if (token) {
             defaultHeaders['Authorization'] = token;
         }
@@ -54,46 +56,46 @@ export class ApiService {
         }
     }
 
-    post(partialUrl: string, objectToPost: Object): Observable<any> {
+    post(partialUrl: string, objectToPost: Object, requesterRole: string): Observable<any> {
         const url = environment.backendUrl + partialUrl;
 
-        return this.http.post(url, JSON.stringify(objectToPost), {headers: this.prepareDefaultHeaders()});
+        return this.http.post(url, JSON.stringify(objectToPost), {headers: this.prepareDefaultHeaders(requesterRole)});
     }
 
-    postWithParams(partialUrl: string, params: HttpParams, objectToPost: Object): Observable<any> {
+    postWithParams(partialUrl: string, params: HttpParams, objectToPost: Object, requesterRole: string): Observable<any> {
         const url = environment.backendUrl + partialUrl;
 
-        return this.http.post(url, JSON.stringify(objectToPost), {params: params, headers: this.prepareDefaultHeaders()});
+        return this.http.post(url, JSON.stringify(objectToPost), {params: params, headers: this.prepareDefaultHeaders(requesterRole)});
     }
 
-    put(partialUrl: string, objectToPut: Object): Observable<HttpResponse<any>> {
+    put(partialUrl: string, objectToPut: Object, requesterRole: string): Observable<HttpResponse<any>> {
         const url = environment.backendUrl + partialUrl;
 
         return this.http.put(
             url,
             JSON.stringify(objectToPut),
-            {headers: this.prepareHeadersForUpdate(), observe: 'response'});
+            {headers: this.prepareHeadersForUpdate(requesterRole), observe: 'response'});
     }
 
-    private prepareHeadersForUpdate(): HttpHeaders {
-        const defaultHeaders = this.prepareDefaultHeaders();
+    private prepareHeadersForUpdate(header: string): HttpHeaders {
+        const defaultHeaders = this.prepareDefaultHeaders(header);
 
         return defaultHeaders.append('If-Match', this.eTag);
     }
 
-    deleteMethod(partialUrl: string): Observable<HttpResponse<any>> {
+    deleteMethod(partialUrl: string, requesterRole: string): Observable<HttpResponse<any>> {
         const url = environment.backendUrl + partialUrl;
 
         return this.http.delete(
             url,
-            {headers: this.prepareHeadersForUpdate(), observe: 'response'});
+            {headers: this.prepareHeadersForUpdate(requesterRole), observe: 'response'});
     }
 
     login(credentials: LoginCredentials): Observable<any> {
         return this.http.post(
             environment.loginUrl,
             JSON.stringify(credentials),
-            {headers: this.prepareDefaultHeaders(), observe: 'response'})
+            {headers: this.prepareDefaultHeaders(''), observe: 'response'})
             .timeout(5000)
             .share();
     }

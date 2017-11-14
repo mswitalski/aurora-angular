@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {HttpErrorResponse} from '@angular/common/http';
+import {HttpErrorResponse, HttpResponse} from '@angular/common/http';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {Router} from '@angular/router';
 
@@ -20,9 +20,9 @@ export class CreateUserComponent extends AutoUnsubscriberComponent {
 
     submit(user: User): void {
         this.usersService.createUserAsAdmin(user).takeUntil(this.ngUnsubscribe).subscribe(
-            () => {
+            (receivedUser: User) => {
                 this.responseSubject.complete();
-                const url = 'admin/users/' + user.username;
+                const url = 'admin/users/' + receivedUser.id;
                 this.router.navigate([url]);
             },
             err => this.responseSubject.next(err)

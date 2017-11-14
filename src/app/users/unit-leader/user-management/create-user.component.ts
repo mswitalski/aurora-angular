@@ -20,9 +20,9 @@ export class CreateUserComponent extends AutoUnsubscriberComponent {
 
     submit(user: User): void {
         this.usersService.createUserAsUnitLeader(user).takeUntil(this.ngUnsubscribe).subscribe(
-            () => {
+            (receivedUser: User) => {
                 this.responseSubject.complete();
-                const url = 'unitleader/users/' + user.username;
+                const url = 'unitleader/users/' + receivedUser.id;
                 this.router.navigate([url]);
             },
             err => this.responseSubject.next(err)

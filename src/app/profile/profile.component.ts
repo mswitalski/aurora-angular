@@ -17,10 +17,6 @@ export class ProfileComponent extends AutoUnsubscriberComponent implements OnIni
     }
 
     ngOnInit() {
-        this.route.data.takeUntil(this.ngUnsubscribe).subscribe(
-            (data: { user: User }) => {
-                this.loggedUser = data.user;
-            }
-        );
+        this.loggedUser = this.route.snapshot.data['user'];
     }
 }

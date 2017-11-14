@@ -11,6 +11,6 @@ export class CachedUserResolver implements Resolve<User> {
     constructor(private usersService: UsersService) {}
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<User> {
-        return this.usersService.getCachedUser(route.params['username']);
+        return this.usersService.getCachedUser(route.params['userId']);
     }
 }

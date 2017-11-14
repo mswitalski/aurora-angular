@@ -10,6 +10,7 @@ import {environment} from '../../../environments/environment';
 import {JwtService} from './jwt.service';
 import {LoginCredentials, User} from '../model';
 import {isUndefined} from 'util';
+import {UsersService} from './users.service';
 
 @Injectable()
 export class AuthService {
@@ -26,7 +27,8 @@ export class AuthService {
     public loggedUser = this.loggedUserSubject.asObservable().distinctUntilChanged();
 
     constructor(private apiService: ApiService,
-                private jwtService: JwtService) {
+                private jwtService: JwtService,
+                private usersService: UsersService) {
         this.hasAdminRoleSubject.next(false);
         this.hasUnitLeaderRoleSubject.next(false);
         this.hasEmployeeRoleSubject.next(false);
@@ -42,10 +44,8 @@ export class AuthService {
     }
 
     private fetchLoggedUserData() {
-        this.apiService.get('user').subscribe(
-            user => {
-                this.authenticate(user.body);
-            },
+        this.usersService.getProfile().subscribe(
+            user => this.authenticate(user),
             err => this.invalidateAuthentication()
         );
     }

@@ -14,72 +14,82 @@ export class UsersService {
 
     constructor(private api: ApiService) {}
 
-    createUserAsAdmin(user: User): Observable<HttpResponse<any>> {
-        return this.api.post('admin/users/', user);
+    createUserAsAdmin(user: User): Observable<User> {
+        return this.api.post('users/', user, environment.api.role.admin);
     }
 
-    createUserAsUnitLeader(user: User): Observable<HttpResponse<any>> {
-        return this.api.post('unitleader/users/', user);
+    createUserAsUnitLeader(user: User): Observable<User> {
+        return this.api.post('users/', user, environment.api.role.unitleader);
     }
 
-    deleteUser(user: User): Observable<HttpResponse<any>> {
-        return this.api.deleteMethod('admin/users/' + user.id);
+    deleteUserAsAdmin(user: User): Observable<HttpResponse<any>> {
+        return this.api.deleteMethod('users/' + user.id, environment.api.role.admin);
+    }
+
+    deleteUserAsUnitLeader(user: User): Observable<HttpResponse<any>> {
+        return this.api.deleteMethod('users/' + user.id, environment.api.role.unitleader);
     }
 
     getAllByPage(page: number = 0): Observable<PagedResults<User>> {
         const resultPageSize = environment.resultsOnPage;
-        const partialUrl = 'users/';
+        const partialUrl = 'users/paged/';
         const queryParams = new HttpParams()
             .set('page', page.toString(10))
             .set('size', resultPageSize.toString(10));
 
-        return this.api.getWithParams(partialUrl, queryParams);
+        return this.api.getWithParams(partialUrl, queryParams, environment.api.role.common);
     }
 
-    getSingle(username: string): Observable<User> {
-        const partialUrl = 'users/' + username;
-
-        return this.api.get(partialUrl).map(user => user.body).do(user => this.cachedUser = user);
+    getProfile(): Observable<User> {
+        return this.api.get('profile', environment.api.role.common)
+            .map(user => user.body).do(user => this.cachedUser = user);
     }
 
-    getCachedUser(username: string): Observable<User> {
-        if (this.cachedUser && this.cachedUser.username === username) {
+    getSingle(userId: number): Observable<User> {
+        const partialUrl = 'users/' + userId;
+
+        return this.api.get(partialUrl, environment.api.role.common)
+            .map(user => user.body).do(user => this.cachedUser = user);
+    }
+
+    getCachedUser(userId: number): Observable<User> {
+        if (this.cachedUser && this.cachedUser.id === userId) {
             return Observable.of(this.cachedUser);
 
         } else {
-            return this.getSingle(username);
+            return this.getSingle(userId);
         }
     }
 
     search(criteria: UserSearchForm, page: number = 0): Observable<PagedResults<User>> {
         const resultPageSize = environment.resultsOnPage;
-        const partialUrl = 'search/users/';
+        const partialUrl = 'users/search/';
         const queryParams = new HttpParams()
             .set('page', page.toString(10))
             .set('size', resultPageSize.toString(10));
 
-        return this.api.postWithParams(partialUrl, queryParams, criteria);
+        return this.api.postWithParams(partialUrl, queryParams, criteria, environment.api.role.common);
     }
 
     updateAsAdmin(user: User): Observable<HttpResponse<any>> {
-        return this.api.put('admin/users/', user);
+        return this.api.put('users/' + user.id, user, environment.api.role.admin);
     }
 
     updateAsUnitLeader(user: User): Observable<HttpResponse<any>> {
-        return this.api.put('unitleader/users/', user);
+        return this.api.put('users/' + user.id, user, environment.api.role.unitleader);
     }
 
     updateOtherPassword(user: User, formData: AdminPasswordChangeFormModel): Observable<HttpResponse<any>> {
-        const partialUrl = 'admin/users/' + user.id + '/password';
+        const partialUrl = 'users/' + user.id + '/password';
 
-        return this.api.put(partialUrl, formData);
+        return this.api.put(partialUrl, formData, environment.api.role.admin);
     }
 
-    updateOwnAccount(user: User): Observable<HttpResponse<any>> {
-        return this.api.put('users/', user);
+    updateProfile(user: User): Observable<HttpResponse<any>> {
+        return this.api.put('profile/', user, environment.api.role.common);
     }
 
-    updateOwnPassword(formData: PasswordChangeFormModel): Observable<HttpResponse<any>> {
-        return this.api.put('users/password', formData);
+    updateProfilePassword(formData: PasswordChangeFormModel): Observable<HttpResponse<any>> {
+        return this.api.put('profile/password', formData, environment.api.role.common);
     }
 }

@@ -33,7 +33,7 @@ export class EditUserComponent extends AutoUnsubscriberComponent {
         this.usersService.updateAsUnitLeader(user).takeUntil(this.ngUnsubscribe).subscribe(
             () => {
                 this.responseSubject.complete();
-                const url = 'unitleader/users/' + user.username;
+                const url = 'unitleader/users/' + user.id;
                 this.router.navigate([url]);
             },
             err => this.responseSubject.next(err)

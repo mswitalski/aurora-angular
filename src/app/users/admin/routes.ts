@@ -21,7 +21,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         canActivate: [IsAdminGuard],
         component: UserManagementComponent,
         data: { title: 'TITLE.ADMIN.USER' },
-        path: 'admin/users/:username',
+        path: 'admin/users/:userId',
         resolve: {
             user: UserResolver
         }
@@ -30,7 +30,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         canActivate: [IsAdminGuard],
         component: EditUserComponent,
         data: { title: 'TITLE.ADMIN.USER' },
-        path: 'admin/users/:username/edit',
+        path: 'admin/users/:userId/edit',
         resolve: {
             user: CachedUserResolver
         }
@@ -39,7 +39,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         canActivate: [IsAdminGuard],
         component: EditPasswordComponent,
         data: { title: 'TITLE.ADMIN.PASSWORD' },
-        path: 'admin/users/:username/password',
+        path: 'admin/users/:userId/password',
         resolve: {
             user: CachedUserResolver
         }
@@ -48,7 +48,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         canActivate: [IsAdminGuard],
         component: EditRolesComponent,
         data: { title: 'TITLE.ADMIN.ROLES' },
-        path: 'admin/users/:username/roles',
+        path: 'admin/users/:userId/roles',
         resolve: {
             user: CachedUserResolver,
             roles: RolesResolver

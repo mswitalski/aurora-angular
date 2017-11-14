@@ -31,12 +31,12 @@ export class EditProfileComponent extends AutoUnsubscriberComponent implements O
         this.editProfileForm = this.formBuilder.group({
             'name': ['', [
                 Validators.required,
-                Validators.minLength(this.validation.name.max),
+                Validators.minLength(this.validation.name.min),
                 Validators.maxLength(this.validation.name.max)]
             ],
             'surname': ['', [
                 Validators.required,
-                Validators.minLength(this.validation.surname.max),
+                Validators.minLength(this.validation.surname.min),
                 Validators.maxLength(this.validation.surname.max)]
             ],
             'goals': ['', Validators.maxLength(this.validation.goals.max)]
@@ -44,16 +44,12 @@ export class EditProfileComponent extends AutoUnsubscriberComponent implements O
     }
 
     ngOnInit(): void {
-        this.route.data.takeUntil(this.ngUnsubscribe).subscribe(
-            (data: {user: User}) => {
-                this.loggedUser = data.user;
-            }
-        );
+        this.loggedUser = this.route.snapshot.data['user'];
     }
 
     submitForm(): void {
         this.isSubmitting = true;
-        this.usersService.updateOwnAccount(this.loggedUser).takeUntil(this.ngUnsubscribe).subscribe(
+        this.usersService.updateProfile(this.loggedUser).takeUntil(this.ngUnsubscribe).subscribe(
             () => {
                 this.router.navigate(['/profile']);
                 this.isSubmitting = false;
