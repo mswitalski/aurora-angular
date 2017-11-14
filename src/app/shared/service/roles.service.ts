@@ -12,6 +12,6 @@ export class RolesService {
     }
 
     getAll(): Observable<Role[]> {
-        return this.api.get('roles/', environment.api.role.admin).map(response => response.body);
+        return this.api.get('roles/', environment.api.role.admin);
     }
 }

@@ -59,7 +59,6 @@ export class EditPasswordComponent extends AutoUnsubscriberComponent implements 
             () => {
                 const url = 'admin/users/' + this.user.id;
                 this.router.navigate([url]);
-                this.isSubmitting = false;
             },
             error => {
                 if (error.status === 400) {

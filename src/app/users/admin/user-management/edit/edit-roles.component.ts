@@ -38,7 +38,6 @@ export class EditRolesComponent extends AutoUnsubscriberComponent implements OnI
             () => {
                 const url = 'admin/users/' + this.user.id;
                 this.router.navigate([url]);
-                this.isSubmitting = false;
             },
             error => {
                 this.router.navigate(['/error/' + error.status], {skipLocationChange: true});

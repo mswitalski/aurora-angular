@@ -22,11 +22,11 @@ export class UsersService {
         return this.api.post('users/', user, environment.api.role.unitleader);
     }
 
-    deleteUserAsAdmin(user: User): Observable<HttpResponse<any>> {
+    deleteUserAsAdmin(user: User): Observable<void> {
         return this.api.deleteMethod('users/' + user.id, environment.api.role.admin);
     }
 
-    deleteUserAsUnitLeader(user: User): Observable<HttpResponse<any>> {
+    deleteUserAsUnitLeader(user: User): Observable<any> {
         return this.api.deleteMethod('users/' + user.id, environment.api.role.unitleader);
     }
 
@@ -41,15 +41,13 @@ export class UsersService {
     }
 
     getProfile(): Observable<User> {
-        return this.api.get('profile', environment.api.role.common)
-            .map(user => user.body).do(user => this.cachedUser = user);
+        return this.api.get('profile', environment.api.role.common).do(user => this.cachedUser = user);
     }
 
     getSingle(userId: number): Observable<User> {
         const partialUrl = 'users/' + userId;
 
-        return this.api.get(partialUrl, environment.api.role.common)
-            .map(user => user.body).do(user => this.cachedUser = user);
+        return this.api.get(partialUrl, environment.api.role.common).do(user => this.cachedUser = user);
     }
 
     getCachedUser(userId: number): Observable<User> {
@@ -71,25 +69,25 @@ export class UsersService {
         return this.api.postWithParams(partialUrl, queryParams, criteria, environment.api.role.common);
     }
 
-    updateAsAdmin(user: User): Observable<HttpResponse<any>> {
+    updateAsAdmin(user: User): Observable<void> {
         return this.api.put('users/' + user.id, user, environment.api.role.admin);
     }
 
-    updateAsUnitLeader(user: User): Observable<HttpResponse<any>> {
+    updateAsUnitLeader(user: User): Observable<void> {
         return this.api.put('users/' + user.id, user, environment.api.role.unitleader);
     }
 
-    updateOtherPassword(user: User, formData: AdminPasswordChangeFormModel): Observable<HttpResponse<any>> {
+    updateOtherPassword(user: User, formData: AdminPasswordChangeFormModel): Observable<void> {
         const partialUrl = 'users/' + user.id + '/password';
 
         return this.api.put(partialUrl, formData, environment.api.role.admin);
     }
 
-    updateProfile(user: User): Observable<HttpResponse<any>> {
+    updateProfile(user: User): Observable<void> {
         return this.api.put('profile/', user, environment.api.role.common);
     }
 
-    updateProfilePassword(formData: PasswordChangeFormModel): Observable<HttpResponse<any>> {
+    updateProfilePassword(formData: PasswordChangeFormModel): Observable<void> {
         return this.api.put('profile/password', formData, environment.api.role.common);
     }
 }

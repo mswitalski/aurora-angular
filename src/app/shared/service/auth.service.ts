@@ -74,13 +74,10 @@ export class AuthService {
         this.loggedUserSubject.next(new User());
     }
 
-    attemptAuthentication(userCredentials: LoginCredentials): Observable<any> {
+    attemptAuthentication(userCredentials: LoginCredentials): Observable<User> {
         const response = this.apiService.login(userCredentials);
         response.subscribe(
-            data => {
-                this.jwtService.setToken(data.headers.get('Authorization'));
-                this.fetchLoggedUserData();
-            },
+            () => this.fetchLoggedUserData(),
             error => error);
 
         return response;

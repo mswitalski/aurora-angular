@@ -34,9 +34,7 @@ export class UserManagementComponent extends AutoUnsubscriberComponent implement
     deleteUser(): void {
         if (this.isEmployeeUser && confirm(this.deleteDialogMessage)) {
             this.usersService.deleteUserAsUnitLeader(this.user).takeUntil(this.ngUnsubscribe).subscribe(
-                () => {
-                    this.router.navigate(['/unitleader/users']);
-                }
+                () => this.router.navigate(['/unitleader/users'])
             );
         }
     }

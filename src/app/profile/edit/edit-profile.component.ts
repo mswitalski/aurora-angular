@@ -52,7 +52,6 @@ export class EditProfileComponent extends AutoUnsubscriberComponent implements O
         this.usersService.updateProfile(this.loggedUser).takeUntil(this.ngUnsubscribe).subscribe(
             () => {
                 this.router.navigate(['/profile']);
-                this.isSubmitting = false;
             },
             error => {
                 if (error.status === 400) {

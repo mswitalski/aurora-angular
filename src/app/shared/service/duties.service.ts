@@ -17,7 +17,7 @@ export class DutiesService {
         return this.api.post('duties/', duty, environment.api.role.unitleader);
     }
 
-    deleteDuty(duty: Duty): Observable<HttpResponse<any>> {
+    deleteDuty(duty: Duty): Observable<void> {
         return this.api.deleteMethod('duties/' + duty.id, environment.api.role.unitleader);
     }
 
@@ -34,7 +34,7 @@ export class DutiesService {
     getSingle(dutyId: number): Observable<Duty> {
         const partialUrl = 'duties/' + dutyId;
 
-        return this.api.get(partialUrl, environment.api.role.unitleader).map(duty => duty.body).do(duty => this.cachedDuty = duty);
+        return this.api.get(partialUrl, environment.api.role.unitleader).do(duty => this.cachedDuty = duty);
     }
 
     getCachedUser(dutyId: number): Observable<Duty> {
@@ -48,7 +48,7 @@ export class DutiesService {
 
     search(criteria: DutySearchForm, page: number = 0): Observable<PagedResults<Duty>> {
         const resultPageSize = environment.resultsOnPage;
-        const partialUrl = 'duties/search';
+        const partialUrl = 'duties/search/';
         const queryParams = new HttpParams()
             .set('page', page.toString(10))
             .set('size', resultPageSize.toString(10));
@@ -56,7 +56,7 @@ export class DutiesService {
         return this.api.postWithParams(partialUrl, queryParams, criteria, environment.api.role.unitleader);
     }
 
-    update(duty: Duty): Observable<HttpResponse<any>> {
+    update(duty: Duty): Observable<void> {
         return this.api.put('duties/' + duty.id, duty, environment.api.role.unitleader);
     }
 }

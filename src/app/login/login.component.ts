@@ -17,7 +17,6 @@ export class LoginComponent extends AutoUnsubscriberComponent implements OnDestr
     isSubmitting = false;
     isTimeout = false;
     loginForm: FormGroup;
-    private response: HttpResponse<any>;
 
     constructor(private authService: AuthService,
                 private formBuilder: FormBuilder,
@@ -40,10 +39,7 @@ export class LoginComponent extends AutoUnsubscriberComponent implements OnDestr
         this.isTimeout = false;
 
         this.authService.attemptAuthentication(credentials).takeUntil(this.ngUnsubscribe).subscribe(
-            result => {
-                this.isSubmitting = false;
-                this.response = result;
-            },
+            () => {},
             err => {
                 this.isSubmitting = false;
                 this.handleErrorResponse(err.status);

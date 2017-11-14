@@ -31,9 +31,7 @@ export class DutyManagementComponent extends AutoUnsubscriberComponent implement
     deleteDuty(): void {
         if (confirm(this.deleteDialogMessage)) {
             this.dutiesService.deleteDuty(this.duty).takeUntil(this.ngUnsubscribe).subscribe(
-                () => {
-                    this.router.navigate(['/unitleader/duties']);
-                }
+                () => this.router.navigate(['/unitleader/duties'])
             );
         }
     }
