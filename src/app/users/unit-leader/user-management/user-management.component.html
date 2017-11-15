@@ -6,6 +6,8 @@
             <a class="btn btn-lg btn-primary" routerLink="/unitleader/users" translate>BTN.BACK</a>
             <a *ngIf="isEmployeeUser" class="btn btn-lg btn-primary" routerLink="edit" translate>BTN.EDIT-DETAILS</a>
             <a *ngIf="isEmployeeUser" class="btn btn-lg btn-danger" (click)="deleteUser()" translate>BTN.DELETE</a>
+            <hr />
+            <a class="btn btn-lg btn-primary" routerLink="edit/duties" translate>BTN.EDIT-USER-DUTIES</a>
         </div>
     </div>
 </div>

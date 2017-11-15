@@ -30,7 +30,8 @@
         "CREATE-DUTY": "Create new duty",
         "DELETE": "Delete",
         "FILTER": "Filter",
-        "RESET": "Reset"
+        "RESET": "Reset",
+        "EDIT-USER-DUTIES": "Edit user duties"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Bad username or/and password!",
@@ -73,7 +74,8 @@
         "DUTIES": "Duties",
         "DUTY-MANAGEMENT": "Duty management",
         "CREATE-DUTY": "Create new duty",
-        "EDIT-DUTY": "Edit duty"
+        "EDIT-DUTY": "Edit duty",
+        "EDIT-USER-DUTIES": "Edit user's duties"
     },
     "DUTY": {
         "NAME": "Name",
@@ -102,7 +104,7 @@
         "EDIT-PASSWORD": "Edit password",
         "ERROR": "Error",
         "ADMIN": {
-            "CREATE-USER": "Admin: create user",
+            "USER-CREATE": "Admin: create user",
             "USERS": "Admin: users",
             "USER": "Admin: user management",
             "USER-EDIT": "Admin: edit user details",
@@ -110,7 +112,7 @@
             "ROLES": "Admin: edit user roles"
         },
         "UNIT-LEADER": {
-            "CREATE-USER": "Unit leader: create user",
+            "USER-CREATE": "Unit leader: create user",
             "USERS": "Unit leader: users",
             "USER": "Unit leader: user management",
             "USER-EDIT": "Unit leader: edit user details",
@@ -118,8 +120,9 @@
             "ROLES": "Unit leader: edit user roles",
             "DUTIES": "Unit leader: duties",
             "DUTY": "Unit leader: duty",
-            "CREATE-DUTY": "Unit leader: create duty",
-            "EDIT-DUTY": "Unit leader: edit duty"
+            "DUTY-CREATE": "Unit leader: create duty",
+            "DUTY-EDIT": "Unit leader: edit duty",
+            "DUTIES-EDIT": "Unit leader: edit user's duties"
         }
     },
     "PAGINATION": {

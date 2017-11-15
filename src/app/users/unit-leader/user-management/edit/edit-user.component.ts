@@ -4,10 +4,10 @@ import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {ActivatedRoute, Router} from '@angular/router';
 import 'rxjs/add/operator/takeUntil';
 
-import {AutoUnsubscriberComponent} from '../../../shared';
-import {User} from '../../../shared/model';
-import {UsersService} from '../../../shared/service';
-import {environment} from '../../../../environments/environment';
+import {AutoUnsubscriberComponent} from '../../../../shared';
+import {User} from '../../../../shared/model';
+import {UsersService} from '../../../../shared/service';
+import {environment} from '../../../../../environments/environment';
 
 @Component({
     templateUrl: './edit-user.component.html'

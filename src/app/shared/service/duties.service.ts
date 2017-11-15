@@ -21,6 +21,10 @@ export class DutiesService {
         return this.api.deleteMethod('duties/' + duty.id, environment.api.role.unitleader);
     }
 
+    getAll(): Observable<Duty[]> {
+        return this.api.get('duties/', environment.api.role.unitleader);
+    }
+
     getAllByPage(page: number = 0): Observable<PagedResults<Duty>> {
         const resultPageSize = environment.resultsOnPage;
         const partialUrl = 'duties/paged/';

@@ -1,7 +1,7 @@
 import {ModuleWithProviders} from '@angular/core';
 import {RouterModule} from '@angular/router';
 
-import {CachedDutyResolver, DutiesListResolver, DutyResolver} from '../shared/resolver';
+import {CachedDutyResolver, DutiesPagedListResolver, DutyResolver} from '../shared/resolver';
 import {CreateDutyComponent, DutyManagementComponent} from './management';
 import {DutiesListComponent} from './list';
 import {EditDutyComponent} from './management/edit';
@@ -14,7 +14,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         data: { title: 'TITLE.UNIT-LEADER.DUTIES' },
         path: 'unitleader/duties',
         resolve: {
-            pagedResults: DutiesListResolver
+            pagedResults: DutiesPagedListResolver
         }
     },
     {
@@ -29,13 +29,13 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsUnitLeaderGuard],
         component: CreateDutyComponent,
-        data: { title: 'TITLE.UNIT-LEADER.CREATE-DUTY' },
+        data: { title: 'TITLE.UNIT-LEADER.DUTY-CREATE' },
         path: 'unitleader/duties/create/duty'
     },
     {
         canActivate: [IsUnitLeaderGuard],
         component: EditDutyComponent,
-        data: { title: 'TITLE.UNIT-LEADER.EDIT-DUTY' },
+        data: { title: 'TITLE.UNIT-LEADER.DUTY-EDIT' },
         path: 'unitleader/duties/:dutyId/edit',
         resolve: {
             duty: CachedDutyResolver

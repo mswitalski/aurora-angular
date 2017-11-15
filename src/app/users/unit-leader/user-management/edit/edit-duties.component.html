@@ -1,0 +1,23 @@
+<h2 translate>HEADER.EDIT-USER-DUTIES</h2>
+
+<div class="row mb-2">
+    <div class="col-md-2 col-form-label" translate>USER.DUTIES</div>
+    <div class="col-md-5">
+        <div *ngFor="let checkbox of dutiesCheckboxes">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" [checked]="checkbox.value"
+                           (change)="checkbox.value = !checkbox.value">
+                    {{checkbox.item.name}}
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button [routerLink]="['/unitleader/users', user.id]" type="button" class="btn btn-dark" translate>
+    BTN.BACK
+</button>
+<button (click)="submit()" type="button" class="btn btn-success" translate>
+    BTN.SAVE
+</button>

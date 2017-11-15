@@ -90,4 +90,10 @@ export class UsersService {
     updateProfilePassword(formData: PasswordChangeFormModel): Observable<void> {
         return this.api.put('profile/password', formData, environment.api.role.common);
     }
+
+    updateDuties(user: User): Observable<void> {
+        const partialUrl = 'users/' + user.id + '/duties/';
+
+        return this.api.put(partialUrl, user, environment.api.role.unitleader);
+    }
 }

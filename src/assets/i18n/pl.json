@@ -30,7 +30,8 @@
         "CREATE-DUTY": "Stw\u00f3rz nowy obowi\u0105zek",
         "DELETE": "Usu\u0144",
         "FILTER": "Filtruj",
-        "RESET": "Wyczy\u015b\u0107"
+        "RESET": "Wyczy\u015b\u0107",
+        "EDIT-USER-DUTIES": "Edytuj obowi\u0105zki u\u017cytkownika"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Podano nieprawid\u0142ow\u0105 nazw\u0119 użytkownika i/lub has\u0142o",
@@ -73,7 +74,8 @@
         "DUTIES": "Obowi\u0105zki",
         "DUTY-MANAGEMENT": "Zarz\u0105dzanie obowi\u0105zkiem",
         "CREATE-DUTY": "Stw\u00f3rz nowy obowi\u0105zek",
-        "EDIT-DUTY": "Edytuj obowi\u0105zek"
+        "EDIT-DUTY": "Edytuj obowi\u0105zek",
+        "EDIT-USER-DUTIES": "Edytuj obowi\u0105zki u\u017cytkownika"
     },
     "DUTY": {
         "NAME": "Nazwa",
@@ -102,7 +104,7 @@
         "EDIT-PASSWORD": "Edytuj has\u0142o",
         "ERROR": "B\u0142\u0105d",
         "ADMIN": {
-            "CREATE-USER": "Admin: tworzenie u\u017cytkownika",
+            "USER-CREATE": "Admin: tworzenie u\u017cytkownika",
             "USERS": "Admin: u\u017cytkownicy",
             "USER": "Admin: zarz\u0105dzanie u\u017cytkownikiem",
             "USER-EDIT": "Admin: edycja danych u\u017cytkownika",
@@ -110,7 +112,7 @@
             "ROLES": "Admin: edycja r\u00f3l u\u017cytkownika"
         },
         "UNIT-LEADER": {
-            "CREATE-USER": "Unit leader: tworzenie u\u017cytkownika",
+            "USER-CREATE": "Unit leader: tworzenie u\u017cytkownika",
             "USERS": "Unit leader: u\u017cytkownicy",
             "USER": "Unit leader: zarz\u0105dzanie u\u017cytkownikiem",
             "USER-EDIT": "Unit leader: edycja danych u\u017cytkownika",
@@ -118,8 +120,9 @@
             "ROLES": "Unit leader: edycja r\u00f3l u\u017cytkownika",
             "DUTIES": "Unit leader: obowi\u0105zki",
             "DUTY": "Unit leader: obowi\u0105zek",
-            "CREATE-DUTY": "Unit leader: tworzenie obowi\u0105zku",
-            "EDIT-DUTY": "Unit leader: edytuj obowi\u0105zek"
+            "DUTY-CREATE": "Unit leader: tworzenie obowi\u0105zku",
+            "DUTY-EDIT": "Unit leader: edytuj obowi\u0105zek",
+            "DUTIES-EDIT": "Unit leader: edytuj obowi\u0105zki u\u017cytkownika"
         }
     },
     "PAGINATION": {
