@@ -31,10 +31,10 @@ export class SkillsService {
         return this.api.getWithParams(partialUrl, queryParams, environment.api.role.common);
     }
 
-    getSingle(userId: number): Observable<Skill> {
-        const partialUrl = 'skills/' + userId;
+    getSingle(skillId: number): Observable<Skill> {
+        const partialUrl = 'skills/' + skillId;
 
-        return this.api.get(partialUrl, environment.api.role.common).do(skill => this.cachedSkill = skill);
+        return this.api.get(partialUrl, environment.api.role.unitleader).do(skill => this.cachedSkill = skill);
     }
 
     getCachedSkill(skillId: number): Observable<Skill> {

@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 translate>HEADER.SKILL-MANAGEMENT</h2>
+
+            <div>
+                {{ 'SKILL.NAME' | translate }}: {{selectedSkill.name}}
+            </div>
+
+            <a class="btn btn-lg btn-primary" routerLink="/unitleader/skills" translate>BTN.BACK</a>
+            <a class="btn btn-lg btn-primary" routerLink="edit" translate>BTN.EDIT-DETAILS</a>
+            <a class="btn btn-lg btn-danger" (click)="deleteSkill()" translate>BTN.DELETE</a>
+        </div>
+    </div>
+</div>

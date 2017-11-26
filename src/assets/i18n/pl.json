@@ -78,7 +78,8 @@
         "CREATE-DUTY": "Stw\u00f3rz nowy obowi\u0105zek",
         "EDIT-DUTY": "Edytuj obowi\u0105zek",
         "EDIT-USER-DUTIES": "Edytuj obowi\u0105zki u\u017cytkownika",
-        "SKILLS": "Umiej\u0119tno\u015bci"
+        "SKILLS": "Umiej\u0119tno\u015bci",
+        "SKILL-MANAGEMENT": "Zarz\u0105dzanie umiej\u0119tno\u015bci\u0105"
     },
     "DUTY": {
         "NAME": "Nazwa",
@@ -126,7 +127,8 @@
             "DUTY-CREATE": "Unit leader: tworzenie obowi\u0105zku",
             "DUTY-EDIT": "Unit leader: edytuj obowi\u0105zek",
             "DUTIES-EDIT": "Unit leader: edytuj obowi\u0105zki u\u017cytkownika",
-            "SKILLS": "Unit leader: umiej\u0119tno\u015bci"
+            "SKILLS": "Unit leader: umiej\u0119tno\u015bci",
+            "SKILL": "Unit leader: zarz\u0105dzanie umiej\u0119tno\u015bci\u0105"
         }
     },
     "PAGINATION": {

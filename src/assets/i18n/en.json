@@ -78,7 +78,8 @@
         "CREATE-DUTY": "Create new duty",
         "EDIT-DUTY": "Edit duty",
         "EDIT-USER-DUTIES": "Edit user's duties",
-        "SKILLS": "Skills"
+        "SKILLS": "Skills",
+        "SKILL-MANAGEMENT": "Skill management"
     },
     "DUTY": {
         "NAME": "Name",
@@ -126,7 +127,8 @@
             "DUTY-CREATE": "Unit leader: create duty",
             "DUTY-EDIT": "Unit leader: edit duty",
             "DUTIES-EDIT": "Unit leader: edit user's duties",
-            "SKILLS": "Unit leader: skills"
+            "SKILLS": "Unit leader: skills",
+            "SKILL": "Unit leader: skill management"
         }
     },
     "PAGINATION": {

@@ -6,10 +6,12 @@ import {SharedModule} from '../../shared';
 import {moduleRouting} from './routes';
 import {SkillsListComponent} from './list';
 import {SkillsSharedModule} from '../shared';
+import {SkillManagementComponent} from './skill-management';
 
 @NgModule({
     declarations: [
-        SkillsListComponent
+        SkillsListComponent,
+        SkillManagementComponent
     ],
     imports: [
         CommonModule,

@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 
 import {SharedModule} from '../../shared';
 import {SkillsListComponent} from './component';
-import {SkillsListResolver} from './resolver';
+import {SkillResolver, SkillsListResolver} from './resolver';
 
 @NgModule({
     declarations: [
@@ -20,6 +20,7 @@ import {SkillsListResolver} from './resolver';
         SharedModule
     ],
     providers: [
+        SkillResolver,
         SkillsListResolver
     ]
 })
