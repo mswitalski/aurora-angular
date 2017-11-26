@@ -8,6 +8,8 @@ export * from './login-credentials.model';
 export * from './paged-results.model';
 export * from './password-change-form.model';
 export * from './role.model';
+export * from './skill.model';
+export * from './skill-search-form.model';
 export * from './user.model';
 export * from './user-search-form.model';
 export * from './validation-error.model';

@@ -10,7 +10,8 @@
         "UNIT-LEADER": "Unit leader",
         "DASHBOARD": "Dashboard",
         "USERS": "Users",
-        "DUTIES": "Duties"
+        "DUTIES": "Duties",
+        "SKILLS": "Skills"
     },
     "BTN": {
         "PROFILE": "Profile",
@@ -28,6 +29,7 @@
         "RETRACT": "Retract",
         "CREATE-USER": "Create new user",
         "CREATE-DUTY": "Create new duty",
+        "CREATE-SKILL": "Create new skill",
         "DELETE": "Delete",
         "FILTER": "Filter",
         "RESET": "Reset",
@@ -75,7 +77,8 @@
         "DUTY-MANAGEMENT": "Duty management",
         "CREATE-DUTY": "Create new duty",
         "EDIT-DUTY": "Edit duty",
-        "EDIT-USER-DUTIES": "Edit user's duties"
+        "EDIT-USER-DUTIES": "Edit user's duties",
+        "SKILLS": "Skills"
     },
     "DUTY": {
         "NAME": "Name",
@@ -122,7 +125,8 @@
             "DUTY": "Unit leader: duty",
             "DUTY-CREATE": "Unit leader: create duty",
             "DUTY-EDIT": "Unit leader: edit duty",
-            "DUTIES-EDIT": "Unit leader: edit user's duties"
+            "DUTIES-EDIT": "Unit leader: edit user's duties",
+            "SKILLS": "Unit leader: skills"
         }
     },
     "PAGINATION": {
@@ -137,5 +141,8 @@
         "ADMIN": "Administrator",
         "EMPLOYEE": "Employee",
         "UNIT_LEADER": "Unit leader"
+    },
+    "SKILL": {
+        "NAME": "Name"
     }
 }

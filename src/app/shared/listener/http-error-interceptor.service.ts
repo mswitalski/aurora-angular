@@ -26,7 +26,7 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
     }
 
     private isHandledErrorResponse(err: any): boolean {
-        return err instanceof HttpErrorResponse && err.status > 400;
+        return err instanceof HttpErrorResponse && err.status > 401;
     }
 
     private isNotLoginAction(): boolean {

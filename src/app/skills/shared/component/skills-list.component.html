@@ -1,0 +1,44 @@
+<form [formGroup]="searchSkillForm" (ngSubmit)="search()">
+    <fieldset class="col-md-3">
+        <label for="skill-name" class="col-form-label" translate>SKILL.NAME</label>
+        <input
+            id="skill-name"
+            class="form-control"
+            formControlName="name"
+            [(ngModel)]="searchFormData.name"
+            type="text"/>
+    </fieldset>
+
+    <button type="submit" class="btn btn-success" translate>
+        BTN.FILTER
+    </button>
+    <button [disabled]="!isFilteringEnabled" (click)="resetSearchForm()" type="button" class="btn btn-success"
+            translate>
+        BTN.RESET
+    </button>
+</form>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th translate>SKILL.NAME</th>
+        <th translate>HEADER.ACTION</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="skillsList.length !== 0">
+    <tr *ngFor="let skill of skillsList">
+        <td>{{skill.name}}</td>
+        <td>
+            <button class="btn" [routerLink]="skill.id" translate>BTN.DETAILS</button>
+        </td>
+    </tr>
+    </tbody>
+    <tbody *ngIf="skillsList.length === 0">
+    <tr>
+        <td colspan="2" class="text-center">- {{'NO-RESULTS' | translate}} -</td>
+    </tr>
+    </tbody>
+</table>
+
+<app-pagination *ngIf="skillsList.length !== 0" (pageChanged)="loadPage($event)"
+                [paginationData]="pagedResults"></app-pagination>
