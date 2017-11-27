@@ -80,7 +80,8 @@
         "EDIT-USER-DUTIES": "Edytuj obowi\u0105zki u\u017cytkownika",
         "SKILLS": "Umiej\u0119tno\u015bci",
         "SKILL-MANAGEMENT": "Zarz\u0105dzanie umiej\u0119tno\u015b\u0107",
-        "CREATE-SKILL": "Stw\u00f3rz now\u0105 "
+        "CREATE-SKILL": "Stw\u00f3rz now\u0105 ",
+        "EDIT-SKILL": "Edytuj umiej\u0119tno\u015b\u0107"
     },
     "DUTY": {
         "NAME": "Nazwa",
@@ -130,7 +131,8 @@
             "DUTIES-EDIT": "Unit leader: edytuj obowi\u0105zki u\u017cytkownika",
             "SKILLS": "Unit leader: umiej\u0119tno\u015bci",
             "SKILL": "Unit leader: zarz\u0105dzanie umiej\u0119tno\u015bci\u0105",
-            "SKILL-CREATE": "Unit leader: tworzenie umiej\u0119tno\u015bci"
+            "SKILL-CREATE": "Unit leader: tworzenie umiej\u0119tno\u015bci",
+            "SKILL-EDIT": "Unit leader: edytuj umiej\u0119tno\u015b\u0107"
         }
     },
     "PAGINATION": {

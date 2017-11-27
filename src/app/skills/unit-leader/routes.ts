@@ -3,8 +3,8 @@ import {ModuleWithProviders} from '@angular/core';
 
 import {IsUnitLeaderGuard} from '../../shared/service/guard';
 import {SkillsListComponent} from './list';
-import {SkillResolver, SkillsListResolver} from '../shared/resolver';
-import {CreateSkillComponent, SkillManagementComponent} from './skill-management';
+import {CachedSkillResolver, SkillResolver, SkillsListResolver} from '../shared/resolver';
+import {CreateSkillComponent, EditSkillComponent, SkillManagementComponent} from './skill-management';
 
 export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
@@ -30,5 +30,14 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         component: CreateSkillComponent,
         data: { title: 'TITLE.UNIT-LEADER.SKILL-CREATE' },
         path: 'unitleader/skills/create/skill'
+    },
+    {
+        canActivate: [IsUnitLeaderGuard],
+        component: EditSkillComponent,
+        data: { title: 'TITLE.UNIT-LEADER.SKILL-EDIT' },
+        path: 'unitleader/skills/:skillId/edit',
+        resolve: {
+            skill: CachedSkillResolver
+        }
     }
 ]);

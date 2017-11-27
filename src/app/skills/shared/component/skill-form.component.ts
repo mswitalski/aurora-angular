@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpErrorResponse} from '@angular/common/http';
+import {Location} from '@angular/common';
 import {Observable} from 'rxjs/Observable';
 
 import {AutoUnsubscriberComponent} from '../../../shared';
@@ -33,7 +34,7 @@ export class SkillFormComponent extends AutoUnsubscriberComponent implements OnI
     @Output()
     formSubmitted: EventEmitter<Skill> = new EventEmitter();
 
-    constructor(private formBuilder: FormBuilder) {
+    constructor(private formBuilder: FormBuilder, private location: Location) {
         super();
     }
 
@@ -48,6 +49,10 @@ export class SkillFormComponent extends AutoUnsubscriberComponent implements OnI
                 Validators.maxLength(this.validation.name.max)]
             ]
         });
+    }
+
+    goBack(): void {
+        this.location.back();
     }
 
     submitForm(): void {
