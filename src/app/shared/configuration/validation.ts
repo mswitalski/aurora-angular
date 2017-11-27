@@ -4,6 +4,11 @@ export const validationConstraints = {
             'max': 100
         }
     },
+    'skill': {
+        'name': {
+            'max': 50
+        }
+    },
     'user': {
         'username': {
             'min': 2,

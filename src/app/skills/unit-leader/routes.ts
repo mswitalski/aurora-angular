@@ -4,7 +4,7 @@ import {ModuleWithProviders} from '@angular/core';
 import {IsUnitLeaderGuard} from '../../shared/service/guard';
 import {SkillsListComponent} from './list';
 import {SkillResolver, SkillsListResolver} from '../shared/resolver';
-import {SkillManagementComponent} from './skill-management';
+import {CreateSkillComponent, SkillManagementComponent} from './skill-management';
 
 export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
@@ -24,5 +24,11 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         resolve: {
             skill: SkillResolver
         }
+    },
+    {
+        canActivate: [IsUnitLeaderGuard],
+        component: CreateSkillComponent,
+        data: { title: 'TITLE.UNIT-LEADER.SKILL-CREATE' },
+        path: 'unitleader/skills/create/skill'
     }
 ]);

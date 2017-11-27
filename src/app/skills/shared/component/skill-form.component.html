@@ -1,0 +1,28 @@
+<form [formGroup]="skillForm" (ngSubmit)="submitForm()">
+    <fieldset [disabled]="isSubmitting">
+        <fieldset class="form-group row">
+            <label for="skill-name" class="col-md-2 col-form-label">{{ 'SKILL.NAME' | translate }}</label>
+            <div class="col-md-5">
+                <input
+                    id="skill-name"
+                    class="form-control"
+                    formControlName="name"
+                    [(ngModel)]="skill.name"
+                    placeholder="{{ 'SKILL.NAME' | translate }}"
+                    type="text"/>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'name'"
+                                 [formControl]="skillForm.controls['name']"
+                                 [maxLength]="validation.name.max"
+                                 [minLength]="validation.name.min" ngDefaultControl></app-form-errors>
+            </div>
+        </fieldset>
+
+        <button (click)="goBack()" type="button" class="btn btn-dark" translate>
+            BTN.BACK
+        </button>
+        <button [disabled]="!skillForm.valid" type="submit" class="btn btn-success" translate>
+            BTN.SAVE
+        </button>
+    </fieldset>
+</form>
