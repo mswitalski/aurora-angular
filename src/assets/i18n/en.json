@@ -85,7 +85,8 @@
         "SKILL-MANAGEMENT": "Skill management",
         "CREATE-SKILL": "Create new skill",
         "EDIT-SKILL": "Edit skill",
-        "MY-SKILLS": "My skills"
+        "MY-SKILLS": "My skills",
+        "EVALUATION-DETAILS": "Evaluation details"
     },
     "DUTY": {
         "NAME": "Name",
@@ -93,9 +94,12 @@
     },
     "EVALUATION": {
         "LEADER-EVALUATION": "Leader evaluation",
-        "SELF-EVALUATION": "Self evaluation"
+        "LEADER-EXPLANATION": "Leader explanation",
+        "SELF-EVALUATION": "Self evaluation",
+        "SELF-EXPLANATION": "Self explanation"
     },
     "USER": {
+        "": "User",
         "USERNAME": "Username",
         "PASSWORD": "Password",
         "EMAIL": "E-mail address",
@@ -133,7 +137,8 @@
             "ROLES": "Admin: edit user roles"
         },
         "EMPLOYEE": {
-            "MY-SKILLS": "Employee: my skills"
+            "MY-SKILLS": "Employee: my skills",
+            "EVALUATION-DETAILS": "Employee: evaluation details"
         },
         "UNIT-LEADER": {
             "USER-CREATE": "Unit leader: create user",

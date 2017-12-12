@@ -5,10 +5,13 @@ import {moduleRouting} from './routes';
 import {CommonModule} from '@angular/common';
 import {EvaluationsListComponent} from './list';
 import {EvaluationsListAsEmployeeResolver} from './resolver';
+import {EvaluationManagementComponent} from './evaluation-management';
+import {EvaluationAsEmployeeResolver} from './resolver/evaluation-as-employee-resolver.service';
 
 @NgModule({
     declarations: [
-        EvaluationsListComponent
+        EvaluationsListComponent,
+        EvaluationManagementComponent
     ],
     imports: [
         CommonModule,
@@ -18,6 +21,7 @@ import {EvaluationsListAsEmployeeResolver} from './resolver';
         SharedModule
     ],
     providers: [
+        EvaluationAsEmployeeResolver,
         EvaluationsListAsEmployeeResolver
     ]
 })
