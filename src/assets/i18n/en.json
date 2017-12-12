@@ -8,10 +8,12 @@
     "SIDEBAR": {
         "ADMIN": "Admin",
         "UNIT-LEADER": "Unit leader",
+        "EMPLOYEE": "Employee",
         "DASHBOARD": "Dashboard",
         "USERS": "Users",
         "DUTIES": "Duties",
-        "SKILLS": "Skills"
+        "SKILLS": "Skills",
+        "MY-SKILLS": "My skills"
     },
     "BTN": {
         "PROFILE": "Profile",
@@ -33,7 +35,8 @@
         "DELETE": "Delete",
         "FILTER": "Filter",
         "RESET": "Reset",
-        "EDIT-USER-DUTIES": "Edit user duties"
+        "EDIT-USER-DUTIES": "Edit user duties",
+        "ADD-SKILL": "Add skill"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Bad username or/and password!",
@@ -81,11 +84,16 @@
         "SKILLS": "Skills",
         "SKILL-MANAGEMENT": "Skill management",
         "CREATE-SKILL": "Create new skill",
-        "EDIT-SKILL": "Edit skill"
+        "EDIT-SKILL": "Edit skill",
+        "MY-SKILLS": "My skills"
     },
     "DUTY": {
         "NAME": "Name",
         "USERS": "Users"
+    },
+    "EVALUATION": {
+        "LEADER-EVALUATION": "Leader evaluation",
+        "SELF-EVALUATION": "Self evaluation"
     },
     "USER": {
         "USERNAME": "Username",
@@ -102,6 +110,13 @@
         "NEW-PASSWORD": "New password",
         "NEW-PASSWORD-REPEATED": "Repeated new password"
     },
+    "SKILL-LEVEL": {
+        "NOT_EVALUATED": "Not evaluated",
+        "NONE": "No skill",
+        "BEGINNER": "Beginner",
+        "INTERMEDIATE": "Intermediate",
+        "EXPERT": "Expert"
+    },
     "TITLE": {
         "LOGIN": "Login",
         "DASHBOARD": "Dashboard",
@@ -116,6 +131,9 @@
             "USER-EDIT": "Admin: edit user details",
             "PASSWORD": "Admin: edit user password",
             "ROLES": "Admin: edit user roles"
+        },
+        "EMPLOYEE": {
+            "MY-SKILLS": "Employee: my skills"
         },
         "UNIT-LEADER": {
             "USER-CREATE": "Unit leader: create user",

@@ -4,6 +4,14 @@ export const validationConstraints = {
             'max': 100
         }
     },
+    'evaluation': {
+        'leaderExplanation': {
+            'max': 200
+        },
+        'selfExplanation': {
+            'max': 200
+        }
+    },
     'skill': {
         'name': {
             'max': 50

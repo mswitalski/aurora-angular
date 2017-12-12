@@ -1,0 +1,7 @@
+export enum SkillLevel {
+    NOT_EVALUATED = 'NOT_EVALUATED',
+    NONE = 'NONE',
+    BEGINNER = 'BEGINNER',
+    INTERMEDIATE = 'INTERMEDIATE',
+    EXPERT = 'EXPERT'
+}

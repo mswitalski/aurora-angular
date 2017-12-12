@@ -10,11 +10,9 @@ import {User} from '../shared/model';
 @Injectable()
 export class LoggedUserResolver implements Resolve<User> {
 
-    constructor(private authService: AuthService, private usersService: UsersService) {}
+    constructor(private usersService: UsersService) {}
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<User> {
-        return this.authService.loggedUser
-            .flatMap(u => this.usersService.getProfile())
-            .take(1);
+        return this.usersService.getProfile();
     }
 }

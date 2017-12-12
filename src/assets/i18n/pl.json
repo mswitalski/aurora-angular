@@ -8,10 +8,12 @@
     "SIDEBAR": {
         "ADMIN": "Admin",
         "UNIT-LEADER": "Unit leader",
+        "EMPLOYEE": "Pracownik",
         "DASHBOARD": "Pulpit",
         "USERS": "U\u017cytkownicy",
         "DUTIES": "Obowi\u0105zki",
-        "SKILLS": "Umiej\u0119tno\u015bci"
+        "SKILLS": "Umiej\u0119tno\u015bci",
+        "MY-SKILLS": "Moje umiej\u0119tno\u015bci"
     },
     "BTN": {
         "PROFILE": "Profil",
@@ -33,7 +35,8 @@
         "DELETE": "Usu\u0144",
         "FILTER": "Filtruj",
         "RESET": "Wyczy\u015b\u0107",
-        "EDIT-USER-DUTIES": "Edytuj obowi\u0105zki u\u017cytkownika"
+        "EDIT-USER-DUTIES": "Edytuj obowi\u0105zki u\u017cytkownika",
+        "ADD-SKILL": "Dodaj umiej\u0119tno\u015b\u0107"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Podano nieprawid\u0142ow\u0105 nazw\u0119 użytkownika i/lub has\u0142o",
@@ -81,11 +84,16 @@
         "SKILLS": "Umiej\u0119tno\u015bci",
         "SKILL-MANAGEMENT": "Zarz\u0105dzanie umiej\u0119tno\u015b\u0107",
         "CREATE-SKILL": "Stw\u00f3rz now\u0105 ",
-        "EDIT-SKILL": "Edytuj umiej\u0119tno\u015b\u0107"
+        "EDIT-SKILL": "Edytuj umiej\u0119tno\u015b\u0107",
+        "MY-SKILLS": "Moje umiej\u0119tno\u015bci"
     },
     "DUTY": {
         "NAME": "Nazwa",
         "USERS": "U\u017cytkownicy"
+    },
+    "EVALUATION": {
+        "LEADER-EVALUATION": "Ocena lidera",
+        "SELF-EVALUATION": "Samoocena"
     },
     "USER": {
         "USERNAME": "Nazwa u\u017cytkownika",
@@ -102,6 +110,13 @@
         "NEW-PASSWORD": "Nowe has\u0142o",
         "NEW-PASSWORD-REPEATED": "Powt\u00f3rzone nowe has\u0142o"
     },
+    "SKILL-LEVEL": {
+        "NOT_EVALUATED": "Brak oceny",
+        "NONE": "Brak znajomo\u015bci",
+        "BEGINNER": "Pocz\u0105tkuj\u0105cy",
+        "INTERMEDIATE": "\u015arednio zaawansowany",
+        "EXPERT": "Ekspert"
+    },
     "TITLE": {
         "LOGIN": "Logowanie",
         "DASHBOARD": "Pulpit",
@@ -116,6 +131,9 @@
             "USER-EDIT": "Admin: edycja danych u\u017cytkownika",
             "PASSWORD": "Admin: edycja has\u0142a u\u017cytkownika",
             "ROLES": "Admin: edycja r\u00f3l u\u017cytkownika"
+        },
+        "EMPLOYEE": {
+            "MY-SKILLS": "Pracownik: moje umiej\u0119tno\u015bci"
         },
         "UNIT-LEADER": {
             "USER-CREATE": "Unit leader: tworzenie u\u017cytkownika",
