@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AutoUnsubscriberComponent} from '../../../shared/auto-unsubscriber.component';
 import {Skill} from '../../../shared/model/skill.model';
 import {PagedResults} from '../../../shared/model/paged-results.model';
@@ -9,13 +9,16 @@ import {ListEventData} from '../../../shared/model/list-event-data.model';
 @Component({
     templateUrl: './skills-list.component.html'
 })
-export class SkillsListComponent extends AutoUnsubscriberComponent {
+export class SkillsListComponent extends AutoUnsubscriberComponent implements OnInit {
 
     pagedResults: PagedResults<Skill>;
     skillsList: Skill[];
 
     constructor(private route: ActivatedRoute, private skillsService: SkillsService) {
         super();
+    }
+
+    ngOnInit(): void {
         this.pagedResults = this.route.snapshot.data['pagedResults'];
         this.skillsList = this.pagedResults.content;
     }

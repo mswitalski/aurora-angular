@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpErrorResponse} from '@angular/common/http';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -11,13 +11,16 @@ import {SkillsService} from '../../../shared/service';
 @Component({
     templateUrl: './edit-skill.component.html'
 })
-export class EditSkillComponent extends AutoUnsubscriberComponent {
+export class EditSkillComponent extends AutoUnsubscriberComponent implements OnInit {
 
     skill: Skill;
     responseSubject = new ReplaySubject<HttpErrorResponse>(1);
 
     constructor(private route: ActivatedRoute, private router: Router, private skillsService: SkillsService) {
         super();
+    }
+
+    ngOnInit(): void {
         this.skill = this.route.snapshot.data['skill'];
     }
 
