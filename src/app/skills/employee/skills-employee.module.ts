@@ -8,11 +8,15 @@ import {
     CachedEvaluationAsEmployeeResolver, EvaluationAsEmployeeResolver,
     EvaluationsListAsEmployeeResolver
 } from './resolver';
-import {EditEvaluationComponent, EvaluationManagementComponent} from './evaluation-management';
+import {
+    CreateEvaluationComponent, EditEvaluationComponent,
+    EvaluationManagementComponent
+} from './evaluation-management';
 import {SkillsSharedModule} from '../shared';
 
 @NgModule({
     declarations: [
+        CreateEvaluationComponent,
         EditEvaluationComponent,
         EvaluationsListComponent,
         EvaluationManagementComponent

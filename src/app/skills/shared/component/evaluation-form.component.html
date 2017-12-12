@@ -3,14 +3,14 @@
         <div *ngIf="!isEditAction" class="form-group row">
             <label for="evaluation-leaderEvaluation" class="col-md-2 col-form-label" translate>SKILL._</label>
             <div *ngIf="skill === undefined" class="col-md-5">
-                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#skillsModal">
-                    SELECT SKILL
+                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#skillsModal" translate>
+                    BTN.SELECT-SKILL
                 </button>
             </div>
             <div *ngIf="skill !== undefined" class="col-md-5">
                 {{skill.name}}
-                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#skillsModal">
-                    CHANGE SKILL
+                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#skillsModal" translate>
+                    BTN.CHANGE-SKILL
                 </button>
             </div>
         </div>
@@ -75,7 +75,7 @@
         <button (click)="goBack()" type="button" class="btn btn-dark" translate>
             BTN.BACK
         </button>
-        <button [disabled]="!evaluationForm.valid" type="submit" class="btn btn-success" translate>
+        <button [disabled]="!evaluationForm.valid || skill === undefined" type="submit" class="btn btn-success" translate>
             BTN.SAVE
         </button>
     </fieldset>

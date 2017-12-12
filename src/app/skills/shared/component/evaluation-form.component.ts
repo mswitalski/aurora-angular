@@ -52,6 +52,8 @@ export class EvaluationFormComponent extends AutoUnsubscriberComponent implement
                 private route: ActivatedRoute,
                 private location: Location) {
         super();
+        this.evaluation.selfEvaluation = SkillLevel.BEGINNER;
+        this.evaluation.leaderEvaluation = SkillLevel.BEGINNER;
     }
 
     ngOnInit(): void {

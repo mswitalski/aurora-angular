@@ -36,7 +36,9 @@
         "FILTER": "Filtruj",
         "RESET": "Wyczy\u015b\u0107",
         "EDIT-USER-DUTIES": "Edytuj obowi\u0105zki u\u017cytkownika",
-        "ADD-SKILL": "Dodaj umiej\u0119tno\u015b\u0107"
+        "ADD-SKILL": "Dodaj umiej\u0119tno\u015b\u0107",
+        "SELECT-SKILL": "Wybierz umiej\u0119tno\u015b\u0107",
+        "CHANGE-SKILL": "Zmie\u0144 umiej\u0119tno\u015b\u0107"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Podano nieprawid\u0142ow\u0105 nazw\u0119 użytkownika i/lub has\u0142o",
@@ -83,11 +85,12 @@
         "EDIT-USER-DUTIES": "Edytuj obowi\u0105zki u\u017cytkownika",
         "SKILLS": "Umiej\u0119tno\u015bci",
         "SKILL-MANAGEMENT": "Zarz\u0105dzanie umiej\u0119tno\u015b\u0107",
-        "CREATE-SKILL": "Stw\u00f3rz now\u0105 ",
+        "CREATE-SKILL": "Stw\u00f3rz now\u0105 umiej\u0119tno\u015b\u0107",
         "EDIT-SKILL": "Edytuj umiej\u0119tno\u015b\u0107",
         "MY-SKILLS": "Moje umiej\u0119tno\u015bci",
         "EVALUATION-DETAILS": "Szczeg\u00f3\u0142y oceny",
-        "EDIT-EVALUATION": "Edytuj ocen\u0119"
+        "EDIT-EVALUATION": "Edytuj ocen\u0119",
+        "ADD-EVALUATION": "Dodaj umiej\u0119tno\u015b\u0107"
     },
     "DUTY": {
         "NAME": "Nazwa",
@@ -139,7 +142,8 @@
         "EMPLOYEE": {
             "MY-SKILLS": "Pracownik: moje umiej\u0119tno\u015bci",
             "EVALUATION-DETAILS": "Pracownik: szczeg\u00f3\u0142y oceny",
-            "EVALUATION-EDIT": "Pracownik: edycja oceny"
+            "EVALUATION-EDIT": "Pracownik: edycja oceny",
+            "EVALUATION-ADD": "Pracownik: dodaj ocen\u0119"
         },
         "UNIT-LEADER": {
             "USER-CREATE": "Unit leader: tworzenie u\u017cytkownika",

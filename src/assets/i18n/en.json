@@ -36,7 +36,9 @@
         "FILTER": "Filter",
         "RESET": "Reset",
         "EDIT-USER-DUTIES": "Edit user duties",
-        "ADD-SKILL": "Add skill"
+        "ADD-SKILL": "Add skill",
+        "SELECT-SKILL": "Select skill",
+        "CHANGE-SKILL": "Change skill"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Bad username or/and password!",
@@ -87,7 +89,8 @@
         "EDIT-SKILL": "Edit skill",
         "MY-SKILLS": "My skills",
         "EVALUATION-DETAILS": "Evaluation details",
-        "EDIT-EVALUATION": "Edit evaluation"
+        "EDIT-EVALUATION": "Edit evaluation",
+        "ADD-EVALUATION": "Add evaluation"
     },
     "DUTY": {
         "NAME": "Name",
@@ -140,7 +143,8 @@
         "EMPLOYEE": {
             "MY-SKILLS": "Employee: my skills",
             "EVALUATION-DETAILS": "Employee: evaluation details",
-            "EVALUATION-EDIT": "Employee: edit evaluation"
+            "EVALUATION-EDIT": "Employee: edit evaluation",
+            "EVALUATION-ADD": "Employee: add skill"
         },
         "UNIT-LEADER": {
             "USER-CREATE": "Unit leader: create user",
