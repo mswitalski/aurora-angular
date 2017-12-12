@@ -86,7 +86,8 @@
         "CREATE-SKILL": "Create new skill",
         "EDIT-SKILL": "Edit skill",
         "MY-SKILLS": "My skills",
-        "EVALUATION-DETAILS": "Evaluation details"
+        "EVALUATION-DETAILS": "Evaluation details",
+        "EDIT-EVALUATION": "Edit evaluation"
     },
     "DUTY": {
         "NAME": "Name",
@@ -138,7 +139,8 @@
         },
         "EMPLOYEE": {
             "MY-SKILLS": "Employee: my skills",
-            "EVALUATION-DETAILS": "Employee: evaluation details"
+            "EVALUATION-DETAILS": "Employee: evaluation details",
+            "EVALUATION-EDIT": "Employee: edit evaluation"
         },
         "UNIT-LEADER": {
             "USER-CREATE": "Unit leader: create user",
@@ -172,6 +174,7 @@
         "UNIT_LEADER": "Unit leader"
     },
     "SKILL": {
+        "_": "Skill",
         "NAME": "Name"
     }
 }

@@ -4,12 +4,16 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {moduleRouting} from './routes';
 import {CommonModule} from '@angular/common';
 import {EvaluationsListComponent} from './list';
-import {EvaluationsListAsEmployeeResolver} from './resolver';
-import {EvaluationManagementComponent} from './evaluation-management';
-import {EvaluationAsEmployeeResolver} from './resolver/evaluation-as-employee-resolver.service';
+import {
+    CachedEvaluationAsEmployeeResolver, EvaluationAsEmployeeResolver,
+    EvaluationsListAsEmployeeResolver
+} from './resolver';
+import {EditEvaluationComponent, EvaluationManagementComponent} from './evaluation-management';
+import {SkillsSharedModule} from '../shared';
 
 @NgModule({
     declarations: [
+        EditEvaluationComponent,
         EvaluationsListComponent,
         EvaluationManagementComponent
     ],
@@ -18,9 +22,11 @@ import {EvaluationAsEmployeeResolver} from './resolver/evaluation-as-employee-re
         FormsModule,
         moduleRouting,
         ReactiveFormsModule,
-        SharedModule
+        SharedModule,
+        SkillsSharedModule
     ],
     providers: [
+        CachedEvaluationAsEmployeeResolver,
         EvaluationAsEmployeeResolver,
         EvaluationsListAsEmployeeResolver
     ]

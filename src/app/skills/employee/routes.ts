@@ -2,9 +2,10 @@ import {RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 import {IsEmployeeGuard} from '../../shared/service/guard';
 import {EvaluationsListComponent} from './list';
-import {EvaluationsListAsEmployeeResolver} from './resolver';
-import {EvaluationManagementComponent} from './evaluation-management';
+import {CachedEvaluationAsEmployeeResolver, EvaluationsListAsEmployeeResolver} from './resolver';
+import {EditEvaluationComponent, EvaluationManagementComponent} from './evaluation-management';
 import {EvaluationAsEmployeeResolver} from './resolver/evaluation-as-employee-resolver.service';
+import {SkillsPlainListResolver} from '../shared/resolver';
 
 export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
@@ -23,6 +24,16 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         path: 'employee/skills/:evaluationId',
         resolve: {
             evaluation: EvaluationAsEmployeeResolver
+        }
+    },
+    {
+        canActivate: [IsEmployeeGuard],
+        component: EditEvaluationComponent,
+        data: { title: 'TITLE.EMPLOYEE.EVALUATION-EDIT' },
+        path: 'employee/skills/:evaluationId/edit',
+        resolve: {
+            evaluation: CachedEvaluationAsEmployeeResolver,
+            skills: SkillsPlainListResolver
         }
     }
 ]);

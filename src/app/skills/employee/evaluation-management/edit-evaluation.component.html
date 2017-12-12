@@ -1,0 +1,5 @@
+<h2 translate>HEADER.EDIT-EVALUATION</h2>
+
+<app-evaluation-form [editedEvaluation]="evaluation" [isUnitLeader]="false"
+                     [response]="responseSubject.asObservable()" (formSubmitted)="submit($event)">
+</app-evaluation-form>

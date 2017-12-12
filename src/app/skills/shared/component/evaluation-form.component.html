@@ -1,0 +1,105 @@
+<form [formGroup]="evaluationForm" (ngSubmit)="submitForm()">
+    <fieldset [disabled]="isSubmitting">
+        <div *ngIf="!isEditAction" class="form-group row">
+            <label for="evaluation-leaderEvaluation" class="col-md-2 col-form-label" translate>SKILL._</label>
+            <div *ngIf="skill === undefined" class="col-md-5">
+                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#skillsModal">
+                    SELECT SKILL
+                </button>
+            </div>
+            <div *ngIf="skill !== undefined" class="col-md-5">
+                {{skill.name}}
+                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#skillsModal">
+                    CHANGE SKILL
+                </button>
+            </div>
+        </div>
+
+        <fieldset *ngIf="isUnitLeaderAction" class="form-group row">
+            <label for="evaluation-leaderEvaluation" class="col-md-2 col-form-label" translate>EVALUATION.LEADER-EVALUATION</label>
+            <div class="col-md-5">
+                <select id="evaluation-leaderEvaluation" formControlName="leaderEvaluation"
+                        [(ngModel)]="evaluation.leaderEvaluation" class="form-control">
+                    <option *ngFor="let level of availableSkillLevels" [ngValue]="level.value" translate>{{level.text}}
+                    </option>
+                </select>
+            </div>
+        </fieldset>
+        <fieldset *ngIf="isUnitLeaderAction" class="form-group row">
+            <label for="evaluation-leaderExplanation" class="col-md-2 col-form-label" translate>EVALUATION.LEADER-EXPLANATION</label>
+            <div class="col-md-5">
+                <textarea
+                    id="evaluation-leaderExplanation"
+                    class="form-control"
+                    formControlName="leaderExplanation"
+                    [(ngModel)]="evaluation.leaderExplanation"
+                    placeholder="{{ 'EVALUATION.LEADER-EXPLANATION' | translate }}"
+                    rows="3"
+                    cols="50"></textarea>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'leaderExplanation'"
+                                 [formControl]="evaluationForm.controls['leaderExplanation']"
+                                 [maxLength]="validation.leaderExplanation.max"
+                                 ngDefaultControl></app-form-errors>
+            </div>
+        </fieldset>
+
+        <fieldset *ngIf="!isUnitLeaderAction" class="form-group row">
+            <label for="evaluation-selfEvaluation" class="col-md-2 col-form-label"
+                   translate>EVALUATION.SELF-EVALUATION</label>
+            <select id="evaluation-selfEvaluation" formControlName="selfEvaluation"
+                    [(ngModel)]="evaluation.selfEvaluation" class="form-control">
+                <option *ngFor="let level of availableSkillLevels" [ngValue]="level.value" translate>{{level.text}}
+                </option>
+            </select>
+        </fieldset>
+        <fieldset *ngIf="!isUnitLeaderAction" class="form-group row">
+            <label for="evaluation-selfExplanation" class="col-md-2 col-form-label" translate>EVALUATION.SELF-EXPLANATION</label>
+            <div class="col-md-5">
+                <textarea
+                    id="evaluation-selfExplanation"
+                    class="form-control"
+                    formControlName="selfExplanation"
+                    [(ngModel)]="evaluation.selfExplanation"
+                    placeholder="{{ 'EVALUATION.SELF-EXPLANATION' | translate }}"
+                    rows="3"
+                    cols="50"></textarea>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'selfExplanation'"
+                                 [formControl]="evaluationForm.controls['selfExplanation']"
+                                 [maxLength]="validation.selfExplanation.max"
+                                 ngDefaultControl></app-form-errors>
+            </div>
+        </fieldset>
+
+        <button (click)="goBack()" type="button" class="btn btn-dark" translate>
+            BTN.BACK
+        </button>
+        <button [disabled]="!evaluationForm.valid" type="submit" class="btn btn-success" translate>
+            BTN.SAVE
+        </button>
+    </fieldset>
+</form>
+
+<div class="modal fade" id="skillsModal" tabindex="-1" role="dialog" aria-labelledby="skillsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="skillsModalLabel">SELECT SKILLS!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul *ngFor="let skill of availableSkills">
+                    <li>
+                        <button (click)="selectSkill(skill)" data-dismiss="modal">{{skill.name}}</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

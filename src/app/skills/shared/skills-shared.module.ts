@@ -3,15 +3,17 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgModule} from '@angular/core';
 
 import {SharedModule} from '../../shared';
-import {SkillFormComponent, SkillsListComponent} from './component';
-import {CachedSkillResolver, SkillResolver, SkillsListResolver} from './resolver';
+import {EvaluationFormComponent, SkillFormComponent, SkillsListComponent} from './component';
+import {CachedSkillResolver, SkillResolver, SkillsListResolver, SkillsPlainListResolver} from './resolver';
 
 @NgModule({
     declarations: [
+        EvaluationFormComponent,
         SkillFormComponent,
         SkillsListComponent
     ],
     exports: [
+        EvaluationFormComponent,
         SkillFormComponent,
         SkillsListComponent
     ],
@@ -24,7 +26,8 @@ import {CachedSkillResolver, SkillResolver, SkillsListResolver} from './resolver
     providers: [
         CachedSkillResolver,
         SkillResolver,
-        SkillsListResolver
+        SkillsListResolver,
+        SkillsPlainListResolver
     ]
 })
 export class SkillsSharedModule {

@@ -21,6 +21,10 @@ export class SkillsService {
         return this.api.deleteMethod('skills/' + skill.id, environment.api.role.unitleader);
     }
 
+    getAll(): Observable<Skill[]> {
+        return this.api.get('skills/', environment.api.role.common);
+    }
+
     getAllByPage(page: number = 0): Observable<PagedResults<Skill>> {
         const resultPageSize = environment.resultsOnPage;
         const partialUrl = 'skills/paged/';

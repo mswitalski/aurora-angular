@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpErrorResponse} from '@angular/common/http';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -12,13 +12,16 @@ import {Duty} from '../../../../shared/model';
 @Component({
     templateUrl: './edit-duty.component.html'
 })
-export class EditDutyComponent extends AutoUnsubscriberComponent {
+export class EditDutyComponent extends AutoUnsubscriberComponent implements OnInit {
 
     duty: Duty;
     responseSubject = new ReplaySubject<HttpErrorResponse>(1);
 
     constructor(private route: ActivatedRoute, private router: Router, private dutiesService: DutiesService) {
         super();
+    }
+
+    ngOnInit(): void {
         this.duty = this.route.snapshot.data['duty'];
     }
 
