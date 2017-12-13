@@ -11,6 +11,7 @@ import {
     UserEvaluationManagementComponent
 } from './evaluation-management';
 import {CachedUserResolver} from '../../users/shared/resolver';
+import {IsNotEvaluationOwnerGuard} from './is-not-evaluation-owner-guard.service';
 
 export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
@@ -65,7 +66,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         }
     },
     {
-        canActivate: [IsUnitLeaderGuard],
+        canActivate: [IsUnitLeaderGuard, IsNotEvaluationOwnerGuard],
         component: EditUserEvaluationComponent,
         data: {title: 'TITLE.UNIT-LEADER.EVALUATION-EDIT'},
         path: 'unitleader/users/:userId/skills/:evaluationId/edit',
@@ -74,7 +75,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         }
     },
     {
-        canActivate: [IsUnitLeaderGuard],
+        canActivate: [IsUnitLeaderGuard, IsNotEvaluationOwnerGuard],
         component: CreateUserEvaluationComponent,
         data: {title: 'TITLE.UNIT-LEADER.EVALUATION-ADD'},
         path: 'unitleader/users/:userId/skills/add/evaluation',

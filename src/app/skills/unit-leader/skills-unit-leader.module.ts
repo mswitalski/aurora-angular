@@ -13,6 +13,7 @@ import {
     CreateUserEvaluationComponent, EditUserEvaluationComponent,
     UserEvaluationManagementComponent
 } from './evaluation-management';
+import {IsNotEvaluationOwnerGuard} from './is-not-evaluation-owner-guard.service';
 
 @NgModule({
     declarations: [
@@ -35,6 +36,7 @@ import {
         UsersSharedModule
     ],
     providers: [
+        IsNotEvaluationOwnerGuard,
         UserCachedEvaluationResolver,
         UserEvaluationResolver,
         UserEvaluationsListResolver
