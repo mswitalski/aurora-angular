@@ -32,7 +32,7 @@ export class SkillsService {
             .set('page', page.toString(10))
             .set('size', resultPageSize.toString(10));
 
-        return this.api.getWithParams(partialUrl, queryParams, environment.api.role.common);
+        return this.api.getWithParams(partialUrl, queryParams, environment.api.role.unitleader);
     }
 
     getSingle(skillId: number): Observable<Skill> {
@@ -57,7 +57,7 @@ export class SkillsService {
             .set('page', page.toString(10))
             .set('size', resultPageSize.toString(10));
 
-        return this.api.postWithParams(partialUrl, queryParams, criteria, environment.api.role.common);
+        return this.api.postWithParams(partialUrl, queryParams, criteria, environment.api.role.unitleader);
     }
 
     update(skill: Skill): Observable<void> {
