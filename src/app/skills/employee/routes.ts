@@ -35,8 +35,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         data: { title: 'TITLE.EMPLOYEE.EVALUATION-EDIT' },
         path: 'employee/skills/:evaluationId/edit',
         resolve: {
-            evaluation: CachedEvaluationAsEmployeeResolver,
-            skills: SkillsPlainListResolver
+            evaluation: CachedEvaluationAsEmployeeResolver
         }
     },
     {
@@ -45,7 +44,8 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         data: { title: 'TITLE.EMPLOYEE.EVALUATION-ADD' },
         path: 'employee/skills/add/evaluation',
         resolve: {
-            skills: SkillsPlainListResolver
+            skills: SkillsPlainListResolver,
+            evaluations: EvaluationsListAsEmployeeResolver
         }
     }
 ]);

@@ -15,10 +15,10 @@ import {Location} from '@angular/common';
 export class EvaluationFormComponent extends AutoUnsubscriberComponent implements OnInit {
 
     availableSkillLevels = [
-        { value: SkillLevel.NONE, text: 'SKILL-LEVEL.NONE' },
-        { value: SkillLevel.BEGINNER, text: 'SKILL-LEVEL.BEGINNER' },
-        { value: SkillLevel.INTERMEDIATE, text: 'SKILL-LEVEL.INTERMEDIATE' },
-        { value: SkillLevel.EXPERT, text: 'SKILL-LEVEL.EXPERT' }
+        {value: SkillLevel.NONE, text: 'SKILL-LEVEL.NONE'},
+        {value: SkillLevel.BEGINNER, text: 'SKILL-LEVEL.BEGINNER'},
+        {value: SkillLevel.INTERMEDIATE, text: 'SKILL-LEVEL.INTERMEDIATE'},
+        {value: SkillLevel.EXPERT, text: 'SKILL-LEVEL.EXPERT'}
     ];
     availableSkills: Skill[] = [];
     evaluationForm: FormGroup;
@@ -57,27 +57,41 @@ export class EvaluationFormComponent extends AutoUnsubscriberComponent implement
     }
 
     ngOnInit(): void {
-        this.availableSkills = this.route.snapshot.data['skills'];
+        if (!this.isEditAction) {
+            this.availableSkills = this.route.snapshot.data['skills'];
+            this.filterSkills();
+        }
+
         let formControls;
 
         if (this.isUnitLeaderAction) {
             formControls = {
                 'leaderEvaluation': [''],
-                'leaderExplanation': ['', [
-                    Validators.maxLength(this.validation.leaderExplanation.max)]
+                'leaderExplanation': [
+                    '', [
+                        Validators.maxLength(this.validation.leaderExplanation.max)
+                    ]
                 ]
             };
 
         } else {
             formControls = {
                 'selfEvaluation': [''],
-                'selfExplanation': ['', [
-                    Validators.maxLength(this.validation.selfExplanation.max)]
+                'selfExplanation': [
+                    '', [
+                        Validators.maxLength(this.validation.selfExplanation.max)
+                    ]
                 ]
             };
         }
 
         this.evaluationForm = this.formBuilder.group(formControls);
+    }
+
+    private filterSkills(): void {
+        const userSkills: Skill[] = this.route.snapshot.data['evaluations'].map((e: Evaluation) => e.skill);
+        this.availableSkills = this.availableSkills
+            .filter(val => userSkills.find(us => us.id === val.id) === undefined);
     }
 
     goBack(): void {
