@@ -38,7 +38,8 @@
         "EDIT-USER-DUTIES": "Edytuj obowi\u0105zki u\u017cytkownika",
         "ADD-SKILL": "Dodaj umiej\u0119tno\u015b\u0107",
         "SELECT-SKILL": "Wybierz umiej\u0119tno\u015b\u0107",
-        "CHANGE-SKILL": "Zmie\u0144 umiej\u0119tno\u015b\u0107"
+        "CHANGE-SKILL": "Zmie\u0144 umiej\u0119tno\u015b\u0107",
+        "USER-SKILLS": "Umiej\u0119tno\u015bci"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Podano nieprawid\u0142ow\u0105 nazw\u0119 użytkownika i/lub has\u0142o",
@@ -90,7 +91,8 @@
         "MY-SKILLS": "Moje umiej\u0119tno\u015bci",
         "EVALUATION-DETAILS": "Szczeg\u00f3\u0142y oceny",
         "EDIT-EVALUATION": "Edytuj ocen\u0119",
-        "ADD-EVALUATION": "Dodaj umiej\u0119tno\u015b\u0107"
+        "ADD-EVALUATION": "Dodaj umiej\u0119tno\u015b\u0107",
+        "USER-SKILLS": "Umiej\u0119tno\u015bci u\u017cytkownika"
     },
     "DUTY": {
         "NAME": "Nazwa",
@@ -160,7 +162,11 @@
             "SKILLS": "Unit leader: umiej\u0119tno\u015bci",
             "SKILL": "Unit leader: zarz\u0105dzanie umiej\u0119tno\u015bci\u0105",
             "SKILL-CREATE": "Unit leader: tworzenie umiej\u0119tno\u015bci",
-            "SKILL-EDIT": "Unit leader: edytuj umiej\u0119tno\u015b\u0107"
+            "SKILL-EDIT": "Unit leader: edytuj umiej\u0119tno\u015b\u0107",
+            "USER-SKILLS": "Unit leader: umiej\u0119tno\u015bci u\u017cytkownika",
+            "EVALUATION-DETAILS": "Unit leader: szczeg\u00f3\u0142y oceny",
+            "EVALUATION-EDIT": "Unit leader: edycja oceny",
+            "EVALUATION-ADD": "Unit leader: dodaj ocen\u0119"
         }
     },
     "PAGINATION": {

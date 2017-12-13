@@ -1,0 +1,12 @@
+<h2 translate>HEADER.EVALUATION-DETAILS</h2>
+
+{{'SKILL.NAME' | translate}}: {{evaluation.skill.name}} <br/>
+{{'EVALUATION.SELF-EVALUATION' | translate}}: <span translate>SKILL-LEVEL.{{evaluation.selfEvaluation}}</span> <br/>
+{{'EVALUATION.SELF-EXPLANATION' | translate}}: {{evaluation.selfExplanation}} <br/>
+{{'EVALUATION.LEADER-EVALUATION' | translate}}: <span translate>SKILL-LEVEL.{{evaluation.leaderEvaluation}}</span> <br/>
+{{'EVALUATION.LEADER-EXPLANATION' | translate}}: {{evaluation.leaderExplanation}} <br/>
+<br/>
+
+<a class="btn btn-lg btn-primary" [routerLink]="['/unitleader/users', evaluation.user.id,'skills']" translate>BTN.BACK</a>
+<a class="btn btn-lg btn-primary" routerLink="edit" translate>BTN.EDIT-DETAILS</a>
+<a class="btn btn-lg btn-danger" (click)="deleteEvaluation()" translate>BTN.DELETE</a>

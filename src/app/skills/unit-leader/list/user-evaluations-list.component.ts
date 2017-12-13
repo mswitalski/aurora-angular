@@ -3,9 +3,9 @@ import {Evaluation} from '../../../shared/model';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
-    templateUrl: './evaluations-list.component.html'
+    templateUrl: './user-evaluations-list.component.html'
 })
-export class EvaluationsListComponent implements OnInit {
+export class UserEvaluationsListComponent implements OnInit {
 
     evaluationsList: Evaluation[];
 

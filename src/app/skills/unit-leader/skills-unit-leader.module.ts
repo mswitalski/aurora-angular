@@ -4,16 +4,26 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {SharedModule} from '../../shared';
 import {moduleRouting} from './routes';
-import {SkillsListComponent} from './list';
+import {SkillsListComponent, UserEvaluationsListComponent} from './list';
 import {SkillsSharedModule} from '../shared';
 import {CreateSkillComponent, EditSkillComponent, SkillManagementComponent} from './skill-management';
+import {UserCachedEvaluationResolver, UserEvaluationResolver, UserEvaluationsListResolver} from './resolver';
+import {UsersSharedModule} from '../../users/shared';
+import {
+    CreateUserEvaluationComponent, EditUserEvaluationComponent,
+    UserEvaluationManagementComponent
+} from './evaluation-management';
 
 @NgModule({
     declarations: [
         CreateSkillComponent,
+        CreateUserEvaluationComponent,
         EditSkillComponent,
+        EditUserEvaluationComponent,
         SkillsListComponent,
-        SkillManagementComponent
+        SkillManagementComponent,
+        UserEvaluationManagementComponent,
+        UserEvaluationsListComponent
     ],
     imports: [
         CommonModule,
@@ -21,7 +31,13 @@ import {CreateSkillComponent, EditSkillComponent, SkillManagementComponent} from
         moduleRouting,
         ReactiveFormsModule,
         SharedModule,
-        SkillsSharedModule
+        SkillsSharedModule,
+        UsersSharedModule
+    ],
+    providers: [
+        UserCachedEvaluationResolver,
+        UserEvaluationResolver,
+        UserEvaluationsListResolver
     ]
 })
 export class SkillsUnitLeaderModule {

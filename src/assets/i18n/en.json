@@ -38,7 +38,8 @@
         "EDIT-USER-DUTIES": "Edit user duties",
         "ADD-SKILL": "Add skill",
         "SELECT-SKILL": "Select skill",
-        "CHANGE-SKILL": "Change skill"
+        "CHANGE-SKILL": "Change skill",
+        "USER-SKILLS": "Skills"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Bad username or/and password!",
@@ -90,7 +91,8 @@
         "MY-SKILLS": "My skills",
         "EVALUATION-DETAILS": "Evaluation details",
         "EDIT-EVALUATION": "Edit evaluation",
-        "ADD-EVALUATION": "Add evaluation"
+        "ADD-EVALUATION": "Add evaluation",
+        "USER-SKILLS": "User's skills"
     },
     "DUTY": {
         "NAME": "Name",
@@ -161,7 +163,11 @@
             "SKILLS": "Unit leader: skills",
             "SKILL": "Unit leader: skill management",
             "SKILL-CREATE": "Unit leader: create skill",
-            "SKILL-EDIT": "Unit leader: edit skill"
+            "SKILL-EDIT": "Unit leader: edit skill",
+            "USER-SKILLS": "Unit leader: user's skill",
+            "EVALUATION-DETAILS": "Unit leader: evaluation details",
+            "EVALUATION-EDIT": "Unit leader: edit evaluation",
+            "EVALUATION-ADD": "Unit leader: add skill"
         }
     },
     "PAGINATION": {

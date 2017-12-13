@@ -33,8 +33,8 @@ export class EvaluationsService {
         return this.api.get(partialUrl, environment.api.role.employee);
     }
 
-    getAllByUserAsUnitLeader(user: User): Observable<Evaluation[]> {
-        const partialUrl = 'users/' + user.id + '/evaluations/';
+    getAllByUserAsUnitLeader(userId: number): Observable<Evaluation[]> {
+        const partialUrl = 'users/' + userId + '/evaluations/';
 
         return this.api.get(partialUrl, environment.api.role.unitleader);
     }
