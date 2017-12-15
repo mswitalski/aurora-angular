@@ -44,7 +44,9 @@
         "USER-SKILLS": "Umiej\u0119tno\u015bci",
         "APPROVE": "Zatwierd\u017a",
         "ACTIVATE": "Aktywuj",
-        "DEACTIVATE": "Deaktywuj"
+        "DEACTIVATE": "Deaktywuj",
+        "ALL-MENTORS": "Wszyscy",
+        "MY-MENTORS": "Moje"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Podano nieprawid\u0142ow\u0105 nazw\u0119 użytkownika i/lub has\u0142o",
@@ -152,7 +154,9 @@
             "MY-SKILLS": "Pracownik: moje umiej\u0119tno\u015bci",
             "EVALUATION-DETAILS": "Pracownik: szczeg\u00f3\u0142y oceny",
             "EVALUATION-EDIT": "Pracownik: edycja oceny",
-            "EVALUATION-ADD": "Pracownik: dodaj ocen\u0119"
+            "EVALUATION-ADD": "Pracownik: dodaj ocen\u0119",
+            "MENTORS": "Pracownik: mentorzy",
+            "MENTOR-DETAILS": "Pracownik: szczeg\u00f3\u0142y mentora"
         },
         "UNIT-LEADER": {
             "USER-CREATE": "Unit leader: tworzenie u\u017cytkownika",

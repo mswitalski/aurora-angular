@@ -44,7 +44,9 @@
         "USER-SKILLS": "Skills",
         "APPROVE": "Approve",
         "ACTIVATE": "Activate",
-        "DEACTIVATE": "Deactivate"
+        "DEACTIVATE": "Deactivate",
+        "ALL-MENTORS": "All",
+        "MY-MENTORS": "Mine"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Bad username or/and password!",
@@ -153,7 +155,9 @@
             "MY-SKILLS": "Employee: my skills",
             "EVALUATION-DETAILS": "Employee: evaluation details",
             "EVALUATION-EDIT": "Employee: edit evaluation",
-            "EVALUATION-ADD": "Employee: add skill"
+            "EVALUATION-ADD": "Employee: add skill",
+            "MENTORS": "Employee: mentors",
+            "MENTOR-DETAILS": "Employee: mentor details"
         },
         "UNIT-LEADER": {
             "USER-CREATE": "Unit leader: create user",

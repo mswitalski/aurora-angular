@@ -1,0 +1,24 @@
+<h2 translate>HEADER.MENTORS</h2>
+
+<ul class="nav nav-tabs" id="mentorsListTabs" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all"
+           aria-selected="true" translate>BTN.ALL-MENTORS</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="my-tab" data-toggle="tab" href="#my" role="tab" aria-controls="my" aria-selected="false"
+           translate>BTN.MY-MENTORS</a>
+    </li>
+</ul>
+
+<div class="tab-content" id="mentorsListTabsContent">
+    <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+        <app-mentors-list [paginationData]="pagedResults" [listData]="mentorsList"
+                          (userInteracted)="loadListData($event)"></app-mentors-list>
+    </div>
+    <div class="tab-pane fade" id="my" role="tabpanel" aria-labelledby="my-tab">
+        Not yet...
+    </div>
+</div>
+
+
