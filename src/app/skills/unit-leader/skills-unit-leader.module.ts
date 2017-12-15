@@ -7,7 +7,7 @@ import {moduleRouting} from './routes';
 import {SkillsListComponent, UserEvaluationsListComponent} from './list';
 import {SkillsSharedModule} from '../shared';
 import {CreateSkillComponent, EditSkillComponent, SkillManagementComponent} from './skill-management';
-import {UserCachedEvaluationResolver, UserEvaluationResolver, UserEvaluationsListResolver} from './resolver';
+import {CachedEvaluationResolver, EvaluationResolver, EvaluationsListResolver} from './resolver';
 import {UsersSharedModule} from '../../users/shared';
 import {
     CreateUserEvaluationComponent, EditUserEvaluationComponent,
@@ -37,9 +37,9 @@ import {IsNotEvaluationOwnerGuard} from './is-not-evaluation-owner-guard.service
     ],
     providers: [
         IsNotEvaluationOwnerGuard,
-        UserCachedEvaluationResolver,
-        UserEvaluationResolver,
-        UserEvaluationsListResolver
+        CachedEvaluationResolver,
+        EvaluationResolver,
+        EvaluationsListResolver
     ]
 })
 export class SkillsUnitLeaderModule {

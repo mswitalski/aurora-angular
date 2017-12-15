@@ -5,7 +5,7 @@ import {EvaluationsService} from '../../../shared/service';
 import {Observable} from 'rxjs/Observable';
 
 @Injectable()
-export class CachedEvaluationAsEmployeeResolver implements Resolve<Evaluation> {
+export class CachedEvaluationResolver implements Resolve<Evaluation> {
 
     constructor(private evaluationsService: EvaluationsService) {}
 

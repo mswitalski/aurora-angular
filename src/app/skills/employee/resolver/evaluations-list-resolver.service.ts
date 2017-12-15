@@ -6,7 +6,7 @@ import {Evaluation} from '../../../shared/model';
 import {AuthService, EvaluationsService} from '../../../shared/service';
 
 @Injectable()
-export class EvaluationsListAsEmployeeResolver implements Resolve<Evaluation[]> {
+export class EvaluationsListResolver implements Resolve<Evaluation[]> {
 
     constructor(private authService: AuthService, private evaluationsService: EvaluationsService) {}
 

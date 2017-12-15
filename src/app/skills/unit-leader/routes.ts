@@ -5,7 +5,7 @@ import {IsUnitLeaderGuard} from '../../shared/service/guard';
 import {SkillsListComponent, UserEvaluationsListComponent} from './list';
 import {CachedSkillResolver, SkillResolver, SkillsListResolver, SkillsPlainListResolver} from '../shared/resolver';
 import {CreateSkillComponent, EditSkillComponent, SkillManagementComponent} from './skill-management';
-import {UserCachedEvaluationResolver, UserEvaluationResolver, UserEvaluationsListResolver} from './resolver';
+import {CachedEvaluationResolver, EvaluationResolver, EvaluationsListResolver} from './resolver';
 import {
     CreateUserEvaluationComponent, EditUserEvaluationComponent,
     UserEvaluationManagementComponent
@@ -53,7 +53,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         data: {title: 'TITLE.UNIT-LEADER.USER-SKILLS'},
         path: 'unitleader/users/:userId/skills',
         resolve: {
-            evaluations: UserEvaluationsListResolver
+            evaluations: EvaluationsListResolver
         }
     },
     {
@@ -62,7 +62,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         data: {title: 'TITLE.UNIT-LEADER.EVALUATION-DETAILS'},
         path: 'unitleader/users/:userId/skills/:evaluationId',
         resolve: {
-            evaluation: UserEvaluationResolver
+            evaluation: EvaluationResolver
         }
     },
     {
@@ -71,7 +71,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         data: {title: 'TITLE.UNIT-LEADER.EVALUATION-EDIT'},
         path: 'unitleader/users/:userId/skills/:evaluationId/edit',
         resolve: {
-            evaluation: UserCachedEvaluationResolver
+            evaluation: CachedEvaluationResolver
         }
     },
     {
@@ -81,7 +81,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         path: 'unitleader/users/:userId/skills/add/evaluation',
         resolve: {
             skills: SkillsPlainListResolver,
-            evaluations: UserEvaluationsListResolver,
+            evaluations: EvaluationsListResolver,
             user: CachedUserResolver
         }
     }

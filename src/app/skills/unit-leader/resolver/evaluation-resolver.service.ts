@@ -5,11 +5,11 @@ import {EvaluationsService} from '../../../shared/service';
 import {Observable} from 'rxjs/Observable';
 
 @Injectable()
-export class EvaluationAsEmployeeResolver implements Resolve<Evaluation> {
+export class EvaluationResolver implements Resolve<Evaluation> {
 
     constructor(private evaluationsService: EvaluationsService) {}
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Evaluation> {
-        return this.evaluationsService.getSingleAsEmployee(route.params['evaluationId']);
+        return this.evaluationsService.getSingleAsUnitLeader(route.params['evaluationId']);
     }
 }

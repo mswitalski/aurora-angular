@@ -2,12 +2,12 @@ import {RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 import {IsEmployeeGuard} from '../../shared/service/guard';
 import {EvaluationsListComponent} from './list';
-import {CachedEvaluationAsEmployeeResolver, EvaluationsListAsEmployeeResolver} from './resolver';
+import {CachedEvaluationResolver, EvaluationsListResolver} from './resolver';
 import {
     CreateEvaluationComponent, EditEvaluationComponent,
     EvaluationManagementComponent
 } from './evaluation-management';
-import {EvaluationAsEmployeeResolver} from './resolver/evaluation-as-employee-resolver.service';
+import {EvaluationResolver} from './resolver/evaluation-resolver.service';
 import {SkillsPlainListResolver} from '../shared/resolver';
 
 export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
@@ -17,7 +17,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         data: { title: 'TITLE.EMPLOYEE.MY-SKILLS' },
         path: 'employee/skills',
         resolve: {
-            evaluations: EvaluationsListAsEmployeeResolver
+            evaluations: EvaluationsListResolver
         }
     },
     {
@@ -26,7 +26,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         data: { title: 'TITLE.EMPLOYEE.EVALUATION-DETAILS' },
         path: 'employee/skills/:evaluationId',
         resolve: {
-            evaluation: EvaluationAsEmployeeResolver
+            evaluation: EvaluationResolver
         }
     },
     {
@@ -35,7 +35,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         data: { title: 'TITLE.EMPLOYEE.EVALUATION-EDIT' },
         path: 'employee/skills/:evaluationId/edit',
         resolve: {
-            evaluation: CachedEvaluationAsEmployeeResolver
+            evaluation: CachedEvaluationResolver
         }
     },
     {
@@ -45,7 +45,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         path: 'employee/skills/add/evaluation',
         resolve: {
             skills: SkillsPlainListResolver,
-            evaluations: EvaluationsListAsEmployeeResolver
+            evaluations: EvaluationsListResolver
         }
     }
 ]);

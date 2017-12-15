@@ -1,3 +1,3 @@
-export * from './cached-evaluation-as-employee-resolver.service';
-export * from './evaluation-as-employee-resolver.service';
-export * from './evaluations-list-as-employee-resolver.service';
+export * from './cached-evaluation-resolver.service';
+export * from './evaluation-resolver.service';
+export * from './evaluations-list-resolver.service';

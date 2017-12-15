@@ -36,7 +36,7 @@ export class UserEvaluationManagementComponent extends AutoUnsubscriberComponent
 
     deleteEvaluation(): void {
         if (!this.isEvaluationOwner && confirm(this.deleteDialogMessage)) {
-            this.evaluationsService.deleteUserAsEmployee(this.evaluation).takeUntil(this.ngUnsubscribe).subscribe(
+            this.evaluationsService.deleteAsUnitLeader(this.evaluation).takeUntil(this.ngUnsubscribe).subscribe(
                 () => {
                     const url = '/unitleader/users/' + this.evaluation.user.id + '/skills';
                     this.router.navigate([url]);

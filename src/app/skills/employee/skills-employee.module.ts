@@ -5,8 +5,8 @@ import {moduleRouting} from './routes';
 import {CommonModule} from '@angular/common';
 import {EvaluationsListComponent} from './list';
 import {
-    CachedEvaluationAsEmployeeResolver, EvaluationAsEmployeeResolver,
-    EvaluationsListAsEmployeeResolver
+    CachedEvaluationResolver, EvaluationResolver,
+    EvaluationsListResolver
 } from './resolver';
 import {
     CreateEvaluationComponent, EditEvaluationComponent,
@@ -30,9 +30,9 @@ import {SkillsSharedModule} from '../shared';
         SkillsSharedModule
     ],
     providers: [
-        CachedEvaluationAsEmployeeResolver,
-        EvaluationAsEmployeeResolver,
-        EvaluationsListAsEmployeeResolver
+        CachedEvaluationResolver,
+        EvaluationResolver,
+        EvaluationsListResolver
     ]
 })
 export class SkillsEmployeeModule {}

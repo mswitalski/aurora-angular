@@ -29,7 +29,7 @@ export class EvaluationManagementComponent extends AutoUnsubscriberComponent imp
 
     deleteEvaluation(): void {
         if (confirm(this.deleteDialogMessage)) {
-            this.evaluationsService.deleteUserAsEmployee(this.evaluation).takeUntil(this.ngUnsubscribe).subscribe(
+            this.evaluationsService.deleteAsEmployee(this.evaluation).takeUntil(this.ngUnsubscribe).subscribe(
                 () => this.router.navigate(['/employee/skills'])
             );
         }
