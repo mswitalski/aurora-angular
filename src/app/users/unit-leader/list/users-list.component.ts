@@ -19,12 +19,8 @@ export class UsersListComponent extends AutoUnsubscriberComponent implements OnI
     }
 
     ngOnInit() {
-        this.route.data.takeUntil(this.ngUnsubscribe).subscribe(
-            (data: { pagedResults: PagedResults<User> }) => {
-                this.usersList = data.pagedResults.content;
-                this.pagedResults = data.pagedResults;
-            }
-        );
+        this.pagedResults = this.route.snapshot.data['pagedResults'];
+        this.usersList = this.pagedResults.content;
     }
 
     loadListData(eventData: ListEventData): void {

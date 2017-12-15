@@ -1,0 +1,11 @@
+<h2 translate>HEADER.MENTOR-MANAGEMENT</h2>
+
+{{ 'EMPLOYEE' | translate }}: {{mentor.evaluation.user.surname}} {{mentor.evaluation.user.name}} <br/>
+{{ 'SKILL._' | translate }}: {{mentor.evaluation.skill.name}} <br/>
+{{ 'SKILL.LEVEL' | translate }}: <span translate>SKILL-LEVEL.{{mentor.evaluation.leaderEvaluation}}</span> <br/>
+
+<a class="btn btn-lg btn-primary" routerLink="/unitleader/mentors" translate>BTN.BACK</a>
+<a *ngIf="!mentor.approved" class="btn btn-lg btn-success" (click)="approveMentor()" translate>BTN.APPROVE</a>
+<a *ngIf="!mentor.active" class="btn btn-lg btn-success" (click)="activateMentor()" translate>BTN.ACTIVATE</a>
+<a *ngIf="mentor.active" class="btn btn-lg btn-success" (click)="deactivateMentor()" translate>BTN.DEACTIVATE</a>
+<a class="btn btn-lg btn-danger" (click)="deleteMentor()" translate>BTN.DELETE</a>

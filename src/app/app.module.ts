@@ -19,6 +19,7 @@ import {UsersModule} from './users';
 import {rootRouting} from './routes';
 import {DutiesModule} from './duties';
 import {SkillsModule} from './skills';
+import {MentorsModule} from './mentors';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -36,6 +37,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         DashboardModule,
         DutiesModule,
         LoginModule,
+        MentorsModule,
         ProfileModule,
         rootRouting,
         SharedModule,

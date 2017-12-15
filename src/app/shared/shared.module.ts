@@ -6,7 +6,7 @@ import {RouterModule} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
 
 import {
-    ApiService, AuthService, DutiesService, EvaluationsService, JwtService, RolesService, SkillsService,
+    ApiService, AuthService, DutiesService, EvaluationsService, JwtService, MentorsService, RolesService, SkillsService,
     UsersService
 } from './service';
 import {AuthenticatedGuard, IsAdminGuard, IsEmployeeGuard, IsUnitLeaderGuard} from './service/guard';
@@ -52,6 +52,7 @@ import {ShowEmployeeDirective} from './show-employee.directive';
         DutiesService,
         EvaluationsService,
         JwtService,
+        MentorsService,
         RolesService,
         SkillsService,
         UsersService,

@@ -1,0 +1,27 @@
+import {NgModule} from '@angular/core';
+import {MentorsListComponent} from './list';
+import {MentorResolver, MentorsListResolver} from './resolver';
+import {MentorsSharedModule} from '../shared';
+import {CommonModule} from '@angular/common';
+import {moduleRouting} from './routes';
+import {SharedModule} from '../../shared';
+import {MentorManagementComponent} from './mentor-management';
+
+@NgModule({
+    declarations: [
+        MentorManagementComponent,
+        MentorsListComponent
+    ],
+    imports: [
+        CommonModule,
+        MentorsSharedModule,
+        moduleRouting,
+        SharedModule
+    ],
+    providers: [
+        MentorResolver,
+        MentorsListResolver
+    ]
+})
+export class MentorsUnitLeaderModule {
+}

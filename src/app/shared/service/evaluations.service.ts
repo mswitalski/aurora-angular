@@ -19,11 +19,11 @@ export class EvaluationsService {
         return this.api.post('evaluations/', evaluation, environment.api.role.unitleader);
     }
 
-    deleteUserAsEmployee(evaluation: Evaluation): Observable<void> {
+    deleteAsEmployee(evaluation: Evaluation): Observable<void> {
         return this.api.deleteMethod('evaluations/' + evaluation.id, environment.api.role.employee);
     }
 
-    deleteUserAsUnitLeader(evaluation: Evaluation): Observable<any> {
+    deleteAsUnitLeader(evaluation: Evaluation): Observable<any> {
         return this.api.deleteMethod('evaluations/' + evaluation.id, environment.api.role.unitleader);
     }
 

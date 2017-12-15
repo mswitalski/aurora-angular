@@ -1,0 +1,48 @@
+<form [formGroup]="searchMentorForm" (ngSubmit)="search()">
+    <fieldset class="col-md-3">
+        <label for="skill-name" class="col-form-label" translate>FORM.SKILL-NAME</label>
+        <input
+            id="skill-name"
+            class="form-control"
+            formControlName="name"
+            [(ngModel)]="formData.skill"
+            type="text"/>
+    </fieldset>
+
+    <button type="submit" class="btn btn-success" translate>
+        BTN.FILTER
+    </button>
+    <button [disabled]="!isFilteringEnabled" (click)="resetSearchForm()" type="button" class="btn btn-success"
+            translate>
+        BTN.RESET
+    </button>
+</form>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th translate>EMPLOYEE</th>
+        <th translate>SKILL._</th>
+        <th translate>SKILL.LEVEL</th>
+        <th translate>HEADER.ACTION</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="mentorsList.length !== 0">
+    <tr *ngFor="let mentor of mentorsList">
+        <td>{{mentor.evaluation.user.surname}} {{mentor.evaluation.user.name}}</td>
+        <td>{{mentor.evaluation.skill.name}}</td>
+        <td translate>SKILL-LEVEL.{{mentor.evaluation.leaderEvaluation}}</td>
+        <td>
+            <button class="btn" [routerLink]="mentor.id" translate>BTN.DETAILS</button>
+        </td>
+    </tr>
+    </tbody>
+    <tbody *ngIf="mentorsList.length === 0">
+    <tr>
+        <td colspan="3" class="text-center">- {{'NO-RESULTS' | translate}} -</td>
+    </tr>
+    </tbody>
+</table>
+
+<app-pagination *ngIf="mentorsList.length !== 0" (pageChanged)="loadPage($event)"
+                [paginationData]="pagedResults"></app-pagination>

@@ -5,6 +5,7 @@
     "DIALOG": {
         "CONFIRMATION": "Are you sure?"
     },
+    "EMPLOYEE": "Employee",
     "SIDEBAR": {
         "ADMIN": "Admin",
         "UNIT-LEADER": "Unit leader",
@@ -13,7 +14,8 @@
         "USERS": "Users",
         "DUTIES": "Duties",
         "SKILLS": "Skills",
-        "MY-SKILLS": "My skills"
+        "MY-SKILLS": "My skills",
+        "MENTORS": "Mentors"
     },
     "BTN": {
         "PROFILE": "Profile",
@@ -39,7 +41,10 @@
         "ADD-SKILL": "Add skill",
         "SELECT-SKILL": "Select skill",
         "CHANGE-SKILL": "Change skill",
-        "USER-SKILLS": "Skills"
+        "USER-SKILLS": "Skills",
+        "APPROVE": "Approve",
+        "ACTIVATE": "Activate",
+        "DEACTIVATE": "Deactivate"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Bad username or/and password!",
@@ -92,7 +97,9 @@
         "EVALUATION-DETAILS": "Evaluation details",
         "EDIT-EVALUATION": "Edit evaluation",
         "ADD-EVALUATION": "Add evaluation",
-        "USER-SKILLS": "User's skills"
+        "USER-SKILLS": "User's skills",
+        "MENTORS": "Mentors",
+        "MENTOR-MANAGEMENT": "Mentor management"
     },
     "DUTY": {
         "NAME": "Name",
@@ -167,7 +174,9 @@
             "USER-SKILLS": "Unit leader: user's skill",
             "EVALUATION-DETAILS": "Unit leader: evaluation details",
             "EVALUATION-EDIT": "Unit leader: edit evaluation",
-            "EVALUATION-ADD": "Unit leader: add skill"
+            "EVALUATION-ADD": "Unit leader: add skill",
+            "MENTORS": "Unit leader: mentors",
+            "MENTOR-DETAILS": "Unit leader: mentor details"
         }
     },
     "PAGINATION": {
@@ -185,6 +194,10 @@
     },
     "SKILL": {
         "_": "Skill",
-        "NAME": "Name"
+        "NAME": "Name",
+        "LEVEL": "Level of knowledge"
+    },
+    "FORM": {
+        "SKILL-NAME": "Nazwa umiej\u0119tno\u015bci"
     }
 }

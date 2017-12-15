@@ -1,21 +1,18 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {ListEventData, Mentor, MentorSearchForm, PagedResults} from '../../../shared/model';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
-import {UserSearchForm} from '../../../shared/model';
-import {PagedResults} from '../../../shared/model';
-import {ListEventData, User} from '../../../shared/model';
-
 @Component({
-    selector: 'app-expanded-users-list',
-    templateUrl: './expanded-users-list.component.html'
+    selector: 'app-mentors-list',
+    templateUrl: './mentors-list.component.html'
 })
-export class ExpandedUsersListComponent {
+export class MentorsListComponent {
 
-    formData = new UserSearchForm();
+    formData = new MentorSearchForm();
     isFilteringEnabled = false;
-    pagedResults: PagedResults<User>;
-    searchUserForm: FormGroup;
-    usersList: User[];
+    pagedResults: PagedResults<Mentor>;
+    searchMentorForm: FormGroup;
+    mentorsList: Mentor[];
 
     @Output()
     userInteracted: EventEmitter<ListEventData> = new EventEmitter();
@@ -24,17 +21,12 @@ export class ExpandedUsersListComponent {
         this.pagedResults = data;
     }
 
-    @Input() set listData(data: User[]) {
-        this.usersList = data;
+    @Input() set listData(data: Mentor[]) {
+        this.mentorsList = data;
     }
 
     constructor(private formBuilder: FormBuilder) {
-        this.searchUserForm = this.formBuilder.group({
-            'username': [''],
-            'name': [''],
-            'surname': [''],
-            'email': ['']
-        });
+        this.searchMentorForm = this.formBuilder.group({'name': ['']});
     }
 
     loadPage(activePage: number): void {
@@ -44,7 +36,7 @@ export class ExpandedUsersListComponent {
 
     resetSearchForm(): void {
         this.isFilteringEnabled = false;
-        this.searchUserForm.reset(new UserSearchForm());
+        this.searchMentorForm.reset(new MentorSearchForm());
         const eventData = new ListEventData(0, false);
         this.userInteracted.emit(eventData);
     }

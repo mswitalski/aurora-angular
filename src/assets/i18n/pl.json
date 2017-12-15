@@ -5,6 +5,7 @@
     "DIALOG": {
         "CONFIRMATION": "Czy na pewno chcesz to zrobi\u0107?"
     },
+    "EMPLOYEE": "Pracownik",
     "SIDEBAR": {
         "ADMIN": "Admin",
         "UNIT-LEADER": "Unit leader",
@@ -13,7 +14,8 @@
         "USERS": "U\u017cytkownicy",
         "DUTIES": "Obowi\u0105zki",
         "SKILLS": "Umiej\u0119tno\u015bci",
-        "MY-SKILLS": "Moje umiej\u0119tno\u015bci"
+        "MY-SKILLS": "Moje umiej\u0119tno\u015bci",
+        "MENTORS": "Mentorzy"
     },
     "BTN": {
         "PROFILE": "Profil",
@@ -39,7 +41,10 @@
         "ADD-SKILL": "Dodaj umiej\u0119tno\u015b\u0107",
         "SELECT-SKILL": "Wybierz umiej\u0119tno\u015b\u0107",
         "CHANGE-SKILL": "Zmie\u0144 umiej\u0119tno\u015b\u0107",
-        "USER-SKILLS": "Umiej\u0119tno\u015bci"
+        "USER-SKILLS": "Umiej\u0119tno\u015bci",
+        "APPROVE": "Zatwierd\u017a",
+        "ACTIVATE": "Aktywuj",
+        "DEACTIVATE": "Deaktywuj"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Podano nieprawid\u0142ow\u0105 nazw\u0119 użytkownika i/lub has\u0142o",
@@ -92,7 +97,9 @@
         "EVALUATION-DETAILS": "Szczeg\u00f3\u0142y oceny",
         "EDIT-EVALUATION": "Edytuj ocen\u0119",
         "ADD-EVALUATION": "Dodaj umiej\u0119tno\u015b\u0107",
-        "USER-SKILLS": "Umiej\u0119tno\u015bci u\u017cytkownika"
+        "USER-SKILLS": "Umiej\u0119tno\u015bci u\u017cytkownika",
+        "MENTORS": "Mentorzy",
+        "MENTOR-MANAGEMENT": "Zarz\u0105dzanie mentorem"
     },
     "DUTY": {
         "NAME": "Nazwa",
@@ -166,7 +173,9 @@
             "USER-SKILLS": "Unit leader: umiej\u0119tno\u015bci u\u017cytkownika",
             "EVALUATION-DETAILS": "Unit leader: szczeg\u00f3\u0142y oceny",
             "EVALUATION-EDIT": "Unit leader: edycja oceny",
-            "EVALUATION-ADD": "Unit leader: dodaj ocen\u0119"
+            "EVALUATION-ADD": "Unit leader: dodaj ocen\u0119",
+            "MENTORS": "Unit leader: mentorzy",
+            "MENTOR-DETAILS": "Unit leader: szczeg\u00f3\u0142y mentora"
         }
     },
     "PAGINATION": {
@@ -184,6 +193,10 @@
     },
     "SKILL": {
         "_": "Umiej\u0119tno\u015b\u0107",
-        "NAME": "Nazwa"
+        "NAME": "Nazwa",
+        "LEVEL": "Poziom znajomo\u015bci"
+    },
+    "FORM": {
+        "SKILL-NAME": "Nazwa umiej\u0119tno\u015bci"
     }
 }
