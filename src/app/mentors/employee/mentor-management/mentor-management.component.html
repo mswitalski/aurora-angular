@@ -3,12 +3,14 @@
 {{ 'EMPLOYEE' | translate }}: {{mentor.evaluation.user.surname}} {{mentor.evaluation.user.name}} <br/>
 {{ 'SKILL._' | translate }}: {{mentor.evaluation.skill.name}} <br/>
 {{ 'SKILL.LEVEL' | translate }}: <span translate>SKILL-LEVEL.{{mentor.evaluation.leaderEvaluation}}</span> <br/>
+<span *ngIf="isMentorOwner">
 {{ 'MENTOR.APPROVED' | translate }}:
-    <span *ngIf="isMentorOwner && mentor.approved" translate>YES</span>
-    <span *ngIf="isMentorOwner && !mentor.approved" translate>NO</span> <br/>
+    <span *ngIf="mentor.approved" translate>YES</span>
+    <span *ngIf="!mentor.approved" translate>NO</span> <br/>
 {{ 'MENTOR.ACTIVE' | translate }}:
-    <span *ngIf="isMentorOwner && mentor.active" translate>YES</span>
-    <span *ngIf="isMentorOwner && !mentor.active" translate>NO</span> <br/>
+    <span *ngIf="mentor.active" translate>YES</span>
+    <span *ngIf=!mentor.active" translate>NO</span> <br/>
+</span>
 
 <a class="btn btn-lg btn-primary" routerLink="/employee/mentors" translate>BTN.BACK</a>
 <a *ngIf="isMentorOwner && !mentor.active" class="btn btn-lg btn-success" (click)="activateMentor()" translate>BTN.ACTIVATE</a>
