@@ -5,11 +5,11 @@ import {Observable} from 'rxjs/Observable';
 import {MentorsService} from '../../../shared/service';
 
 @Injectable()
-export class MyMentorsListResolver implements Resolve<PagedResults<Mentor>> {
+export class MyMentorsListResolver implements Resolve<Mentor[]> {
 
     constructor(private mentorsService: MentorsService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<PagedResults<Mentor>> {
-        return this.mentorsService.getAllByPageAsEmployee();
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Mentor[]> {
+        return this.mentorsService.getAllLoggedUserMentors();
     }
 }

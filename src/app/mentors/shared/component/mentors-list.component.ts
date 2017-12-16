@@ -13,12 +13,17 @@ export class MentorsListComponent {
     pagedResults: PagedResults<Mentor>;
     searchMentorForm: FormGroup;
     mentorsList: Mentor[];
+    extendedInformation = false;
 
     @Output()
     userInteracted: EventEmitter<ListEventData> = new EventEmitter();
 
     @Input() set paginationData(data: PagedResults<any>) {
         this.pagedResults = data;
+    }
+
+    @Input() set extendedInfo(value: boolean) {
+        this.extendedInformation = value;
     }
 
     @Input() set listData(data: Mentor[]) {

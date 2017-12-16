@@ -11,6 +11,7 @@ export class MentorsListComponent extends AutoUnsubscriberComponent implements O
 
     pagedResults: PagedResults<Mentor>;
     mentorsList: Mentor[];
+    myMentorsList: Mentor[];
 
     constructor(private route: ActivatedRoute, private mentorsService: MentorsService) {
         super();
@@ -19,6 +20,7 @@ export class MentorsListComponent extends AutoUnsubscriberComponent implements O
     ngOnInit(): void {
         this.pagedResults = this.route.snapshot.data['pagedResults'];
         this.mentorsList = this.pagedResults.content;
+        this.myMentorsList = this.route.snapshot.data['myMentors'];
     }
 
     loadListData(eventData: ListEventData): void {

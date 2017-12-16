@@ -41,14 +41,8 @@ export class MentorsService {
         return this.getAllByPage(page, environment.api.role.unitleader);
     }
 
-    getAllMentoringsByUser(userId: number, page: number = 0): Observable<PagedResults<Mentor>> {
-        const resultPageSize = environment.resultsOnPage;
-        const partialUrl = 'users/' + userId + '/mentoring/';
-        const queryParams = new HttpParams()
-            .set('page', page.toString(10))
-            .set('size', resultPageSize.toString(10));
-
-        return this.api.getWithParams(partialUrl, queryParams, environment.api.role.employee);
+    getAllLoggedUserMentors(): Observable<Mentor[]> {
+        return this.api.get('users/me/mentoring/', environment.api.role.employee);
     }
 
     getSingleAsEmployee(mentorId: number): Observable<Mentor> {

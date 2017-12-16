@@ -1,7 +1,7 @@
 import {ModuleWithProviders} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {IsEmployeeGuard} from '../../shared/service/guard';
-import {MentorResolver, MentorsListResolver} from './resolver';
+import {MentorResolver, MentorsListResolver, MyMentorsListResolver} from './resolver';
 import {MentorsListComponent} from './list';
 import {MentorManagementComponent} from './mentor-management';
 
@@ -12,7 +12,8 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         data: { title: 'TITLE.EMPLOYEE.MENTORS' },
         path: 'employee/mentors',
         resolve: {
-            pagedResults: MentorsListResolver
+            pagedResults: MentorsListResolver,
+            myMentors: MyMentorsListResolver
         }
     },
     {

@@ -196,6 +196,10 @@
         "EMPLOYEE": "Employee",
         "UNIT_LEADER": "Unit leader"
     },
+    "MENTOR": {
+        "APPROVED": "Approved",
+        "ACTIVE": "Active"
+    },
     "SKILL": {
         "_": "Skill",
         "NAME": "Name",

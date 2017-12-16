@@ -44,3 +44,11 @@
     font: inherit;
     cursor: pointer;
 }
+
+.text--green {
+    color: green;
+}
+
+.text--red {
+    color: red;
+}

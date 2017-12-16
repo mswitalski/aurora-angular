@@ -17,7 +17,35 @@
                           (userInteracted)="loadListData($event)"></app-mentors-list>
     </div>
     <div class="tab-pane fade" id="my" role="tabpanel" aria-labelledby="my-tab">
-        Not yet...
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th translate>SKILL._</th>
+                <th translate>SKILL.LEVEL</th>
+                <th translate>MENTOR.APPROVED</th>
+                <th translate>MENTOR.ACTIVE</th>
+                <th translate>HEADER.ACTION</th>
+            </tr>
+            </thead>
+            <tbody *ngIf="myMentorsList.length !== 0">
+            <tr *ngFor="let mentor of myMentorsList">
+                <td>{{mentor.evaluation.skill.name}}</td>
+                <td translate>SKILL-LEVEL.{{mentor.evaluation.leaderEvaluation}}</td>
+                <td *ngIf="mentor.approved"><i class="fa fa-check text--green" aria-hidden="true"></i></td>
+                <td *ngIf="!mentor.approved"><i class="fa fa-times text--red" aria-hidden="true"></i></td>
+                <td *ngIf="mentor.active"><i class="fa fa-check text--green" aria-hidden="true"></i></td>
+                <td *ngIf="!mentor.active"><i class="fa fa-times text--red" aria-hidden="true"></i></td>
+                <td>
+                    <button class="btn" [routerLink]="mentor.id" translate>BTN.DETAILS</button>
+                </td>
+            </tr>
+            </tbody>
+            <tbody *ngIf="myMentorsList.length === 0">
+            <tr>
+                <td colspan="5" class="text-center">- {{'NO-RESULTS' | translate}} -</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 
