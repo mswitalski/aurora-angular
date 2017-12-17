@@ -4,6 +4,7 @@ export * from './duty.model';
 export * from './duty-search-form.model';
 export * from './errors.model';
 export * from './evaluation.model';
+export * from './feedback.model';
 export * from './list-event-data.model';
 export * from './login-credentials.model';
 export * from './mentor.model';

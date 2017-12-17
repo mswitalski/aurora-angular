@@ -1,14 +1,18 @@
 import {NgModule} from '@angular/core';
-import {MentorResolver, MentorsListResolver, MyMentorsListResolver} from './resolver';
+import {FeedbackResolver, MentorResolver, MentorsListResolver, MyMentorsListResolver} from './resolver';
 import {CommonModule} from '@angular/common';
 import {moduleRouting} from './routes';
 import {MentorsSharedModule} from '../shared';
 import {SharedModule} from '../../shared';
 import {MentorsListComponent} from './list';
-import {MentorManagementComponent} from './mentor-management';
+import {CreateMentorComponent, MentorManagementComponent} from './mentor-management';
+import {CreateFeedbackComponent} from './feedback';
+import {SkillsEmployeeModule} from '../../skills/employee';
 
 @NgModule({
     declarations: [
+        CreateFeedbackComponent,
+        CreateMentorComponent,
         MentorManagementComponent,
         MentorsListComponent
     ],
@@ -16,9 +20,11 @@ import {MentorManagementComponent} from './mentor-management';
         CommonModule,
         MentorsSharedModule,
         moduleRouting,
-        SharedModule
+        SharedModule,
+        SkillsEmployeeModule
     ],
     providers: [
+        FeedbackResolver,
         MentorResolver,
         MentorsListResolver,
         MyMentorsListResolver

@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AutoUnsubscriberComponent} from '../../../shared';
-import {Mentor} from '../../../shared/model';
+import {Feedback, Mentor} from '../../../shared/model';
 import {ActivatedRoute, Router} from '@angular/router';
-import {MentorsService} from '../../../shared/service';
+import {FeedbackService, MentorsService} from '../../../shared/service';
 import {TranslateService} from '@ngx-translate/core';
 
 @Component({
@@ -11,17 +11,20 @@ import {TranslateService} from '@ngx-translate/core';
 export class MentorManagementComponent extends AutoUnsubscriberComponent implements OnInit {
 
     mentor: Mentor;
+    feedback: Feedback[];
     private deleteDialogMessage: string;
 
     constructor(private route: ActivatedRoute,
                 private router: Router,
                 private mentorsService: MentorsService,
+                private feedbackService: FeedbackService,
                 private translate: TranslateService) {
         super();
     }
 
     ngOnInit(): void {
         this.mentor = this.route.snapshot.data['mentor'];
+        this.feedback = this.route.snapshot.data['feedback'];
         this.translate.get('DIALOG.CONFIRMATION').takeUntil(this.ngUnsubscribe).subscribe(
             msg => this.deleteDialogMessage = msg
         );
@@ -54,6 +57,14 @@ export class MentorManagementComponent extends AutoUnsubscriberComponent impleme
             this.mentor.active = false;
             this.mentorsService.updateAsUnitLeader(this.mentor).takeUntil(this.ngUnsubscribe).subscribe(
                 () => this.refreshMentor()
+            );
+        }
+    }
+
+    deleteFeedback(feedback: Feedback): void {
+        if (confirm(this.deleteDialogMessage)) {
+            this.feedbackService.delete(feedback).takeUntil(this.ngUnsubscribe).subscribe(
+                () => this.feedback = this.feedback.filter(f => f.id !== feedback.id)
             );
         }
     }

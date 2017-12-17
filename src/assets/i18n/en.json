@@ -46,7 +46,8 @@
         "ACTIVATE": "Activate",
         "DEACTIVATE": "Deactivate",
         "ALL-MENTORS": "All",
-        "MY-MENTORS": "Mine"
+        "MY-MENTORS": "Mine",
+        "BECOME-MENTOR": "Become a mentor"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Bad username or/and password!",
@@ -101,7 +102,9 @@
         "ADD-EVALUATION": "Add evaluation",
         "USER-SKILLS": "User's skills",
         "MENTORS": "Mentors",
-        "MENTOR-MANAGEMENT": "Mentor management"
+        "MENTOR-MANAGEMENT": "Mentor management",
+        "SELECT-SKILL": "Select skill",
+        "ADD-MENTOR": "Become a mentor"
     },
     "DUTY": {
         "NAME": "Name",
@@ -157,7 +160,8 @@
             "EVALUATION-EDIT": "Employee: edit evaluation",
             "EVALUATION-ADD": "Employee: add skill",
             "MENTORS": "Employee: mentors",
-            "MENTOR-DETAILS": "Employee: mentor details"
+            "MENTOR-DETAILS": "Employee: mentor details",
+            "MENTOR-ADD": "Employee: become a mentor"
         },
         "UNIT-LEADER": {
             "USER-CREATE": "Unit leader: create user",
@@ -206,6 +210,12 @@
         "LEVEL": "Level of knowledge"
     },
     "FORM": {
-        "SKILL-NAME": "Nazwa umiej\u0119tno\u015bci"
+        "SKILL-NAME": "Nazwa umiej\u0119tno\u015bci",
+        "NO-SKILLS": "No skills available"
+    },
+    "FEEDBACK": {
+        "SATISFIED": "Satisfied",
+        "CONTENT": "Content",
+        "CREATE-DATE-TIME": "Date added"
     }
 }

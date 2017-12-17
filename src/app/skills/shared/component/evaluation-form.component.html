@@ -1,18 +1,23 @@
 <form [formGroup]="evaluationForm" (ngSubmit)="submitForm()">
     <fieldset [disabled]="isSubmitting">
         <div *ngIf="!isEditAction" class="form-group row">
-            <label for="evaluation-leaderEvaluation" class="col-md-2 col-form-label" translate>SKILL._</label>
-            <div *ngIf="skill === undefined" class="col-md-5">
-                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#skillsModal" translate>
-                    BTN.SELECT-SKILL
-                </button>
+            <div *ngIf="availableSkills.length !== 0">
+                <label class="col-md-2 col-form-label" translate>SKILL._</label>
+                <div *ngIf="skill === undefined" class="col-md-5">
+                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#evaluationsModal" translate>
+                        BTN.SELECT-SKILL
+                    </button>
+                </div>
+                <div *ngIf="skill !== undefined" class="col-md-5">
+                    {{skill.name}}
+                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#evaluationsModal" translate>
+                        BTN.CHANGE-SKILL
+                    </button>
+                </div>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'pair'"></app-form-errors>
             </div>
-            <div *ngIf="skill !== undefined" class="col-md-5">
-                {{skill.name}}
-                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#skillsModal" translate>
-                    BTN.CHANGE-SKILL
-                </button>
-            </div>
+            <div *ngIf="availableSkills.length === 0" translate>FORM.NO-SKILLS</div>
         </div>
 
         <fieldset *ngIf="isUnitLeaderAction" class="form-group row">
@@ -81,11 +86,11 @@
     </fieldset>
 </form>
 
-<div class="modal fade" id="skillsModal" tabindex="-1" role="dialog" aria-labelledby="skillsModalLabel" aria-hidden="true">
+<div class="modal fade" id="evaluationsModal" tabindex="-1" role="dialog" aria-labelledby="evaluationsModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="skillsModalLabel">SELECT SKILLS!</h5>
+                <h5 class="modal-title" id="evaluationsModalLabel" translate>HEADER.SELECT-SKILL</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

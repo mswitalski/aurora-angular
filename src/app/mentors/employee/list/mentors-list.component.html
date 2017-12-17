@@ -11,6 +11,12 @@
     </li>
 </ul>
 
+<div class="row float-right mb-4">
+    <button routerLink="add/mentor" class="btn btn-success" translate>
+        BTN.BECOME-MENTOR
+    </button>
+</div>
+
 <div class="tab-content" id="mentorsListTabsContent">
     <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
         <app-mentors-list [paginationData]="pagedResults" [listData]="mentorsList"

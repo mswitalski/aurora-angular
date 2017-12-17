@@ -4,5 +4,5 @@ export class Mentor {
     id: number;
     evaluation: Evaluation;
     approved = false;
-    active = false;
+    active = true;
 }

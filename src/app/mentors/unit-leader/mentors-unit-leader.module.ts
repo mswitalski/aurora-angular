@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {MentorsListComponent} from './list';
-import {MentorResolver, MentorsListResolver} from './resolver';
+import {FeedbackResolver, MentorResolver, MentorsListResolver} from './resolver';
 import {MentorsSharedModule} from '../shared';
 import {CommonModule} from '@angular/common';
 import {moduleRouting} from './routes';
@@ -19,6 +19,7 @@ import {MentorManagementComponent} from './mentor-management';
         SharedModule
     ],
     providers: [
+        FeedbackResolver,
         MentorResolver,
         MentorsListResolver
     ]

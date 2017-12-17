@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AutoUnsubscriberComponent} from '../../../shared';
-import {Mentor, User} from '../../../shared/model';
+import {Feedback, Mentor, User} from '../../../shared/model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService, MentorsService} from '../../../shared/service';
 import {TranslateService} from '@ngx-translate/core';
@@ -11,6 +11,7 @@ import {TranslateService} from '@ngx-translate/core';
 export class MentorManagementComponent extends AutoUnsubscriberComponent implements OnInit {
 
     mentor: Mentor;
+    feedback: Feedback[];
     isMentorOwner = false;
     private deleteDialogMessage: string;
 
@@ -24,6 +25,7 @@ export class MentorManagementComponent extends AutoUnsubscriberComponent impleme
 
     ngOnInit(): void {
         this.mentor = this.route.snapshot.data['mentor'];
+        this.feedback = this.route.snapshot.data['feedback'];
         this.translate.get('DIALOG.CONFIRMATION').takeUntil(this.ngUnsubscribe).subscribe(
             msg => this.deleteDialogMessage = msg
         );

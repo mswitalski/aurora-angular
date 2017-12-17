@@ -16,3 +16,22 @@
 <a *ngIf="isMentorOwner && !mentor.active" class="btn btn-lg btn-success" (click)="activateMentor()" translate>BTN.ACTIVATE</a>
 <a *ngIf="isMentorOwner && mentor.active " class="btn btn-lg btn-success" (click)="deactivateMentor()" translate>BTN.DEACTIVATE</a>
 <a *ngIf="isMentorOwner" class="btn btn-lg btn-danger" (click)="deleteMentor()" translate>BTN.DELETE</a>
+
+<table *ngIf="feedback.length !== 0" class="table table-hover">
+    <thead>
+    <tr>
+        <th translate>EMPLOYEE</th>
+        <th translate>FEEDBACK.SATISFIED</th>
+        <th translate>FEEDBACK.CONTENT</th>
+        <th translate>FEEDBACK.CREATE-DATE-TIME</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let entry of feedback">
+        <td>{{entry.user.surname}} {{entry.user.name}}</td>
+        <td *ngIf="entry.satisfied" translate>YES</td>
+        <td *ngIf="!entry.satisfied" translate>NO</td>
+        <td *ngIf="entry.studentFeedback.length !== 0">{{entry.studentFeedback}}</td>
+        <td *ngIf="entry.studentFeedback.length === 0">-</td>
+        <td>{{entry.createDateTime}}</td>
+    </tr>
+</table>

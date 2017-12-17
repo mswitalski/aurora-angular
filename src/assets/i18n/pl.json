@@ -46,7 +46,8 @@
         "ACTIVATE": "Aktywuj",
         "DEACTIVATE": "Deaktywuj",
         "ALL-MENTORS": "Wszyscy",
-        "MY-MENTORS": "Moje"
+        "MY-MENTORS": "Moje",
+        "BECOME-MENTOR": "Zosta\u0144 mentorem"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Podano nieprawid\u0142ow\u0105 nazw\u0119 użytkownika i/lub has\u0142o",
@@ -101,7 +102,9 @@
         "ADD-EVALUATION": "Dodaj umiej\u0119tno\u015b\u0107",
         "USER-SKILLS": "Umiej\u0119tno\u015bci u\u017cytkownika",
         "MENTORS": "Mentorzy",
-        "MENTOR-MANAGEMENT": "Zarz\u0105dzanie mentorem"
+        "MENTOR-MANAGEMENT": "Zarz\u0105dzanie mentorem",
+        "SELECT-SKILL": "Wybierz umiej\u0119tno\u015b\u0107",
+        "ADD-MENTOR": "Zosta\u0144 mentorem"
     },
     "DUTY": {
         "NAME": "Nazwa",
@@ -156,7 +159,8 @@
             "EVALUATION-EDIT": "Pracownik: edycja oceny",
             "EVALUATION-ADD": "Pracownik: dodaj ocen\u0119",
             "MENTORS": "Pracownik: mentorzy",
-            "MENTOR-DETAILS": "Pracownik: szczeg\u00f3\u0142y mentora"
+            "MENTOR-DETAILS": "Pracownik: szczeg\u00f3\u0142y mentora",
+            "MENTOR-ADD": "Pracownik: zosta\u0144 mentorem"
         },
         "UNIT-LEADER": {
             "USER-CREATE": "Unit leader: tworzenie u\u017cytkownika",
@@ -205,6 +209,12 @@
         "LEVEL": "Poziom znajomo\u015bci"
     },
     "FORM": {
-        "SKILL-NAME": "Nazwa umiej\u0119tno\u015bci"
+        "SKILL-NAME": "Nazwa umiej\u0119tno\u015bci",
+        "NO-SKILLS": "Brak dost\u0119pnych umiej\u0119tno\u015bci"
+    },
+    "FEEDBACK": {
+        "SATISFIED": "Zadowolony",
+        "CONTENT": "Tre\u015b\u0107",
+        "CREATE-DATE-TIME": "Data dodania"
     }
 }

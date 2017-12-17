@@ -1,9 +1,10 @@
 import {ModuleWithProviders} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {IsEmployeeGuard} from '../../shared/service/guard';
-import {MentorResolver, MentorsListResolver, MyMentorsListResolver} from './resolver';
+import {FeedbackResolver, MentorResolver, MentorsListResolver, MyMentorsListResolver} from './resolver';
 import {MentorsListComponent} from './list';
-import {MentorManagementComponent} from './mentor-management';
+import {CreateMentorComponent, MentorManagementComponent} from './mentor-management';
+import {EvaluationsListResolver} from '../../skills/employee/resolver';
 
 export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
@@ -22,7 +23,18 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         data: { title: 'TITLE.EMPLOYEE.MENTOR-DETAILS' },
         path: 'employee/mentors/:mentorId',
         resolve: {
-            mentor: MentorResolver
+            mentor: MentorResolver,
+            feedback: FeedbackResolver
+        }
+    },
+    {
+        canActivate: [IsEmployeeGuard],
+        component: CreateMentorComponent,
+        data: { title: 'TITLE.EMPLOYEE.MENTOR-ADD' },
+        path: 'employee/mentors/add/mentor',
+        resolve: {
+            evaluations: EvaluationsListResolver,
+            myMentors: MyMentorsListResolver
         }
     }
 ]);

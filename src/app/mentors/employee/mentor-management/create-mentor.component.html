@@ -1,0 +1,51 @@
+<h2 translate>HEADER.ADD-MENTOR</h2>
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label" translate>SKILL._</label>
+    <div *ngIf="evaluations.length !== 0">
+        <div *ngIf="mentor.evaluation === undefined" class="col-md-5">
+            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#skillsModal" translate>
+                BTN.SELECT-SKILL
+            </button>
+        </div>
+        <div *ngIf="mentor.evaluation !== undefined" class="col-md-5">
+            {{mentor.evaluation.skill.name}}
+            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#skillsModal" translate>
+                BTN.CHANGE-SKILL
+            </button>
+        </div>
+    </div>
+    <div *ngIf="evaluations.length === 0" translate>FORM.NO-SKILLS</div>
+    <app-form-errors [serverErrors]="validationErrors"
+                     [controlName]="'evaluation'"></app-form-errors>
+</div>
+
+<button routerLink="/employee/mentors" type="button" class="btn btn-dark" translate>
+    BTN.BACK
+</button>
+<button [disabled]="mentor.evaluation === undefined || isSubmitting" (click)="submit()" class="btn btn-success" translate>
+    BTN.SAVE
+</button>
+
+<div class="modal fade" id="skillsModal" tabindex="-1" role="dialog" aria-labelledby="skillsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="skillsModalLabel" translate>BTN.SELECT-SKILL</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul *ngFor="let eval of evaluations">
+                    <li>
+                        <button (click)="selectEvaluation(eval)" data-dismiss="modal">{{eval.skill.name}}</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
