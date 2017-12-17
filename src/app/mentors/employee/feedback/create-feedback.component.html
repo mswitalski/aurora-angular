@@ -1,1 +1,56 @@
-HELLO!
+<h2 translate>HEADER.CREATE-FEEDBACK</h2>
+
+<form [formGroup]="feedbackForm" (ngSubmit)="submitForm()">
+    <fieldset [disabled]="isSubmitting">
+        <fieldset class="form-group row">
+            <label for="feedback-content" class="col-md-2 col-form-label">{{ 'FEEDBACK.CONTENT' | translate }}</label>
+            <div class="col-md-5">
+                <textarea
+                    id="feedback-content"
+                    class="form-control"
+                    formControlName="content"
+                    [(ngModel)]="feedback.studentFeedback"
+                    placeholder="{{ 'FEEDBACK.CONTENT' | translate }}"
+                    rows="3"
+                    cols="50"></textarea>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'content'"
+                                 [formControl]="feedbackForm.controls['content']"
+                                 [maxLength]="validation.content.max" ngDefaultControl></app-form-errors>
+            </div>
+        </fieldset>
+        <fieldset class="form-group row">
+            <label class="col-md-2 col-form-label">{{ 'FEEDBACK.SATISFIED' | translate }}</label>
+            <div class="form-check col-md-5">
+                <label class="form-check-label" translate>
+                    <input class="form-check-input" type="radio"
+                           name="satisfied"
+                           id="satisfied"
+                           value="true"
+                           formControlName="satisfied"
+                           checked>
+                    YES
+                </label>
+            </div>
+            <div class="form-check col-md-5">
+                <label class="form-check-label" translate>
+                    <input class="form-check-input" type="radio"
+                           name="satisfied"
+                           id="not-satisfied"
+                           value="false"
+                           formControlName="satisfied">
+                    NO
+                </label>
+            </div>
+            <app-form-errors [serverErrors]="validationErrors"
+                             [controlName]="'user'" ngDefaultControl></app-form-errors>
+        </fieldset>
+
+        <button (click)="goBack()" type="button" class="btn btn-dark" translate>
+            BTN.BACK
+        </button>
+        <button [disabled]="!feedbackForm.valid" type="submit" class="btn btn-success" translate>
+            BTN.SAVE
+        </button>
+    </fieldset>
+</form>

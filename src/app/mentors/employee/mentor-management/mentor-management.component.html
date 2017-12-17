@@ -17,6 +17,9 @@
 <a *ngIf="isMentorOwner && mentor.active " class="btn btn-lg btn-success" (click)="deactivateMentor()" translate>BTN.DEACTIVATE</a>
 <a *ngIf="isMentorOwner" class="btn btn-lg btn-danger" (click)="deleteMentor()" translate>BTN.DELETE</a>
 
+<hr />
+<a *ngIf="!isMentorOwner" class="btn btn-lg btn-info" routerLink="add/feedback" translate>BTN.ADD-FEEDBACK</a>
+
 <table *ngIf="feedback.length !== 0" class="table table-hover">
     <thead>
     <tr>

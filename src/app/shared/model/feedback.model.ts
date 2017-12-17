@@ -5,7 +5,7 @@ export class Feedback {
     id: number;
     mentor: Mentor;
     user: User;
-    satisfied: boolean;
+    satisfied = true;
     studentFeedback = '';
     createDateTime: string;
 }

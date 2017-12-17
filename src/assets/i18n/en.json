@@ -47,7 +47,8 @@
         "DEACTIVATE": "Deactivate",
         "ALL-MENTORS": "All",
         "MY-MENTORS": "Mine",
-        "BECOME-MENTOR": "Become a mentor"
+        "BECOME-MENTOR": "Become a mentor",
+        "ADD-FEEDBACK": "Add feedback"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Bad username or/and password!",
@@ -104,7 +105,8 @@
         "MENTORS": "Mentors",
         "MENTOR-MANAGEMENT": "Mentor management",
         "SELECT-SKILL": "Select skill",
-        "ADD-MENTOR": "Become a mentor"
+        "ADD-MENTOR": "Become a mentor",
+        "CREATE-FEEDBACK": "Add feedback"
     },
     "DUTY": {
         "NAME": "Name",
@@ -161,7 +163,8 @@
             "EVALUATION-ADD": "Employee: add skill",
             "MENTORS": "Employee: mentors",
             "MENTOR-DETAILS": "Employee: mentor details",
-            "MENTOR-ADD": "Employee: become a mentor"
+            "MENTOR-ADD": "Employee: become a mentor",
+            "FEEDBACK-ADD": "Employee: add feedback"
         },
         "UNIT-LEADER": {
             "USER-CREATE": "Unit leader: create user",

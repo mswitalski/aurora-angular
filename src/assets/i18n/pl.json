@@ -47,7 +47,8 @@
         "DEACTIVATE": "Deaktywuj",
         "ALL-MENTORS": "Wszyscy",
         "MY-MENTORS": "Moje",
-        "BECOME-MENTOR": "Zosta\u0144 mentorem"
+        "BECOME-MENTOR": "Zosta\u0144 mentorem",
+        "ADD-FEEDBACK": "Dodaj opini\u0119"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Podano nieprawid\u0142ow\u0105 nazw\u0119 użytkownika i/lub has\u0142o",
@@ -104,7 +105,8 @@
         "MENTORS": "Mentorzy",
         "MENTOR-MANAGEMENT": "Zarz\u0105dzanie mentorem",
         "SELECT-SKILL": "Wybierz umiej\u0119tno\u015b\u0107",
-        "ADD-MENTOR": "Zosta\u0144 mentorem"
+        "ADD-MENTOR": "Zosta\u0144 mentorem",
+        "CREATE-FEEDBACK": "Dodaj now\u0105 opini\u0119"
     },
     "DUTY": {
         "NAME": "Nazwa",
@@ -160,7 +162,8 @@
             "EVALUATION-ADD": "Pracownik: dodaj ocen\u0119",
             "MENTORS": "Pracownik: mentorzy",
             "MENTOR-DETAILS": "Pracownik: szczeg\u00f3\u0142y mentora",
-            "MENTOR-ADD": "Pracownik: zosta\u0144 mentorem"
+            "MENTOR-ADD": "Pracownik: zosta\u0144 mentorem",
+            "FEEDBACK-ADD": "Pracownik: dodaj opini\u0119"
         },
         "UNIT-LEADER": {
             "USER-CREATE": "Unit leader: tworzenie u\u017cytkownika",

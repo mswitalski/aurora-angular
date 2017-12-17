@@ -12,6 +12,11 @@ export const validationConstraints = {
             'max': 200
         }
     },
+    'feedback': {
+        'content': {
+            'max': 200
+        }
+    },
     'skill': {
         'name': {
             'max': 50

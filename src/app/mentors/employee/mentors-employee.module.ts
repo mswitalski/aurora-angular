@@ -8,6 +8,7 @@ import {MentorsListComponent} from './list';
 import {CreateMentorComponent, MentorManagementComponent} from './mentor-management';
 import {CreateFeedbackComponent} from './feedback';
 import {SkillsEmployeeModule} from '../../skills/employee';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -18,6 +19,8 @@ import {SkillsEmployeeModule} from '../../skills/employee';
     ],
     imports: [
         CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
         MentorsSharedModule,
         moduleRouting,
         SharedModule,

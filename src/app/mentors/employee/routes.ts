@@ -5,6 +5,7 @@ import {FeedbackResolver, MentorResolver, MentorsListResolver, MyMentorsListReso
 import {MentorsListComponent} from './list';
 import {CreateMentorComponent, MentorManagementComponent} from './mentor-management';
 import {EvaluationsListResolver} from '../../skills/employee/resolver';
+import {CreateFeedbackComponent} from './feedback';
 
 export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
@@ -35,6 +36,15 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         resolve: {
             evaluations: EvaluationsListResolver,
             myMentors: MyMentorsListResolver
+        }
+    },
+    {
+        canActivate: [IsEmployeeGuard],
+        component: CreateFeedbackComponent,
+        data: { title: 'TITLE.EMPLOYEE.FEEDBACK-ADD' },
+        path: 'employee/mentors/:mentorId/add/feedback',
+        resolve: {
+            mentor: MentorResolver
         }
     }
 ]);
