@@ -20,6 +20,7 @@ import {rootRouting} from './routes';
 import {DutiesModule} from './duties';
 import {SkillsModule} from './skills';
 import {MentorsModule} from './mentors';
+import {TrainingsModule} from './trainings';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -42,6 +43,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         rootRouting,
         SharedModule,
         SkillsModule,
+        TrainingsModule,
         TranslateModule.forRoot({
             loader: {
                 deps: [HttpClient],

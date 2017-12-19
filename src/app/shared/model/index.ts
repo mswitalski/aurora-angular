@@ -15,6 +15,8 @@ export * from './role.model';
 export * from './skill.model';
 export * from './skill-level.model';
 export * from './skill-search-form.model';
+export * from './training.model';
+export * from './training-search-form.model';
 export * from './user.model';
 export * from './user-search-form.model';
 export * from './validation-error.model';

@@ -22,6 +22,20 @@ export const validationConstraints = {
             'max': 50
         }
     },
+    'training': {
+        'name': {
+            'max': 100
+        },
+        'type': {
+            'max': 20
+        },
+        'location': {
+            'max': 50
+        },
+        'description': {
+            'max': 500
+        }
+    },
     'user': {
         'username': {
             'min': 2,

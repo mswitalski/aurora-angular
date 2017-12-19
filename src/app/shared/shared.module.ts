@@ -7,7 +7,7 @@ import {TranslateModule} from '@ngx-translate/core';
 
 import {
     ApiService, AuthService, DutiesService, EvaluationsService, FeedbackService, JwtService, MentorsService,
-    RolesService, SkillsService,
+    RolesService, SkillsService, TrainingsService,
     UsersService
 } from './service';
 import {AuthenticatedGuard, IsAdminGuard, IsEmployeeGuard, IsUnitLeaderGuard} from './service/guard';
@@ -57,6 +57,7 @@ import {ShowEmployeeDirective} from './show-employee.directive';
         MentorsService,
         RolesService,
         SkillsService,
+        TrainingsService,
         UsersService,
         AuthenticatedGuard,
         IsAdminGuard,

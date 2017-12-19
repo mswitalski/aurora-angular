@@ -106,7 +106,8 @@
         "MENTOR-MANAGEMENT": "Mentor management",
         "SELECT-SKILL": "Select skill",
         "ADD-MENTOR": "Become a mentor",
-        "CREATE-FEEDBACK": "Add feedback"
+        "CREATE-FEEDBACK": "Add feedback",
+        "TRAININGS": "Trainings"
     },
     "DUTY": {
         "NAME": "Name",
@@ -220,5 +221,13 @@
         "SATISFIED": "Satisfied",
         "CONTENT": "Content",
         "CREATE-DATE-TIME": "Date added"
+    },
+    "TRAINING": {
+        "NAME": "Name",
+        "TYPE": "Type",
+        "LOCATION": "Location",
+        "START": "Begins at",
+        "END": "Ends at",
+        "INTERNAL": "Internal"
     }
 }

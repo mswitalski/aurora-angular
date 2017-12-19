@@ -106,7 +106,8 @@
         "MENTOR-MANAGEMENT": "Zarz\u0105dzanie mentorem",
         "SELECT-SKILL": "Wybierz umiej\u0119tno\u015b\u0107",
         "ADD-MENTOR": "Zosta\u0144 mentorem",
-        "CREATE-FEEDBACK": "Dodaj now\u0105 opini\u0119"
+        "CREATE-FEEDBACK": "Dodaj now\u0105 opini\u0119",
+        "TRAININGS": "Szkolenia"
     },
     "DUTY": {
         "NAME": "Nazwa",
@@ -219,5 +220,13 @@
         "SATISFIED": "Zadowolony",
         "CONTENT": "Tre\u015b\u0107",
         "CREATE-DATE-TIME": "Data dodania"
+    },
+    "TRAINING": {
+        "NAME": "Nazwa",
+        "TYPE": "Rodzaj",
+        "LOCATION": "Lokalizacja",
+        "START": "Rozpoczyna si\u0119 o",
+        "END": "Ko\u0144czy si\u0119 o",
+        "INTERNAL": "Wewn\u0119trzny"
     }
 }

@@ -9,4 +9,5 @@ export * from './jwt.service';
 export * from './mentors.service';
 export * from './roles.service';
 export * from './skills.service';
+export * from './trainings.service';
 export * from './users.service';

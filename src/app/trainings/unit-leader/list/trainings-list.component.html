@@ -1,0 +1,10 @@
+<h2 translate>HEADER.TRAININGS</h2>
+
+<div class="row float-right mb-4">
+    <button routerLink="create/skill" class="btn btn-success" translate>
+        BTN.CREATE-SKILL
+    </button>
+</div>
+
+<app-skills-list [paginationData]="pagedResults" [listData]="skillsList"
+                 (userInteracted)="loadListData($event)"></app-skills-list>
