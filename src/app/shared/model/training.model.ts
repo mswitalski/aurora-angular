@@ -5,8 +5,9 @@ export class Training {
     name: string;
     type: string;
     location: string;
+    description: string;
     startDateTime: string;
     endDateTime: string;
-    internal: string;
+    internal = true;
     users: User[] = [];
 }

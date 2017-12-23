@@ -53,7 +53,8 @@
         "ADD-FEEDBACK": "Dodaj opini\u0119",
         "CREATE-TRAINING": "Stw\u00f3rz szkolenie",
         "PLANNED-TRAININGS": "Zaplanowane",
-        "FINISHED-TRAININGS": "Uko\u0144czone"
+        "FINISHED-TRAININGS": "Uko\u0144czone",
+        "EDIT-PARTICIPANTS": "Edytuj uczestników"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Podano nieprawid\u0142ow\u0105 nazw\u0119 użytkownika i/lub has\u0142o",
@@ -114,7 +115,10 @@
         "CREATE-FEEDBACK": "Dodaj now\u0105 opini\u0119",
         "TRAININGS": "Szkolenia",
         "TRAINING-MANAGEMENT": "Zarz\u0105dzanie szkoleniem",
-        "TRAINING-DETAILS": "Szczeg\u00f3\u0142y szkolenia"
+        "TRAINING-DETAILS": "Szczeg\u00f3\u0142y szkolenia",
+        "CREATE-TRAINING": "Stw\u00f3rz nowe szkolenie",
+        "EDIT-TRAINING": "Edytuj szkolenie",
+        "EDIT-PARTICIPANTS": "Edytuj uczestnik\u00f3w"
     },
     "DUTY": {
         "NAME": "Nazwa",
@@ -198,7 +202,10 @@
             "MENTORS": "Unit leader: mentorzy",
             "MENTOR-DETAILS": "Unit leader: szczeg\u00f3\u0142y mentora",
             "TRAININGS": "Unit leader: szkolenia",
-            "TRAINING-DETAILS": "Unit leader: szczeg\u00f3\u0142y szkolenia"
+            "TRAINING-DETAILS": "Unit leader: szczeg\u00f3\u0142y szkolenia",
+            "TRAINING-CREATE": "Unit leader: tworzenie szkolenia",
+            "TRAINING-EDIT": "Unit leader: edycja szkolenia",
+            "TRAINING-PARTICIPANTS": "Unit leader: uczestnicy szkolenia"
         }
     },
     "PAGINATION": {
@@ -236,6 +243,7 @@
         "NAME": "Nazwa",
         "TYPE": "Rodzaj",
         "LOCATION": "Lokalizacja",
+        "DESCRIPTION": "Opis",
         "START": "Rozpoczyna si\u0119 o",
         "END": "Ko\u0144czy si\u0119 o",
         "INTERNAL": "Wewn\u0119trzny",

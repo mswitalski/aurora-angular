@@ -2,7 +2,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgModule} from '@angular/core';
 
-import {CachedUserResolver, RolesResolver, UserResolver, UsersListResolver} from './resolver';
+import {AllUsersListResolver, CachedUserResolver, RolesResolver, UserResolver, UsersListResolver} from './resolver';
 import {
     ExpandedUsersListComponent,
     SimpleUsersListComponent,
@@ -10,7 +10,6 @@ import {
     UserFormComponent
 } from './component';
 import {SharedModule} from '../../shared';
-import {} from './component/simple-users-list.component';
 
 @NgModule({
     declarations: [
@@ -32,6 +31,7 @@ import {} from './component/simple-users-list.component';
         SharedModule
     ],
     providers: [
+        AllUsersListResolver,
         CachedUserResolver,
         RolesResolver,
         UserResolver,

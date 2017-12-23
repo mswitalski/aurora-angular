@@ -6,7 +6,7 @@ import {isUndefined} from 'util';
 import {Location} from '@angular/common';
 import {Observable} from 'rxjs/Observable';
 
-import {AutoUnsubscriberComponent} from '../../../shared/auto-unsubscriber.component';
+import {AutoUnsubscriberComponent} from '../../../shared';
 import {Role, User, ValidationError} from '../../../shared/model';
 import {validationConstraints} from '../../../shared/configuration';
 

@@ -1,0 +1,131 @@
+<form [formGroup]="trainingForm" (ngSubmit)="submitForm()">
+    <fieldset [disabled]="isSubmitting">
+        <fieldset class="form-group row">
+            <label for="training-name" class="col-md-2 col-form-label" translate>TRAINING.NAME</label>
+            <div class="col-md-5">
+                <input
+                    id="training-name"
+                    class="form-control"
+                    formControlName="name"
+                    [(ngModel)]="training.name"
+                    placeholder="{{ 'TRAINING.NAME' | translate }}"
+                    type="text"/>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'name'"
+                                 [formControl]="trainingForm.controls['name']"
+                                 [maxLength]="validation.name.max" ngDefaultControl></app-form-errors>
+            </div>
+        </fieldset>
+        <fieldset class="form-group row">
+            <label for="training-type" class="col-md-2 col-form-label" translate>TRAINING.TYPE</label>
+            <div class="col-md-5">
+                <input
+                    id="training-type"
+                    class="form-control"
+                    formControlName="type"
+                    [(ngModel)]="training.type"
+                    placeholder="{{ 'TRAINING.TYPE' | translate }}"
+                    type="text"/>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'type'"
+                                 [formControl]="trainingForm.controls['type']"
+                                 [maxLength]="validation.type.max" ngDefaultControl></app-form-errors>
+            </div>
+        </fieldset>
+        <fieldset class="form-group row">
+            <label for="training-location" class="col-md-2 col-form-label" translate>TRAINING.LOCATION</label>
+            <div class="col-md-5">
+                <input
+                    id="training-location"
+                    class="form-control"
+                    formControlName="location"
+                    [(ngModel)]="training.location"
+                    placeholder="{{ 'TRAINING.LOCATION' | translate }}"
+                    type="text"/>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'location'"
+                                 [formControl]="trainingForm.controls['location']"
+                                 [maxLength]="validation.location.max" ngDefaultControl></app-form-errors>
+            </div>
+        </fieldset>
+        <fieldset class="form-group row">
+            <label for="training-startDateTime" class="col-md-2 col-form-label" translate>TRAINING.START</label>
+            <owl-date-time id="training-startDateTime"
+                           formControlName="startDateTime"
+                           [(ngModel)]="sDate"
+                           [dateFormat]="'YYYY-MM-DD HH:mm'"
+                           [placeHolder]="'YYYY-MM-DD HH:mm'"
+                           [min]="todayDate"
+                           [required]="true"
+                           class="col-md-5"></owl-date-time>
+            <app-form-errors [serverErrors]="validationErrors"
+                             [controlName]="'startDateTime'"
+                             [formControl]="trainingForm.controls['startDateTime']"ngDefaultControl></app-form-errors>
+        </fieldset>
+        <fieldset class="form-group row">
+            <label for="training-endDateTime" class="col-md-2 col-form-label" translate>TRAINING.START</label>
+            <owl-date-time id="training-endDateTime"
+                           formControlName="endDateTime"
+                           [(ngModel)]="eDate"
+                           [dateFormat]="'YYYY-MM-DD HH:mm'"
+                           [placeHolder]="'YYYY-MM-DD HH:mm'"
+                           [min]="todayDate"
+                           [required]="true"
+                           class="col-md-5"></owl-date-time>
+            <app-form-errors [serverErrors]="validationErrors"
+                             [controlName]="'endDateTime'"
+                             [formControl]="trainingForm.controls['endDateTime']"ngDefaultControl></app-form-errors>
+        </fieldset>
+
+        <fieldset class="form-group row">
+            <label class="col-md-2 col-form-label">{{ 'TRAINING.INTERNAL' | translate }}</label>
+            <div class="form-check col-md-5">
+                <label class="form-check-label" translate>
+                    <input class="form-check-input" type="radio"
+                           name="internal"
+                           id="internal"
+                           value="true"
+                           formControlName="internal"
+                           checked>
+                    YES
+                </label>
+            </div>
+            <div class="form-check col-md-5">
+                <label class="form-check-label" translate>
+                    <input class="form-check-input" type="radio"
+                           name="internal"
+                           id="not-internal"
+                           value="false"
+                           formControlName="internal">
+                    NO
+                </label>
+            </div>
+            <app-form-errors [serverErrors]="validationErrors"
+                             [controlName]="'internal'" ngDefaultControl></app-form-errors>
+        </fieldset>
+
+        <fieldset class="form-group row">
+            <label for="training-description" class="col-md-2 col-form-label" translate>TRAINING.DESCRIPTION</label>
+            <div class="col-md-5">
+                <input
+                    id="training-description"
+                    class="form-control"
+                    formControlName="description"
+                    [(ngModel)]="training.description"
+                    placeholder="{{ 'TRAINING.DESCRIPTION' | translate }}"
+                    type="text"/>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'description'"
+                                 [formControl]="trainingForm.controls['description']"
+                                 [maxLength]="validation.description.max" ngDefaultControl></app-form-errors>
+            </div>
+        </fieldset>
+
+        <button (click)="goBack()" type="button" class="btn btn-dark" translate>
+            BTN.BACK
+        </button>
+        <button [disabled]="!trainingForm.valid" type="submit" class="btn btn-success" translate>
+            BTN.SAVE
+        </button>
+    </fieldset>
+</form>

@@ -18,6 +18,7 @@ import {PaginationComponent} from './pagination.component';
 import {ShowAdminDirective} from './show-admin.directive';
 import {ShowUnitLeaderDirective} from './show-unit-leader.directive';
 import {ShowEmployeeDirective} from './show-employee.directive';
+import {DateTimePickerModule} from 'ng-pick-datetime';
 
 @NgModule({
     declarations: [
@@ -35,7 +36,8 @@ import {ShowEmployeeDirective} from './show-employee.directive';
         moduleRouting,
         ReactiveFormsModule,
         RouterModule,
-        TranslateModule.forChild()
+        TranslateModule.forChild(),
+        DateTimePickerModule
     ],
     exports: [
         FormErrorsComponent,
@@ -45,7 +47,8 @@ import {ShowEmployeeDirective} from './show-employee.directive';
         TranslateModule,
         ShowAdminDirective,
         ShowEmployeeDirective,
-        ShowUnitLeaderDirective
+        ShowUnitLeaderDirective,
+        DateTimePickerModule
     ],
     providers: [
         ApiService,

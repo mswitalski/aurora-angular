@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {TrainingDetailsComponent, TrainingsListComponent} from './component';
+import {TrainingDetailsComponent, TrainingFormComponent, TrainingsListComponent} from './component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../../shared';
 import {CommonModule} from '@angular/common';
@@ -8,10 +8,12 @@ import {UsersSharedModule} from '../../users/shared';
 @NgModule({
     declarations: [
         TrainingDetailsComponent,
+        TrainingFormComponent,
         TrainingsListComponent
     ],
     exports: [
         TrainingDetailsComponent,
+        TrainingFormComponent,
         TrainingsListComponent
     ],
     imports: [

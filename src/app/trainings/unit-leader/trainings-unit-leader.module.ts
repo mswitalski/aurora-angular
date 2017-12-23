@@ -6,10 +6,15 @@ import {moduleRouting} from './routes';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {SharedModule} from '../../shared';
-import {TrainingManagementComponent} from './training-management';
+import {CreateTrainingComponent, TrainingManagementComponent} from './training-management';
+import {EditTrainingComponent, EditUsersComponent} from './training-management/edit';
+import {UsersSharedModule} from '../../users/shared';
 
 @NgModule({
     declarations: [
+        CreateTrainingComponent,
+        EditTrainingComponent,
+        EditUsersComponent,
         TrainingManagementComponent,
         TrainingsListComponent
     ],
@@ -19,7 +24,8 @@ import {TrainingManagementComponent} from './training-management';
         moduleRouting,
         ReactiveFormsModule,
         SharedModule,
-        TrainingsSharedModule
+        TrainingsSharedModule,
+        UsersSharedModule
     ],
     providers: [
         CachedTrainingResolver,

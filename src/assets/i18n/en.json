@@ -53,7 +53,8 @@
         "ADD-FEEDBACK": "Add feedback",
         "CREATE-TRAINING": "Create training",
         "PLANNED-TRAININGS": "Planned",
-        "FINISHED-TRAININGS": "Finished"
+        "FINISHED-TRAININGS": "Finished",
+        "EDIT-PARTICIPANTS": "Edit participants"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Bad username or/and password!",
@@ -114,7 +115,10 @@
         "CREATE-FEEDBACK": "Add feedback",
         "TRAININGS": "Trainings",
         "TRAINING-MANAGEMENT": "Training management",
-        "TRAINING-DETAILS": "Training details"
+        "TRAINING-DETAILS": "Training details",
+        "CREATE-TRAINING": "Create new training",
+        "EDIT-TRAINING": "Edit training",
+        "EDIT-PARTICIPANTS": "Edit participants"
     },
     "DUTY": {
         "NAME": "Name",
@@ -199,7 +203,10 @@
             "MENTORS": "Unit leader: mentors",
             "MENTOR-DETAILS": "Unit leader: mentor details",
             "TRAININGS": "Unit leader: trainings",
-            "TRAINING-DETAILS": "Unit leader: training details"
+            "TRAINING-DETAILS": "Unit leader: training details",
+            "TRAINING-CREATE": "Unit leader: create training",
+            "TRAINING-EDIT": "Unit leader: edit training",
+            "TRAINING-PARTICIPANTS": "Unit leader: training participants"
         }
     },
     "PAGINATION": {
@@ -237,6 +244,7 @@
         "NAME": "Name",
         "TYPE": "Type",
         "LOCATION": "Location",
+        "DESCRIPTION": "Description",
         "START": "Begins at",
         "END": "Ends at",
         "INTERNAL": "Internal",

@@ -1,0 +1,4 @@
+<h2 translate>HEADER.EDIT-TRAINING</h2>
+
+<app-training-form [response]="responseSubject.asObservable()" [editedTraining]="training"
+                   (formSubmitted)="submit($event)"></app-training-form>

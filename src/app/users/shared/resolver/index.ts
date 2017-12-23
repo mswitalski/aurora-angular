@@ -1,3 +1,4 @@
+export * from './all-users-list-resolver.service';
 export * from './cached-user-resolver.service';
 export * from './roles-resolver.service';
 export * from './user-resolver.service';

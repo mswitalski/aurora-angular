@@ -29,6 +29,10 @@ export class UsersService {
         return this.api.deleteMethod('users/' + user.id, environment.api.role.unitleader);
     }
 
+    getAll(): Observable<User[]> {
+        return this.api.get('users/all/', environment.api.role.unitleader);
+    }
+
     getAllByPage(page: number = 0): Observable<PagedResults<User>> {
         const resultPageSize = environment.resultsOnPage;
         const partialUrl = 'users/paged/';

@@ -14,13 +14,15 @@ import {DashboardModule} from './dashboard';
 import {HttpErrorInterceptorService} from './shared/listener';
 import {LoginModule} from './login';
 import {ProfileModule} from './profile';
-import {SharedModule} from './shared/shared.module';
+import {SharedModule} from './shared';
 import {UsersModule} from './users';
 import {rootRouting} from './routes';
 import {DutiesModule} from './duties';
 import {SkillsModule} from './skills';
 import {MentorsModule} from './mentors';
 import {TrainingsModule} from './trainings';
+import {DateTimePickerModule} from 'ng-pick-datetime';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -35,7 +37,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         DashboardModule,
+        DateTimePickerModule,
         DutiesModule,
         LoginModule,
         MentorsModule,
