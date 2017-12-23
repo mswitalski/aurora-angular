@@ -112,7 +112,9 @@
         "SELECT-SKILL": "Wybierz umiej\u0119tno\u015b\u0107",
         "ADD-MENTOR": "Zosta\u0144 mentorem",
         "CREATE-FEEDBACK": "Dodaj now\u0105 opini\u0119",
-        "TRAININGS": "Szkolenia"
+        "TRAININGS": "Szkolenia",
+        "TRAINING-MANAGEMENT": "Zarz\u0105dzanie szkoleniem",
+        "TRAINING-DETAILS": "Szczeg\u00f3\u0142y szkolenia"
     },
     "DUTY": {
         "NAME": "Nazwa",
@@ -170,7 +172,8 @@
             "MENTOR-DETAILS": "Pracownik: szczeg\u00f3\u0142y mentora",
             "MENTOR-ADD": "Pracownik: zosta\u0144 mentorem",
             "FEEDBACK-ADD": "Pracownik: dodaj opini\u0119",
-            "MY-TRAININGS": "Pracownik: moje szkolenia"
+            "MY-TRAININGS": "Pracownik: moje szkolenia",
+            "TRAINING-DETAILS": "Pracownik: szczeg\u00f3\u0142y szkolenia"
         },
         "UNIT-LEADER": {
             "USER-CREATE": "Unit leader: tworzenie u\u017cytkownika",
@@ -194,7 +197,8 @@
             "EVALUATION-ADD": "Unit leader: dodaj ocen\u0119",
             "MENTORS": "Unit leader: mentorzy",
             "MENTOR-DETAILS": "Unit leader: szczeg\u00f3\u0142y mentora",
-            "TRAININGS": "Unit leader: szkolenia"
+            "TRAININGS": "Unit leader: szkolenia",
+            "TRAINING-DETAILS": "Unit leader: szczeg\u00f3\u0142y szkolenia"
         }
     },
     "PAGINATION": {
@@ -234,6 +238,7 @@
         "LOCATION": "Lokalizacja",
         "START": "Rozpoczyna si\u0119 o",
         "END": "Ko\u0144czy si\u0119 o",
-        "INTERNAL": "Wewn\u0119trzny"
+        "INTERNAL": "Wewn\u0119trzny",
+        "PARTICIPANTS": "Uczestnicy"
     }
 }

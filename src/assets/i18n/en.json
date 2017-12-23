@@ -112,7 +112,9 @@
         "SELECT-SKILL": "Select skill",
         "ADD-MENTOR": "Become a mentor",
         "CREATE-FEEDBACK": "Add feedback",
-        "TRAININGS": "Trainings"
+        "TRAININGS": "Trainings",
+        "TRAINING-MANAGEMENT": "Training management",
+        "TRAINING-DETAILS": "Training details"
     },
     "DUTY": {
         "NAME": "Name",
@@ -171,7 +173,8 @@
             "MENTOR-DETAILS": "Employee: mentor details",
             "MENTOR-ADD": "Employee: become a mentor",
             "FEEDBACK-ADD": "Employee: add feedback",
-            "MY-TRAININGS": "Employee: my trainings"
+            "MY-TRAININGS": "Employee: my trainings",
+            "TRAINING-DETAILS": "Employee: training details"
         },
         "UNIT-LEADER": {
             "USER-CREATE": "Unit leader: create user",
@@ -195,7 +198,8 @@
             "EVALUATION-ADD": "Unit leader: add skill",
             "MENTORS": "Unit leader: mentors",
             "MENTOR-DETAILS": "Unit leader: mentor details",
-            "TRAININGS": "Unit leader: trainings"
+            "TRAININGS": "Unit leader: trainings",
+            "TRAINING-DETAILS": "Unit leader: training details"
         }
     },
     "PAGINATION": {
@@ -235,6 +239,7 @@
         "LOCATION": "Location",
         "START": "Begins at",
         "END": "Ends at",
-        "INTERNAL": "Internal"
+        "INTERNAL": "Internal",
+        "PARTICIPANTS": "Participants"
     }
 }

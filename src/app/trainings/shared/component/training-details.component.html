@@ -1,0 +1,13 @@
+<div>
+    {{ 'TRAINING.NAME' | translate }}: {{selectedTraining.name}} <br/>
+    {{ 'TRAINING.TYPE' | translate }}: {{selectedTraining.type}} <br/>
+    {{ 'TRAINING.LOCATION' | translate }}: {{selectedTraining.location}} <br/>
+    {{ 'TRAINING.START' | translate }}: {{selectedTraining.startDateTime | date:'dd-MM-yyyy HH:ss'}} <br/>
+    {{ 'TRAINING.END' | translate }}: {{selectedTraining.endDateTime | date:'dd-MM-yyyy HH:ss'}} <br/>
+    {{ 'TRAINING.INTERNAL' | translate }}:
+        <span *ngIf="selectedTraining.internal" translate>YES</span>
+        <span *ngIf="!selectedTraining.internal" translate>NO</span> <br/>
+
+    {{ 'TRAINING.PARTICIPANTS' | translate }}
+    <app-simple-users-list [listData]="selectedTraining.users"></app-simple-users-list>
+</div>

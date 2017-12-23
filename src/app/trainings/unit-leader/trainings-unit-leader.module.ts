@@ -6,9 +6,11 @@ import {moduleRouting} from './routes';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {SharedModule} from '../../shared';
+import {TrainingManagementComponent} from './training-management';
 
 @NgModule({
     declarations: [
+        TrainingManagementComponent,
         TrainingsListComponent
     ],
     imports: [

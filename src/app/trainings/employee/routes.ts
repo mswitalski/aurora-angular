@@ -3,7 +3,8 @@ import {ModuleWithProviders} from '@angular/core';
 
 import {IsEmployeeGuard} from '../../shared/service/guard';
 import {TrainingsListComponent} from './list';
-import {FinishedTrainingsListResolver, PlannedTrainingsListResolver} from './resolver';
+import {FinishedTrainingsListResolver, PlannedTrainingsListResolver, TrainingResolver} from './resolver';
+import {TrainingManagementComponent} from './training-management';
 
 export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
@@ -14,6 +15,15 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         resolve: {
             finishedPagedResults: FinishedTrainingsListResolver,
             plannedPagedResults: PlannedTrainingsListResolver
+        }
+    },
+    {
+        canActivate: [IsEmployeeGuard],
+        component: TrainingManagementComponent,
+        data: { title: 'TITLE.EMPLOYEE.TRAINING-DETAILS' },
+        path: 'employee/trainings/:trainingId',
+        resolve: {
+            training: TrainingResolver
         }
     }
 ]);

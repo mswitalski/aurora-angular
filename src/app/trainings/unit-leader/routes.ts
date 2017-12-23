@@ -3,7 +3,8 @@ import {ModuleWithProviders} from '@angular/core';
 
 import {IsUnitLeaderGuard} from '../../shared/service/guard';
 import {TrainingsListComponent} from './list';
-import {TrainingsListResolver} from './resolver';
+import {TrainingResolver, TrainingsListResolver} from './resolver';
+import {TrainingManagementComponent} from './training-management';
 
 export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
@@ -13,6 +14,15 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         path: 'unitleader/trainings',
         resolve: {
             pagedResults: TrainingsListResolver
+        }
+    },
+    {
+        canActivate: [IsUnitLeaderGuard],
+        component: TrainingManagementComponent,
+        data: { title: 'TITLE.UNIT-LEADER.TRAINING-DETAILS' },
+        path: 'unitleader/trainings/:trainingId',
+        resolve: {
+            training: TrainingResolver
         }
     }
 ]);

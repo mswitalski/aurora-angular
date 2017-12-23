@@ -45,14 +45,14 @@ export class TrainingsService {
     getSingleAsEmployee(trainingId: number): Observable<Training> {
         const partialUrl = 'trainings/' + trainingId;
 
-        return this.api.get(partialUrl, environment.api.role.common);
+        return this.api.get(partialUrl, environment.api.role.employee);
     }
 
 
     getSingleAsUnitLeader(trainingId: number): Observable<Training> {
         const partialUrl = 'trainings/' + trainingId;
 
-        return this.api.get(partialUrl, environment.api.role.common).do(t => this.cachedTraining = t);
+        return this.api.get(partialUrl, environment.api.role.unitleader).do(t => this.cachedTraining = t);
     }
 
     getCachedTraining(trainingId: number): Observable<Training> {

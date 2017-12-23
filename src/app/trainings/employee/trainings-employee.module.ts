@@ -4,9 +4,11 @@ import {FinishedTrainingsListResolver, PlannedTrainingsListResolver, TrainingRes
 import {TrainingsListComponent} from './list';
 import {moduleRouting} from './routes';
 import {SharedModule} from '../../shared';
+import {TrainingManagementComponent} from './training-management';
 
 @NgModule({
     declarations: [
+        TrainingManagementComponent,
         TrainingsListComponent
     ],
     imports: [
