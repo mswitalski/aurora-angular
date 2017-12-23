@@ -13,6 +13,7 @@ export class TrainingsListComponent {
     pagedResults: PagedResults<Training>;
     searchTrainingForm: FormGroup;
     trainingsList: Training[];
+    showSearch = true;
 
     @Output()
     userInteracted: EventEmitter<ListEventData> = new EventEmitter();
@@ -25,12 +26,15 @@ export class TrainingsListComponent {
         this.trainingsList = data;
     }
 
+    @Input() set visibleSearch(flag: boolean) {
+        this.showSearch = flag;
+    }
+
     constructor(private formBuilder: FormBuilder) {
         this.searchTrainingForm = this.formBuilder.group({
            'name': [''],
            'type': [''],
-           'location': [''],
-           'startDate': ['']
+           'location': ['']
         });
     }
 

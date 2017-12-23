@@ -15,7 +15,9 @@
         "DUTIES": "Obowi\u0105zki",
         "SKILLS": "Umiej\u0119tno\u015bci",
         "MY-SKILLS": "Moje umiej\u0119tno\u015bci",
-        "MENTORS": "Mentorzy"
+        "MENTORS": "Mentorzy",
+        "TRAININGS": "Szkolenia",
+        "MY-TRAININGS": "Moje szkolenia"
     },
     "BTN": {
         "PROFILE": "Profil",
@@ -48,7 +50,10 @@
         "ALL-MENTORS": "Wszyscy",
         "MY-MENTORS": "Moje",
         "BECOME-MENTOR": "Zosta\u0144 mentorem",
-        "ADD-FEEDBACK": "Dodaj opini\u0119"
+        "ADD-FEEDBACK": "Dodaj opini\u0119",
+        "CREATE-TRAINING": "Stw\u00f3rz szkolenie",
+        "PLANNED-TRAININGS": "Zaplanowane",
+        "FINISHED-TRAININGS": "Uko\u0144czone"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Podano nieprawid\u0142ow\u0105 nazw\u0119 użytkownika i/lub has\u0142o",
@@ -164,7 +169,8 @@
             "MENTORS": "Pracownik: mentorzy",
             "MENTOR-DETAILS": "Pracownik: szczeg\u00f3\u0142y mentora",
             "MENTOR-ADD": "Pracownik: zosta\u0144 mentorem",
-            "FEEDBACK-ADD": "Pracownik: dodaj opini\u0119"
+            "FEEDBACK-ADD": "Pracownik: dodaj opini\u0119",
+            "MY-TRAININGS": "Pracownik: moje szkolenia"
         },
         "UNIT-LEADER": {
             "USER-CREATE": "Unit leader: tworzenie u\u017cytkownika",
@@ -187,7 +193,8 @@
             "EVALUATION-EDIT": "Unit leader: edycja oceny",
             "EVALUATION-ADD": "Unit leader: dodaj ocen\u0119",
             "MENTORS": "Unit leader: mentorzy",
-            "MENTOR-DETAILS": "Unit leader: szczeg\u00f3\u0142y mentora"
+            "MENTOR-DETAILS": "Unit leader: szczeg\u00f3\u0142y mentora",
+            "TRAININGS": "Unit leader: szkolenia"
         }
     },
     "PAGINATION": {
