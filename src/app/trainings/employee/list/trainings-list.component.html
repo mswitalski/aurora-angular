@@ -6,7 +6,8 @@
            aria-selected="true" translate>BTN.PLANNED-TRAININGS</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" id="finished-tab" data-toggle="tab" href="#finished" role="tab" aria-controls="finished" aria-selected="false"
+        <a class="nav-link" id="finished-tab" data-toggle="tab" href="#finished" role="tab" aria-controls="finished"
+           aria-selected="false"
            translate>BTN.FINISHED-TRAININGS</a>
     </li>
 </ul>
@@ -18,7 +19,8 @@
     </div>
     <div class="tab-pane fade" id="finished" role="tabpanel" aria-labelledby="finished-tab">
         <app-trainings-list [paginationData]="finishedPagedResults" [listData]="finishedTrainingsList"
-                            (userInteracted)="loadFinishedListData($event)" [visibleSearch]="false"></app-trainings-list>
+                            (userInteracted)="loadFinishedListData($event)"
+                            [visibleSearch]="false"></app-trainings-list>
     </div>
 </div>
 

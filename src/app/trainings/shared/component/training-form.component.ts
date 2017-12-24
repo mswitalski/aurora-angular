@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {AutoUnsubscriberComponent} from '../../../shared';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
@@ -12,7 +11,7 @@ import {Location} from '@angular/common';
     selector: 'app-training-form',
     templateUrl: './training-form.component.html'
 })
-export class TrainingFormComponent extends AutoUnsubscriberComponent implements OnInit {
+export class TrainingFormComponent implements OnInit {
 
     trainingForm: FormGroup;
     isSubmitting = false;
@@ -40,7 +39,6 @@ export class TrainingFormComponent extends AutoUnsubscriberComponent implements 
     constructor(private formBuilder: FormBuilder,
                 private route: ActivatedRoute,
                 private location: Location) {
-        super();
     }
 
     ngOnInit(): void {
@@ -84,8 +82,8 @@ export class TrainingFormComponent extends AutoUnsubscriberComponent implements 
     }
 
     submitForm(): void {
-        this.training.startDateTime = this.formatDate(this.sDate)
-        this.training.endDateTime = this.formatDate(this.eDate)
+        this.training.startDateTime = this.formatDate(this.sDate);
+        this.training.endDateTime = this.formatDate(this.eDate);
         this.training.internal = this.trainingForm.get('internal').value;
         this.isSubmitting = true;
         this.formSubmitted.emit(this.training);

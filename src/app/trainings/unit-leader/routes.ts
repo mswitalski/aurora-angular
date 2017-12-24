@@ -12,7 +12,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsUnitLeaderGuard],
         component: TrainingsListComponent,
-        data: { title: 'TITLE.UNIT-LEADER.TRAININGS' },
+        data: {title: 'TITLE.UNIT-LEADER.TRAININGS'},
         path: 'unitleader/trainings',
         resolve: {
             pagedResults: TrainingsListResolver
@@ -21,7 +21,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsUnitLeaderGuard],
         component: TrainingManagementComponent,
-        data: { title: 'TITLE.UNIT-LEADER.TRAINING-DETAILS' },
+        data: {title: 'TITLE.UNIT-LEADER.TRAINING-DETAILS'},
         path: 'unitleader/trainings/:trainingId',
         resolve: {
             training: TrainingResolver
@@ -30,13 +30,13 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsUnitLeaderGuard],
         component: CreateTrainingComponent,
-        data: { title: 'TITLE.UNIT-LEADER.TRAINING-CREATE' },
+        data: {title: 'TITLE.UNIT-LEADER.TRAINING-CREATE'},
         path: 'unitleader/trainings/create/training'
     },
     {
         canActivate: [IsUnitLeaderGuard],
         component: EditTrainingComponent,
-        data: { title: 'TITLE.UNIT-LEADER.TRAINING-EDIT' },
+        data: {title: 'TITLE.UNIT-LEADER.TRAINING-EDIT'},
         path: 'unitleader/trainings/:trainingId/edit',
         resolve: {
             training: CachedTrainingResolver
@@ -45,7 +45,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsUnitLeaderGuard],
         component: EditUsersComponent,
-        data: { title: 'TITLE.UNIT-LEADER.TRAINING-PARTICIPANTS' },
+        data: {title: 'TITLE.UNIT-LEADER.TRAINING-PARTICIPANTS'},
         path: 'unitleader/trainings/:trainingId/edit/participants',
         resolve: {
             training: CachedTrainingResolver,

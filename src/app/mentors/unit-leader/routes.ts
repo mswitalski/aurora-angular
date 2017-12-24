@@ -9,7 +9,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsUnitLeaderGuard],
         component: MentorsListComponent,
-        data: { title: 'TITLE.UNIT-LEADER.MENTORS' },
+        data: {title: 'TITLE.UNIT-LEADER.MENTORS'},
         path: 'unitleader/mentors',
         resolve: {
             pagedResults: MentorsListResolver
@@ -18,7 +18,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsUnitLeaderGuard],
         component: MentorManagementComponent,
-        data: { title: 'TITLE.UNIT-LEADER.MENTOR-DETAILS' },
+        data: {title: 'TITLE.UNIT-LEADER.MENTOR-DETAILS'},
         path: 'unitleader/mentors/:mentorId',
         resolve: {
             mentor: MentorResolver,

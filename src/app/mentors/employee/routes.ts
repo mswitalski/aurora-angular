@@ -11,7 +11,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsEmployeeGuard],
         component: MentorsListComponent,
-        data: { title: 'TITLE.EMPLOYEE.MENTORS' },
+        data: {title: 'TITLE.EMPLOYEE.MENTORS'},
         path: 'employee/mentors',
         resolve: {
             pagedResults: MentorsListResolver,
@@ -21,7 +21,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsEmployeeGuard],
         component: MentorManagementComponent,
-        data: { title: 'TITLE.EMPLOYEE.MENTOR-DETAILS' },
+        data: {title: 'TITLE.EMPLOYEE.MENTOR-DETAILS'},
         path: 'employee/mentors/:mentorId',
         resolve: {
             mentor: MentorResolver,
@@ -31,7 +31,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsEmployeeGuard],
         component: CreateMentorComponent,
-        data: { title: 'TITLE.EMPLOYEE.MENTOR-ADD' },
+        data: {title: 'TITLE.EMPLOYEE.MENTOR-ADD'},
         path: 'employee/mentors/add/mentor',
         resolve: {
             evaluations: EvaluationsListResolver,
@@ -41,7 +41,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsEmployeeGuard],
         component: CreateFeedbackComponent,
-        data: { title: 'TITLE.EMPLOYEE.FEEDBACK-ADD' },
+        data: {title: 'TITLE.EMPLOYEE.FEEDBACK-ADD'},
         path: 'employee/mentors/:mentorId/add/feedback',
         resolve: {
             mentor: MentorResolver

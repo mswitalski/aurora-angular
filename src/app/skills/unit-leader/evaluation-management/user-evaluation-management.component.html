@@ -7,6 +7,7 @@
 {{'EVALUATION.LEADER-EXPLANATION' | translate}}: {{evaluation.leaderExplanation}} <br/>
 <br/>
 
-<a class="btn btn-lg btn-primary" [routerLink]="['/unitleader/users', evaluation.user.id,'skills']" translate>BTN.BACK</a>
+<a class="btn btn-lg btn-primary" [routerLink]="['/unitleader/users', evaluation.user.id,'skills']"
+   translate>BTN.BACK</a>
 <a *ngIf="!isEvaluationOwner" class="btn btn-lg btn-primary" routerLink="edit" translate>BTN.EDIT-DETAILS</a>
 <a *ngIf="!isEvaluationOwner" class="btn btn-lg btn-danger" (click)="deleteEvaluation()" translate>BTN.DELETE</a>

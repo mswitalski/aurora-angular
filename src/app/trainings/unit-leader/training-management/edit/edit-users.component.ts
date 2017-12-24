@@ -1,4 +1,3 @@
-import {AutoUnsubscriberComponent} from '../../../../shared';
 import {Component, OnInit} from '@angular/core';
 import {DataCheckbox, Training, User} from '../../../../shared/model';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -7,7 +6,7 @@ import {TrainingsService} from '../../../../shared/service';
 @Component({
     templateUrl: './edit-users.component.html'
 })
-export class EditUsersComponent extends AutoUnsubscriberComponent implements OnInit {
+export class EditUsersComponent implements OnInit {
 
     usersCheckboxes: DataCheckbox<User>[] = [];
     isSubmitting = false;
@@ -16,7 +15,6 @@ export class EditUsersComponent extends AutoUnsubscriberComponent implements OnI
     constructor(private route: ActivatedRoute,
                 private router: Router,
                 private trainingsService: TrainingsService) {
-        super();
     }
 
     ngOnInit(): void {
@@ -32,7 +30,7 @@ export class EditUsersComponent extends AutoUnsubscriberComponent implements OnI
 
     submitUsers() {
         this.training.users = this.usersCheckboxes.filter(c => c.value).map(c => c.item);
-        this.trainingsService.update(this.training).takeUntil(this.ngUnsubscribe).subscribe(
+        this.trainingsService.update(this.training).subscribe(
             () => {
                 const url = 'unitleader/trainings/' + this.training.id;
                 this.router.navigate([url]);

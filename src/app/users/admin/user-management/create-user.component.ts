@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {HttpErrorResponse, HttpResponse} from '@angular/common/http';
+import {HttpErrorResponse} from '@angular/common/http';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {Router} from '@angular/router';
 

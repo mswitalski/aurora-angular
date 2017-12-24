@@ -1,7 +1,7 @@
 import {ModuleWithProviders} from '@angular/core';
 import {RouterModule} from '@angular/router';
 
-import {CachedUserResolver, UsersListResolver, UserResolver, RolesResolver} from '../shared/resolver';
+import {CachedUserResolver, RolesResolver, UserResolver, UsersListResolver} from '../shared/resolver';
 import {CreateUserComponent, UserManagementComponent} from './user-management';
 import {EditPasswordComponent, EditRolesComponent, EditUserComponent} from './user-management/edit';
 import {IsAdminGuard} from '../../shared/service/guard';
@@ -11,7 +11,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsAdminGuard],
         component: UsersListComponent,
-        data: { title: 'TITLE.ADMIN.USERS' },
+        data: {title: 'TITLE.ADMIN.USERS'},
         path: 'admin/users',
         resolve: {
             pagedResults: UsersListResolver
@@ -20,7 +20,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsAdminGuard],
         component: UserManagementComponent,
-        data: { title: 'TITLE.ADMIN.USER' },
+        data: {title: 'TITLE.ADMIN.USER'},
         path: 'admin/users/:userId',
         resolve: {
             user: UserResolver
@@ -29,7 +29,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsAdminGuard],
         component: EditUserComponent,
-        data: { title: 'TITLE.ADMIN.USER-EDIT' },
+        data: {title: 'TITLE.ADMIN.USER-EDIT'},
         path: 'admin/users/:userId/edit',
         resolve: {
             user: CachedUserResolver
@@ -38,7 +38,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsAdminGuard],
         component: EditPasswordComponent,
-        data: { title: 'TITLE.ADMIN.PASSWORD' },
+        data: {title: 'TITLE.ADMIN.PASSWORD'},
         path: 'admin/users/:userId/password',
         resolve: {
             user: CachedUserResolver
@@ -47,7 +47,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsAdminGuard],
         component: EditRolesComponent,
-        data: { title: 'TITLE.ADMIN.ROLES' },
+        data: {title: 'TITLE.ADMIN.ROLES'},
         path: 'admin/users/:userId/roles',
         resolve: {
             user: CachedUserResolver,
@@ -57,7 +57,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsAdminGuard],
         component: CreateUserComponent,
-        data: { title: 'TITLE.ADMIN.USER-CREATE' },
+        data: {title: 'TITLE.ADMIN.USER-CREATE'},
         path: 'admin/users/create/user',
         resolve: {
             roles: RolesResolver

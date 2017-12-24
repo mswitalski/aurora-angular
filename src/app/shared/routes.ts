@@ -8,7 +8,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [AuthenticatedGuard],
         component: ErrorPageComponent,
-        data: { title: 'TITLE.ERROR' },
+        data: {title: 'TITLE.ERROR'},
         path: 'error/:code'
     }
 ]);

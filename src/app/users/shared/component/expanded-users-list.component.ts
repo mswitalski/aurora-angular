@@ -1,9 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
-import {UserSearchForm} from '../../../shared/model';
-import {PagedResults} from '../../../shared/model';
-import {ListEventData, User} from '../../../shared/model';
+import {ListEventData, PagedResults, User, UserSearchForm} from '../../../shared/model';
 
 @Component({
     selector: 'app-expanded-users-list',

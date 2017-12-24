@@ -26,7 +26,7 @@ export class MentorManagementComponent extends AutoUnsubscriberComponent impleme
     ngOnInit(): void {
         this.mentor = this.route.snapshot.data['mentor'];
         this.feedback = this.route.snapshot.data['feedback'];
-        this.translate.get('DIALOG.CONFIRMATION').takeUntil(this.ngUnsubscribe).subscribe(
+        this.translate.get('DIALOG.CONFIRMATION').subscribe(
             msg => this.deleteDialogMessage = msg
         );
         this.authService.loggedUser.takeUntil(this.ngUnsubscribe).subscribe(
@@ -37,7 +37,7 @@ export class MentorManagementComponent extends AutoUnsubscriberComponent impleme
     activateMentor(): void {
         if (this.isMentorOwner && !this.mentor.active) {
             this.mentor.active = true;
-            this.mentorsService.updateAsEmployee(this.mentor).takeUntil(this.ngUnsubscribe).subscribe(
+            this.mentorsService.updateAsEmployee(this.mentor).subscribe(
                 () => this.refreshMentor()
             );
         }
@@ -50,7 +50,7 @@ export class MentorManagementComponent extends AutoUnsubscriberComponent impleme
     deactivateMentor(): void {
         if (this.isMentorOwner && this.mentor.active) {
             this.mentor.active = false;
-            this.mentorsService.updateAsEmployee(this.mentor).takeUntil(this.ngUnsubscribe).subscribe(
+            this.mentorsService.updateAsEmployee(this.mentor).subscribe(
                 () => this.refreshMentor()
             );
         }
@@ -58,7 +58,7 @@ export class MentorManagementComponent extends AutoUnsubscriberComponent impleme
 
     deleteMentor(): void {
         if (this.isMentorOwner && confirm(this.deleteDialogMessage)) {
-            this.mentorsService.deleteAsEmployee(this.mentor).takeUntil(this.ngUnsubscribe).subscribe(
+            this.mentorsService.deleteAsEmployee(this.mentor).subscribe(
                 () => this.router.navigate(['/employee/mentors'])
             );
         }

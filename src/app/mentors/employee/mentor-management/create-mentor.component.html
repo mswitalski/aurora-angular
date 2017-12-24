@@ -24,11 +24,13 @@
 <button routerLink="/employee/mentors" type="button" class="btn btn-dark" translate>
     BTN.BACK
 </button>
-<button [disabled]="mentor.evaluation === undefined || isSubmitting" (click)="submit()" class="btn btn-success" translate>
+<button [disabled]="mentor.evaluation === undefined || isSubmitting" (click)="submit()" class="btn btn-success"
+        translate>
     BTN.SAVE
 </button>
 
-<div class="modal fade" id="skillsModal" tabindex="-1" role="dialog" aria-labelledby="skillsModalLabel" aria-hidden="true">
+<div class="modal fade" id="skillsModal" tabindex="-1" role="dialog" aria-labelledby="skillsModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">

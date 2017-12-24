@@ -8,7 +8,8 @@ import {AuthService} from '../../shared/service';
 @Injectable()
 export class IsNotEvaluationOwnerGuard implements CanActivate {
 
-    constructor(private authService: AuthService) {}
+    constructor(private authService: AuthService) {
+    }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
         return this.authService.loggedUser.map(u => parseInt(route.params['userId'], 10) !== u.id);

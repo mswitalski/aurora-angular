@@ -9,7 +9,8 @@ export class UserEvaluationsListComponent implements OnInit {
 
     evaluationsList: Evaluation[];
 
-    constructor(private route: ActivatedRoute) {}
+    constructor(private route: ActivatedRoute) {
+    }
 
     ngOnInit(): void {
         this.evaluationsList = this.route.snapshot.data['evaluations'];

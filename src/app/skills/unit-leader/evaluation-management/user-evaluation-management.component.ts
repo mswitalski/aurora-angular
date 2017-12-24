@@ -3,12 +3,11 @@ import {Evaluation} from '../../../shared/model';
 import {AuthService, EvaluationsService} from '../../../shared/service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
-import {AutoUnsubscriberComponent} from '../../../shared';
 
 @Component({
     templateUrl: './user-evaluation-management.component.html'
 })
-export class UserEvaluationManagementComponent extends AutoUnsubscriberComponent implements OnInit {
+export class UserEvaluationManagementComponent implements OnInit {
 
     evaluation: Evaluation;
     isEvaluationOwner: boolean;
@@ -19,12 +18,11 @@ export class UserEvaluationManagementComponent extends AutoUnsubscriberComponent
                 private router: Router,
                 private evaluationsService: EvaluationsService,
                 private translate: TranslateService) {
-        super();
     }
 
     ngOnInit(): void {
         this.evaluation = this.route.snapshot.data['evaluation'];
-        this.translate.get('DIALOG.CONFIRMATION').takeUntil(this.ngUnsubscribe).subscribe(
+        this.translate.get('DIALOG.CONFIRMATION').subscribe(
             msg => this.deleteDialogMessage = msg
         );
         this.authService.loggedUser.subscribe(
@@ -36,7 +34,7 @@ export class UserEvaluationManagementComponent extends AutoUnsubscriberComponent
 
     deleteEvaluation(): void {
         if (!this.isEvaluationOwner && confirm(this.deleteDialogMessage)) {
-            this.evaluationsService.deleteAsUnitLeader(this.evaluation).takeUntil(this.ngUnsubscribe).subscribe(
+            this.evaluationsService.deleteAsUnitLeader(this.evaluation).subscribe(
                 () => {
                     const url = '/unitleader/users/' + this.evaluation.user.id + '/skills';
                     this.router.navigate([url]);

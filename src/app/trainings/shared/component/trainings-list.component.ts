@@ -32,9 +32,9 @@ export class TrainingsListComponent {
 
     constructor(private formBuilder: FormBuilder) {
         this.searchTrainingForm = this.formBuilder.group({
-           'name': [''],
-           'type': [''],
-           'location': ['']
+            'name': [''],
+            'type': [''],
+            'location': ['']
         });
     }
 

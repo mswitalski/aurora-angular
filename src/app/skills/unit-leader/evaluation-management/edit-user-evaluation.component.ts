@@ -1,4 +1,3 @@
-import {AutoUnsubscriberComponent} from '../../../shared';
 import {Evaluation} from '../../../shared/model';
 import {HttpErrorResponse} from '@angular/common/http';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
@@ -9,13 +8,12 @@ import {Component, OnInit} from '@angular/core';
 @Component({
     templateUrl: './edit-user-evaluation.component.html'
 })
-export class EditUserEvaluationComponent extends AutoUnsubscriberComponent implements OnInit {
+export class EditUserEvaluationComponent implements OnInit {
 
     evaluation: Evaluation;
     responseSubject = new ReplaySubject<HttpErrorResponse>(1);
 
     constructor(private route: ActivatedRoute, private router: Router, private evaluationsService: EvaluationsService) {
-        super();
     }
 
     ngOnInit(): void {
@@ -23,7 +21,7 @@ export class EditUserEvaluationComponent extends AutoUnsubscriberComponent imple
     }
 
     submit(evaluation: Evaluation): void {
-        this.evaluationsService.updateAsUnitLeader(evaluation).takeUntil(this.ngUnsubscribe).subscribe(
+        this.evaluationsService.updateAsUnitLeader(evaluation).subscribe(
             () => {
                 this.responseSubject.complete();
                 const url = 'unitleader/users/' + evaluation.user.id + '/skills/' + evaluation.id;

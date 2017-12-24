@@ -10,4 +10,5 @@ import {MentorsSharedModule} from './shared';
         MentorsUnitLeaderModule
     ]
 })
-export class MentorsModule {}
+export class MentorsModule {
+}

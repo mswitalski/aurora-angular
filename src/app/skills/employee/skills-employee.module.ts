@@ -4,10 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {moduleRouting} from './routes';
 import {CommonModule} from '@angular/common';
 import {EvaluationsListComponent} from './list';
-import {
-    CachedEvaluationResolver, EvaluationResolver,
-    EvaluationsListResolver
-} from './resolver';
+import {CachedEvaluationResolver, EvaluationResolver, EvaluationsListResolver} from './resolver';
 import {
     CreateEvaluationComponent, EditEvaluationComponent,
     EvaluationManagementComponent
@@ -35,4 +32,5 @@ import {SkillsSharedModule} from '../shared';
         EvaluationsListResolver
     ]
 })
-export class SkillsEmployeeModule {}
+export class SkillsEmployeeModule {
+}

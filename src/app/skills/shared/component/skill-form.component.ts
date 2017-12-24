@@ -3,8 +3,6 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Location} from '@angular/common';
 import {Observable} from 'rxjs/Observable';
-
-import {AutoUnsubscriberComponent} from '../../../shared';
 import {Skill, ValidationError} from '../../../shared/model';
 import {validationConstraints} from '../../../shared/configuration';
 
@@ -12,7 +10,7 @@ import {validationConstraints} from '../../../shared/configuration';
     selector: 'app-skill-form',
     templateUrl: './skill-form.component.html'
 })
-export class SkillFormComponent extends AutoUnsubscriberComponent implements OnInit {
+export class SkillFormComponent implements OnInit {
 
     skillForm: FormGroup;
     isEditAction = false;
@@ -35,7 +33,6 @@ export class SkillFormComponent extends AutoUnsubscriberComponent implements OnI
     formSubmitted: EventEmitter<Skill> = new EventEmitter();
 
     constructor(private formBuilder: FormBuilder, private location: Location) {
-        super();
     }
 
     ngOnInit(): void {
@@ -44,9 +41,11 @@ export class SkillFormComponent extends AutoUnsubscriberComponent implements OnI
 
     private createFormControls(): void {
         this.skillForm = this.formBuilder.group({
-            'name': ['', [
-                Validators.required,
-                Validators.maxLength(this.validation.name.max)]
+            'name': [
+                '', [
+                    Validators.required,
+                    Validators.maxLength(this.validation.name.max)
+                ]
             ]
         });
     }

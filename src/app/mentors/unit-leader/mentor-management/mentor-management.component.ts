@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {AutoUnsubscriberComponent} from '../../../shared';
 import {Feedback, Mentor} from '../../../shared/model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FeedbackService, MentorsService} from '../../../shared/service';
@@ -8,7 +7,7 @@ import {TranslateService} from '@ngx-translate/core';
 @Component({
     templateUrl: './mentor-management.component.html'
 })
-export class MentorManagementComponent extends AutoUnsubscriberComponent implements OnInit {
+export class MentorManagementComponent implements OnInit {
 
     mentor: Mentor;
     feedback: Feedback[];
@@ -19,13 +18,12 @@ export class MentorManagementComponent extends AutoUnsubscriberComponent impleme
                 private mentorsService: MentorsService,
                 private feedbackService: FeedbackService,
                 private translate: TranslateService) {
-        super();
     }
 
     ngOnInit(): void {
         this.mentor = this.route.snapshot.data['mentor'];
         this.feedback = this.route.snapshot.data['feedback'];
-        this.translate.get('DIALOG.CONFIRMATION').takeUntil(this.ngUnsubscribe).subscribe(
+        this.translate.get('DIALOG.CONFIRMATION').subscribe(
             msg => this.deleteDialogMessage = msg
         );
     }
@@ -33,7 +31,7 @@ export class MentorManagementComponent extends AutoUnsubscriberComponent impleme
     activateMentor(): void {
         if (!this.mentor.active) {
             this.mentor.active = true;
-            this.mentorsService.updateAsUnitLeader(this.mentor).takeUntil(this.ngUnsubscribe).subscribe(
+            this.mentorsService.updateAsUnitLeader(this.mentor).subscribe(
                 () => this.refreshMentor()
             );
         }
@@ -46,7 +44,7 @@ export class MentorManagementComponent extends AutoUnsubscriberComponent impleme
     approveMentor(): void {
         if (!this.mentor.approved) {
             this.mentor.approved = true;
-            this.mentorsService.updateAsUnitLeader(this.mentor).takeUntil(this.ngUnsubscribe).subscribe(
+            this.mentorsService.updateAsUnitLeader(this.mentor).subscribe(
                 () => this.refreshMentor()
             );
         }
@@ -55,7 +53,7 @@ export class MentorManagementComponent extends AutoUnsubscriberComponent impleme
     deactivateMentor(): void {
         if (this.mentor.active) {
             this.mentor.active = false;
-            this.mentorsService.updateAsUnitLeader(this.mentor).takeUntil(this.ngUnsubscribe).subscribe(
+            this.mentorsService.updateAsUnitLeader(this.mentor).subscribe(
                 () => this.refreshMentor()
             );
         }
@@ -63,7 +61,7 @@ export class MentorManagementComponent extends AutoUnsubscriberComponent impleme
 
     deleteFeedback(feedback: Feedback): void {
         if (confirm(this.deleteDialogMessage)) {
-            this.feedbackService.delete(feedback).takeUntil(this.ngUnsubscribe).subscribe(
+            this.feedbackService.delete(feedback).subscribe(
                 () => this.feedback = this.feedback.filter(f => f.id !== feedback.id)
             );
         }
@@ -71,7 +69,7 @@ export class MentorManagementComponent extends AutoUnsubscriberComponent impleme
 
     deleteMentor(): void {
         if (confirm(this.deleteDialogMessage)) {
-            this.mentorsService.deleteAsUnitLeader(this.mentor).takeUntil(this.ngUnsubscribe).subscribe(
+            this.mentorsService.deleteAsUnitLeader(this.mentor).subscribe(
                 () => this.router.navigate(['/unitleader/mentors'])
             );
         }

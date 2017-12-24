@@ -1,7 +1,8 @@
 <form [formGroup]="skillForm" (ngSubmit)="submitForm()">
     <fieldset [disabled]="isSubmitting">
         <fieldset class="form-group row">
-            <label for="skill-name" class="col-md-2 col-form-label">{{ 'SKILL.NAME' | translate }} <span class="text-danger">*</span></label>
+            <label for="skill-name" class="col-md-2 col-form-label">{{ 'SKILL.NAME' | translate }} <span
+                class="text-danger">*</span></label>
             <div class="col-md-5">
                 <input
                     id="skill-name"

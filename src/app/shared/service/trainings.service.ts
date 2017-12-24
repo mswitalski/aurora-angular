@@ -75,7 +75,7 @@ export class TrainingsService {
     }
 
     update(training: Training): Observable<void> {
-        const partialUrl = 'trainings/' + training.id ;
+        const partialUrl = 'trainings/' + training.id;
 
         return this.api.put(partialUrl, training, environment.api.role.unitleader);
     }

@@ -1,4 +1,3 @@
-import {AutoUnsubscriberComponent} from '../../../shared';
 import {Evaluation} from '../../../shared/model';
 import {HttpErrorResponse} from '@angular/common/http';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
@@ -9,16 +8,15 @@ import {Component} from '@angular/core';
 @Component({
     templateUrl: './create-evaluation.component.html'
 })
-export class CreateEvaluationComponent extends AutoUnsubscriberComponent {
+export class CreateEvaluationComponent {
 
     responseSubject = new ReplaySubject<HttpErrorResponse>(1);
 
     constructor(private router: Router, private evaluationsService: EvaluationsService) {
-        super();
     }
 
     submit(evaluation: Evaluation): void {
-        this.evaluationsService.createAsEmployee(evaluation).takeUntil(this.ngUnsubscribe).subscribe(
+        this.evaluationsService.createAsEmployee(evaluation).subscribe(
             (returnedEvaluation: Evaluation) => {
                 this.responseSubject.complete();
                 const url = 'employee/skills/' + returnedEvaluation.id;

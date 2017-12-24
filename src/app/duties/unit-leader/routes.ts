@@ -11,7 +11,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsUnitLeaderGuard],
         component: DutiesListComponent,
-        data: { title: 'TITLE.UNIT-LEADER.DUTIES' },
+        data: {title: 'TITLE.UNIT-LEADER.DUTIES'},
         path: 'unitleader/duties',
         resolve: {
             pagedResults: DutiesPagedListResolver
@@ -20,7 +20,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsUnitLeaderGuard],
         component: DutyManagementComponent,
-        data: { title: 'TITLE.UNIT-LEADER.DUTY' },
+        data: {title: 'TITLE.UNIT-LEADER.DUTY'},
         path: 'unitleader/duties/:dutyId',
         resolve: {
             duty: DutyResolver
@@ -29,13 +29,13 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsUnitLeaderGuard],
         component: CreateDutyComponent,
-        data: { title: 'TITLE.UNIT-LEADER.DUTY-CREATE' },
+        data: {title: 'TITLE.UNIT-LEADER.DUTY-CREATE'},
         path: 'unitleader/duties/create/duty'
     },
     {
         canActivate: [IsUnitLeaderGuard],
         component: EditDutyComponent,
-        data: { title: 'TITLE.UNIT-LEADER.DUTY-EDIT' },
+        data: {title: 'TITLE.UNIT-LEADER.DUTY-EDIT'},
         path: 'unitleader/duties/:dutyId/edit',
         resolve: {
             duty: CachedDutyResolver

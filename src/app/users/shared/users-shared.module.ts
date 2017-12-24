@@ -4,9 +4,7 @@ import {NgModule} from '@angular/core';
 
 import {AllUsersListResolver, CachedUserResolver, RolesResolver, UserResolver, UsersListResolver} from './resolver';
 import {
-    ExpandedUsersListComponent,
-    SimpleUsersListComponent,
-    UserDetailsComponent,
+    ExpandedUsersListComponent, SimpleUsersListComponent, UserDetailsComponent,
     UserFormComponent
 } from './component';
 import {SharedModule} from '../../shared';

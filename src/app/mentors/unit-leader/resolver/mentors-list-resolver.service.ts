@@ -7,7 +7,8 @@ import {MentorsService} from '../../../shared/service';
 @Injectable()
 export class MentorsListResolver implements Resolve<PagedResults<Mentor>> {
 
-    constructor(private mentorsService: MentorsService) {}
+    constructor(private mentorsService: MentorsService) {
+    }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<PagedResults<Mentor>> {
         return this.mentorsService.getAllByPageAsUnitLeader();

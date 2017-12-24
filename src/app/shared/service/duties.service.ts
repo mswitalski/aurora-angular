@@ -1,4 +1,4 @@
-import {HttpParams, HttpResponse} from '@angular/common/http';
+import {HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
@@ -11,7 +11,8 @@ export class DutiesService {
 
     private cachedDuty: Duty;
 
-    constructor(private api: ApiService) {}
+    constructor(private api: ApiService) {
+    }
 
     create(duty: Duty): Observable<Duty> {
         return this.api.post('duties/', duty, environment.api.role.unitleader);

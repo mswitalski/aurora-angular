@@ -1,16 +1,15 @@
 import {Directive, Input, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
 import {AuthService} from './service/auth.service';
 
-@Directive({ selector: '[appShowAdmin]' })
+@Directive({selector: '[appShowAdmin]'})
 export class ShowAdminDirective implements OnInit {
 
     private condition: boolean;
 
-    constructor(
-        private template: TemplateRef<any>,
-        private authService: AuthService,
-        private view: ViewContainerRef
-    ) {}
+    constructor(private template: TemplateRef<any>,
+                private authService: AuthService,
+                private view: ViewContainerRef) {
+    }
 
     ngOnInit() {
         this.authService.hasAdminRole.subscribe(

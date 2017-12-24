@@ -1,18 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-
-import {AutoUnsubscriberComponent} from '../../../shared';
-import {PagedResults} from '../../../shared/model/paged-results.model';
+import {Duty, DutySearchForm, PagedResults} from '../../../shared/model';
 import {ActivatedRoute} from '@angular/router';
-import {Duty} from '../../../shared/model/duty.model';
-import {DutiesService} from '../../../shared/service/duties.service';
+import {DutiesService} from '../../../shared/service';
 import {FormGroup} from '@angular/forms/src/model';
-import {DutySearchForm} from '../../../shared/model/duty-search-form.model';
 import {FormBuilder} from '@angular/forms';
 
 @Component({
     templateUrl: './duties-list.component.html'
 })
-export class DutiesListComponent extends AutoUnsubscriberComponent implements OnInit {
+export class DutiesListComponent implements OnInit {
 
     dutiesList: Duty[];
     formData = new DutySearchForm();
@@ -21,7 +17,6 @@ export class DutiesListComponent extends AutoUnsubscriberComponent implements On
     searchDutyForm: FormGroup;
 
     constructor(private route: ActivatedRoute, private dutiesService: DutiesService, private formBuilder: FormBuilder) {
-        super();
         this.createFormControls();
     }
 
@@ -32,21 +27,17 @@ export class DutiesListComponent extends AutoUnsubscriberComponent implements On
     }
 
     ngOnInit() {
-        this.route.data.takeUntil(this.ngUnsubscribe).subscribe(
-            (data: { pagedResults: PagedResults<Duty> }) => {
-                this.dutiesList = data.pagedResults.content;
-                this.pagedResults = data.pagedResults;
-            }
-        );
+        this.pagedResults = this.route.snapshot.data['pagedResults'];
+        this.dutiesList = this.pagedResults.content;
     }
 
     loadPage(activePage: number): void {
         if (this.isFilteringEnabled) {
-            this.dutiesService.search(this.formData, activePage).takeUntil(this.ngUnsubscribe).subscribe(
+            this.dutiesService.search(this.formData, activePage).subscribe(
                 data => this.processReceivedData(data));
 
         } else {
-            this.dutiesService.getAllByPage(activePage).takeUntil(this.ngUnsubscribe).subscribe(
+            this.dutiesService.getAllByPage(activePage).subscribe(
                 data => this.processReceivedData(data));
         }
     }

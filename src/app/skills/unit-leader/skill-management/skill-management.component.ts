@@ -1,15 +1,13 @@
-
-import {Skill} from '../../../shared/model/skill.model';
+import {Skill} from '../../../shared/model';
 import {Component, OnInit} from '@angular/core';
-import {AutoUnsubscriberComponent} from '../../../shared/auto-unsubscriber.component';
 import {ActivatedRoute, Router} from '@angular/router';
-import {SkillsService} from '../../../shared/service/skills.service';
+import {SkillsService} from '../../../shared/service';
 import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     templateUrl: './skill-management.component.html'
 })
-export class SkillManagementComponent extends AutoUnsubscriberComponent implements OnInit {
+export class SkillManagementComponent implements OnInit {
 
     selectedSkill: Skill;
     private deleteDialogMessage: string;
@@ -18,19 +16,18 @@ export class SkillManagementComponent extends AutoUnsubscriberComponent implemen
                 private router: Router,
                 private skillsService: SkillsService,
                 private translate: TranslateService) {
-        super();
     }
 
     ngOnInit() {
         this.selectedSkill = this.route.snapshot.data['skill'];
-        this.translate.get('DIALOG.CONFIRMATION').takeUntil(this.ngUnsubscribe).subscribe(
+        this.translate.get('DIALOG.CONFIRMATION').subscribe(
             msg => this.deleteDialogMessage = msg
         );
     }
 
     deleteSkill(): void {
         if (confirm(this.deleteDialogMessage)) {
-            this.skillsService.delete(this.selectedSkill).takeUntil(this.ngUnsubscribe).subscribe(
+            this.skillsService.delete(this.selectedSkill).subscribe(
                 () => this.router.navigate(['/unitleader/skills'])
             );
         }

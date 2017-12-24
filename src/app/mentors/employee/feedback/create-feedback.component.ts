@@ -23,8 +23,7 @@ export class CreateFeedbackComponent extends AutoUnsubscriberComponent implement
                 private formBuilder: FormBuilder,
                 private location: Location,
                 private feedbackService: FeedbackService,
-                private authService: AuthService
-    ) {
+                private authService: AuthService) {
         super();
         this.feedbackForm = this.formBuilder.group({
             'content': ['', [Validators.maxLength(this.validation.content.max)]],

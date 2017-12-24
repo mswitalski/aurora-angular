@@ -1,15 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {AutoUnsubscriberComponent} from '../../../../shared';
-import {DataCheckbox} from '../../../../shared/model/data-checkbox.model';
-import {Duty} from '../../../../shared/model/duty.model';
-import {User} from '../../../../shared/model/user.model';
+import {DataCheckbox, Duty, User} from '../../../../shared/model';
 import {ActivatedRoute, Router} from '@angular/router';
-import {UsersService} from '../../../../shared/service/users.service';
+import {UsersService} from '../../../../shared/service';
 
 @Component({
     templateUrl: './edit-duties.component.html'
 })
-export class EditDutiesComponent extends AutoUnsubscriberComponent implements OnInit {
+export class EditDutiesComponent implements OnInit {
 
     dutiesCheckboxes: DataCheckbox<Duty>[] = [];
     isSubmitting = false;
@@ -18,7 +15,6 @@ export class EditDutiesComponent extends AutoUnsubscriberComponent implements On
     constructor(private route: ActivatedRoute,
                 private router: Router,
                 private usersService: UsersService) {
-        super();
     }
 
     ngOnInit(): void {
@@ -34,7 +30,7 @@ export class EditDutiesComponent extends AutoUnsubscriberComponent implements On
 
     submit() {
         this.user.duties = this.dutiesCheckboxes.filter(c => c.value).map(c => c.item);
-        this.usersService.updateDuties(this.user).takeUntil(this.ngUnsubscribe).subscribe(
+        this.usersService.updateDuties(this.user).subscribe(
             () => {
                 const url = 'unitleader/users/' + this.user.id;
                 this.router.navigate([url]);

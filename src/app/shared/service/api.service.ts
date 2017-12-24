@@ -1,6 +1,6 @@
 import 'rxjs/add/operator/do';
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/timeout';
 import 'rxjs/add/operator/share';
@@ -8,7 +8,6 @@ import 'rxjs/add/operator/share';
 import {environment} from '../../../environments/environment';
 import {JwtService} from './jwt.service';
 import {LoginCredentials} from '../model';
-import {User} from '../model/user.model';
 
 /**
  * Service providing interaction with backend api.

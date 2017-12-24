@@ -4,7 +4,6 @@ import {HttpErrorResponse} from '@angular/common/http';
 import {Location} from '@angular/common';
 import {Observable} from 'rxjs/Observable';
 
-import {AutoUnsubscriberComponent} from '../../../shared/auto-unsubscriber.component';
 import {Duty, ValidationError} from '../../../shared/model';
 import {validationConstraints} from '../../../shared/configuration';
 
@@ -12,7 +11,7 @@ import {validationConstraints} from '../../../shared/configuration';
     selector: 'app-duty-form',
     templateUrl: './duty-form.component.html'
 })
-export class DutyFormComponent extends AutoUnsubscriberComponent {
+export class DutyFormComponent {
 
     dutyForm: FormGroup;
     isSubmitting = false;
@@ -35,7 +34,6 @@ export class DutyFormComponent extends AutoUnsubscriberComponent {
     formSubmitted: EventEmitter<Duty> = new EventEmitter();
 
     constructor(private formBuilder: FormBuilder, private location: Location) {
-        super();
         this.createFormControls();
     }
 

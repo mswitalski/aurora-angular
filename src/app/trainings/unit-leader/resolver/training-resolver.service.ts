@@ -7,7 +7,8 @@ import {Training} from '../../../shared/model';
 @Injectable()
 export class TrainingResolver implements Resolve<Training> {
 
-    constructor(private trainingsService: TrainingsService) {}
+    constructor(private trainingsService: TrainingsService) {
+    }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Training> {
         return this.trainingsService.getSingleAsUnitLeader(route.params['trainingId']);

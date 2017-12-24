@@ -9,7 +9,8 @@ export class EvaluationsService {
 
     private cachedEvaluation: Evaluation;
 
-    constructor(private api: ApiService) {}
+    constructor(private api: ApiService) {
+    }
 
     createAsEmployee(evaluation: Evaluation): Observable<Evaluation> {
         return this.api.post('evaluations/', evaluation, environment.api.role.employee);
@@ -59,6 +60,7 @@ export class EvaluationsService {
             return this.getSingleAsEmployee(evaluationId);
         }
     }
+
     getCachedEvaluationAsUnitLeader(evaluationId: number): Observable<Evaluation> {
         if (this.cachedEvaluation && this.cachedEvaluation.id === evaluationId) {
             return Observable.of(this.cachedEvaluation);

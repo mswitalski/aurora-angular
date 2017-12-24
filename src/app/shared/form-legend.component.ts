@@ -4,4 +4,5 @@ import {Component} from '@angular/core';
     selector: 'app-form-legend',
     templateUrl: './form-legend.component.html'
 })
-export class FormLegendComponent {}
+export class FormLegendComponent {
+}

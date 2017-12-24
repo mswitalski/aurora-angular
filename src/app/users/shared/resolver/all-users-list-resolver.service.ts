@@ -8,7 +8,8 @@ import {UsersService} from '../../../shared/service';
 @Injectable()
 export class AllUsersListResolver implements Resolve<User[]> {
 
-    constructor(private usersService: UsersService) {}
+    constructor(private usersService: UsersService) {
+    }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<User[]> {
         return this.usersService.getAll();

@@ -3,12 +3,11 @@ import {Training} from '../../../shared/model';
 import {TrainingsService} from '../../../shared/service';
 import {TranslateService} from '@ngx-translate/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AutoUnsubscriberComponent} from '../../../shared';
 
 @Component({
     templateUrl: './training-management.component.html'
 })
-export class TrainingManagementComponent extends AutoUnsubscriberComponent implements OnInit  {
+export class TrainingManagementComponent implements OnInit {
 
     training: Training;
     private deleteDialogMessage: string;
@@ -17,18 +16,17 @@ export class TrainingManagementComponent extends AutoUnsubscriberComponent imple
                 private router: Router,
                 private trainingsService: TrainingsService,
                 private translate: TranslateService) {
-        super();
     }
 
     ngOnInit(): void {
         this.training = this.route.snapshot.data['training'];
-        this.translate.get('DIALOG.CONFIRMATION').takeUntil(this.ngUnsubscribe).subscribe(
+        this.translate.get('DIALOG.CONFIRMATION').subscribe(
             msg => this.deleteDialogMessage = msg
         );
     }
 
     deleteTraining(): void {
-        this.trainingsService.delete(this.training).takeUntil(this.ngUnsubscribe).subscribe(
+        this.trainingsService.delete(this.training).subscribe(
             () => this.router.navigate(['/unitleader/trainings'])
         );
     }

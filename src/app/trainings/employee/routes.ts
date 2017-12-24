@@ -10,7 +10,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsEmployeeGuard],
         component: TrainingsListComponent,
-        data: { title: 'TITLE.EMPLOYEE.MY-TRAININGS' },
+        data: {title: 'TITLE.EMPLOYEE.MY-TRAININGS'},
         path: 'employee/trainings',
         resolve: {
             finishedPagedResults: FinishedTrainingsListResolver,
@@ -20,7 +20,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsEmployeeGuard],
         component: TrainingManagementComponent,
-        data: { title: 'TITLE.EMPLOYEE.TRAINING-DETAILS' },
+        data: {title: 'TITLE.EMPLOYEE.TRAINING-DETAILS'},
         path: 'employee/trainings/:trainingId',
         resolve: {
             training: TrainingResolver

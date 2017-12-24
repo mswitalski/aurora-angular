@@ -8,7 +8,8 @@ import {UsersService} from '../../../shared/service';
 @Injectable()
 export class UsersListResolver implements Resolve<PagedResults<User>> {
 
-    constructor(private usersService: UsersService) {}
+    constructor(private usersService: UsersService) {
+    }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<PagedResults<User>> {
         return this.usersService.getAllByPage();

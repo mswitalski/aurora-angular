@@ -5,16 +5,11 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import {AppComponent} from './app.component';
-import {
-    AuthenticatedOnlyDirective,
-    HeaderComponent,
-    FooterComponent
-} from './shared';
+import {AuthenticatedOnlyDirective, FooterComponent, HeaderComponent, SharedModule} from './shared';
 import {DashboardModule} from './dashboard';
 import {HttpErrorInterceptorService} from './shared/listener';
 import {LoginModule} from './login';
 import {ProfileModule} from './profile';
-import {SharedModule} from './shared';
 import {UsersModule} from './users';
 import {rootRouting} from './routes';
 import {DutiesModule} from './duties';

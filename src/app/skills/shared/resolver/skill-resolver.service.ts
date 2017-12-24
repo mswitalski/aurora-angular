@@ -8,7 +8,8 @@ import {SkillsService} from '../../../shared/service';
 @Injectable()
 export class SkillResolver implements Resolve<Skill> {
 
-    constructor(private skillsService: SkillsService) {}
+    constructor(private skillsService: SkillsService) {
+    }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Skill> {
         return this.skillsService.getSingle(route.params['skillId']);

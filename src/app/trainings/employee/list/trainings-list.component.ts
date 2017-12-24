@@ -2,12 +2,11 @@ import {ActivatedRoute} from '@angular/router';
 import {ListEventData, PagedResults, Training} from '../../../shared/model';
 import {TrainingsService} from '../../../shared/service';
 import {Component, OnInit} from '@angular/core';
-import {AutoUnsubscriberComponent} from '../../../shared';
 
 @Component({
     templateUrl: 'trainings-list.component.html'
 })
-export class TrainingsListComponent extends AutoUnsubscriberComponent implements OnInit {
+export class TrainingsListComponent implements OnInit {
 
     finishedPagedResults: PagedResults<Training>;
     finishedTrainingsList: Training[];
@@ -15,7 +14,6 @@ export class TrainingsListComponent extends AutoUnsubscriberComponent implements
     plannedTrainingsList: Training[];
 
     constructor(private route: ActivatedRoute, private trainingsService: TrainingsService) {
-        super();
     }
 
     ngOnInit() {
@@ -26,7 +24,7 @@ export class TrainingsListComponent extends AutoUnsubscriberComponent implements
     }
 
     loadFinishedListData(eventData: ListEventData): void {
-        this.trainingsService.getEmployeeFinishedByPage(eventData.page).takeUntil(this.ngUnsubscribe).subscribe(
+        this.trainingsService.getEmployeeFinishedByPage(eventData.page).subscribe(
             data => {
                 this.finishedTrainingsList = data.content;
                 this.finishedPagedResults = data;
@@ -34,7 +32,7 @@ export class TrainingsListComponent extends AutoUnsubscriberComponent implements
     }
 
     loadPlannedListData(eventData: ListEventData): void {
-        this.trainingsService.getEmployeePlannedByPage(eventData.page).takeUntil(this.ngUnsubscribe).subscribe(
+        this.trainingsService.getEmployeePlannedByPage(eventData.page).subscribe(
             data => {
                 this.plannedTrainingsList = data.content;
                 this.plannedPagedResults = data;

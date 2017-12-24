@@ -4,7 +4,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {validationConstraints} from '../../../shared/configuration';
-import {AutoUnsubscriberComponent, Skill} from '../../../shared';
+import {Skill} from '../../../shared';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 
@@ -12,7 +12,7 @@ import {Location} from '@angular/common';
     selector: 'app-evaluation-form',
     templateUrl: './evaluation-form.component.html'
 })
-export class EvaluationFormComponent extends AutoUnsubscriberComponent implements OnInit {
+export class EvaluationFormComponent implements OnInit {
 
     availableSkillLevels = [
         {value: SkillLevel.NONE, text: 'SKILL-LEVEL.NONE'},
@@ -51,7 +51,6 @@ export class EvaluationFormComponent extends AutoUnsubscriberComponent implement
     constructor(private formBuilder: FormBuilder,
                 private route: ActivatedRoute,
                 private location: Location) {
-        super();
         this.evaluation.selfEvaluation = SkillLevel.BEGINNER;
         this.evaluation.leaderEvaluation = SkillLevel.BEGINNER;
     }

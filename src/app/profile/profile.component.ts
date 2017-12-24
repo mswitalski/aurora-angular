@@ -3,17 +3,15 @@ import {Component, OnInit} from '@angular/core';
 import 'rxjs/add/operator/takeUntil';
 
 import {User} from '../shared/model';
-import {AutoUnsubscriberComponent} from '../shared/auto-unsubscriber.component';
 
 @Component({
     templateUrl: './profile.component.html'
 })
-export class ProfileComponent extends AutoUnsubscriberComponent implements OnInit {
+export class ProfileComponent implements OnInit {
 
     loggedUser: User;
 
     constructor(private route: ActivatedRoute) {
-        super();
     }
 
     ngOnInit() {

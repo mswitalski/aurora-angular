@@ -8,7 +8,8 @@ import {EvaluationsService} from '../../../shared/service';
 @Injectable()
 export class EvaluationsListResolver implements Resolve<Evaluation[]> {
 
-    constructor(private evaluationsService: EvaluationsService) {}
+    constructor(private evaluationsService: EvaluationsService) {
+    }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Evaluation[]> {
         return this.evaluationsService.getAllByUserAsUnitLeader(route.params['userId']);

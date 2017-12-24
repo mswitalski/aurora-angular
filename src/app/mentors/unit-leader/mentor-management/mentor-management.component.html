@@ -4,11 +4,11 @@
 {{ 'SKILL._' | translate }}: {{mentor.evaluation.skill.name}} <br/>
 {{ 'SKILL.LEVEL' | translate }}: <span translate>SKILL-LEVEL.{{mentor.evaluation.leaderEvaluation}}</span> <br/>
 {{ 'MENTOR.APPROVED' | translate }}:
-    <span *ngIf="mentor.approved" translate>YES</span>
-    <span *ngIf="!mentor.approved" translate>NO</span> <br/>
+<span *ngIf="mentor.approved" translate>YES</span>
+<span *ngIf="!mentor.approved" translate>NO</span> <br/>
 {{ 'MENTOR.ACTIVE' | translate }}:
-    <span *ngIf="mentor.active" translate>YES</span>
-    <span *ngIf="!mentor.active" translate>NO</span> <br/>
+<span *ngIf="mentor.active" translate>YES</span>
+<span *ngIf="!mentor.active" translate>NO</span> <br/>
 
 <a class="btn btn-lg btn-primary" routerLink="/unitleader/mentors" translate>BTN.BACK</a>
 <a *ngIf="!mentor.approved" class="btn btn-lg btn-success" (click)="approveMentor()" translate>BTN.APPROVE</a>

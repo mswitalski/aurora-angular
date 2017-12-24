@@ -2,8 +2,6 @@ import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import 'rxjs/add/operator/takeUntil';
-
-import {AutoUnsubscriberComponent} from '../../shared';
 import {PasswordChangeFormModel, ValidationError} from '../../shared/model';
 import {UsersService} from '../../shared/service';
 import {validationConstraints} from '../../shared/configuration';
@@ -11,7 +9,7 @@ import {validationConstraints} from '../../shared/configuration';
 @Component({
     templateUrl: './edit-password.component.html'
 })
-export class EditPasswordComponent extends AutoUnsubscriberComponent {
+export class EditPasswordComponent {
 
     editPasswordForm: FormGroup;
     formData = new PasswordChangeFormModel();
@@ -22,7 +20,6 @@ export class EditPasswordComponent extends AutoUnsubscriberComponent {
     constructor(private formBuilder: FormBuilder,
                 private router: Router,
                 private usersService: UsersService) {
-        super();
         this.createFormControls();
     }
 
@@ -32,7 +29,7 @@ export class EditPasswordComponent extends AutoUnsubscriberComponent {
             'new-passwords': this.formBuilder.group({
                 'new': ['', this.constructValidators()],
                 'repeated': ['', this.constructValidators()]
-            }, { validator: this.isPasswordProperlyRepeated })
+            }, {validator: this.isPasswordProperlyRepeated})
         });
     }
 
@@ -48,12 +45,12 @@ export class EditPasswordComponent extends AutoUnsubscriberComponent {
         const newPassword = group.controls.new.value;
         const repeated = group.controls.repeated.value;
 
-        return newPassword === repeated ? null : { notSame: true };
+        return newPassword === repeated ? null : {notSame: true};
     }
 
     submitForm(): void {
         this.isSubmitting = true;
-        this.usersService.updateProfilePassword(this.formData).takeUntil(this.ngUnsubscribe).subscribe(
+        this.usersService.updateProfilePassword(this.formData).subscribe(
             () => {
                 this.router.navigate(['/profile']);
                 this.isSubmitting = false;

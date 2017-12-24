@@ -14,7 +14,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsEmployeeGuard],
         component: EvaluationsListComponent,
-        data: { title: 'TITLE.EMPLOYEE.MY-SKILLS' },
+        data: {title: 'TITLE.EMPLOYEE.MY-SKILLS'},
         path: 'employee/skills',
         resolve: {
             evaluations: EvaluationsListResolver
@@ -23,7 +23,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsEmployeeGuard],
         component: EvaluationManagementComponent,
-        data: { title: 'TITLE.EMPLOYEE.EVALUATION-DETAILS' },
+        data: {title: 'TITLE.EMPLOYEE.EVALUATION-DETAILS'},
         path: 'employee/skills/:evaluationId',
         resolve: {
             evaluation: EvaluationResolver
@@ -32,7 +32,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsEmployeeGuard],
         component: EditEvaluationComponent,
-        data: { title: 'TITLE.EMPLOYEE.EVALUATION-EDIT' },
+        data: {title: 'TITLE.EMPLOYEE.EVALUATION-EDIT'},
         path: 'employee/skills/:evaluationId/edit',
         resolve: {
             evaluation: CachedEvaluationResolver
@@ -41,7 +41,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [IsEmployeeGuard],
         component: CreateEvaluationComponent,
-        data: { title: 'TITLE.EMPLOYEE.EVALUATION-ADD' },
+        data: {title: 'TITLE.EMPLOYEE.EVALUATION-ADD'},
         path: 'employee/skills/add/evaluation',
         resolve: {
             skills: SkillsPlainListResolver,

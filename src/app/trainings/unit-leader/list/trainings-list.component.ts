@@ -1,21 +1,18 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import 'rxjs/add/operator/takeUntil';
-
-import {AutoUnsubscriberComponent} from '../../../shared';
 import {ListEventData, PagedResults, Training} from '../../../shared/model';
 import {TrainingsService} from '../../../shared/service';
 
 @Component({
     templateUrl: 'trainings-list.component.html'
 })
-export class TrainingsListComponent extends AutoUnsubscriberComponent implements OnInit {
+export class TrainingsListComponent implements OnInit {
 
     pagedResults: PagedResults<Training>;
     trainingsList: Training[];
 
     constructor(private route: ActivatedRoute, private trainingsService: TrainingsService) {
-        super();
     }
 
     ngOnInit() {
@@ -25,11 +22,11 @@ export class TrainingsListComponent extends AutoUnsubscriberComponent implements
 
     loadListData(eventData: ListEventData): void {
         if (eventData.isFilteringEnabled) {
-            this.trainingsService.search(eventData.formData, eventData.page).takeUntil(this.ngUnsubscribe).subscribe(
+            this.trainingsService.search(eventData.formData, eventData.page).subscribe(
                 data => this.processReceivedData(data));
 
         } else {
-            this.trainingsService.getAllByPage(eventData.page).takeUntil(this.ngUnsubscribe).subscribe(
+            this.trainingsService.getAllByPage(eventData.page).subscribe(
                 data => this.processReceivedData(data));
         }
     }

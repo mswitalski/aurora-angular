@@ -7,7 +7,8 @@ import {MentorsService} from '../../../shared/service';
 @Injectable()
 export class MentorResolver implements Resolve<Mentor> {
 
-    constructor(private mentorsService: MentorsService) {}
+    constructor(private mentorsService: MentorsService) {
+    }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Mentor> {
         return this.mentorsService.getSingleAsEmployee(route.params['mentorId']);

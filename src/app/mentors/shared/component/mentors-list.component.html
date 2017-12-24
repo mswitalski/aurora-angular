@@ -34,8 +34,10 @@
         <td>{{mentor.evaluation.user.surname}} {{mentor.evaluation.user.name}}</td>
         <td>{{mentor.evaluation.skill.name}}</td>
         <td translate>SKILL-LEVEL.{{mentor.evaluation.leaderEvaluation}}</td>
-        <td *ngIf="extendedInformation && mentor.approved"><i class="fa fa-check text--green" aria-hidden="true"></i></td>
-        <td *ngIf="extendedInformation && !mentor.approved"><i class="fa fa-times text--red" aria-hidden="true"></i></td>
+        <td *ngIf="extendedInformation && mentor.approved"><i class="fa fa-check text--green" aria-hidden="true"></i>
+        </td>
+        <td *ngIf="extendedInformation && !mentor.approved"><i class="fa fa-times text--red" aria-hidden="true"></i>
+        </td>
         <td *ngIf="extendedInformation && mentor.active"><i class="fa fa-check text--green" aria-hidden="true"></i></td>
         <td *ngIf="extendedInformation && !mentor.active"><i class="fa fa-times text--red" aria-hidden="true"></i></td>
         <td>

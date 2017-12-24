@@ -1,6 +1,5 @@
 import {Component, OnDestroy} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {HttpResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
 import 'rxjs/add/operator/takeUntil';
 
@@ -39,7 +38,8 @@ export class LoginComponent extends AutoUnsubscriberComponent implements OnDestr
         this.isTimeout = false;
 
         this.authService.attemptAuthentication(credentials).takeUntil(this.ngUnsubscribe).subscribe(
-            () => {},
+            () => {
+            },
             err => {
                 this.isSubmitting = false;
                 this.handleErrorResponse(err.status);

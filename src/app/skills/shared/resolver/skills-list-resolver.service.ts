@@ -8,7 +8,8 @@ import {SkillsService} from '../../../shared/service';
 @Injectable()
 export class SkillsListResolver implements Resolve<PagedResults<Skill>> {
 
-    constructor(private skillsService: SkillsService) {}
+    constructor(private skillsService: SkillsService) {
+    }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<PagedResults<Skill>> {
         return this.skillsService.getAllByPage();

@@ -1,15 +1,13 @@
 import {ActivatedRoute, Router} from '@angular/router';
 import {Component, OnInit} from '@angular/core';
 import 'rxjs/add/operator/takeUntil';
-
-import {AutoUnsubscriberComponent} from '../../../../shared';
 import {DataCheckbox, Role, User} from '../../../../shared/model';
 import {UsersService} from '../../../../shared/service';
 
 @Component({
     templateUrl: './edit-roles.component.html'
 })
-export class EditRolesComponent extends AutoUnsubscriberComponent implements OnInit {
+export class EditRolesComponent implements OnInit {
 
     rolesCheckboxes: DataCheckbox<Role>[] = [];
     isSubmitting = false;
@@ -18,7 +16,6 @@ export class EditRolesComponent extends AutoUnsubscriberComponent implements OnI
     constructor(private route: ActivatedRoute,
                 private router: Router,
                 private usersService: UsersService) {
-        super();
     }
 
     ngOnInit(): void {
@@ -34,7 +31,7 @@ export class EditRolesComponent extends AutoUnsubscriberComponent implements OnI
 
     submitRoles() {
         this.user.roles = this.rolesCheckboxes.filter(c => c.value).map(c => c.item);
-        this.usersService.updateAsAdmin(this.user).takeUntil(this.ngUnsubscribe).subscribe(
+        this.usersService.updateAsAdmin(this.user).subscribe(
             () => {
                 const url = 'admin/users/' + this.user.id;
                 this.router.navigate([url]);

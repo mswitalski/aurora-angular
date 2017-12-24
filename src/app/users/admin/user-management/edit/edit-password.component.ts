@@ -1,16 +1,14 @@
 import {ActivatedRoute, Router} from '@angular/router';
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-
 import {AdminPasswordChangeFormModel, User, ValidationError} from '../../../../shared/model';
-import {AutoUnsubscriberComponent} from '../../../../shared';
 import {UsersService} from '../../../../shared/service';
 import {validationConstraints} from '../../../../shared/configuration';
 
 @Component({
     templateUrl: './edit-password.component.html'
 })
-export class EditPasswordComponent extends AutoUnsubscriberComponent implements OnInit {
+export class EditPasswordComponent implements OnInit {
 
     editPasswordForm: FormGroup;
     formData = new AdminPasswordChangeFormModel();
@@ -23,7 +21,6 @@ export class EditPasswordComponent extends AutoUnsubscriberComponent implements 
                 private route: ActivatedRoute,
                 private router: Router,
                 private usersService: UsersService) {
-        super();
         this.createFormControls();
     }
 
@@ -31,7 +28,7 @@ export class EditPasswordComponent extends AutoUnsubscriberComponent implements 
         this.editPasswordForm = this.formBuilder.group({
             'new': ['', this.constructValidators()],
             'repeated': ['', this.constructValidators()]
-        }, { validator: this.isPasswordProperlyRepeated });
+        }, {validator: this.isPasswordProperlyRepeated});
     }
 
     private constructValidators(): any {
@@ -46,7 +43,7 @@ export class EditPasswordComponent extends AutoUnsubscriberComponent implements 
         const newPassword = group.controls.new.value;
         const repeated = group.controls.repeated.value;
 
-        return newPassword === repeated ? null : { notSame: true };
+        return newPassword === repeated ? null : {notSame: true};
     }
 
     ngOnInit(): void {
@@ -55,7 +52,7 @@ export class EditPasswordComponent extends AutoUnsubscriberComponent implements 
 
     submitForm(): void {
         this.isSubmitting = true;
-        this.usersService.updateOtherPassword(this.user, this.formData).takeUntil(this.ngUnsubscribe).subscribe(
+        this.usersService.updateOtherPassword(this.user, this.formData).subscribe(
             () => {
                 const url = 'admin/users/' + this.user.id;
                 this.router.navigate([url]);

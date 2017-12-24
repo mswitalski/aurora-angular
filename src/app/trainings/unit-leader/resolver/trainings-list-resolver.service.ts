@@ -7,7 +7,8 @@ import {PagedResults, Training} from '../../../shared/model';
 @Injectable()
 export class TrainingsListResolver implements Resolve<PagedResults<Training>> {
 
-    constructor(private trainingsService: TrainingsService) {}
+    constructor(private trainingsService: TrainingsService) {
+    }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<PagedResults<Training>> {
         return this.trainingsService.getAllByPage();

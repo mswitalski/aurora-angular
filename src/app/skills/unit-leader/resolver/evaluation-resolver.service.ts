@@ -7,7 +7,8 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class EvaluationResolver implements Resolve<Evaluation> {
 
-    constructor(private evaluationsService: EvaluationsService) {}
+    constructor(private evaluationsService: EvaluationsService) {
+    }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Evaluation> {
         return this.evaluationsService.getSingleAsUnitLeader(route.params['evaluationId']);

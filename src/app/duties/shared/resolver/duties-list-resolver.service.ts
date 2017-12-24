@@ -8,7 +8,8 @@ import {DutiesService} from '../../../shared/service';
 @Injectable()
 export class DutiesListResolver implements Resolve<Duty[]> {
 
-    constructor(private dutiesService: DutiesService) {}
+    constructor(private dutiesService: DutiesService) {
+    }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Duty[]> {
         return this.dutiesService.getAll();

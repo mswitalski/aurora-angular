@@ -9,13 +9,14 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class HttpErrorInterceptorService implements HttpInterceptor {
 
-    constructor(private router: Router) {}
+    constructor(private router: Router) {
+    }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(req)
             .catch(err => {
                 if (this.isHandledErrorResponse(err) && this.isNotLoginAction()) {
-                    this.router.navigate(['/error/' + err.status], { skipLocationChange: true });
+                    this.router.navigate(['/error/' + err.status], {skipLocationChange: true});
 
                     return Observable.of();
 

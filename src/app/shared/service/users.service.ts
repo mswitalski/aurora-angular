@@ -11,7 +11,8 @@ export class UsersService {
 
     private cachedUser: User;
 
-    constructor(private api: ApiService) {}
+    constructor(private api: ApiService) {
+    }
 
     createUserAsAdmin(user: User): Observable<User> {
         return this.api.post('users/', user, environment.api.role.admin);

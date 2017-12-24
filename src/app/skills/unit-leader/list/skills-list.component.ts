@@ -1,21 +1,17 @@
 import {Component, OnInit} from '@angular/core';
-import {AutoUnsubscriberComponent} from '../../../shared/auto-unsubscriber.component';
-import {Skill} from '../../../shared/model/skill.model';
-import {PagedResults} from '../../../shared/model/paged-results.model';
+import {ListEventData, PagedResults, Skill} from '../../../shared/model';
 import {ActivatedRoute} from '@angular/router';
-import {SkillsService} from '../../../shared/service/skills.service';
-import {ListEventData} from '../../../shared/model/list-event-data.model';
+import {SkillsService} from '../../../shared/service';
 
 @Component({
     templateUrl: './skills-list.component.html'
 })
-export class SkillsListComponent extends AutoUnsubscriberComponent implements OnInit {
+export class SkillsListComponent implements OnInit {
 
     pagedResults: PagedResults<Skill>;
     skillsList: Skill[];
 
     constructor(private route: ActivatedRoute, private skillsService: SkillsService) {
-        super();
     }
 
     ngOnInit(): void {
@@ -25,11 +21,11 @@ export class SkillsListComponent extends AutoUnsubscriberComponent implements On
 
     loadListData(eventData: ListEventData): void {
         if (eventData.isFilteringEnabled) {
-            this.skillsService.search(eventData.formData, eventData.page).takeUntil(this.ngUnsubscribe).subscribe(
+            this.skillsService.search(eventData.formData, eventData.page).subscribe(
                 data => this.processReceivedData(data));
 
         } else {
-            this.skillsService.getAllByPage(eventData.page).takeUntil(this.ngUnsubscribe).subscribe(
+            this.skillsService.getAllByPage(eventData.page).subscribe(
                 data => this.processReceivedData(data));
         }
     }

@@ -14,7 +14,7 @@ import {TrainingManagementComponent} from './training-management';
     imports: [
         TrainingsSharedModule,
         moduleRouting,
-        SharedModule,
+        SharedModule
     ],
     providers: [
         FinishedTrainingsListResolver,

@@ -11,7 +11,8 @@ export class SkillsService {
 
     private cachedSkill: Skill;
 
-    constructor(private api: ApiService) {}
+    constructor(private api: ApiService) {
+    }
 
     create(skill: Skill): Observable<Skill> {
         return this.api.post('skills/', skill, environment.api.role.unitleader);

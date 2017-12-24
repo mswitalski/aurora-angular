@@ -10,7 +10,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [AuthenticatedGuard],
         component: ProfileComponent,
-        data: { title: 'TITLE.PROFILE' },
+        data: {title: 'TITLE.PROFILE'},
         path: 'profile',
         resolve: {
             user: LoggedUserResolver
@@ -19,7 +19,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [AuthenticatedGuard],
         component: EditProfileComponent,
-        data: { title: 'TITLE.EDIT-PROFILE' },
+        data: {title: 'TITLE.EDIT-PROFILE'},
         path: 'profile/edit',
         resolve: {
             user: LoggedUserResolver
@@ -28,7 +28,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
     {
         canActivate: [AuthenticatedGuard],
         component: EditPasswordComponent,
-        data: { title: 'TITLE.EDIT-PASSWORD' },
+        data: {title: 'TITLE.EDIT-PASSWORD'},
         path: 'profile/edit/password',
         resolve: { // Necessary to get an ETag for update
             user: LoggedUserResolver
