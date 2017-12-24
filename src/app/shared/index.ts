@@ -5,6 +5,8 @@ export * from './model';
 export * from './auto-unsubscriber.component';
 export * from './authenticated-only.directive';
 export * from './pagination.component';
+export * from './form-errors.component';
+export * from './form-legend.component';
 export * from './shared.module';
 export * from './show-admin.directive';
 export * from './show-employee.directive';

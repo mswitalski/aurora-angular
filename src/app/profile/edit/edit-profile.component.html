@@ -3,7 +3,8 @@
 <form [formGroup]="editProfileForm" (ngSubmit)="submitForm()">
     <fieldset [disabled]="isSubmitting">
         <fieldset class="form-group row">
-            <label for="user-name" class="col-md-2 col-form-label">{{ 'USER.NAME' | translate }}</label>
+            <label for="user-name" class="col-md-2 col-form-label">{{ 'USER.NAME' | translate }} <span
+                class="text-danger">*</span></label>
             <div class="col-md-5">
                 <input
                     id="user-name"
@@ -20,7 +21,8 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="user-surname" class="col-md-2 col-form-label" translate>USER.SURNAME</label>
+            <label for="user-surname" class="col-md-2 col-form-label">{{ 'USER.SURNAME' | translate }} <span
+                class="text-danger">*</span></label>
             <div class="col-md-5">
                 <input
                     id="user-surname"
@@ -37,7 +39,8 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="user-goals" class="col-md-2 col-form-label" translate>USER.GOALS</label>
+            <label for="user-goals" class="col-md-2 col-form-label">{{ 'USER.GOALS' | translate }} <span
+                class="text-danger">*</span></label>
             <div class="col-md-5">
                 <textarea
                     id="user-goals"
@@ -53,6 +56,7 @@
                                  [maxLength]="validation.goals.max" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
+        <app-form-legend></app-form-legend>
 
         <button routerLink="/profile" type="button" class="btn btn-dark" translate>
             BTN.BACK

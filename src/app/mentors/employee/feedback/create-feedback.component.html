@@ -3,7 +3,7 @@
 <form [formGroup]="feedbackForm" (ngSubmit)="submitForm()">
     <fieldset [disabled]="isSubmitting">
         <fieldset class="form-group row">
-            <label for="feedback-content" class="col-md-2 col-form-label">{{ 'FEEDBACK.CONTENT' | translate }}</label>
+            <label for="feedback-content" class="col-md-2 col-form-label">{{ 'FEEDBACK.CONTENT' | translate }} <span class="text-danger">*</span></label>
             <div class="col-md-5">
                 <textarea
                     id="feedback-content"
@@ -20,7 +20,7 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label class="col-md-2 col-form-label">{{ 'FEEDBACK.SATISFIED' | translate }}</label>
+            <label class="col-md-2 col-form-label">{{ 'FEEDBACK.SATISFIED' | translate }} <span class="text-danger">*</span></label>
             <div class="form-check col-md-5">
                 <label class="form-check-label" translate>
                     <input class="form-check-input" type="radio"
@@ -45,6 +45,7 @@
             <app-form-errors [serverErrors]="validationErrors"
                              [controlName]="'user'" ngDefaultControl></app-form-errors>
         </fieldset>
+        <app-form-legend></app-form-legend>
 
         <button (click)="goBack()" type="button" class="btn btn-dark" translate>
             BTN.BACK

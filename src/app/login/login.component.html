@@ -2,13 +2,16 @@
     <div class="row">
         <form [formGroup]="loginForm" (ngSubmit)="submitForm()" class="mx-auto vertical-center form-control-lg">
             <fieldset [disabled]="isSubmitting">
-                <fieldset class="form-group">
+                <fieldset class="form-group row">
+                    <label for="username" class="col-form-label">{{ 'USER.USERNAME' | translate }} <span class="text-danger">*</span></label>
                     <input
+                        id="username"
                         formControlName="username"
                         placeholder="{{ 'USER.USERNAME' | translate }}"
                         type="text" autofocus/>
                 </fieldset>
-                <fieldset class="form-group">
+                <fieldset class="form-group row">
+                    <label for="username" class="col-form-label">{{ 'USER.PASSWORD' | translate }} <span class="text-danger">*</span></label>
                     <input
                         formControlName="password"
                         placeholder="{{ 'USER.PASSWORD' | translate }}"
@@ -17,6 +20,8 @@
 
                 <div *ngIf="isBadCredentials" class="text-danger" translate>ERROR.INVALID-CREDENTIALS</div>
                 <div *ngIf="isTimeout" class="text-danger" translate>ERROR.CONNECTION</div>
+
+                <app-form-legend></app-form-legend>
 
                 <button class="btn btn-success btn-lg btn-block" [disabled]="!loginForm.valid" type="submit" translate>
                     BTN.LOGIN

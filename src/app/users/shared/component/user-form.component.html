@@ -1,7 +1,7 @@
 <form [formGroup]="userForm" (ngSubmit)="submitForm()">
     <fieldset [disabled]="isSubmitting">
         <fieldset *ngIf="!isEditAction" class="form-group row">
-            <label for="user-username" class="col-md-2 col-form-label" translate>USER.USERNAME</label>
+            <label for="user-username" class="col-md-2 col-form-label">{{ 'USER.USERNAME' | translate }} <span class="text-danger">*</span></label>
             <div class="col-md-5">
                 <input
                     id="user-username"
@@ -18,7 +18,7 @@
             </div>
         </fieldset>
         <fieldset *ngIf="!isEditAction" class="form-group row">
-            <label for="user-password" class="col-md-2 col-form-label" translate>USER.PASSWORD</label>
+            <label for="user-password" class="col-md-2 col-form-label">{{ 'USER.PASSWORD' | translate }} <span class="text-danger">*</span></label>
             <div class="col-md-5">
                 <input
                     id="user-password"
@@ -35,7 +35,7 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="user-email" class="col-md-2 col-form-label" translate>USER.EMAIL</label>
+            <label for="user-email" class="col-md-2 col-form-label">{{ 'USER.EMAIL' | translate }} <span class="text-danger">*</span></label>
             <div class="col-md-5">
                 <input
                     id="user-email"
@@ -51,7 +51,7 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="user-name" class="col-md-2 col-form-label">{{ 'USER.NAME' | translate }}</label>
+            <label for="user-name" class="col-md-2 col-form-label">{{ 'USER.NAME' | translate }} <span class="text-danger">*</span></label>
             <div class="col-md-5">
                 <input
                     id="user-name"
@@ -68,7 +68,7 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="user-surname" class="col-md-2 col-form-label" translate>USER.SURNAME</label>
+            <label for="user-surname" class="col-md-2 col-form-label">{{ 'USER.SURNAME' | translate }} <span class="text-danger">*</span></label>
             <div class="col-md-5">
                 <input
                     id="user-surname"
@@ -85,7 +85,7 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="user-position" class="col-md-2 col-form-label" translate>USER.POSITION</label>
+            <label for="user-position" class="col-md-2 col-form-label">{{ 'USER.POSITION' | translate }} <span class="text-danger">*</span></label>
             <div class="col-md-5">
                 <input
                     id="user-position"
@@ -102,7 +102,7 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="user-goals" class="col-md-2 col-form-label" translate>USER.GOALS</label>
+            <label for="user-goals" class="col-md-2 col-form-label">{{ 'USER.GOALS' | translate }}</label>
             <div class="col-md-5">
                 <textarea
                     id="user-goals"
@@ -119,7 +119,7 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="user-enabled" class="col-md-2 col-form-label" translate>USER.ENABLED</label>
+            <label for="user-enabled" class="col-md-2 col-form-label">{{ 'USER.ENABLED' | translate }} <span class="text-danger">*</span></label>
             <div class="col-md-5" id="user-enabled">
                 <div class="form-check form-check-inline">
                     <label class="form-check-label">
@@ -138,7 +138,7 @@
             </div>
         </fieldset>
         <fieldset *ngIf="allowRolesSelect" class="form-group row">
-            <label for="user-roles" class="col-md-2 col-form-label" translate>USER.ROLES</label>
+            <label for="user-roles" class="col-md-2 col-form-label">{{ 'USER.ROLES' | translate }}</label>
             <div class="col-md-5" id="user-roles">
                 <div *ngFor="let role of availableRoles">
                     <button *ngIf="!hasRole(role)" (click)="assignRole(role)" class="btn-camouflaged" translate><i
@@ -150,6 +150,7 @@
                 </div>
             </div>
         </fieldset>
+        <app-form-legend></app-form-legend>
 
         <button (click)="goBack()" type="button" class="btn btn-dark" translate>
             BTN.BACK

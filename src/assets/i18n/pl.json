@@ -232,7 +232,8 @@
     },
     "FORM": {
         "SKILL-NAME": "Nazwa umiej\u0119tno\u015bci",
-        "NO-SKILLS": "Brak dost\u0119pnych umiej\u0119tno\u015bci"
+        "NO-SKILLS": "Brak dost\u0119pnych umiej\u0119tno\u015bci",
+        "FIELD-REQUIRED": "Oznacza pole wymagane"
     },
     "FEEDBACK": {
         "SATISFIED": "Zadowolony",

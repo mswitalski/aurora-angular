@@ -1,7 +1,7 @@
 <h2 translate>HEADER.ADD-MENTOR</h2>
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label" translate>SKILL._</label>
+    <label class="col-md-2 col-form-label">{{ 'SKILL._' | translate}} <span class="text-danger">*</span></label>
     <div *ngIf="evaluations.length !== 0">
         <div *ngIf="mentor.evaluation === undefined" class="col-md-5">
             <button type="button" class="btn btn-link" data-toggle="modal" data-target="#skillsModal" translate>
@@ -20,6 +20,7 @@
                      [controlName]="'evaluation'"></app-form-errors>
 </div>
 
+<app-form-legend></app-form-legend>
 <button routerLink="/employee/mentors" type="button" class="btn btn-dark" translate>
     BTN.BACK
 </button>

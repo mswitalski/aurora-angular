@@ -1,7 +1,7 @@
 <form [formGroup]="trainingForm" (ngSubmit)="submitForm()">
     <fieldset [disabled]="isSubmitting">
         <fieldset class="form-group row">
-            <label for="training-name" class="col-md-2 col-form-label" translate>TRAINING.NAME</label>
+            <label for="training-name" class="col-md-2 col-form-label">{{ 'TRAINING.NAME' | translate }} <span class="text-danger">*</span></label>
             <div class="col-md-5">
                 <input
                     id="training-name"
@@ -17,7 +17,7 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="training-type" class="col-md-2 col-form-label" translate>TRAINING.TYPE</label>
+            <label for="training-type" class="col-md-2 col-form-label">{{ 'TRAINING.TYPE' | translate }} <span class="text-danger">*</span></label>
             <div class="col-md-5">
                 <input
                     id="training-type"
@@ -33,7 +33,7 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="training-location" class="col-md-2 col-form-label" translate>TRAINING.LOCATION</label>
+            <label for="training-location" class="col-md-2 col-form-label">{{ 'TRAINING.LOCATION' | translate }} <span class="text-danger">*</span></label>
             <div class="col-md-5">
                 <input
                     id="training-location"
@@ -49,7 +49,7 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="training-startDateTime" class="col-md-2 col-form-label" translate>TRAINING.START</label>
+            <label for="training-startDateTime" class="col-md-2 col-form-label">{{ 'TRAINING.START' | translate }} <span class="text-danger">*</span></label>
             <owl-date-time id="training-startDateTime"
                            formControlName="startDateTime"
                            [(ngModel)]="sDate"
@@ -63,7 +63,7 @@
                              [formControl]="trainingForm.controls['startDateTime']"ngDefaultControl></app-form-errors>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="training-endDateTime" class="col-md-2 col-form-label" translate>TRAINING.START</label>
+            <label for="training-endDateTime" class="col-md-2 col-form-label">{{ 'TRAINING.END' | translate }} <span class="text-danger">*</span></label>
             <owl-date-time id="training-endDateTime"
                            formControlName="endDateTime"
                            [(ngModel)]="eDate"
@@ -78,7 +78,7 @@
         </fieldset>
 
         <fieldset class="form-group row">
-            <label class="col-md-2 col-form-label">{{ 'TRAINING.INTERNAL' | translate }}</label>
+            <label class="col-md-2 col-form-label">{{ 'TRAINING.INTERNAL' | translate }} <span class="text-danger">*</span></label>
             <div class="form-check col-md-5">
                 <label class="form-check-label" translate>
                     <input class="form-check-input" type="radio"
@@ -105,21 +105,23 @@
         </fieldset>
 
         <fieldset class="form-group row">
-            <label for="training-description" class="col-md-2 col-form-label" translate>TRAINING.DESCRIPTION</label>
+            <label for="training-description" class="col-md-2 col-form-label">{{ 'TRAINING.DESCRIPTION' | translate }} <span class="text-danger">*</span></label>
             <div class="col-md-5">
-                <input
+                <textarea
                     id="training-description"
                     class="form-control"
                     formControlName="description"
                     [(ngModel)]="training.description"
                     placeholder="{{ 'TRAINING.DESCRIPTION' | translate }}"
-                    type="text"/>
+                    rows="3"
+                    cols="50"></textarea>
                 <app-form-errors [serverErrors]="validationErrors"
                                  [controlName]="'description'"
                                  [formControl]="trainingForm.controls['description']"
                                  [maxLength]="validation.description.max" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
+        <app-form-legend></app-form-legend>
 
         <button (click)="goBack()" type="button" class="btn btn-dark" translate>
             BTN.BACK

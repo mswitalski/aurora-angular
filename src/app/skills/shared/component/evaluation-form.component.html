@@ -2,15 +2,18 @@
     <fieldset [disabled]="isSubmitting">
         <div *ngIf="!isEditAction" class="form-group row">
             <div *ngIf="availableSkills.length !== 0">
-                <label class="col-md-2 col-form-label" translate>SKILL._</label>
+                <label class="col-md-2 col-form-label">{{ 'SKILL._' | translate }} <span
+                    class="text-danger">*</span></label>
                 <div *ngIf="skill === undefined" class="col-md-5">
-                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#evaluationsModal" translate>
+                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#evaluationsModal"
+                            translate>
                         BTN.SELECT-SKILL
                     </button>
                 </div>
                 <div *ngIf="skill !== undefined" class="col-md-5">
                     {{skill.name}}
-                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#evaluationsModal" translate>
+                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#evaluationsModal"
+                            translate>
                         BTN.CHANGE-SKILL
                     </button>
                 </div>
@@ -21,7 +24,8 @@
         </div>
 
         <fieldset *ngIf="isUnitLeaderAction" class="form-group row">
-            <label for="evaluation-leaderEvaluation" class="col-md-2 col-form-label" translate>EVALUATION.LEADER-EVALUATION</label>
+            <label for="evaluation-leaderEvaluation" class="col-md-2 col-form-label">{{ 'EVALUATION.LEADER-EVALUATION' |
+                translate }} <span class="text-danger">*</span></label>
             <div class="col-md-5">
                 <select id="evaluation-leaderEvaluation" formControlName="leaderEvaluation"
                         [(ngModel)]="evaluation.leaderEvaluation" class="form-control">
@@ -31,7 +35,8 @@
             </div>
         </fieldset>
         <fieldset *ngIf="isUnitLeaderAction" class="form-group row">
-            <label for="evaluation-leaderExplanation" class="col-md-2 col-form-label" translate>EVALUATION.LEADER-EXPLANATION</label>
+            <label for="evaluation-leaderExplanation" class="col-md-2 col-form-label">{{ 'EVALUATION.LEADER-EXPLANATION'
+                | translate }} <span class="text-danger">*</span></label>
             <div class="col-md-5">
                 <textarea
                     id="evaluation-leaderExplanation"
@@ -51,7 +56,7 @@
 
         <fieldset *ngIf="!isUnitLeaderAction" class="form-group row">
             <label for="evaluation-selfEvaluation" class="col-md-2 col-form-label"
-                   translate>EVALUATION.SELF-EVALUATION</label>
+            >{{ 'EVALUATION.SELF-EVALUATION' | translate }} <span class="text-danger">*</span></label>
             <select id="evaluation-selfEvaluation" formControlName="selfEvaluation"
                     [(ngModel)]="evaluation.selfEvaluation" class="form-control">
                 <option *ngFor="let level of availableSkillLevels" [ngValue]="level.value" translate>{{level.text}}
@@ -59,7 +64,8 @@
             </select>
         </fieldset>
         <fieldset *ngIf="!isUnitLeaderAction" class="form-group row">
-            <label for="evaluation-selfExplanation" class="col-md-2 col-form-label" translate>EVALUATION.SELF-EXPLANATION</label>
+            <label for="evaluation-selfExplanation" class="col-md-2 col-form-label">{{ 'EVALUATION.SELF-EXPLANATION' |
+                translate }} <span class="text-danger">*</span></label>
             <div class="col-md-5">
                 <textarea
                     id="evaluation-selfExplanation"
@@ -76,17 +82,20 @@
                                  ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
+        <app-form-legend></app-form-legend>
 
         <button (click)="goBack()" type="button" class="btn btn-dark" translate>
             BTN.BACK
         </button>
-        <button [disabled]="!evaluationForm.valid || skill === undefined" type="submit" class="btn btn-success" translate>
+        <button [disabled]="!evaluationForm.valid || skill === undefined" type="submit" class="btn btn-success"
+                translate>
             BTN.SAVE
         </button>
     </fieldset>
 </form>
 
-<div class="modal fade" id="evaluationsModal" tabindex="-1" role="dialog" aria-labelledby="evaluationsModalLabel" aria-hidden="true">
+<div class="modal fade" id="evaluationsModal" tabindex="-1" role="dialog" aria-labelledby="evaluationsModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">

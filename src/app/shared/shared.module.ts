@@ -19,11 +19,13 @@ import {ShowAdminDirective} from './show-admin.directive';
 import {ShowUnitLeaderDirective} from './show-unit-leader.directive';
 import {ShowEmployeeDirective} from './show-employee.directive';
 import {DateTimePickerModule} from 'ng-pick-datetime';
+import {FormLegendComponent} from './form-legend.component';
 
 @NgModule({
     declarations: [
         ErrorPageComponent,
         FormErrorsComponent,
+        FormLegendComponent,
         PaginationComponent,
         ShowAdminDirective,
         ShowEmployeeDirective,
@@ -41,6 +43,7 @@ import {DateTimePickerModule} from 'ng-pick-datetime';
     ],
     exports: [
         FormErrorsComponent,
+        FormLegendComponent,
         HttpClientModule,
         PaginationComponent,
         RouterModule,

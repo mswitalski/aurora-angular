@@ -233,7 +233,8 @@
     },
     "FORM": {
         "SKILL-NAME": "Nazwa umiej\u0119tno\u015bci",
-        "NO-SKILLS": "No skills available"
+        "NO-SKILLS": "No skills available",
+        "FIELD-REQUIRED": "Indicates required field"
     },
     "FEEDBACK": {
         "SATISFIED": "Satisfied",

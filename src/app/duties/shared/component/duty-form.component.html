@@ -1,7 +1,7 @@
 <form [formGroup]="dutyForm" (ngSubmit)="submitForm()">
     <fieldset [disabled]="isSubmitting">
         <fieldset class="form-group row">
-            <label for="duty-name" class="col-md-2 col-form-label">{{ 'DUTY.NAME' | translate }}</label>
+            <label for="duty-name" class="col-md-2 col-form-label">{{ 'DUTY.NAME' | translate }} <span class="text-danger">*</span></label>
             <div class="col-md-5">
                 <input
                     id="duty-name"
@@ -16,6 +16,7 @@
                                  [maxLength]="validation.name.max" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
+        <app-form-legend></app-form-legend>
 
         <button (click)="goBack()" type="button" class="btn btn-dark" translate>
             BTN.BACK
