@@ -17,7 +17,8 @@
         "MY-SKILLS": "Moje umiej\u0119tno\u015bci",
         "MENTORS": "Mentorzy",
         "TRAININGS": "Szkolenia",
-        "MY-TRAININGS": "Moje szkolenia"
+        "MY-TRAININGS": "Moje szkolenia",
+        "MY-TASKS": "Moje zadania"
     },
     "BTN": {
         "PROFILE": "Profil",
@@ -54,7 +55,11 @@
         "CREATE-TRAINING": "Stw\u00f3rz szkolenie",
         "PLANNED-TRAININGS": "Zaplanowane",
         "FINISHED-TRAININGS": "Uko\u0144czone",
-        "EDIT-PARTICIPANTS": "Edytuj uczestników"
+        "EDIT-PARTICIPANTS": "Edytuj uczestników",
+        "CREATE-TASK": "Dodaj zadanie",
+        "ACTIVE": "Aktywne",
+        "DONE": "Wykonane",
+        "STATISTICS": "Statystyki"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Podano nieprawid\u0142ow\u0105 nazw\u0119 użytkownika i/lub has\u0142o",
@@ -118,7 +123,8 @@
         "TRAINING-DETAILS": "Szczeg\u00f3\u0142y szkolenia",
         "CREATE-TRAINING": "Stw\u00f3rz nowe szkolenie",
         "EDIT-TRAINING": "Edytuj szkolenie",
-        "EDIT-PARTICIPANTS": "Edytuj uczestnik\u00f3w"
+        "EDIT-PARTICIPANTS": "Edytuj uczestnik\u00f3w",
+        "TASKS": "Zadania"
     },
     "DUTY": {
         "NAME": "Nazwa",
@@ -177,7 +183,8 @@
             "MENTOR-ADD": "Pracownik: zosta\u0144 mentorem",
             "FEEDBACK-ADD": "Pracownik: dodaj opini\u0119",
             "MY-TRAININGS": "Pracownik: moje szkolenia",
-            "TRAINING-DETAILS": "Pracownik: szczeg\u00f3\u0142y szkolenia"
+            "TRAINING-DETAILS": "Pracownik: szczeg\u00f3\u0142y szkolenia",
+            "MY-TASKS": "Pracownik: moje zadania"
         },
         "UNIT-LEADER": {
             "USER-CREATE": "Unit leader: tworzenie u\u017cytkownika",
@@ -239,6 +246,17 @@
         "SATISFIED": "Zadowolony",
         "CONTENT": "Tre\u015b\u0107",
         "CREATE-DATE-TIME": "Data dodania"
+    },
+    "TASK": {
+        "CONTENT": "Tre\u015b\u0107",
+        "DEADLINE-DATE": "Ostateczny termin wykonania",
+        "DONE-DATE": "Data wykonania",
+        "PLANNED": "Zaplanowane",
+        "OVERDUE": "Po czasie",
+        "UNDATED": "Zadania bez ogranicze\u0144 czasowych",
+        "DONE-LAST-WEEK": "Wykonane w ostatnim tygodniu",
+        "DONE-LAST-MONTH": "Wykonane w ostatnim miesi\u0105cu",
+        "NO-TASKS": "Brak zada\u0144 do pokazania"
     },
     "TRAINING": {
         "NAME": "Nazwa",

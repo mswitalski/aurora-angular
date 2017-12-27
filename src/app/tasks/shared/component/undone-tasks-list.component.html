@@ -1,0 +1,15 @@
+<div *ngIf="tasksPresent">
+    <div *ngFor="let group of dateGroups">
+        <span *ngIf="group.date === 'overdue'" class="text-danger text--bold" translate>TASK.OVERDUE</span>
+        <span *ngIf="group.date === 'undated'" class="text--bold" translate>TASK.UNDATED</span>
+        <span *ngIf="group.date !== 'overdue' && group.date !== 'undated'" class="text--bold">{{group.date | date:'dd-MM-yyyy'}}</span>
+
+        <ul *ngFor="let task of group.tasks">
+            <li>
+                {{task.content}}
+                <a [routerLink]="task.id" class="btn-link" translate>BTN.DETAILS</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div *ngIf="!tasksPresent" translate>TASK.NO-TASKS</div>

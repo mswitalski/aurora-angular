@@ -18,6 +18,7 @@ import {MentorsModule} from './mentors';
 import {TrainingsModule} from './trainings';
 import {DateTimePickerModule} from 'ng-pick-datetime';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {TasksModule} from './tasks';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -42,6 +43,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         rootRouting,
         SharedModule,
         SkillsModule,
+        TasksModule,
         TrainingsModule,
         TranslateModule.forRoot({
             loader: {

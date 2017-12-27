@@ -17,7 +17,8 @@
         "MY-SKILLS": "My skills",
         "MENTORS": "Mentors",
         "TRAININGS": "Trainings",
-        "MY-TRAININGS": "My trainings"
+        "MY-TRAININGS": "My trainings",
+        "MY-TASKS": "My tasks"
     },
     "BTN": {
         "PROFILE": "Profile",
@@ -54,7 +55,11 @@
         "CREATE-TRAINING": "Create training",
         "PLANNED-TRAININGS": "Planned",
         "FINISHED-TRAININGS": "Finished",
-        "EDIT-PARTICIPANTS": "Edit participants"
+        "EDIT-PARTICIPANTS": "Edit participants",
+        "CREATE-TASK": "Create task",
+        "ACTIVE": "Active",
+        "DONE": "Done",
+        "STATISTICS": "Statistics"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Bad username or/and password!",
@@ -118,7 +123,8 @@
         "TRAINING-DETAILS": "Training details",
         "CREATE-TRAINING": "Create new training",
         "EDIT-TRAINING": "Edit training",
-        "EDIT-PARTICIPANTS": "Edit participants"
+        "EDIT-PARTICIPANTS": "Edit participants",
+        "TASKS": "Tasks"
     },
     "DUTY": {
         "NAME": "Name",
@@ -178,7 +184,8 @@
             "MENTOR-ADD": "Employee: become a mentor",
             "FEEDBACK-ADD": "Employee: add feedback",
             "MY-TRAININGS": "Employee: my trainings",
-            "TRAINING-DETAILS": "Employee: training details"
+            "TRAINING-DETAILS": "Employee: training details",
+            "MY-TASKS": "Employee: my tasks"
         },
         "UNIT-LEADER": {
             "USER-CREATE": "Unit leader: create user",
@@ -240,6 +247,17 @@
         "SATISFIED": "Satisfied",
         "CONTENT": "Content",
         "CREATE-DATE-TIME": "Date added"
+    },
+    "TASK": {
+        "CONTENT": "Content",
+        "DEADLINE-DATE": "Deadline date",
+        "DONE-DATE": "Done date",
+        "PLANNED": "Planned",
+        "OVERDUE": "Overdue",
+        "UNDATED": "Tasks without deadline",
+        "DONE-LAST-WEEK": "Done last week",
+        "DONE-LAST-MONTH": "Done last moth",
+        "NO-TASKS": "There are no tasks to show"
     },
     "TRAINING": {
         "NAME": "Name",
