@@ -125,7 +125,10 @@
         "CREATE-TRAINING": "Stw\u00f3rz nowe szkolenie",
         "EDIT-TRAINING": "Edytuj szkolenie",
         "EDIT-PARTICIPANTS": "Edytuj uczestnik\u00f3w",
-        "TASKS": "Zadania"
+        "TASKS": "Zadania",
+        "TASK-MANAGEMENT": "Zarz\u0105dzanie zadaniem",
+        "CREATE-TASK": "Stw\u00f3rz nowe zadanie",
+        "EDIT-TASK": "Edytuj zadanie"
     },
     "DUTY": {
         "NAME": "Nazwa",
@@ -185,7 +188,10 @@
             "FEEDBACK-ADD": "Pracownik: dodaj opini\u0119",
             "MY-TRAININGS": "Pracownik: moje szkolenia",
             "TRAINING-DETAILS": "Pracownik: szczeg\u00f3\u0142y szkolenia",
-            "MY-TASKS": "Pracownik: moje zadania"
+            "MY-TASKS": "Pracownik: moje zadania",
+            "TASK-DETAILS": "Pracownik: szczeg\u00f3\u0142y zadania",
+            "TASK-CREATE": "Pracownik: tworzenie zadania",
+            "TASK-EDIT": "Pracownik: edytuj zadanie"
         },
         "UNIT-LEADER": {
             "USER-CREATE": "Unit leader: tworzenie u\u017cytkownika",

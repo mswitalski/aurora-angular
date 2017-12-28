@@ -125,7 +125,10 @@
         "CREATE-TRAINING": "Create new training",
         "EDIT-TRAINING": "Edit training",
         "EDIT-PARTICIPANTS": "Edit participants",
-        "TASKS": "Tasks"
+        "TASKS": "Tasks",
+        "TASK-MANAGEMENT": "Task management",
+        "CREATE-TASK": "Create new task",
+        "EDIT-TASK": "Edit task"
     },
     "DUTY": {
         "NAME": "Name",
@@ -186,7 +189,10 @@
             "FEEDBACK-ADD": "Employee: add feedback",
             "MY-TRAININGS": "Employee: my trainings",
             "TRAINING-DETAILS": "Employee: training details",
-            "MY-TASKS": "Employee: my tasks"
+            "MY-TASKS": "Employee: my tasks",
+            "TASK-DETAILS": "Employee: task details",
+            "TASK-CREATE": "Employee: create task",
+            "TASK-EDIT": "Employee: edit task"
         },
         "UNIT-LEADER": {
             "USER-CREATE": "Unit leader: create user",

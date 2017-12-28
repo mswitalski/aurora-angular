@@ -1,0 +1,4 @@
+<h2 translate>HEADER.EDIT-TASK</h2>
+
+<app-task-form [response]="responseSubject.asObservable()" [editedTask]="task"
+               (formSubmitted)="submit($event)"></app-task-form>

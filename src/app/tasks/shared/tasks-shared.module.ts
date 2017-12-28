@@ -2,11 +2,15 @@ import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../../shared';
 import {CommonModule} from '@angular/common';
-import {DoneTasksListComponent, TasksStatisticsComponent, UndoneTasksListComponent} from './component';
+import {
+    DoneTasksListComponent, TaskFormComponent, TasksStatisticsComponent,
+    UndoneTasksListComponent
+} from './component';
 
 @NgModule({
     declarations: [
         DoneTasksListComponent,
+        TaskFormComponent,
         TasksStatisticsComponent,
         UndoneTasksListComponent
     ],
@@ -18,6 +22,7 @@ import {DoneTasksListComponent, TasksStatisticsComponent, UndoneTasksListCompone
     ],
     exports: [
         DoneTasksListComponent,
+        TaskFormComponent,
         TasksStatisticsComponent,
         UndoneTasksListComponent
     ]

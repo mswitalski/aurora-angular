@@ -1,0 +1,43 @@
+<form [formGroup]="taskForm" (ngSubmit)="submitForm()">
+    <fieldset [disabled]="isSubmitting">
+        <fieldset class="form-group row">
+            <label for="task-content" class="col-md-2 col-form-label">{{ 'TASK.CONTENT' | translate }} <span
+                class="text-danger">*</span></label>
+            <div class="col-md-5">
+                <input
+                    id="task-content"
+                    class="form-control"
+                    formControlName="content"
+                    [(ngModel)]="task.content"
+                    placeholder="{{ 'TASK.CONTENT' | translate }}"
+                    type="text"/>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'content'"
+                                 [formControl]="taskForm.controls['content']"
+                                 [maxLength]="validation.content.max" ngDefaultControl></app-form-errors>
+            </div>
+        </fieldset>
+        <fieldset class="form-group row">
+            <label for="task-deadlineDate" class="col-md-2 col-form-label">{{ 'TASK.DEADLINE-DATE' | translate }}</label>
+            <owl-date-time id="task-deadlineDate"
+                           formControlName="deadlineDate"
+                           [(ngModel)]="deadlineDate"
+                           [dateFormat]="'YYYY-MM-DD'"
+                           [placeHolder]="'YYYY-MM-DD'"
+                           [min]="todayDate"
+                           [type]="'calendar'"
+                           class="col-md-5"></owl-date-time>
+            <app-form-errors [serverErrors]="validationErrors"
+                             [controlName]="'deadlineDate'"
+                             [formControl]="taskForm.controls['deadlineDate']" ngDefaultControl></app-form-errors>
+        </fieldset>
+        <app-form-legend></app-form-legend>
+
+        <button (click)="goBack()" type="button" class="btn btn-dark" translate>
+            BTN.BACK
+        </button>
+        <button [disabled]="!taskForm.valid" type="submit" class="btn btn-success" translate>
+            BTN.SAVE
+        </button>
+    </fieldset>
+</form>

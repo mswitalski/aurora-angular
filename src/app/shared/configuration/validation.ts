@@ -22,6 +22,11 @@ export const validationConstraints = {
             'max': 50
         }
     },
+    'task': {
+        'content': {
+            'max': 100
+        }
+    },
     'training': {
         'name': {
             'max': 100
