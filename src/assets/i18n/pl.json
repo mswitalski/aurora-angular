@@ -59,7 +59,8 @@
         "CREATE-TASK": "Dodaj zadanie",
         "ACTIVE": "Aktywne",
         "DONE": "Wykonane",
-        "STATISTICS": "Statystyki"
+        "STATISTICS": "Statystyki",
+        "USER-TASKS": "Zadania"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Podano nieprawid\u0142ow\u0105 nazw\u0119 użytkownika i/lub has\u0142o",
@@ -212,7 +213,8 @@
             "TRAINING-DETAILS": "Unit leader: szczeg\u00f3\u0142y szkolenia",
             "TRAINING-CREATE": "Unit leader: tworzenie szkolenia",
             "TRAINING-EDIT": "Unit leader: edycja szkolenia",
-            "TRAINING-PARTICIPANTS": "Unit leader: uczestnicy szkolenia"
+            "TRAINING-PARTICIPANTS": "Unit leader: uczestnicy szkolenia",
+            "USER-TASKS": "Unit leader: zadania u\u017cytkownika"
         }
     },
     "PAGINATION": {

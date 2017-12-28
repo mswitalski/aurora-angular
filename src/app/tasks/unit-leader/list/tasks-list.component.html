@@ -1,0 +1,35 @@
+<h2 translate>HEADER.TASKS</h2>
+
+<div class="row float-right mb-4">
+    <button routerLink="create/user" class="btn btn-success" translate>
+        BTN.CREATE-TASK
+    </button>
+</div>
+
+<ul class="nav nav-tabs" id="tasksListTabs" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="undone-tab" data-toggle="tab" href="#undone" role="tab" aria-controls="undone"
+           aria-selected="true" translate>BTN.ACTIVE</a>
+    </li>
+    <li *ngIf="doneTasksList.length !== 0" class="nav-item">
+        <a class="nav-link" id="done-tab" data-toggle="tab" href="#done" role="tab" aria-controls="done" aria-selected="false"
+           translate>BTN.DONE</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="statistics-tab" data-toggle="tab" href="#statistics" role="tab" aria-controls="statistics" aria-selected="false"
+           translate>BTN.STATISTICS</a>
+    </li>
+</ul>
+
+<div class="tab-content" id="mentorsListTabsContent">
+    <div class="tab-pane fade show active" id="undone" role="tabpanel" aria-labelledby="undone-tab">
+        <app-undone-tasks-list [listData]="undoneTasksList" [showActionButton]="false"></app-undone-tasks-list>
+    </div>
+    <div *ngIf="doneTasksList.length !== 0" class="tab-pane fade" id="done" role="tabpanel" aria-labelledby="done-tab">
+        <app-done-tasks-list [paginationData]="donePagedResults" [listData]="doneTasksList"
+                             (userInteracted)="loadListData($event)"></app-done-tasks-list>
+    </div>
+    <div class="tab-pane fade" id="statistics" role="tabpanel" aria-labelledby="statistics-tab">
+        <app-tasks-statistics [data]="statistics"></app-tasks-statistics>
+    </div>
+</div>

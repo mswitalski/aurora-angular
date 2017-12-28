@@ -59,7 +59,8 @@
         "CREATE-TASK": "Create task",
         "ACTIVE": "Active",
         "DONE": "Done",
-        "STATISTICS": "Statistics"
+        "STATISTICS": "Statistics",
+        "USER-TASKS": "Tasks"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Bad username or/and password!",
@@ -213,7 +214,8 @@
             "TRAINING-DETAILS": "Unit leader: training details",
             "TRAINING-CREATE": "Unit leader: create training",
             "TRAINING-EDIT": "Unit leader: edit training",
-            "TRAINING-PARTICIPANTS": "Unit leader: training participants"
+            "TRAINING-PARTICIPANTS": "Unit leader: training participants",
+            "USER-TASKS": "Unit leader: user's tasks"
         }
     },
     "PAGINATION": {

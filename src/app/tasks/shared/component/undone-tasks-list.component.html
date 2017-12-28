@@ -7,7 +7,7 @@
         <ul *ngFor="let task of group.tasks">
             <li>
                 {{task.content}}
-                <a [routerLink]="task.id" class="btn-link" translate>BTN.DETAILS</a>
+                <a *ngIf="actionButton" [routerLink]="task.id" class="btn-link" translate>BTN.DETAILS</a>
             </li>
         </ul>
     </div>
