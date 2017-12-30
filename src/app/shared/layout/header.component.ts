@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import 'rxjs/add/operator/takeUntil';
 
-import {AuthService} from '../service';
+import {AuthService, OutlookService} from '../service';
 import {User} from '../model';
 import {AutoUnsubscriberComponent} from '../auto-unsubscriber.component';
 
@@ -13,9 +13,11 @@ import {AutoUnsubscriberComponent} from '../auto-unsubscriber.component';
 export class HeaderComponent extends AutoUnsubscriberComponent implements OnInit {
 
     loggedUser: User;
+    isOutlookLogged: boolean;
 
-    constructor(private authService: AuthService, private router: Router) {
+    constructor(private authService: AuthService, private router: Router, public outlookService: OutlookService) {
         super();
+        this.outlookService.isTokenPresent.subscribe(v => this.isOutlookLogged = v);
     }
 
     ngOnInit(): void {

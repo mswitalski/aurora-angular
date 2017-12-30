@@ -7,6 +7,7 @@ import {TranslateModule} from '@ngx-translate/core';
 
 import {
     ApiService, AuthService, DutiesService, EvaluationsService, FeedbackService, JwtService, MentorsService,
+    OutlookService,
     RolesService, SkillsService, TasksService, TrainingsService, UsersService
 } from './service';
 import {AuthenticatedGuard, IsAdminGuard, IsEmployeeGuard, IsUnitLeaderGuard} from './service/guard';
@@ -65,6 +66,7 @@ import {FormLegendComponent} from './form-legend.component';
         TrainingsService,
         UsersService,
         TasksService,
+        OutlookService,
         AuthenticatedGuard,
         IsAdminGuard,
         IsUnitLeaderGuard,

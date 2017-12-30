@@ -7,6 +7,7 @@ export * from './evaluations.service';
 export * from './feedback.service';
 export * from './jwt.service';
 export * from './mentors.service';
+export * from './outlook.service';
 export * from './roles.service';
 export * from './skills.service';
 export * from './tasks.service';

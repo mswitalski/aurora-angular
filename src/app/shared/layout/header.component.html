@@ -3,7 +3,14 @@
 
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
-            <li *appAuthenticatedOnly="true" class="nav-item dropdown">
+            <li class="nav-item">
+                <button *ngIf="!isOutlookLogged" (click)="outlookService.login()" class="btn btn-outline-primary" translate><i
+                    class="fa fa-windows mr-1"></i>BTN.LOGIN
+                </button>
+                <button *ngIf="isOutlookLogged" class="btn btn-outline-primary"><i class="fa fa-windows mr-1"></i><i
+                    class="fa fa-check"></i></button>
+            </li>
+            <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" translate
                    [translateParams]="{name: loggedUser.username}">

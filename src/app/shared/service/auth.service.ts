@@ -11,6 +11,7 @@ import {JwtService} from './jwt.service';
 import {LoginCredentials, User} from '../model';
 import {isUndefined} from 'util';
 import {UsersService} from './users.service';
+import {OutlookService} from './outlook.service';
 
 @Injectable()
 export class AuthService {
@@ -28,7 +29,8 @@ export class AuthService {
 
     constructor(private apiService: ApiService,
                 private jwtService: JwtService,
-                private usersService: UsersService) {
+                private usersService: UsersService,
+                private outlookService: OutlookService) {
         this.hasAdminRoleSubject.next(false);
         this.hasUnitLeaderRoleSubject.next(false);
         this.hasEmployeeRoleSubject.next(false);
@@ -85,5 +87,6 @@ export class AuthService {
 
     logout(): void {
         this.invalidateAuthentication();
+        this.outlookService.invalidateToken();
     }
 }

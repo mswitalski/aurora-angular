@@ -14,17 +14,15 @@ import {AuthService} from './shared/service/auth.service';
 
 export class AppComponent implements OnInit {
 
-    private translate: TranslateService;
     private titlePrefix = 'Aurora';
 
     constructor(private authService: AuthService,
                 private router: Router,
                 private activatedRoute: ActivatedRoute,
                 private titleService: Title,
-                translate: TranslateService) {
-        translate.setDefaultLang('en');
-        translate.use('en');
-        this.translate = translate;
+                private translate: TranslateService) {
+        this.translate.setDefaultLang('en');
+        this.translate.use('en');
     }
 
     ngOnInit(): void {
@@ -49,11 +47,17 @@ export class AppComponent implements OnInit {
     }
 
     private subscribeForTranslation(event: any) {
-        this.translate.get(event['title'])
-            .subscribe(translatedTitle => {
-                const title = this.createPageTitle(event['title'], translatedTitle);
-                this.titleService.setTitle(title);
-            });
+        if (event['title']) {
+            this.translate.get(event['title'])
+                .subscribe(translatedTitle => {
+                    const title = this.createPageTitle(event['title'], translatedTitle);
+                    this.titleService.setTitle(title);
+                });
+
+        } else {
+            const title = this.createPageTitle(event['title'], null);
+            this.titleService.setTitle(title);
+        }
     }
 
     private createPageTitle(titleKey: string, translatedTitle: string): string {

@@ -130,6 +130,7 @@
         </fieldset>
         <app-form-legend></app-form-legend>
 
+        <p *ngIf="!isOutlookLogged" class="text-danger" translate>INTEGRATION.OUTLOOK-WARNING</p>
         <button (click)="goBack()" type="button" class="btn btn-dark" translate>
             BTN.BACK
         </button>

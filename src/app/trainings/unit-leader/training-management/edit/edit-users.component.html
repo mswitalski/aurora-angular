@@ -15,6 +15,7 @@
     </div>
 </div>
 
+<p *ngIf="!isOutlookLogged" class="text-danger" translate>INTEGRATION.OUTLOOK-WARNING</p>
 <button [routerLink]="['/unitleader/trainings', training.id]" type="button" class="btn btn-dark" translate>
     BTN.BACK
 </button>

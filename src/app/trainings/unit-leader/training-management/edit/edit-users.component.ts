@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataCheckbox, Training, User} from '../../../../shared/model';
 import {ActivatedRoute, Router} from '@angular/router';
-import {TrainingsService} from '../../../../shared/service';
+import {OutlookService, TrainingsService} from '../../../../shared/service';
 
 @Component({
     templateUrl: './edit-users.component.html'
@@ -11,10 +11,13 @@ export class EditUsersComponent implements OnInit {
     usersCheckboxes: DataCheckbox<User>[] = [];
     isSubmitting = false;
     training: Training;
+    isOutlookLogged: boolean;
 
     constructor(private route: ActivatedRoute,
                 private router: Router,
-                private trainingsService: TrainingsService) {
+                private trainingsService: TrainingsService,
+                private outlookService: OutlookService) {
+        this.outlookService.isTokenPresent.subscribe(v => this.isOutlookLogged = v);
     }
 
     ngOnInit(): void {

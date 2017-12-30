@@ -6,6 +6,7 @@ import {Training, ValidationError} from '../../../shared/model';
 import {validationConstraints} from '../../../shared/configuration';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
+import {OutlookService} from '../../../shared/service';
 
 @Component({
     selector: 'app-training-form',
@@ -22,6 +23,7 @@ export class TrainingFormComponent implements OnInit {
     todayDate = new Date();
     sDate: Date;
     eDate: Date;
+    isOutlookLogged: boolean;
 
     @Input() set editedTraining(value: Training) {
         this.training = value;
@@ -38,7 +40,9 @@ export class TrainingFormComponent implements OnInit {
 
     constructor(private formBuilder: FormBuilder,
                 private route: ActivatedRoute,
-                private location: Location) {
+                private location: Location,
+                private outlookService: OutlookService) {
+        this.outlookService.isTokenPresent.subscribe(v => this.isOutlookLogged = v);
     }
 
     ngOnInit(): void {
