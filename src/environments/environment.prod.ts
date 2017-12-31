@@ -7,14 +7,15 @@ export const environment = {
     adminRole: 'ADMIN',
     unitLeaderRole: 'UNIT_LEADER',
     employeeRole: 'EMPLOYEE',
-
-    'api': {
-        'header': 'Requester-Role',
-        'role': {
-            'admin': 'ADMIN',
-            'common': 'ANY',
-            'employee': 'EMPLOYEE',
-            'unitleader': 'UNIT_LEADER'
+    supportedLanguages: ['en', 'pl'],
+    defaultLanguage: 'en',
+    api: {
+        header: 'Requester-Role',
+        role: {
+            admin: 'ADMIN',
+            common: 'ANY',
+            employee: 'EMPLOYEE',
+            unitleader: 'UNIT_LEADER'
         }
     }
 };

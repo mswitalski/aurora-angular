@@ -26,8 +26,10 @@ export class TrainingManagementComponent implements OnInit {
     }
 
     deleteTraining(): void {
-        this.trainingsService.delete(this.training).subscribe(
-            () => this.router.navigate(['/unitleader/trainings'])
-        );
+        if (confirm(this.deleteDialogMessage)) {
+            this.trainingsService.delete(this.training).subscribe(
+                () => this.router.navigate(['/unitleader/trainings'])
+            );
+        }
     }
 }
