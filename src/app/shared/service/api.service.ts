@@ -71,6 +71,17 @@ export class ApiService {
         return this.http.post(url, JSON.stringify(objectToPost), options);
     }
 
+    postWithHeaders(partialUrl: string, headers: HttpHeaders, objectToPost: Object, requesterRole: string): Observable<any> {
+        const url = environment.backendUrl + partialUrl;
+        const defaultHeaders = this.prepareDefaultHeaders(requesterRole);
+        defaultHeaders.keys().forEach(k => headers = headers.append(k, defaultHeaders.get(k)));
+        const options = {
+            headers: headers
+        };
+
+        return this.http.post(url, JSON.stringify(objectToPost), options);
+    }
+
     postWithParams(partialUrl: string, params: HttpParams, objectToPost: Object, requesterRole: string): Observable<any> {
         const url = environment.backendUrl + partialUrl;
         const options = {
@@ -90,6 +101,17 @@ export class ApiService {
         return this.http.put(url, JSON.stringify(objectToPut), options);
     }
 
+    putWithHeaders(partialUrl: string, headers: HttpHeaders, objectToPut: Object, requesterRole: string): Observable<any> {
+        const url = environment.backendUrl + partialUrl;
+        const defaultHeaders = this.prepareHeadersForUpdate(requesterRole);
+        defaultHeaders.keys().forEach(k => headers = headers.append(k, defaultHeaders.get(k)));
+        const options = {
+            headers: headers
+        };
+
+        return this.http.put(url, JSON.stringify(objectToPut), options);
+    }
+
     private prepareHeadersForUpdate(header: string): HttpHeaders {
         const defaultHeaders = this.prepareDefaultHeaders(header);
 
@@ -100,6 +122,17 @@ export class ApiService {
         const url = environment.backendUrl + partialUrl;
         const options = {
             headers: this.prepareHeadersForUpdate(requesterRole)
+        };
+
+        return this.http.delete(url, options);
+    }
+
+    deleteWithHeaders(partialUrl: string, headers: HttpHeaders, requesterRole: string): Observable<any> {
+        const url = environment.backendUrl + partialUrl;
+        const defaultHeaders = this.prepareHeadersForUpdate(requesterRole);
+        defaultHeaders.keys().forEach(k => headers = headers.append(k, defaultHeaders.get(k)));
+        const options = {
+            headers: headers
         };
 
         return this.http.delete(url, options);

@@ -3,22 +3,37 @@ import {PagedResults, Training, TrainingSearchForm} from '../model';
 import {ApiService} from './api.service';
 import {Observable} from 'rxjs/Observable';
 import {environment} from '../../../environments/environment';
-import {HttpParams} from '@angular/common/http';
+import {HttpHeaders, HttpParams} from '@angular/common/http';
+import {OutlookService} from './outlook.service';
 
 @Injectable()
 export class TrainingsService {
 
     private cachedTraining: Training;
 
-    constructor(private api: ApiService) {
+    constructor(private api: ApiService, private outlookService: OutlookService) {
     }
 
     create(training: Training): Observable<Training> {
-        return this.api.post('trainings/', training, environment.api.role.unitleader);
+        if (this.outlookService.getToken()) {
+            const headers = (new HttpHeaders()).append('Outlook-Authorization', this.outlookService.getToken());
+
+            return this.api.postWithHeaders('trainings/', headers, training, environment.api.role.unitleader);
+
+        } else {
+            return this.api.post('trainings/', training, environment.api.role.unitleader);
+        }
     }
 
     delete(training: Training): Observable<void> {
-        return this.api.deleteMethod('trainings/' + training.id, environment.api.role.unitleader);
+        if (this.outlookService.getToken()) {
+            const headers = (new HttpHeaders()).append('Outlook-Authorization', this.outlookService.getToken());
+
+            return this.api.deleteWithHeaders('trainings/' + training.id, headers, environment.api.role.unitleader);
+
+        } else {
+            return this.api.deleteMethod('trainings/' + training.id, environment.api.role.unitleader);
+        }
     }
 
     getAllByPage(page: number = 0): Observable<PagedResults<Training>> {
@@ -77,6 +92,13 @@ export class TrainingsService {
     update(training: Training): Observable<void> {
         const partialUrl = 'trainings/' + training.id;
 
-        return this.api.put(partialUrl, training, environment.api.role.unitleader);
+        if (this.outlookService.getToken()) {
+            const headers = (new HttpHeaders()).append('Outlook-Authorization', this.outlookService.getToken());
+
+            return this.api.putWithHeaders(partialUrl, headers, training, environment.api.role.unitleader);
+
+        } else {
+            return this.api.put(partialUrl, training, environment.api.role.unitleader);
+        }
     }
 }

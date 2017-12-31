@@ -30,6 +30,10 @@ export class OutlookService {
         }
     }
 
+    getToken(): string {
+        return window.localStorage[this.tokenPlaceholderName];
+    }
+
     invalidateToken(): void {
         this.isTokenPresentSubject.next(false);
         window.localStorage.removeItem(this.tokenPlaceholderName);

@@ -74,7 +74,11 @@ export class TaskFormComponent implements OnInit {
 
     private formatDate(date: Date): string {
         if (date) {
-            return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+            let result =  date.getFullYear() + '-';
+            result += ((date.getMonth() + 1) < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)) + '-';
+            result += (date.getDate() < 10 ? '0' + date.getDate() : date.getDate());
+
+            return result;
 
         } else {
             return null;
