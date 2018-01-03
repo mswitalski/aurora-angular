@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import 'rxjs/add/operator/takeUntil';
 import {Skill} from '../../../shared/model';
 import {SkillsService} from '../../../shared/service';
+import {ObjectsUtil} from '../../../shared/util';
 
 @Component({
     templateUrl: './edit-skill.component.html'
@@ -18,7 +19,7 @@ export class EditSkillComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.skill = this.route.snapshot.data['skill'];
+        this.skill = ObjectsUtil.clone(this.route.snapshot.data['skill']);
     }
 
     submit(skill: Skill): void {

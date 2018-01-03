@@ -4,7 +4,6 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/timeout';
 import 'rxjs/add/operator/share';
-
 import {environment} from '../../../environments/environment';
 import {JwtService} from './jwt.service';
 import {LoginCredentials} from '../model';

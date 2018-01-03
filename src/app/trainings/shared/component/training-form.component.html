@@ -56,7 +56,7 @@
                 class="text-danger">*</span></label>
             <owl-date-time id="training-startDateTime"
                            formControlName="startDateTime"
-                           [(ngModel)]="sDate"
+                           [(ngModel)]="startDate"
                            [dateFormat]="'YYYY-MM-DD HH:mm'"
                            [placeHolder]="'YYYY-MM-DD HH:mm'"
                            [min]="todayDate"
@@ -71,7 +71,7 @@
                 class="text-danger">*</span></label>
             <owl-date-time id="training-endDateTime"
                            formControlName="endDateTime"
-                           [(ngModel)]="eDate"
+                           [(ngModel)]="endDate"
                            [dateFormat]="'YYYY-MM-DD HH:mm'"
                            [placeHolder]="'YYYY-MM-DD HH:mm'"
                            [min]="todayDate"

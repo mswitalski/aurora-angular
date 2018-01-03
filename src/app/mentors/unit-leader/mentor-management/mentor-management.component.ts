@@ -9,8 +9,8 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class MentorManagementComponent implements OnInit {
 
-    mentor: Mentor;
     feedback: Feedback[];
+    mentor: Mentor;
     private deleteDialogMessage: string;
 
     constructor(private route: ActivatedRoute,

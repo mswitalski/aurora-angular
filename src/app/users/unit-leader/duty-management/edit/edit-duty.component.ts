@@ -5,7 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import 'rxjs/add/operator/takeUntil';
 import {DutiesService} from '../../../../shared/service';
 import {Duty} from '../../../../shared/model';
-
+import {ObjectsUtil} from '../../../../shared/util';
 
 @Component({
     templateUrl: './edit-duty.component.html'
@@ -19,7 +19,7 @@ export class EditDutyComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.duty = this.route.snapshot.data['duty'];
+        this.duty = ObjectsUtil.clone(this.route.snapshot.data['duty']);
     }
 
     submit(duty: Duty): void {

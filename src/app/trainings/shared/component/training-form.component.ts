@@ -12,23 +12,23 @@ import {OutlookService} from '../../../shared/service';
     selector: 'app-training-form',
     templateUrl: './training-form.component.html'
 })
-export class TrainingFormComponent implements OnInit {
+export class TrainingFormComponent {
 
-    trainingForm: FormGroup;
+    endDate: Date;
+    isOutlookLogged: boolean;
     isSubmitting = false;
     serverResponse: Observable<HttpErrorResponse>;
+    startDate: Date;
+    todayDate = new Date();
     training = new Training();
+    trainingForm: FormGroup;
     validation = validationConstraints.training;
     validationErrors: ValidationError[] = [];
-    todayDate = new Date();
-    sDate: Date;
-    eDate: Date;
-    isOutlookLogged: boolean;
 
     @Input() set editedTraining(value: Training) {
         this.training = value;
-        this.sDate = new Date(this.training.startDateTime);
-        this.eDate = new Date(this.training.endDateTime);
+        this.startDate = new Date(this.training.startDateTime);
+        this.endDate = new Date(this.training.endDateTime);
     }
 
     @Input() set response(value: Observable<HttpErrorResponse>) {
@@ -43,9 +43,6 @@ export class TrainingFormComponent implements OnInit {
                 private location: Location,
                 private outlookService: OutlookService) {
         this.outlookService.isTokenPresent.subscribe(v => this.isOutlookLogged = v);
-    }
-
-    ngOnInit(): void {
         this.createFormControls();
     }
 
@@ -86,8 +83,8 @@ export class TrainingFormComponent implements OnInit {
     }
 
     submitForm(): void {
-        this.training.startDateTime = this.formatDate(this.sDate);
-        this.training.endDateTime = this.formatDate(this.eDate);
+        this.training.startDateTime = this.formatDate(this.startDate);
+        this.training.endDateTime = this.formatDate(this.endDate);
         this.training.internal = this.trainingForm.get('internal').value;
         this.isSubmitting = true;
         this.formSubmitted.emit(this.training);

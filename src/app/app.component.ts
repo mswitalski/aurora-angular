@@ -1,10 +1,9 @@
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import 'rxjs/add/operator/filter';
 import {Title} from '@angular/platform-browser';
 import {TranslateService} from '@ngx-translate/core';
-
-import {AuthService} from './shared/service/auth.service';
+import {AuthService} from './shared/service';
 import {environment} from '../environments/environment';
 
 @Component({
@@ -13,7 +12,7 @@ import {environment} from '../environments/environment';
     templateUrl: './app.component.html'
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent {
 
     private titlePrefix = 'Aurora';
 
@@ -24,6 +23,8 @@ export class AppComponent implements OnInit {
                 private translate: TranslateService) {
         this.translate.setDefaultLang(environment.defaultLanguage);
         this.translate.use(this.detectSupportedLanguage());
+        this.authService.populate();
+        this.processPageTitle();
     }
 
     private detectSupportedLanguage(): string {
@@ -35,11 +36,6 @@ export class AppComponent implements OnInit {
 
             return supported.length !== 0 ? supported[0] : environment.defaultLanguage;
         }
-    }
-
-    ngOnInit(): void {
-        this.authService.populate();
-        this.processPageTitle();
     }
 
     private processPageTitle() {

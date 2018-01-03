@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-
 import {ApiService} from './api.service';
 import {environment} from '../../../environments/environment';
 import {PagedResults, Skill, SkillSearchForm} from '../model';

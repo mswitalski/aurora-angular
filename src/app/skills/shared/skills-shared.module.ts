@@ -1,7 +1,6 @@
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgModule} from '@angular/core';
-
 import {SharedModule} from '../../shared';
 import {EvaluationFormComponent, SkillFormComponent, SkillsListComponent} from './component';
 import {CachedSkillResolver, SkillResolver, SkillsListResolver, SkillsPlainListResolver} from './resolver';

@@ -3,7 +3,6 @@ import {HTTP_INTERCEPTORS, HttpClient} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-
 import {AppComponent} from './app.component';
 import {AuthenticatedOnlyDirective, FooterComponent, HeaderComponent, SharedModule} from './shared';
 import {DashboardModule} from './dashboard';

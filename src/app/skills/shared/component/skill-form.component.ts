@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Location} from '@angular/common';
@@ -10,13 +10,13 @@ import {validationConstraints} from '../../../shared/configuration';
     selector: 'app-skill-form',
     templateUrl: './skill-form.component.html'
 })
-export class SkillFormComponent implements OnInit {
+export class SkillFormComponent {
 
-    skillForm: FormGroup;
     isEditAction = false;
     isSubmitting = false;
     serverResponse: Observable<HttpErrorResponse>;
     skill = new Skill();
+    skillForm: FormGroup;
     validation = validationConstraints.skill;
     validationErrors: ValidationError[] = [];
 
@@ -33,13 +33,6 @@ export class SkillFormComponent implements OnInit {
     formSubmitted: EventEmitter<Skill> = new EventEmitter();
 
     constructor(private formBuilder: FormBuilder, private location: Location) {
-    }
-
-    ngOnInit(): void {
-        this.createFormControls();
-    }
-
-    private createFormControls(): void {
         this.skillForm = this.formBuilder.group({
             'name': [
                 '', [

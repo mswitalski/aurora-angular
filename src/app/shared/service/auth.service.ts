@@ -4,7 +4,6 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/skip';
-
 import {ApiService} from './api.service';
 import {environment} from '../../../environments/environment';
 import {JwtService} from './jwt.service';
@@ -47,8 +46,8 @@ export class AuthService {
 
     private fetchLoggedUserData() {
         this.usersService.getProfile().subscribe(
-            user => this.authenticate(user),
-            err => this.invalidateAuthentication()
+            (user: User) => this.authenticate(user),
+            () => this.invalidateAuthentication()
         );
     }
 
@@ -60,11 +59,11 @@ export class AuthService {
 
     private populateRoles(user: User) {
         this.hasAdminRoleSubject
-            .next(!isUndefined(user.roles.find(r => r.name === `${environment.adminRole}`)));
+            .next(!isUndefined(user.roles.find(r => r.name === environment.adminRole)));
         this.hasEmployeeRoleSubject
-            .next(!isUndefined(user.roles.find(r => r.name === `${environment.employeeRole}`)));
+            .next(!isUndefined(user.roles.find(r => r.name === environment.employeeRole)));
         this.hasUnitLeaderRoleSubject
-            .next(!isUndefined(user.roles.find(r => r.name === `${environment.unitLeaderRole}`)));
+            .next(!isUndefined(user.roles.find(r => r.name === environment.unitLeaderRole)));
     }
 
     private invalidateAuthentication() {

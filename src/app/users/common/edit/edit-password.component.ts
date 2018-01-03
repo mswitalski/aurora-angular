@@ -20,10 +20,6 @@ export class EditPasswordComponent {
     constructor(private formBuilder: FormBuilder,
                 private router: Router,
                 private usersService: UsersService) {
-        this.createFormControls();
-    }
-
-    private createFormControls(): void {
         this.editPasswordForm = this.formBuilder.group({
             'current-password': ['', this.constructValidators()],
             'new-passwords': this.formBuilder.group({

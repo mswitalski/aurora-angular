@@ -1,5 +1,5 @@
 import {Directive, Input, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
-import {AuthService} from './service/auth.service';
+import {AuthService} from './service';
 
 @Directive({selector: '[appAuthenticatedOnly]'})
 export class AuthenticatedOnlyDirective implements OnInit {
@@ -13,7 +13,7 @@ export class AuthenticatedOnlyDirective implements OnInit {
 
     ngOnInit() {
         this.authService.isAuthenticated.subscribe(
-            (isAuthenticated) => {
+            (isAuthenticated: boolean) => {
                 if (isAuthenticated && this.condition || !isAuthenticated && !this.condition) {
                     this.view.createEmbeddedView(this.template);
 

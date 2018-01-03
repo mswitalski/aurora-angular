@@ -1,5 +1,5 @@
 import {Directive, Input, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
-import {AuthService} from './service/auth.service';
+import {AuthService} from './service';
 
 @Directive({selector: '[appShowUnitLeader]'})
 export class ShowUnitLeaderDirective implements OnInit {
@@ -13,7 +13,7 @@ export class ShowUnitLeaderDirective implements OnInit {
 
     ngOnInit() {
         this.authService.hasUnitLeaderRole.subscribe(
-            isUnitLeader => {
+            (isUnitLeader: boolean) => {
                 if (isUnitLeader && this.condition || !isUnitLeader && !this.condition) {
                     this.view.createEmbeddedView(this.template);
 

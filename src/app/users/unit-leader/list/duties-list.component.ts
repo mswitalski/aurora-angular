@@ -17,10 +17,6 @@ export class DutiesListComponent implements OnInit {
     searchDutyForm: FormGroup;
 
     constructor(private route: ActivatedRoute, private dutiesService: DutiesService, private formBuilder: FormBuilder) {
-        this.createFormControls();
-    }
-
-    private createFormControls(): void {
         this.searchDutyForm = this.formBuilder.group({
             'name': ['']
         });

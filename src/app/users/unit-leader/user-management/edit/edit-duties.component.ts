@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {DataCheckbox, Duty, User} from '../../../../shared/model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UsersService} from '../../../../shared/service';
+import {ObjectsUtil} from '../../../../shared/util';
 
 @Component({
     templateUrl: './edit-duties.component.html'
@@ -18,7 +19,7 @@ export class EditDutiesComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.user = JSON.parse(JSON.stringify(this.route.snapshot.data['user']));
+        this.user = ObjectsUtil.clone(this.route.snapshot.data['user']);
         this.route.snapshot.data['duties'].forEach(
             role => this.dutiesCheckboxes.push(new DataCheckbox(role, this.hasRole(role)))
         );

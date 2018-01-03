@@ -1,8 +1,7 @@
 import {ActivatedRoute} from '@angular/router';
 import {Component, OnInit} from '@angular/core';
 import 'rxjs/add/operator/takeUntil';
-
-import {User} from '../../shared/model/index';
+import {User} from '../../shared/model';
 
 @Component({
     templateUrl: './profile.component.html'

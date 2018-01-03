@@ -21,10 +21,7 @@ export class LoginComponent extends AutoUnsubscriberComponent implements OnDestr
                 private formBuilder: FormBuilder,
                 private router: Router) {
         super();
-        this.createFormControls();
-    }
 
-    private createFormControls() {
         this.loginForm = this.formBuilder.group({
             'username': ['', Validators.required],
             'password': ['', Validators.required]
@@ -47,7 +44,7 @@ export class LoginComponent extends AutoUnsubscriberComponent implements OnDestr
         );
 
         this.authService.isAuthenticated.takeUntil(this.ngUnsubscribe).subscribe(
-            (isAuthenticated) => {
+            (isAuthenticated: boolean) => {
                 if (isAuthenticated) {
                     this.router.navigate(['/dashboard']);
                 }

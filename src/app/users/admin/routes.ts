@@ -1,6 +1,5 @@
 import {ModuleWithProviders} from '@angular/core';
 import {RouterModule} from '@angular/router';
-
 import {CachedUserResolver, RolesResolver, UserResolver, UsersListResolver} from '../shared/resolver';
 import {CreateUserComponent, UserManagementComponent} from './user-management';
 import {EditPasswordComponent, EditRolesComponent, EditUserComponent} from './user-management/edit';

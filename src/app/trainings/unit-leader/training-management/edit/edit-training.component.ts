@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {TrainingsService} from '../../../../shared/service';
 import {Training} from '../../../../shared/model';
+import {ObjectsUtil} from '../../../../shared/util';
 
 @Component({
     templateUrl: './edit-training.component.html'
@@ -17,7 +18,7 @@ export class EditTrainingComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.training = this.route.snapshot.data['training'];
+        this.training = ObjectsUtil.clone(this.route.snapshot.data['training']);
     }
 
     submit(training: Training): void {

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import {HttpErrorResponse} from '@angular/common/http';
@@ -11,16 +11,16 @@ import {Location} from '@angular/common';
     selector: 'app-task-form',
     templateUrl: './task-form.component.html'
 })
-export class TaskFormComponent implements OnInit {
+export class TaskFormComponent {
 
-    taskForm: FormGroup;
+    deadlineDate: Date;
     isSubmitting = false;
+    taskForm: FormGroup;
     serverResponse: Observable<HttpErrorResponse>;
     task = new Task();
+    todayDate = new Date();
     validation = validationConstraints.task;
     validationErrors: ValidationError[] = [];
-    todayDate = new Date();
-    deadlineDate: Date;
     @Output() formSubmitted: EventEmitter<Task> = new EventEmitter();
 
     @Input() set editedTask(value: Task) {
@@ -35,13 +35,6 @@ export class TaskFormComponent implements OnInit {
     constructor(private formBuilder: FormBuilder,
                 private route: ActivatedRoute,
                 private location: Location) {
-    }
-
-    ngOnInit(): void {
-        this.createFormControls();
-    }
-
-    private createFormControls(): void {
         this.taskForm = this.formBuilder.group({
             'content': [
                 '', [
@@ -74,7 +67,7 @@ export class TaskFormComponent implements OnInit {
 
     private formatDate(date: Date): string {
         if (date) {
-            let result =  date.getFullYear() + '-';
+            let result = date.getFullYear() + '-';
             result += ((date.getMonth() + 1) < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)) + '-';
             result += (date.getDate() < 10 ? '0' + date.getDate() : date.getDate());
 

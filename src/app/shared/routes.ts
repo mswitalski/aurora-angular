@@ -1,6 +1,5 @@
 import {ModuleWithProviders} from '@angular/core';
 import {RouterModule} from '@angular/router';
-
 import {AuthenticatedGuard} from './service/guard';
 import {ErrorPageComponent} from './error-page';
 

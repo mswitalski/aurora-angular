@@ -7,8 +7,7 @@ import {TranslateModule} from '@ngx-translate/core';
 
 import {
     ApiService, AuthService, DutiesService, EvaluationsService, FeedbackService, JwtService, MentorsService,
-    OutlookService,
-    RolesService, SkillsService, TasksService, TrainingsService, UsersService
+    OutlookService, RolesService, SkillsService, TasksService, TrainingsService, UsersService
 } from './service';
 import {AuthenticatedGuard, IsAdminGuard, IsEmployeeGuard, IsUnitLeaderGuard} from './service/guard';
 import {ErrorPageComponent} from './error-page';

@@ -4,6 +4,7 @@ import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {ActivatedRoute, Router} from '@angular/router';
 import {EvaluationsService} from '../../../shared/service';
 import {Component, OnInit} from '@angular/core';
+import {ObjectsUtil} from '../../../shared/util';
 
 @Component({
     templateUrl: './edit-user-evaluation.component.html'
@@ -17,7 +18,7 @@ export class EditUserEvaluationComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.evaluation = this.route.snapshot.data['evaluation'];
+        this.evaluation = ObjectsUtil.clone(this.route.snapshot.data['evaluation']);
     }
 
     submit(evaluation: Evaluation): void {

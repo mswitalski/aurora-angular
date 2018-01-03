@@ -1,6 +1,5 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-
 import {DashboardComponent} from './dashboard.component';
 import {SharedModule} from '../shared';
 import {moduleRouting} from './routes';

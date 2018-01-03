@@ -1,7 +1,6 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
-
 import {EditPasswordComponent, EditProfileComponent} from './edit';
 import {LoggedUserResolver} from './resolver';
 import {moduleRouting} from './routes';

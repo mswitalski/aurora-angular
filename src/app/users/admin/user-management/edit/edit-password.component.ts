@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AdminPasswordChangeFormModel, User, ValidationError} from '../../../../shared/model';
 import {UsersService} from '../../../../shared/service';
 import {validationConstraints} from '../../../../shared/configuration';
+import {ObjectsUtil} from '../../../../shared/util';
 
 @Component({
     templateUrl: './edit-password.component.html'
@@ -21,10 +22,6 @@ export class EditPasswordComponent implements OnInit {
                 private route: ActivatedRoute,
                 private router: Router,
                 private usersService: UsersService) {
-        this.createFormControls();
-    }
-
-    private createFormControls(): void {
         this.editPasswordForm = this.formBuilder.group({
             'new': ['', this.constructValidators()],
             'repeated': ['', this.constructValidators()]
@@ -47,7 +44,7 @@ export class EditPasswordComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.user = JSON.parse(JSON.stringify(this.route.snapshot.data['user']));
+        this.user = ObjectsUtil.clone(this.route.snapshot.data['user']);
     }
 
     submitForm(): void {

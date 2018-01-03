@@ -12,8 +12,8 @@ export class TrainingsListComponent {
     isFilteringEnabled = false;
     pagedResults: PagedResults<Training>;
     searchTrainingForm: FormGroup;
-    trainingsList: Training[];
     showSearch = true;
+    trainingsList: Training[];
 
     @Output()
     userInteracted: EventEmitter<ListEventData> = new EventEmitter();

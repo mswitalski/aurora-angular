@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {ValidationError} from './model/validation-error.model';
+import {ValidationError} from './model';
 import {AbstractControl} from '@angular/forms';
 
 @Component({
@@ -8,11 +8,11 @@ import {AbstractControl} from '@angular/forms';
 })
 export class FormErrorsComponent {
 
-    serverErrorList: ValidationError[] = [];
-    fieldName: string;
     control: AbstractControl;
-    minLen = 0;
+    fieldName: string;
     maxLen = 0;
+    minLen = 0;
+    serverErrorList: ValidationError[] = [];
 
     @Input() set serverErrors(errorList: ValidationError[]) {
         this.serverErrorList = errorList.filter(e => e.fieldName === this.fieldName);

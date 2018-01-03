@@ -8,12 +8,12 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 })
 export class MentorsListComponent {
 
+    extendedInformation = false;
     formData = new MentorSearchForm();
     isFilteringEnabled = false;
+    mentorsList: Mentor[];
     pagedResults: PagedResults<Mentor>;
     searchMentorForm: FormGroup;
-    mentorsList: Mentor[];
-    extendedInformation = false;
 
     @Output()
     userInteracted: EventEmitter<ListEventData> = new EventEmitter();

@@ -7,8 +7,8 @@ import {DateGroup, Task} from '../../../shared/model';
 })
 export class UndoneTasksListComponent {
 
-    dateGroups: DateGroup[] = [];
     actionButton = true;
+    dateGroups: DateGroup[] = [];
     tasksPresent = false;
     private tasksList: Task[];
 

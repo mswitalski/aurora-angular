@@ -1,6 +1,5 @@
 import {RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
-
 import {IsUnitLeaderGuard} from '../../shared/service/guard';
 import {SkillsListComponent, UserEvaluationsListComponent} from './list';
 import {CachedSkillResolver, SkillResolver, SkillsListResolver, SkillsPlainListResolver} from '../shared/resolver';

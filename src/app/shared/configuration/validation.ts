@@ -1,72 +1,72 @@
 export const validationConstraints = {
-    'duty': {
-        'name': {
-            'max': 100
+    duty: {
+        name: {
+            max: 100
         }
     },
-    'evaluation': {
-        'leaderExplanation': {
-            'max': 200
+    evaluation: {
+        leaderExplanation: {
+            max: 200
         },
-        'selfExplanation': {
-            'max': 200
+        selfExplanation: {
+            max: 200
         }
     },
-    'feedback': {
-        'content': {
-            'max': 200
+    feedback: {
+        content: {
+            max: 200
         }
     },
-    'skill': {
-        'name': {
-            'max': 50
+    skill: {
+        name: {
+            max: 50
         }
     },
-    'task': {
-        'content': {
-            'max': 100
+    task: {
+        content: {
+            max: 100
         }
     },
-    'training': {
-        'name': {
-            'max': 100
+    training: {
+        name: {
+            max: 100
         },
-        'type': {
-            'max': 20
+        type: {
+            max: 20
         },
-        'location': {
-            'max': 50
+        location: {
+            max: 50
         },
-        'description': {
-            'max': 500
+        description: {
+            max: 500
         }
     },
-    'user': {
-        'username': {
-            'min': 2,
-            'max': 20
+    user: {
+        username: {
+            min: 2,
+            max: 20
         },
-        'password': {
-            'min': 3,
-            'max': 60
+        password: {
+            min: 3,
+            max: 60
         },
-        'email': {
-            'max': 40
+        email: {
+            max: 40
         },
-        'name': {
-            'min': 3,
-            'max': 20
+        name: {
+            min: 3,
+            max: 20
         },
-        'surname': {
-            'min': 3,
-            'max': 30
+        surname: {
+            min: 3,
+            max: 30
         },
-        'position': {
-            'min': 2,
-            'max': 40
+        position: {
+            min: 2,
+            max: 40
         },
-        'goals': {
-            'max': 200
+        goals: {
+            max: 200
         }
     }
 };

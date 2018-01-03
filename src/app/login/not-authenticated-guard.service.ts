@@ -3,7 +3,6 @@ import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/take';
-
 import {AuthService} from '../shared/service';
 
 @Injectable()
@@ -13,7 +12,7 @@ export class NotAuthenticatedGuard implements CanActivate {
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-        return this.authService.isAuthenticated.map(value => {
+        return this.authService.isAuthenticated.map((value: boolean) => {
             if (value) {
                 this.router.navigate(['/dashboard']);
 

@@ -3,7 +3,6 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Location} from '@angular/common';
 import {Observable} from 'rxjs/Observable';
-
 import {Duty, ValidationError} from '../../../shared/model';
 import {validationConstraints} from '../../../shared/configuration';
 
@@ -13,10 +12,10 @@ import {validationConstraints} from '../../../shared/configuration';
 })
 export class DutyFormComponent {
 
+    duty = new Duty();
     dutyForm: FormGroup;
     isSubmitting = false;
     serverResponse: Observable<HttpErrorResponse>;
-    duty = new Duty();
     validation = validationConstraints.duty;
     validationErrors: ValidationError[] = [];
 
@@ -34,10 +33,6 @@ export class DutyFormComponent {
     formSubmitted: EventEmitter<Duty> = new EventEmitter();
 
     constructor(private formBuilder: FormBuilder, private location: Location) {
-        this.createFormControls();
-    }
-
-    private createFormControls(): void {
         this.dutyForm = this.formBuilder.group({
             'name': [
                 '', [

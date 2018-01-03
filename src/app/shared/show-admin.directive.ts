@@ -1,5 +1,5 @@
 import {Directive, Input, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
-import {AuthService} from './service/auth.service';
+import {AuthService} from './service';
 
 @Directive({selector: '[appShowAdmin]'})
 export class ShowAdminDirective implements OnInit {
@@ -13,7 +13,7 @@ export class ShowAdminDirective implements OnInit {
 
     ngOnInit() {
         this.authService.hasAdminRole.subscribe(
-            isAdmin => {
+            (isAdmin: boolean) => {
                 if (isAdmin && this.condition || !isAdmin && !this.condition) {
                     this.view.createEmbeddedView(this.template);
 

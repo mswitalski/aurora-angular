@@ -4,6 +4,7 @@ import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {TasksService} from '../../../../shared/service';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Task} from '../../../../shared/model';
+import {ObjectsUtil} from '../../../../shared/util';
 
 @Component({
     templateUrl: './edit-task.component.html'
@@ -17,7 +18,7 @@ export class EditTaskComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.task = this.route.snapshot.data['task'];
+        this.task = ObjectsUtil.clone(this.route.snapshot.data['task']);
     }
 
     submit(task: Task): void {

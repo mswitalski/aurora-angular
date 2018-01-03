@@ -17,11 +17,11 @@ export class HeaderComponent extends AutoUnsubscriberComponent implements OnInit
 
     constructor(private authService: AuthService, private router: Router, public outlookService: OutlookService) {
         super();
-        this.outlookService.isTokenPresent.subscribe(v => this.isOutlookLogged = v);
+        this.outlookService.isTokenPresent.subscribe((v: boolean) => this.isOutlookLogged = v);
     }
 
     ngOnInit(): void {
-        this.authService.loggedUser.takeUntil(this.ngUnsubscribe).subscribe(user => this.loggedUser = user);
+        this.authService.loggedUser.takeUntil(this.ngUnsubscribe).subscribe((user: User) => this.loggedUser = user);
     }
 
     logout(): void {

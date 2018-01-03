@@ -2,16 +2,17 @@ import {Component, OnInit} from '@angular/core';
 import {DataCheckbox, Training, User} from '../../../../shared/model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {OutlookService, TrainingsService} from '../../../../shared/service';
+import {ObjectsUtil} from '../../../../shared/util';
 
 @Component({
     templateUrl: './edit-users.component.html'
 })
 export class EditUsersComponent implements OnInit {
 
-    usersCheckboxes: DataCheckbox<User>[] = [];
+    isOutlookLogged: boolean;
     isSubmitting = false;
     training: Training;
-    isOutlookLogged: boolean;
+    usersCheckboxes: DataCheckbox<User>[] = [];
 
     constructor(private route: ActivatedRoute,
                 private router: Router,
@@ -21,7 +22,7 @@ export class EditUsersComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.training = this.route.snapshot.data['training'];
+        this.training = ObjectsUtil.clone(this.route.snapshot.data['training']);
         this.route.snapshot.data['users'].forEach(
             user => this.usersCheckboxes.push(new DataCheckbox(user, this.hasUser(user)))
         );

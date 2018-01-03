@@ -1,6 +1,5 @@
 import {ModuleWithProviders} from '@angular/core';
 import {RouterModule} from '@angular/router';
-
 import {AuthenticatedGuard} from '../../shared/service/guard';
 import {EditPasswordComponent, EditProfileComponent} from './edit';
 import {LoggedUserResolver} from './resolver';
@@ -30,7 +29,7 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         component: EditPasswordComponent,
         data: {title: 'TITLE.EDIT-PASSWORD'},
         path: 'profile/edit/password',
-        resolve: { // Necessary to get an ETag for update
+        resolve: {
             user: LoggedUserResolver
         }
     }

@@ -6,6 +6,7 @@ import 'rxjs/add/operator/takeUntil';
 import {User} from '../../../../shared/model';
 import {UsersService} from '../../../../shared/service';
 import {environment} from '../../../../../environments/environment';
+import {ObjectsUtil} from '../../../../shared/util';
 
 @Component({
     templateUrl: './edit-user.component.html'
@@ -16,7 +17,7 @@ export class EditUserComponent {
     responseSubject = new ReplaySubject<HttpErrorResponse>(1);
 
     constructor(private route: ActivatedRoute, private router: Router, private usersService: UsersService) {
-        this.user = this.route.snapshot.data['user'];
+        this.user = ObjectsUtil.clone(this.route.snapshot.data['user']);
         this.redirectIfNotEmployeeUser();
     }
 

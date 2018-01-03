@@ -1,9 +1,10 @@
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgModule} from '@angular/core';
-
-import {AllUsersListResolver, CachedDutyResolver, CachedUserResolver, DutiesListResolver, DutiesPagedListResolver,
-    DutyResolver, RolesResolver, UserResolver, UsersListResolver} from './resolver';
+import {
+    AllUsersListResolver, CachedDutyResolver, CachedUserResolver, DutiesListResolver, DutiesPagedListResolver,
+    DutyResolver, RolesResolver, UserResolver, UsersListResolver
+} from './resolver';
 import {
     DutyFormComponent, ExpandedUsersListComponent, SimpleUsersListComponent, UserDetailsComponent,
     UserFormComponent

@@ -5,6 +5,7 @@ import 'rxjs/add/operator/takeUntil';
 import {User, ValidationError} from '../../../shared/model';
 import {UsersService} from '../../../shared/service';
 import {validationConstraints} from '../../../shared/configuration';
+import {ObjectsUtil} from '../../../shared/util';
 
 @Component({
     templateUrl: './edit-profile.component.html'
@@ -45,7 +46,7 @@ export class EditProfileComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.loggedUser = this.route.snapshot.data['user'];
+        this.loggedUser = ObjectsUtil.clone(this.route.snapshot.data['user']);
     }
 
     submitForm(): void {

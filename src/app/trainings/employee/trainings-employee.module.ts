@@ -12,9 +12,9 @@ import {TrainingManagementComponent} from './training-management';
         TrainingsListComponent
     ],
     imports: [
-        TrainingsSharedModule,
         moduleRouting,
-        SharedModule
+        SharedModule,
+        TrainingsSharedModule
     ],
     providers: [
         FinishedTrainingsListResolver,

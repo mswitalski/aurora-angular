@@ -9,10 +9,10 @@ import {ListEventData, PagedResults, TasksStatistics} from '../../../shared/mode
 })
 export class TasksListComponent implements OnInit {
 
-    undoneTasksList: Task[];
     donePagedResults: PagedResults<Task>;
     doneTasksList: Task[];
     statistics: TasksStatistics;
+    undoneTasksList: Task[];
 
     constructor(private route: ActivatedRoute, private tasksService: TasksService) {
     }

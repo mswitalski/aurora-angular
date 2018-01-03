@@ -21,12 +21,12 @@ export class EvaluationFormComponent implements OnInit {
         {value: SkillLevel.EXPERT, text: 'SKILL-LEVEL.EXPERT'}
     ];
     availableSkills: Skill[] = [];
+    evaluation = new Evaluation();
     evaluationForm: FormGroup;
     isEditAction = false;
-    isUnitLeaderAction = false;
     isSubmitting = false;
+    isUnitLeaderAction = false;
     serverResponse: Observable<HttpErrorResponse>;
-    evaluation = new Evaluation();
     skill: Skill;
     validation = validationConstraints.evaluation;
     validationErrors: ValidationError[] = [];

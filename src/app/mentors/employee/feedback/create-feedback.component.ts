@@ -12,9 +12,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class CreateFeedbackComponent extends AutoUnsubscriberComponent implements OnInit {
 
+    feedback = new Feedback();
     feedbackForm: FormGroup;
     isSubmitting = false;
-    feedback = new Feedback();
     validation = validationConstraints.feedback;
     validationErrors: ValidationError[] = [];
 

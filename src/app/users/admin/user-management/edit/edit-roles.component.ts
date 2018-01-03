@@ -3,14 +3,15 @@ import {Component, OnInit} from '@angular/core';
 import 'rxjs/add/operator/takeUntil';
 import {DataCheckbox, Role, User} from '../../../../shared/model';
 import {UsersService} from '../../../../shared/service';
+import {ObjectsUtil} from '../../../../shared/util';
 
 @Component({
     templateUrl: './edit-roles.component.html'
 })
 export class EditRolesComponent implements OnInit {
 
-    rolesCheckboxes: DataCheckbox<Role>[] = [];
     isSubmitting = false;
+    rolesCheckboxes: DataCheckbox<Role>[] = [];
     user: User;
 
     constructor(private route: ActivatedRoute,
@@ -19,7 +20,7 @@ export class EditRolesComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.user = JSON.parse(JSON.stringify(this.route.snapshot.data['user']));
+        this.user = ObjectsUtil.clone(this.route.snapshot.data['user']);
         this.route.snapshot.data['roles'].forEach(
             role => this.rolesCheckboxes.push(new DataCheckbox(role, this.hasRole(role)))
         );

@@ -10,9 +10,9 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class MentorManagementComponent extends AutoUnsubscriberComponent implements OnInit {
 
-    mentor: Mentor;
     feedback: Feedback[];
     isMentorOwner = false;
+    mentor: Mentor;
     private deleteDialogMessage: string;
 
     constructor(private route: ActivatedRoute,

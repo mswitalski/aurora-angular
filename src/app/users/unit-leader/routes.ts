@@ -1,6 +1,5 @@
 import {RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
-
 import {
     CachedDutyResolver, CachedUserResolver, DutiesListResolver, DutiesPagedListResolver, DutyResolver, UserResolver,
     UsersListResolver

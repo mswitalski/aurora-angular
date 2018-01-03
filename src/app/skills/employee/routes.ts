@@ -2,12 +2,11 @@ import {RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 import {IsEmployeeGuard} from '../../shared/service/guard';
 import {EvaluationsListComponent} from './list';
-import {CachedEvaluationResolver, EvaluationsListResolver} from './resolver';
+import {CachedEvaluationResolver, EvaluationsListResolver, EvaluationResolver} from './resolver';
 import {
     CreateEvaluationComponent, EditEvaluationComponent,
     EvaluationManagementComponent
 } from './evaluation-management';
-import {EvaluationResolver} from './resolver/evaluation-resolver.service';
 import {SkillsPlainListResolver} from '../shared/resolver';
 
 export const moduleRouting: ModuleWithProviders = RouterModule.forChild([

@@ -1,5 +1,5 @@
 import {Directive, Input, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
-import {AuthService} from './service/auth.service';
+import {AuthService} from './service';
 
 @Directive({selector: '[appShowEmployee]'})
 export class ShowEmployeeDirective implements OnInit {
@@ -13,7 +13,7 @@ export class ShowEmployeeDirective implements OnInit {
 
     ngOnInit() {
         this.authService.hasEmployeeRole.subscribe(
-            isEmployee => {
+            (isEmployee: boolean) => {
                 if (isEmployee && this.condition || !isEmployee && !this.condition) {
                     this.view.createEmbeddedView(this.template);
 

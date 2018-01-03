@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
-
 import {ListEventData, PagedResults, User, UserSearchForm} from '../../../shared/model';
 
 @Component({

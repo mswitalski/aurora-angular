@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {PagedResults} from './model/paged-results.model';
+import {PagedResults} from './model';
 
 @Component({
     selector: 'app-pagination',

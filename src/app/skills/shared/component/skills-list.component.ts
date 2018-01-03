@@ -9,9 +9,9 @@ import {ListEventData, PagedResults, Skill, SkillSearchForm} from '../../../shar
 })
 export class SkillsListComponent {
 
-    searchFormData = new SkillSearchForm();
     isFilteringEnabled = false;
     pagedResults: PagedResults<Skill>;
+    searchFormData = new SkillSearchForm();
     searchSkillForm: FormGroup;
     skillsList: Skill[];
 
@@ -27,10 +27,6 @@ export class SkillsListComponent {
     }
 
     constructor(private formBuilder: FormBuilder) {
-        this.createFormControls();
-    }
-
-    private createFormControls(): void {
         this.searchSkillForm = this.formBuilder.group({
             'name': ['']
         });

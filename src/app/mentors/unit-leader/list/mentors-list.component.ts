@@ -8,8 +8,8 @@ import {MentorsService} from '../../../shared/service';
 })
 export class MentorsListComponent implements OnInit {
 
-    pagedResults: PagedResults<Mentor>;
     mentorsList: Mentor[];
+    pagedResults: PagedResults<Mentor>;
 
     constructor(private route: ActivatedRoute, private mentorsService: MentorsService) {
     }
