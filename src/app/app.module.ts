@@ -9,7 +9,6 @@ import {AuthenticatedOnlyDirective, FooterComponent, HeaderComponent, SharedModu
 import {DashboardModule} from './dashboard';
 import {HttpErrorInterceptorService} from './shared/listener';
 import {LoginModule} from './login';
-import {ProfileModule} from './profile';
 import {UsersModule} from './users';
 import {rootRouting} from './routes';
 import {DutiesModule} from './duties';
@@ -39,7 +38,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         DutiesModule,
         LoginModule,
         MentorsModule,
-        ProfileModule,
         rootRouting,
         SharedModule,
         SkillsModule,

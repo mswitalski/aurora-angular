@@ -3,11 +3,11 @@ import {NgModule} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
 
 import {EditPasswordComponent, EditProfileComponent} from './edit';
-import {LoggedUserResolver} from './logged-user-resolver.service';
+import {LoggedUserResolver} from './resolver';
 import {moduleRouting} from './routes';
 import {ProfileComponent} from './profile.component';
-import {SharedModule} from '../shared';
-import {UsersSharedModule} from '../users/shared';
+import {SharedModule} from '../../shared';
+import {UsersSharedModule} from '../shared';
 
 @NgModule({
     declarations: [
@@ -26,5 +26,5 @@ import {UsersSharedModule} from '../users/shared';
         LoggedUserResolver
     ]
 })
-export class ProfileModule {
+export class UsersCommonModule {
 }

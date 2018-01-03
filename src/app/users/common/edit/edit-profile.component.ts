@@ -2,9 +2,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import 'rxjs/add/operator/takeUntil';
-import {User, ValidationError} from '../../shared/model';
-import {UsersService} from '../../shared/service';
-import {validationConstraints} from '../../shared/configuration';
+import {User, ValidationError} from '../../../shared/model';
+import {UsersService} from '../../../shared/service';
+import {validationConstraints} from '../../../shared/configuration';
 
 @Component({
     templateUrl: './edit-profile.component.html'

@@ -1,9 +1,9 @@
 import {ModuleWithProviders} from '@angular/core';
 import {RouterModule} from '@angular/router';
 
-import {AuthenticatedGuard} from '../shared/service/guard';
+import {AuthenticatedGuard} from '../../shared/service/guard';
 import {EditPasswordComponent, EditProfileComponent} from './edit';
-import {LoggedUserResolver} from './logged-user-resolver.service';
+import {LoggedUserResolver} from './resolver';
 import {ProfileComponent} from './profile.component';
 
 export const moduleRouting: ModuleWithProviders = RouterModule.forChild([

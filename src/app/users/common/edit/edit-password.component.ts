@@ -2,9 +2,9 @@ import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import 'rxjs/add/operator/takeUntil';
-import {PasswordChangeFormModel, ValidationError} from '../../shared/model';
-import {UsersService} from '../../shared/service';
-import {validationConstraints} from '../../shared/configuration';
+import {PasswordChangeFormModel, ValidationError} from '../../../shared/model';
+import {validationConstraints} from '../../../shared/configuration';
+import {UsersService} from '../../../shared/service';
 
 @Component({
     templateUrl: './edit-password.component.html'
