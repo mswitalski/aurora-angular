@@ -11,7 +11,6 @@ import {HttpErrorInterceptorService} from './shared/listener';
 import {LoginModule} from './login';
 import {UsersModule} from './users';
 import {rootRouting} from './routes';
-import {DutiesModule} from './duties';
 import {SkillsModule} from './skills';
 import {MentorsModule} from './mentors';
 import {TrainingsModule} from './trainings';
@@ -35,7 +34,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         BrowserAnimationsModule,
         DashboardModule,
         DateTimePickerModule,
-        DutiesModule,
         LoginModule,
         MentorsModule,
         rootRouting,

@@ -2,21 +2,24 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgModule} from '@angular/core';
 
-import {AllUsersListResolver, CachedUserResolver, RolesResolver, UserResolver, UsersListResolver} from './resolver';
+import {AllUsersListResolver, CachedDutyResolver, CachedUserResolver, DutiesListResolver, DutiesPagedListResolver,
+    DutyResolver, RolesResolver, UserResolver, UsersListResolver} from './resolver';
 import {
-    ExpandedUsersListComponent, SimpleUsersListComponent, UserDetailsComponent,
+    DutyFormComponent, ExpandedUsersListComponent, SimpleUsersListComponent, UserDetailsComponent,
     UserFormComponent
 } from './component';
 import {SharedModule} from '../../shared';
 
 @NgModule({
     declarations: [
+        DutyFormComponent,
         ExpandedUsersListComponent,
         SimpleUsersListComponent,
         UserDetailsComponent,
         UserFormComponent
     ],
     exports: [
+        DutyFormComponent,
         ExpandedUsersListComponent,
         SimpleUsersListComponent,
         UserDetailsComponent,
@@ -31,6 +34,10 @@ import {SharedModule} from '../../shared';
     providers: [
         AllUsersListResolver,
         CachedUserResolver,
+        CachedDutyResolver,
+        DutiesListResolver,
+        DutiesPagedListResolver,
+        DutyResolver,
         RolesResolver,
         UserResolver,
         UsersListResolver
