@@ -15,7 +15,8 @@
                                  [controlName]="'username'"
                                  [formControl]="userForm.controls['username']"
                                  [maxLength]="validation.username.max"
-                                 [minLength]="validation.username.min" ngDefaultControl></app-form-errors>
+                                 [minLength]="validation.username.min"
+                                 [patternMessage]="'FORM.USERNAME-PATTERN'" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
         <fieldset *ngIf="!isEditAction" class="form-group row">

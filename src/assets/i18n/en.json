@@ -249,7 +249,8 @@
     "FORM": {
         "SKILL-NAME": "Nazwa umiej\u0119tno\u015bci",
         "NO-SKILLS": "No skills available",
-        "FIELD-REQUIRED": "Indicates required field"
+        "FIELD-REQUIRED": "Indicates required field",
+        "USERNAME-PATTERN": "Username may only contain lowercase, uppercase letters or numbers"
     },
     "FEEDBACK": {
         "SATISFIED": "Satisfied",

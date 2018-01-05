@@ -248,7 +248,8 @@
     "FORM": {
         "SKILL-NAME": "Nazwa umiej\u0119tno\u015bci",
         "NO-SKILLS": "Brak dost\u0119pnych umiej\u0119tno\u015bci",
-        "FIELD-REQUIRED": "Oznacza pole wymagane"
+        "FIELD-REQUIRED": "Oznacza pole wymagane",
+        "USERNAME-PATTERN": "Nazwa u\u017cytkownika mo\u017ce zawiera\u0107 jedynie ma\u0142e lub du\u017ce litery alfabetu \u0142aci\u0144skiego lub cyfry"
     },
     "FEEDBACK": {
         "SATISFIED": "Zadowolony",

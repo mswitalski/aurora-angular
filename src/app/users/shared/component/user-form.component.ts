@@ -91,7 +91,8 @@ export class UserFormComponent implements OnInit {
                 '', [
                     Validators.required,
                     Validators.minLength(this.validation.username.min),
-                    Validators.maxLength(this.validation.username.max)
+                    Validators.maxLength(this.validation.username.max),
+                    Validators.pattern('[a-zA-Z0-9]*')
                 ]
             ];
             formControls['password'] = [

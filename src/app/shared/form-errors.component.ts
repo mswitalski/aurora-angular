@@ -12,6 +12,7 @@ export class FormErrorsComponent {
     fieldName: string;
     maxLen = 0;
     minLen = 0;
+    patternMsg: string;
     serverErrorList: ValidationError[] = [];
 
     @Input() set serverErrors(errorList: ValidationError[]) {
@@ -32,5 +33,9 @@ export class FormErrorsComponent {
 
     @Input() set maxLength(value: number) {
         this.maxLen = value;
+    }
+
+    @Input() set patternMessage(value: string) {
+        this.patternMsg = value;
     }
 }

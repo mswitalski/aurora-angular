@@ -3,6 +3,7 @@
     <div [hidden]="!control.errors.minlength" translate [translateParams]="{value: minLen}">ERROR.MIN-LEN</div>
     <div [hidden]="!control.errors.maxlength" translate [translateParams]="{value: maxLen}">ERROR.MAX-LEN</div>
     <div [hidden]="!control.errors.email" translate>ERROR.INVALID</div>
+    <div [hidden]="!control.errors.pattern" translate>{{patternMsg}}</div>
 </div>
 
 <div *ngIf="serverErrorList" class="text-danger">
