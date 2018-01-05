@@ -44,6 +44,11 @@ export class UserFormComponent implements OnInit {
     constructor(private formBuilder: FormBuilder,
                 private route: ActivatedRoute,
                 private location: Location) {
+    }
+
+    ngOnInit(): void {
+        this.availableRoles = this.route.snapshot.data['roles'];
+        this.allowRolesSelect = this.moduleUrl.includes('admin') && !this.isEditAction;
         this.createFormControls();
     }
 
@@ -99,11 +104,6 @@ export class UserFormComponent implements OnInit {
         }
 
         this.userForm = this.formBuilder.group(formControls);
-    }
-
-    ngOnInit(): void {
-        this.availableRoles = this.route.snapshot.data['roles'];
-        this.allowRolesSelect = this.moduleUrl.includes('admin') && !this.isEditAction;
     }
 
     assignRole(role: Role): void {
