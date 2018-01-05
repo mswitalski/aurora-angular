@@ -1,4 +1,4 @@
-import {Component, OnDestroy} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import 'rxjs/add/operator/takeUntil';
@@ -10,12 +10,13 @@ import {AutoUnsubscriberComponent} from '../shared';
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
 })
-export class LoginComponent extends AutoUnsubscriberComponent implements OnDestroy {
+export class LoginComponent extends AutoUnsubscriberComponent implements OnDestroy, AfterViewInit {
 
     isBadCredentials = false;
     isSubmitting = false;
     isTimeout = false;
     loginForm: FormGroup;
+    @ViewChild('sidebar') sidebar: ElementRef;
 
     constructor(private authService: AuthService,
                 private formBuilder: FormBuilder,
@@ -26,6 +27,18 @@ export class LoginComponent extends AutoUnsubscriberComponent implements OnDestr
             'username': ['', Validators.required],
             'password': ['', Validators.required]
         });
+    }
+
+    ngAfterViewInit(): void {
+        document.getElementById('sidebar').classList.add('inactive');
+        document.getElementById('content').classList.add('active');
+        document.getElementById('wrapper').classList.remove('navbar-margin');
+    }
+
+    ngOnDestroy(): void {
+        document.getElementById('sidebar').classList.remove('inactive');
+        document.getElementById('content').classList.remove('active');
+        document.getElementById('wrapper').classList.add('navbar-margin');
     }
 
     submitForm() {

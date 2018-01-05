@@ -28,4 +28,9 @@ export class HeaderComponent extends AutoUnsubscriberComponent implements OnInit
         this.authService.logout();
         this.router.navigate(['/login']);
     }
+
+    toggleSidebar(): void {
+        document.getElementById('sidebar').classList.toggle('inactive');
+        document.getElementById('content').classList.toggle('active');
+    }
 }

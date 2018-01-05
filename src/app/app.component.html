@@ -1,81 +1,85 @@
 <app-layout-header></app-layout-header>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-2" *appAuthenticatedOnly="true">
-            <ul class="nav flex-column sidebar bg-darker pt-3">
-                <li class="nav-item">
-                    <a class="nav-link link__white" routerLink="/dashboard"
-                       routerLinkActive="sidebar-entry__active" translate><i class="fa fa-home mr-2 fa-fw"></i>SIDEBAR.DASHBOARD</a>
-                </li>
-                <li class="nav-item" *appShowAdmin="true">
-                    <span class="nav-link link__white" translate>SIDEBAR.ADMIN</span>
-                    <ul>
-                        <li class="nav-item">
-                            <a class="nav-link link__white" routerLink="/admin/users"
-                               routerLinkActive="sidebar-entry__active" translate><i class="fa fa-users mr-2 fa-fw"></i>SIDEBAR.USERS</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item" *appShowUnitLeader="true">
-                    <span class="nav-link link__white" translate>SIDEBAR.UNIT-LEADER</span>
-                    <ul>
-                        <li class="nav-item">
-                            <a class="nav-link link__white" routerLink="/unitleader/duties"
-                               routerLinkActive="sidebar-entry__active" translate><i
-                                class="fa fa-check-square-o mr-2 fa-fw"></i>SIDEBAR.DUTIES</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link link__white" routerLink="/unitleader/users"
-                               routerLinkActive="sidebar-entry__active" translate><i class="fa fa-users mr-2 fa-fw"></i>SIDEBAR.USERS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link link__white" routerLink="/unitleader/skills"
-                               routerLinkActive="sidebar-entry__active" translate><i
-                                class="fa fa-sliders mr-2 fa-fw"></i>SIDEBAR.SKILLS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link link__white" routerLink="/unitleader/mentors"
-                               routerLinkActive="sidebar-entry__active" translate><i
-                                class="fa fa-sliders mr-2 fa-fw"></i>SIDEBAR.MENTORS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link link__white" routerLink="/unitleader/trainings"
-                               routerLinkActive="sidebar-entry__active" translate><i
-                                class="fa fa-sliders mr-2 fa-fw"></i>SIDEBAR.TRAININGS</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item" *appShowEmployee="true">
-                    <span class="nav-link link__white" translate>SIDEBAR.EMPLOYEE</span>
-                    <ul>
-                        <li class="nav-item">
-                            <a class="nav-link link__white" routerLink="/employee/skills"
-                               routerLinkActive="sidebar-entry__active" translate><i
-                                class="fa fa-check-square-o mr-2 fa-fw"></i>SIDEBAR.MY-SKILLS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link link__white" routerLink="/employee/mentors"
-                               routerLinkActive="sidebar-entry__active" translate><i
-                                class="fa fa-sliders mr-2 fa-fw"></i>SIDEBAR.MENTORS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link link__white" routerLink="/employee/trainings"
-                               routerLinkActive="sidebar-entry__active" translate><i
-                                class="fa fa-sliders mr-2 fa-fw"></i>SIDEBAR.MY-TRAININGS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link link__white" routerLink="/employee/tasks"
-                               routerLinkActive="sidebar-entry__active" translate><i
-                                class="fa fa-sliders mr-2 fa-fw"></i>SIDEBAR.MY-TASKS</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <div class="col-md-10 mx-auto pt-3">
+<div id="wrapper" class="navbar-margin">
+
+    <nav id="sidebar" class="bg--dark">
+        <ul class="list-unstyled">
+            <li class="nav-item nav-item--sidebar">
+                <a routerLink="/dashboard" routerLinkActive="sidebar__active" class="nav-link nav-link--sidebar text--white" translate>
+                    <i class="fa fa-home mr-2 fa-fw"></i>SIDEBAR.DASHBOARD
+                </a>
+            </li>
+
+            <li *appShowAdmin="true">
+                <span class="sidebar__header" translate>SIDEBAR.ADMIN</span>
+                <ul class="list-unstyled">
+                    <li class="nav-item nav-item--sidebar">
+                        <a routerLink="/admin/users"
+                           routerLinkActive="sidebar__active" class="nav-link nav-link--sidebar text--white" translate><i class="fa fa-users mr-2 fa-fw"></i>SIDEBAR.USERS</a>
+                    </li>
+                </ul>
+            </li>
+            <li *appShowUnitLeader="true">
+                <span class="sidebar__header" translate>SIDEBAR.UNIT-LEADER</span>
+                <ul class="list-unstyled">
+                    <li class="nav-item nav-item--sidebar">
+                        <a routerLink="/unitleader/duties"
+                           routerLinkActive="sidebar__active" class="nav-link nav-link--sidebar text--white" translate><i
+                            class="fa fa-check-square-o mr-2 fa-fw"></i>SIDEBAR.DUTIES</a>
+                    </li>
+                    <li class="nav-item nav-item--sidebar">
+                        <a routerLink="/unitleader/users"
+                           routerLinkActive="sidebar__active" class="nav-link nav-link--sidebar text--white" translate><i class="fa fa-users mr-2 fa-fw"></i>SIDEBAR.USERS</a>
+                    </li>
+                    <li class="nav-item nav-item--sidebar">
+                        <a routerLink="/unitleader/skills"
+                           routerLinkActive="sidebar__active" class="nav-link nav-link--sidebar text--white" translate><i
+                            class="fa fa-sliders mr-2 fa-fw"></i>SIDEBAR.SKILLS</a>
+                    </li>
+                    <li class="nav-item nav-item--sidebar">
+                        <a routerLink="/unitleader/mentors"
+                           routerLinkActive="sidebar__active" class="nav-link nav-link--sidebar text--white" translate><i
+                            class="fa fa-sliders mr-2 fa-fw"></i>SIDEBAR.MENTORS</a>
+                    </li>
+                    <li class="nav-item nav-item--sidebar">
+                        <a routerLink="/unitleader/trainings"
+                           routerLinkActive="sidebar__active" class="nav-link nav-link--sidebar text--white" translate><i
+                            class="fa fa-sliders mr-2 fa-fw"></i>SIDEBAR.TRAININGS</a>
+                    </li>
+                </ul>
+            </li>
+            <li *appShowEmployee="true">
+                <span class="sidebar__header" translate>SIDEBAR.EMPLOYEE</span>
+                <ul class="list-unstyled">
+                    <li class="nav-item nav-item--sidebar">
+                        <a routerLink="/employee/skills"
+                           routerLinkActive="sidebar__active" class="nav-link nav-link--sidebar text--white" translate><i
+                            class="fa fa-check-square-o mr-2 fa-fw"></i>SIDEBAR.MY-SKILLS</a>
+                    </li>
+                    <li class="nav-item nav-item--sidebar">
+                        <a routerLink="/employee/mentors"
+                           routerLinkActive="sidebar__active" class="nav-link nav-link--sidebar text--white" translate><i
+                            class="fa fa-sliders mr-2 fa-fw"></i>SIDEBAR.MENTORS</a>
+                    </li>
+                    <li class="nav-item nav-item--sidebar">
+                        <a routerLink="/employee/trainings"
+                           routerLinkActive="sidebar__active" class="nav-link nav-link--sidebar text--white" translate><i
+                            class="fa fa-sliders mr-2 fa-fw"></i>SIDEBAR.MY-TRAININGS</a>
+                    </li>
+                    <li class="nav-item nav-item--sidebar">
+                        <a routerLink="/employee/tasks"
+                           routerLinkActive="sidebar__active" class="nav-link nav-link--sidebar text--white" translate><i
+                            class="fa fa-sliders mr-2 fa-fw"></i>SIDEBAR.MY-TASKS</a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </nav>
+
+    <div id="content">
+        <div id="content-container" class="container-fluid">
             <router-outlet></router-outlet>
-            <app-layout-footer></app-layout-footer>
         </div>
     </div>
 </div>

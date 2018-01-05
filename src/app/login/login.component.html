@@ -1,34 +1,45 @@
-<div class="container-fluid minh-100 login-page">
-    <div class="row">
-        <form [formGroup]="loginForm" (ngSubmit)="submitForm()" class="mx-auto vertical-center form-control-lg">
-            <fieldset [disabled]="isSubmitting">
-                <fieldset class="form-group row">
-                    <label for="username" class="col-form-label">{{ 'USER.USERNAME' | translate }} <span
-                        class="text-danger">*</span></label>
-                    <input
-                        id="username"
-                        formControlName="username"
-                        placeholder="{{ 'USER.USERNAME' | translate }}"
-                        type="text" autofocus/>
+<div class="row h-100vh login-page">
+    <div class="card login-card mx-auto my-auto col-sm-6 col-lg-5 col-xl-4">
+        <img class="card-img-top w-50 mx-auto" src="assets/img/logo.png" alt="Aurora logo">
+        <div class="card-block mt-2">
+            <form [formGroup]="loginForm" (ngSubmit)="submitForm()" class="form-control-lg">
+                <fieldset [disabled]="isSubmitting">
+                    <fieldset class="form-group row">
+                        <label for="username" class="col-form-label">
+                            <i class="fa fa-user mr-2"></i>{{ 'USER.USERNAME' | translate }}
+                            <span class="text-danger">*</span></label>
+                        <input
+                            id="username"
+                            formControlName="username"
+                            placeholder="{{ 'USER.USERNAME' | translate }}"
+                            type="text"
+                            class="form-control" autofocus/>
+                    </fieldset>
+                    <fieldset class="form-group row">
+                        <label for="username" class="col-form-label">
+                            <i class="fa fa-lock mr-2"></i>{{ 'USER.PASSWORD' | translate }}
+                            <span class="text-danger">*</span></label>
+                        <input
+                            formControlName="password"
+                            placeholder="{{ 'USER.PASSWORD' | translate }}"
+                            type="password"
+                            class="form-control"/>
+                    </fieldset>
+
+                    <div *ngIf="isBadCredentials" class="text-danger text-center" translate>ERROR.INVALID-CREDENTIALS</div>
+                    <div *ngIf="isTimeout" class="text-danger text-center" translate>ERROR.CONNECTION</div>
+
+                    <span class="text-center">
+                        <app-form-legend></app-form-legend>
+                    </span>
+
+                    <button class="btn btn-success btn-lg btn-block mt-2" [disabled]="!loginForm.valid" type="submit"
+                            translate>
+                        BTN.LOGIN
+                    </button>
                 </fieldset>
-                <fieldset class="form-group row">
-                    <label for="username" class="col-form-label">{{ 'USER.PASSWORD' | translate }} <span
-                        class="text-danger">*</span></label>
-                    <input
-                        formControlName="password"
-                        placeholder="{{ 'USER.PASSWORD' | translate }}"
-                        type="password"/>
-                </fieldset>
-
-                <div *ngIf="isBadCredentials" class="text-danger" translate>ERROR.INVALID-CREDENTIALS</div>
-                <div *ngIf="isTimeout" class="text-danger" translate>ERROR.CONNECTION</div>
-
-                <app-form-legend></app-form-legend>
-
-                <button class="btn btn-success btn-lg btn-block" [disabled]="!loginForm.valid" type="submit" translate>
-                    BTN.LOGIN
-                </button>
-            </fieldset>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
+

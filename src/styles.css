@@ -1,60 +1,119 @@
 @import '~ng-pick-datetime/assets/style/picker.min.css';
 
-.sidebar {
-    min-height: calc(100vh - 50px);
-    margin-left: -1rem;
-    max-width: 250px;
-}
-
-.bg-darker {
-    background-color: #282828 !important;
-}
-
-.sidebar-entry__active {
-    background-color: #474747 !important;
-}
-
-.link__white {
-    color: #ffffff;
-}
-
-.vertical-center {
-    min-height: 100vh;
-
+#wrapper {
     display: flex;
-    align-items: center;
 }
 
-.minh-100 {
+.navbar-margin {
+    margin-top: 56px;
+}
+
+#sidebar.inactive {
+    margin-left: -250px;
+}
+
+#sidebar {
+    position: fixed;
+    min-width: 250px;
+    max-width: 250px;
+    height: 100vh;
+    transition: all 0.3s;
+    padding-bottom: 1em;
+    color: #fff;
+}
+
+.sidebar__header {
+    display: block;
+    margin-top: 1.5em;
+    padding-bottom: 0.25em;
+    margin-left: 1em;
+    border-bottom: 1px solid #575a5b;
+}
+
+.nav-link--sidebar:hover {
+    background-color: #575a5b;
+}
+
+.text--white {
+    color: #fff;
+}
+
+.nav-link--sidebar {
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+    margin-left: 1em;
+}
+
+.nav-link--sidebar:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.sidebar__active {
+    background-color: #575a5b;
+}
+
+#sidebar-toggle {
+    background-color: transparent;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+
+    #sidebar.active {
+        margin-left: 0;
+    }
+
+    #sidebar-toggle {
+        display: block;
+    }
+}
+
+#content {
+    width: calc(100% - 250px);
     min-height: 100vh;
-}
-
-.right-0__no-left {
+    transition: all 0.3s;
+    position: absolute;
     right: 0;
-    left: auto;
 }
 
-.act-as-pointer {
-    cursor: pointer;
+#content.active {
+    width: 100%;
 }
 
-.btn-camouflaged {
-    background: none !important;
-    color: inherit;
-    border: none;
-    padding: 0 !important;
-    font: inherit;
-    cursor: pointer;
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+
+    #sidebar.inactive {
+        margin-left: 0;
+    }
+
+    #content {
+        width: 100%;
+    }
+
+    #content.active {
+        width: calc(100% - 250px);
+    }
 }
 
-.text--green {
-    color: green;
+.h-100vh {
+    height: 100vh;
 }
 
-.text--red {
-    color: red;
+.bg--dark {
+    background-color: #2e3133;
 }
 
-.text--bold {
-    font-weight: bold;
+.navbar {
+    color: #fff;
+}
+
+.fa-1_5x {
+    font-size: 1.5em;
 }
