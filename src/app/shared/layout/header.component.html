@@ -1,21 +1,21 @@
-<nav class="navbar fixed-top bg--dark navbar-expand-md" *appAuthenticatedOnly="true">
-    <button id="sidebar-toggle" (click)="toggleSidebar()" class="btn hidden-md-up mr-1">
+<nav class="navbar fixed-top bg--dark navbar-expand" *appAuthenticatedOnly="true">
+    <button id="sidebar-toggle" (click)="toggleSidebar()" class="btn text--white hidden-md-up mr-1">
         <i class="fa fa-bars"></i>
     </button>
-    <a class="navbar-brand text--white" href="#">Aurora</a>
+    <a class="navbar-brand text--white navbar--link" href="#">Aurora</a>
 
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <button *ngIf="!isOutlookLogged" (click)="outlookService.login()" class="btn btn-outline-primary"
+                <button *ngIf="!isOutlookLogged" (click)="outlookService.login()" class="nav-link navbar--link text--white btn--transparent"
                         translate><i
                     class="fa fa-windows mr-1"></i>BTN.LOGIN
                 </button>
-                <button *ngIf="isOutlookLogged" class="btn btn-outline-primary"><i class="fa fa-windows mr-1"></i><i
+                <button *ngIf="isOutlookLogged" class="nav-link navbar--link text--white btn--transparent"><i class="fa fa-windows mr-1"></i><i
                     class="fa fa-check"></i></button>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text--white" href="#" id="navbarDropdownMenuLink"
+                <a class="nav-link navbar--link dropdown-toggle text--white" href="#" id="navbarDropdownMenuLink"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-user-circle-o mr-1"></i> {{loggedUser.name}} {{loggedUser.surname}}
                 </a>
