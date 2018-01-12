@@ -3,6 +3,7 @@ import {Task} from '../../../msh/model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TasksService} from '../../../msh/service';
 import {TranslateService} from '@ngx-translate/core';
+import {DatesUtil} from '../../../msh/util';
 
 @Component({
     templateUrl: './task-management.component.html'
@@ -34,9 +35,7 @@ export class TaskManagementComponent implements OnInit {
     }
 
     setAsDone(): void {
-        const todayDate = new Date();
-        this.selectedTask.doneDate = todayDate.getFullYear() + '-' + (todayDate.getMonth() + 1) + '-' + todayDate.getDate();
-
+        this.selectedTask.doneDate = DatesUtil.formatDate(new Date());
         this.tasksService.update(this.selectedTask).subscribe(
             () => this.router.navigate(['/employee/tasks'])
         );
