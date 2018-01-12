@@ -4,18 +4,18 @@ import {NgModule} from '@angular/core';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {AppComponent} from './app.component';
-import {AuthenticatedOnlyDirective, FooterComponent, HeaderComponent, SharedModule} from './shared';
-import {DashboardModule} from './dashboard';
-import {HttpErrorInterceptorService} from './shared/listener';
-import {LoginModule} from './login';
-import {UsersModule} from './users';
+import {AuthenticatedOnlyDirective, FooterComponent, HeaderComponent, SharedModule} from './msh';
+import {DashboardModule} from './mda';
+import {HttpErrorInterceptorService} from './msh/listener';
+import {LoginModule} from './mlo';
+import {UsersModule} from './mus';
 import {rootRouting} from './routes';
-import {SkillsModule} from './skills';
-import {MentorsModule} from './mentors';
-import {TrainingsModule} from './trainings';
+import {SkillsModule} from './msk';
+import {MentorsModule} from './mme';
+import {TrainingsModule} from './mtr';
 import {DateTimePickerModule} from 'ng-pick-datetime';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {TasksModule} from './tasks';
+import {TasksModule} from './mta';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);

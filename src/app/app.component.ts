@@ -3,7 +3,7 @@ import {Component} from '@angular/core';
 import 'rxjs/add/operator/filter';
 import {Title} from '@angular/platform-browser';
 import {TranslateService} from '@ngx-translate/core';
-import {AuthService} from './shared/service';
+import {AuthService} from './msh/service';
 import {environment} from '../environments/environment';
 
 @Component({
