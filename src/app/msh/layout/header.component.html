@@ -6,7 +6,7 @@
 
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+            <li class="nav-item" *appShowUnitLeader="true">
                 <button *ngIf="!isOutlookLogged" (click)="outlookService.login()" class="nav-link navbar--link text--white btn--transparent"
                         translate><i
                     class="fa fa-windows mr-1"></i>BTN.LOGIN

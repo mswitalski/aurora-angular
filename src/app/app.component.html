@@ -2,7 +2,7 @@
 
 <div id="wrapper" class="navbar-margin">
 
-    <nav id="sidebar" class="bg--dark">
+    <nav id="sidebar" class="bg--dark" *appAuthenticatedOnly="true">
         <ul class="list-unstyled">
             <li class="nav-item nav-item--sidebar">
                 <a routerLink="/dashboard" routerLinkActive="sidebar__active" class="nav-link nav-link--sidebar text--white" translate>
