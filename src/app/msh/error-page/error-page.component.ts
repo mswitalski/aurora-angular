@@ -2,6 +2,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Component, OnInit} from '@angular/core';
 import 'rxjs/add/operator/takeUntil';
 import {TranslateService} from '@ngx-translate/core';
+import {environment} from '../../../environments/environment';
 
 @Component({
     templateUrl: './error-page.component.html'
@@ -10,7 +11,7 @@ export class ErrorPageComponent implements OnInit {
 
     description: string;
     title: string;
-    private handledCodes: Array<string> = ['403', '404', '412'];
+    private handledCodes = environment.handledErrorCodes;
 
     constructor(private route: ActivatedRoute, private translate: TranslateService) {
     }

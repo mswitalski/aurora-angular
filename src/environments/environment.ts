@@ -26,5 +26,6 @@ export const environment = {
             employee: 'EMPLOYEE',
             unitleader: 'UNIT_LEADER'
         }
-    }
+    },
+    handledErrorCodes: ['401', '403', '404', '412']
 };
