@@ -11,7 +11,6 @@ import {environment} from '../environments/environment';
     styleUrls: ['./app.component.css'],
     templateUrl: './app.component.html'
 })
-
 export class AppComponent {
 
     private titlePrefix = 'Aurora';
