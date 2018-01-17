@@ -247,7 +247,7 @@
         "LEVEL": "Level of knowledge"
     },
     "FORM": {
-        "SKILL-NAME": "Nazwa umiej\u0119tno\u015bci",
+        "SKILL-NAME": "Skill name",
         "NO-SKILLS": "No skills available",
         "FIELD-REQUIRED": "Indicates required field",
         "USERNAME-PATTERN": "Username may only contain lowercase, uppercase letters or numbers"
