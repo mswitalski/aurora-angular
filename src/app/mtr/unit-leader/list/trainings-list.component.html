@@ -1,10 +1,20 @@
-<h2 translate>HEADER.TRAININGS</h2>
-
-<div class="row float-right mb-4">
-    <button routerLink="create/training" class="btn btn-success" translate>
-        BTN.CREATE-TRAINING
-    </button>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-graduation-cap"></i> HEADER.TRAININGS
+            <div class="float-right">
+                <button routerLink="create/training" class="btn btn-outline-success btn-sm">
+                    <i class="fa fa-plus fa-fw"></i> <span class="xs-hidden" translate>BTN.CREATE-TRAINING</span>
+                </button>
+            </div>
+        </div>
+        <div class="card-subtitle text-muted" translate>
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i> {{'HEADER.TRAININGS' |
+            translate }}
+        </div>
+        <div class="card-text">
+            <app-trainings-list [paginationData]="pagedResults" [listData]="trainingsList"
+                                (userInteracted)="loadListData($event)"></app-trainings-list>
+        </div>
+    </div>
 </div>
-
-<app-trainings-list [paginationData]="pagedResults" [listData]="trainingsList"
-                    (userInteracted)="loadListData($event)"></app-trainings-list>

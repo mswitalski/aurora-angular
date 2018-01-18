@@ -1,22 +1,33 @@
-<form [formGroup]="searchSkillForm" (ngSubmit)="search()">
-    <fieldset class="col-md-3">
-        <label for="skill-name" class="col-form-label" translate>SKILL.NAME</label>
-        <input
-            id="skill-name"
-            class="form-control"
-            formControlName="name"
-            [(ngModel)]="searchFormData.name"
-            type="text"/>
-    </fieldset>
+<button class="btn btn-outline-info btn-sm" type="button" data-toggle="collapse" data-target="#form"
+        aria-expanded="false" aria-controls="form" translate>
+    <i class="fa fa-search mr-2"></i> BTN.FILTER-LIST
+</button>
 
-    <button type="submit" class="btn btn-success" translate>
-        BTN.FILTER
-    </button>
-    <button [disabled]="!isFilteringEnabled" (click)="resetSearchForm()" type="button" class="btn btn-success"
-            translate>
-        BTN.RESET
-    </button>
-</form>
+<div class="collapse" id="form">
+    <div class="card card-body">
+        <form [formGroup]="searchSkillForm" (ngSubmit)="search()" class="row">
+            <fieldset class="col-md-6 col-lg-4 col-xl-3">
+                <label for="skill-name" class="col-form-label" translate>SKILL.NAME</label>
+                <input
+                    id="skill-name"
+                    class="form-control"
+                    formControlName="name"
+                    [(ngModel)]="searchFormData.name"
+                    type="text"/>
+            </fieldset>
+            <div class="col-12 mt-2">
+                <button type="submit" class="btn btn-outline-info" translate>
+                    BTN.FILTER
+                </button>
+                <button [disabled]="!isFilteringEnabled" (click)="resetSearchForm()" type="button"
+                        class="btn btn-outline-secondary"
+                        translate>
+                    BTN.RESET
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
 
 <table class="table table-hover">
     <thead>
@@ -29,7 +40,7 @@
     <tr *ngFor="let skill of skillsList">
         <td>{{skill.name}}</td>
         <td>
-            <button class="btn" [routerLink]="skill.id" translate>BTN.DETAILS</button>
+            <button class="btn btn-outline-info btn-sm" [routerLink]="skill.id" translate>BTN.DETAILS</button>
         </td>
     </tr>
     </tbody>

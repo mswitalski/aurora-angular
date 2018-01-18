@@ -1,33 +1,44 @@
-<h2 translate>HEADER.MY-SKILLS</h2>
-
-<div class="row float-right mb-4">
-    <button routerLink="add/evaluation" class="btn btn-success" translate>
-        BTN.ADD-SKILL
-    </button>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-sliders"></i> HEADER.MY-SKILLS
+            <div class="float-right">
+                <button routerLink="add/evaluation" class="btn btn-outline-success btn-sm">
+                    <i class="fa fa-plus fa-fw"></i> <span class="xs-hidden" translate>BTN.CREATE-DUTY</span>
+                </button>
+            </div>
+        </div>
+        <div class="card-subtitle text-muted" translate>
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i> {{'HEADER.MY-SKILLS' |
+            translate }}
+        </div>
+        <div class="card-text">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th translate>SKILL.NAME</th>
+                    <th class="md-hidden" translate>EVALUATION.SELF-EVALUATION</th>
+                    <th class="xs-hidden" translate>EVALUATION.LEADER-EVALUATION</th>
+                    <th translate>HEADER.ACTION</th>
+                </tr>
+                </thead>
+                <tbody *ngIf="evaluationsList.length !== 0">
+                <tr *ngFor="let evaluation of evaluationsList">
+                    <td>{{evaluation.skill.name}}</td>
+                    <td class="md-hidden" translate>SKILL-LEVEL.{{evaluation.selfEvaluation}}</td>
+                    <td class="xs-hidden" translate>SKILL-LEVEL.{{evaluation.leaderEvaluation}}</td>
+                    <td>
+                        <button class="btn btn-outline-info btn-sm" [routerLink]="evaluation.id" translate>BTN.DETAILS
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+                <tbody *ngIf="evaluationsList.length === 0">
+                <tr>
+                    <td colspan="4" class="text-center">- {{'NO-RESULTS' | translate}} -</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-
-<table class="table table-hover">
-    <thead>
-    <tr>
-        <th translate>SKILL.NAME</th>
-        <th translate>EVALUATION.SELF-EVALUATION</th>
-        <th translate>EVALUATION.LEADER-EVALUATION</th>
-        <th translate>HEADER.ACTION</th>
-    </tr>
-    </thead>
-    <tbody *ngIf="evaluationsList.length !== 0">
-    <tr *ngFor="let evaluation of evaluationsList">
-        <td>{{evaluation.skill.name}}</td>
-        <td translate>SKILL-LEVEL.{{evaluation.selfEvaluation}}</td>
-        <td translate>SKILL-LEVEL.{{evaluation.leaderEvaluation}}</td>
-        <td>
-            <button class="btn" [routerLink]="evaluation.id" translate>BTN.DETAILS</button>
-        </td>
-    </tr>
-    </tbody>
-    <tbody *ngIf="evaluationsList.length === 0">
-    <tr>
-        <td colspan="4" class="text-center">- {{'NO-RESULTS' | translate}} -</td>
-    </tr>
-    </tbody>
-</table>

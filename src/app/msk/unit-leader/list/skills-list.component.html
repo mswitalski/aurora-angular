@@ -1,10 +1,20 @@
-<h2 translate>HEADER.SKILLS</h2>
-
-<div class="row float-right mb-4">
-    <button routerLink="create/skill" class="btn btn-success" translate>
-        BTN.CREATE-SKILL
-    </button>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-sliders"></i> HEADER.SKILLS
+            <div class="float-right">
+                <button routerLink="create/skill" class="btn btn-outline-success btn-sm">
+                    <i class="fa fa-plus fa-fw"></i> <span class="xs-hidden" translate>BTN.CREATE-SKILL</span>
+                </button>
+            </div>
+        </div>
+        <div class="card-subtitle text-muted" translate>
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i> {{'HEADER.SKILLS' | translate
+            }}
+        </div>
+        <div class="card-text">
+            <app-skills-list [paginationData]="pagedResults" [listData]="skillsList"
+                             (userInteracted)="loadListData($event)"></app-skills-list>
+        </div>
+    </div>
 </div>
-
-<app-skills-list [paginationData]="pagedResults" [listData]="skillsList"
-                 (userInteracted)="loadListData($event)"></app-skills-list>

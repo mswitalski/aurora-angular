@@ -1,57 +1,68 @@
-<form *ngIf="showSearch" [formGroup]="searchTrainingForm" (ngSubmit)="search()">
-    <fieldset class="col-md-3">
-        <label for="training-name" class="col-form-label" translate>TRAINING.NAME</label>
-        <input
-            id="training-name"
-            class="form-control"
-            formControlName="name"
-            [(ngModel)]="formData.name"
-            type="text"/>
-    </fieldset>
-    <fieldset class="col-md-3">
-        <label for="training-type" class="col-form-label" translate>TRAINING.TYPE</label>
-        <input
-            id="training-type"
-            class="form-control"
-            formControlName="type"
-            [(ngModel)]="formData.type"
-            type="text"/>
-    </fieldset>
-    <fieldset class="col-md-3">
-        <label for="training-location" class="col-form-label" translate>TRAINING.LOCATION</label>
-        <input
-            id="training-location"
-            class="form-control"
-            formControlName="location"
-            [(ngModel)]="formData.location"
-            type="text"/>
-    </fieldset>
+<button *ngIf="showSearch" class="btn btn-outline-info btn-sm" type="button" data-toggle="collapse" data-target="#form"
+        aria-expanded="false" aria-controls="form" translate>
+    <i class="fa fa-search mr-2"></i> BTN.FILTER-LIST
+</button>
 
-    <button type="submit" class="btn btn-success" translate>
-        BTN.FILTER
-    </button>
-    <button [disabled]="!isFilteringEnabled" (click)="resetSearchForm()" type="button" class="btn btn-success"
-            translate>
-        BTN.RESET
-    </button>
-</form>
+<div *ngIf="showSearch" class="collapse" id="form">
+    <div class="card card-body">
+        <form [formGroup]="searchTrainingForm" (ngSubmit)="search()" class="row">
+            <fieldset class="col-md-6 col-lg-4 col-xl-3">
+                <label for="training-name" class="col-form-label" translate>TRAINING.NAME</label>
+                <input
+                    id="training-name"
+                    class="form-control"
+                    formControlName="name"
+                    [(ngModel)]="formData.name"
+                    type="text"/>
+            </fieldset>
+            <fieldset class="col-md-6 col-lg-4 col-xl-3">
+                <label for="training-type" class="col-form-label" translate>TRAINING.TYPE</label>
+                <input
+                    id="training-type"
+                    class="form-control"
+                    formControlName="type"
+                    [(ngModel)]="formData.type"
+                    type="text"/>
+            </fieldset>
+            <fieldset class="col-md-6 col-lg-4 col-xl-3">
+                <label for="training-location" class="col-form-label" translate>TRAINING.LOCATION</label>
+                <input
+                    id="training-location"
+                    class="form-control"
+                    formControlName="location"
+                    [(ngModel)]="formData.location"
+                    type="text"/>
+            </fieldset>
+            <div class="col-12 mt-2">
+                <button type="submit" class="btn btn-outline-info" translate>
+                    BTN.FILTER
+                </button>
+                <button [disabled]="!isFilteringEnabled" (click)="resetSearchForm()" type="button"
+                        class="btn btn-outline-secondary"
+                        translate>
+                    BTN.RESET
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
 
 <table class="table table-hover">
     <thead>
     <tr>
         <th translate>TRAINING.NAME</th>
-        <th translate>TRAINING.START</th>
-        <th translate>TRAINING.LOCATION</th>
+        <th class="sm-hidden" translate>TRAINING.START</th>
+        <th class="md-hidden" translate>TRAINING.LOCATION</th>
         <th translate>HEADER.ACTION</th>
     </tr>
     </thead>
     <tbody *ngIf="trainingsList.length !== 0">
     <tr *ngFor="let training of trainingsList">
         <td>{{training.name}}</td>
-        <td>{{training.startDateTime | date: 'dd-MM-yyyy HH:ss'}}</td>
-        <td>{{training.location}}</td>
+        <td class="sm-hidden">{{training.startDateTime | date: 'dd-MM-yyyy HH:ss'}}</td>
+        <td class="md-hidden">{{training.location}}</td>
         <td>
-            <button class="btn" [routerLink]="training.id" translate>BTN.DETAILS</button>
+            <button class="btn btn-outline-info btn-sm" [routerLink]="training.id" translate>BTN.DETAILS</button>
         </td>
     </tr>
     </tbody>
