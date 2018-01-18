@@ -177,3 +177,23 @@ body {
         display: none;
     }
 }
+
+@media (max-width: 767px) {
+    .sm-hidden {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .md-hidden {
+        display: none;
+    }
+}
+
+.form-control {
+    border-radius: 0.1rem;
+}
+
+.card-header a {
+    color: #000000;
+}

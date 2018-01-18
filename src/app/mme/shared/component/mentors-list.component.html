@@ -1,29 +1,40 @@
-<form [formGroup]="searchMentorForm" (ngSubmit)="search()">
-    <fieldset class="col-md-3">
-        <label for="skill-name" class="col-form-label" translate>FORM.SKILL-NAME</label>
-        <input
-            id="skill-name"
-            class="form-control"
-            formControlName="name"
-            [(ngModel)]="formData.skill"
-            type="text"/>
-    </fieldset>
+<button class="btn btn-outline-info btn-sm" type="button" data-toggle="collapse" data-target="#form"
+        aria-expanded="false" aria-controls="form" translate>
+    <i class="fa fa-search mr-2"></i> BTN.FILTER-LIST
+</button>
 
-    <button type="submit" class="btn btn-success" translate>
-        BTN.FILTER
-    </button>
-    <button [disabled]="!isFilteringEnabled" (click)="resetSearchForm()" type="button" class="btn btn-success"
-            translate>
-        BTN.RESET
-    </button>
-</form>
+<div class="collapse" id="form">
+    <div class="card card-body">
+        <form [formGroup]="searchMentorForm" (ngSubmit)="search()" class="row">
+            <fieldset class="col-md-6 col-lg-4 col-xl-3">
+                <label for="skill-name" class="col-form-label" translate>FORM.SKILL-NAME</label>
+                <input
+                    id="skill-name"
+                    class="form-control"
+                    formControlName="name"
+                    [(ngModel)]="formData.skill"
+                    type="text"/>
+            </fieldset>
+            <div class="col-12 mt-2">
+                <button type="submit" class="btn btn-outline-info" translate>
+                    BTN.FILTER
+                </button>
+                <button [disabled]="!isFilteringEnabled" (click)="resetSearchForm()" type="button"
+                        class="btn btn-outline-secondary"
+                        translate>
+                    BTN.RESET
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
 
 <table class="table table-hover">
     <thead>
     <tr>
         <th translate>EMPLOYEE</th>
         <th translate>SKILL._</th>
-        <th translate>SKILL.LEVEL</th>
+        <th class="md-hidden" translate>SKILL.LEVEL</th>
         <th *ngIf="extendedInformation" translate>MENTOR.APPROVED</th>
         <th *ngIf="extendedInformation" translate>MENTOR.ACTIVE</th>
         <th translate>HEADER.ACTION</th>
@@ -33,7 +44,7 @@
     <tr *ngFor="let mentor of mentorsList">
         <td>{{mentor.evaluation.user.surname}} {{mentor.evaluation.user.name}}</td>
         <td>{{mentor.evaluation.skill.name}}</td>
-        <td translate>SKILL-LEVEL.{{mentor.evaluation.leaderEvaluation}}</td>
+        <td class="md-hidden" translate>SKILL-LEVEL.{{mentor.evaluation.leaderEvaluation}}</td>
         <td *ngIf="extendedInformation && mentor.approved"><i class="fa fa-check text--green" aria-hidden="true"></i>
         </td>
         <td *ngIf="extendedInformation && !mentor.approved"><i class="fa fa-times text--red" aria-hidden="true"></i>
@@ -41,7 +52,7 @@
         <td *ngIf="extendedInformation && mentor.active"><i class="fa fa-check text--green" aria-hidden="true"></i></td>
         <td *ngIf="extendedInformation && !mentor.active"><i class="fa fa-times text--red" aria-hidden="true"></i></td>
         <td>
-            <button class="btn" [routerLink]="mentor.id" translate>BTN.DETAILS</button>
+            <button class="btn btn-outline-info btn-sm" [routerLink]="mentor.id" translate>BTN.DETAILS</button>
         </td>
     </tr>
     </tbody>

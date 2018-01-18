@@ -1,7 +1,7 @@
 <div class="card mt-3">
     <div class="card-body">
         <div class="card-title" translate>
-            <i class="fa fa-check-square-o mr-2"></i> HEADER.DUTIES
+            <i class="fa fa-check-square-o"></i> HEADER.DUTIES
             <div class="float-right">
                 <button routerLink="create/duty" class="btn btn-outline-success btn-sm">
                     <i class="fa fa-plus fa-fw"></i> <span class="xs-hidden" translate>BTN.CREATE-DUTY</span>
@@ -9,17 +9,19 @@
             </div>
         </div>
         <div class="card-subtitle text-muted" translate>
-            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i> {{'HEADER.DUTIES' | translate }}
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i> {{'HEADER.DUTIES' | translate
+            }}
         </div>
         <div class="card-text">
-            <button class="btn btn-outline-info btn-sm" type="button" data-toggle="collapse" data-target="#form" aria-expanded="false" aria-controls="form" translate>
+            <button class="btn btn-outline-info btn-sm" type="button" data-toggle="collapse" data-target="#form"
+                    aria-expanded="false" aria-controls="form" translate>
                 <i class="fa fa-search mr-2"></i> BTN.FILTER-LIST
             </button>
 
             <div class="collapse" id="form">
                 <div class="card card-body">
-                    <form [formGroup]="searchDutyForm" (ngSubmit)="search()" class="col-md-3">
-                        <fieldset>
+                    <form [formGroup]="searchDutyForm" (ngSubmit)="search()" class="row">
+                        <fieldset class="col-md-6 col-lg-4 col-xl-3">
                             <label for="duty-name" class="col-form-label" translate>USER.NAME</label>
                             <input
                                 id="duty-name"
@@ -28,15 +30,15 @@
                                 [(ngModel)]="formData.name"
                                 type="text"/>
                         </fieldset>
-                        <div class="mt-2">
+                        <div class="col-12 mt-2">
                             <button type="submit" class="btn btn-outline-info" translate>
                                 BTN.FILTER
                             </button>
                             <button [disabled]="!isFilteringEnabled" (click)="resetSearchForm()" type="button"
-                                class="btn btn-outline-secondary"
-                                translate>
-                            BTN.RESET
-                        </button>
+                                    class="btn btn-outline-secondary"
+                                    translate>
+                                BTN.RESET
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -53,7 +55,8 @@
                 <tr *ngFor="let duty of dutiesList">
                     <td>{{duty.name}}</td>
                     <td>
-                        <button class="btn btn-outline-info btn-sm" [routerLink]="duty.id" translate>BTN.DETAILS</button>
+                        <button class="btn btn-outline-info btn-sm" [routerLink]="duty.id" translate>BTN.DETAILS
+                        </button>
                     </td>
                 </tr>
                 </tbody>

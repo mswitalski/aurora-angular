@@ -1,58 +1,72 @@
-<h2 translate>HEADER.MENTORS</h2>
-
-<ul class="nav nav-tabs" id="mentorsListTabs" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all"
-           aria-selected="true" translate>BTN.ALL-MENTORS</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="my-tab" data-toggle="tab" href="#my" role="tab" aria-controls="my" aria-selected="false"
-           translate>BTN.MY-MENTORS</a>
-    </li>
-</ul>
-
-<div class="row float-right mb-4">
-    <button routerLink="add/mentor" class="btn btn-success" translate>
-        BTN.BECOME-MENTOR
-    </button>
-</div>
-
-<div class="tab-content" id="mentorsListTabsContent">
-    <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
-        <app-mentors-list [paginationData]="pagedResults" [listData]="mentorsList"
-                          (userInteracted)="loadListData($event)"></app-mentors-list>
+<div class="card mt-3">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all"
+                   aria-selected="true" translate>BTN.ALL-MENTORS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="my-tab" data-toggle="tab" href="#my" role="tab" aria-controls="my"
+                   aria-selected="false"
+                   translate>BTN.MY-MENTORS</a>
+            </li>
+        </ul>
     </div>
-    <div class="tab-pane fade" id="my" role="tabpanel" aria-labelledby="my-tab">
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th translate>SKILL._</th>
-                <th translate>SKILL.LEVEL</th>
-                <th translate>MENTOR.APPROVED</th>
-                <th translate>MENTOR.ACTIVE</th>
-                <th translate>HEADER.ACTION</th>
-            </tr>
-            </thead>
-            <tbody *ngIf="myMentorsList.length !== 0">
-            <tr *ngFor="let mentor of myMentorsList">
-                <td>{{mentor.evaluation.skill.name}}</td>
-                <td translate>SKILL-LEVEL.{{mentor.evaluation.leaderEvaluation}}</td>
-                <td *ngIf="mentor.approved"><i class="fa fa-check text--green" aria-hidden="true"></i></td>
-                <td *ngIf="!mentor.approved"><i class="fa fa-times text--red" aria-hidden="true"></i></td>
-                <td *ngIf="mentor.active"><i class="fa fa-check text--green" aria-hidden="true"></i></td>
-                <td *ngIf="!mentor.active"><i class="fa fa-times text--red" aria-hidden="true"></i></td>
-                <td>
-                    <button class="btn" [routerLink]="mentor.id" translate>BTN.DETAILS</button>
-                </td>
-            </tr>
-            </tbody>
-            <tbody *ngIf="myMentorsList.length === 0">
-            <tr>
-                <td colspan="5" class="text-center">- {{'NO-RESULTS' | translate}} -</td>
-            </tr>
-            </tbody>
-        </table>
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-address-card-o"></i> HEADER.MENTORS
+            <div class="float-right">
+                <button routerLink="add/mentor" class="btn btn-outline-success btn-sm">
+                    <i class="fa fa-plus fa-fw"></i> <span class="xs-hidden" translate>BTN.BECOME-MENTOR</span>
+                </button>
+            </div>
+        </div>
+        <div class="card-subtitle text-muted" translate>
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i> {{'HEADER.MENTORS' | translate
+            }}
+        </div>
+        <div class="card-text">
+            <div class="tab-content" id="mentorsListTabsContent">
+                <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+                    <app-mentors-list [paginationData]="pagedResults" [listData]="mentorsList"
+                                      (userInteracted)="loadListData($event)"></app-mentors-list>
+                </div>
+                <div class="tab-pane fade" id="my" role="tabpanel" aria-labelledby="my-tab">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th translate>SKILL._</th>
+                            <th class="xs-hidden" translate>SKILL.LEVEL</th>
+                            <th class="md-hidden" translate>MENTOR.APPROVED</th>
+                            <th translate>MENTOR.ACTIVE</th>
+                            <th translate>HEADER.ACTION</th>
+                        </tr>
+                        </thead>
+                        <tbody *ngIf="myMentorsList.length !== 0">
+                        <tr *ngFor="let mentor of myMentorsList">
+                            <td>{{mentor.evaluation.skill.name}}</td>
+                            <td class="xs-hidden" translate>SKILL-LEVEL.{{mentor.evaluation.leaderEvaluation}}</td>
+                            <td class="md-hidden" *ngIf="mentor.approved"><i class="fa fa-check text--green"
+                                                                             aria-hidden="true"></i></td>
+                            <td class="md-hidden" *ngIf="!mentor.approved"><i class="fa fa-times text--red"
+                                                                              aria-hidden="true"></i></td>
+                            <td *ngIf="mentor.active"><i class="fa fa-check text--green" aria-hidden="true"></i></td>
+                            <td *ngIf="!mentor.active"><i class="fa fa-times text--red" aria-hidden="true"></i></td>
+                            <td>
+                                <button class="btn btn-outline-info btn-sm" [routerLink]="mentor.id" translate>
+                                    BTN.DETAILS
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <tbody *ngIf="myMentorsList.length === 0">
+                        <tr>
+                            <td colspan="5" class="text-center">- {{'NO-RESULTS' | translate}} -</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
-

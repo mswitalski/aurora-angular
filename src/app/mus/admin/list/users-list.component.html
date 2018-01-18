@@ -1,10 +1,19 @@
-<h2 translate>HEADER.USERS</h2>
-
-<div class="row float-right mb-4">
-    <button routerLink="create/user" class="btn btn-success" translate>
-        BTN.CREATE-USER
-    </button>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-users"></i> HEADER.USERS
+            <div class="float-right">
+                <button routerLink="create/user" class="btn btn-outline-success btn-sm">
+                    <i class="fa fa-plus fa-fw"></i> <span class="xs-hidden" translate>BTN.CREATE-USER</span>
+                </button>
+            </div>
+        </div>
+        <div class="card-subtitle text-muted" translate>
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i> {{'HEADER.USERS' | translate }}
+        </div>
+        <div class="card-text">
+            <app-expanded-users-list [paginationData]="pagedResults" [listData]="usersList"
+                                     (userInteracted)="loadListData($event)"></app-expanded-users-list>
+        </div>
+    </div>
 </div>
-
-<app-expanded-users-list [paginationData]="pagedResults" [listData]="usersList"
-                         (userInteracted)="loadListData($event)"></app-expanded-users-list>

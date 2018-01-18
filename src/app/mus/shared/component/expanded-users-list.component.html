@@ -1,58 +1,71 @@
-<form [formGroup]="searchUserForm" (ngSubmit)="search()">
-    <fieldset class="col-md-3">
-        <label for="user-username" class="col-form-label" translate>USER.USERNAME</label>
-        <input
-            id="user-username"
-            class="form-control"
-            formControlName="username"
-            [(ngModel)]="formData.username"
-            type="text"/>
-    </fieldset>
-    <fieldset class="col-md-3">
-        <label for="user-name" class="col-form-label" translate>USER.NAME</label>
-        <input
-            id="user-name"
-            class="form-control"
-            formControlName="name"
-            [(ngModel)]="formData.name"
-            type="text"/>
-    </fieldset>
-    <fieldset class="col-md-3">
-        <label for="user-surname" class="col-form-label" translate>USER.SURNAME</label>
-        <input
-            id="user-surname"
-            class="form-control"
-            formControlName="surname"
-            [(ngModel)]="formData.surname"
-            type="text"/>
-    </fieldset>
-    <fieldset class="col-md-3">
-        <label for="user-email" class="col-form-label" translate>USER.EMAIL</label>
-        <input
-            id="user-email"
-            class="form-control"
-            formControlName="email"
-            [(ngModel)]="formData.email"
-            type="text"/>
-    </fieldset>
+<button class="btn btn-outline-info btn-sm" type="button" data-toggle="collapse" data-target="#form" aria-expanded="false" aria-controls="form" translate>
+    <i class="fa fa-search mr-2"></i> BTN.FILTER-LIST
+</button>
 
-    <button type="submit" class="btn btn-success" translate>
-        BTN.FILTER
-    </button>
-    <button [disabled]="!isFilteringEnabled" (click)="resetSearchForm()" type="button" class="btn btn-success"
-            translate>
-        BTN.RESET
-    </button>
-</form>
+<div class="collapse" id="form">
+    <div class="card card-body">
+        <form [formGroup]="searchUserForm" (ngSubmit)="search()" class="row">
+            <fieldset class="col-md-6 col-lg-4 col-xl-3">
+                <label for="user-username" class="col-form-label" translate>USER.USERNAME</label>
+                <input
+                    id="user-username"
+                    class="form-control"
+                    formControlName="username"
+                    [(ngModel)]="formData.username"
+                    type="text"/>
+            </fieldset>
+            <fieldset class="col-md-6 col-lg-4 col-xl-3">
+                <label for="user-name" class="col-form-label" translate>USER.NAME</label>
+                <input
+                    id="user-name"
+                    class="form-control"
+                    formControlName="name"
+                    [(ngModel)]="formData.name"
+                    type="text"/>
+            </fieldset>
+            <fieldset class="col-md-6 col-lg-4 col-xl-3">
+                <label for="user-surname" class="col-form-label" translate>USER.SURNAME</label>
+                <input
+                    id="user-surname"
+                    class="form-control"
+                    formControlName="surname"
+                    [(ngModel)]="formData.surname"
+                    type="text"/>
+            </fieldset>
+            <fieldset class="col-md-6 col-lg-4 col-xl-3">
+                <label for="user-email" class="col-form-label" translate>USER.EMAIL</label>
+                <input
+                    id="user-email"
+                    class="form-control"
+                    formControlName="email"
+                    [(ngModel)]="formData.email"
+                    type="text"/>
+            </fieldset>
+
+            <div class="col-12 mt-2">
+                <button type="submit" class="btn btn-outline-info" translate>
+                    BTN.FILTER
+                </button>
+                <button [disabled]="!isFilteringEnabled" (click)="resetSearchForm()" type="button"
+                        class="btn btn-outline-secondary"
+                        translate>
+                    BTN.RESET
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
 
 <table class="table table-hover">
     <thead>
     <tr>
         <th translate>USER.SURNAME</th>
         <th translate>USER.NAME</th>
-        <th translate>USER.USERNAME</th>
-        <th translate>USER.POSITION</th>
-        <th translate>USER.ENABLED</th>
+        <th class="xs-hidden" translate>USER.USERNAME</th>
+        <th class="md-hidden" translate>USER.POSITION</th>
+        <th class="md-hidden" translate>USER.ENABLED</th>
         <th translate>HEADER.ACTION</th>
     </tr>
     </thead>
@@ -60,12 +73,12 @@
     <tr *ngFor="let user of usersList">
         <td>{{user.surname}}</td>
         <td>{{user.name}}</td>
-        <td>{{user.username}}</td>
-        <td>{{user.position}}</td>
-        <td *ngIf="user.enabled" class="text-success" translate>YES</td>
-        <td *ngIf="!user.enabled" class="text-danger" translate>NO</td>
+        <td class="xs-hidden">{{user.username}}</td>
+        <td class="md-hidden">{{user.position}}</td>
+        <td *ngIf="user.enabled" class="text-success md-hidden" translate>YES</td>
+        <td *ngIf="!user.enabled" class="text-danger md-hidden" translate>NO</td>
         <td>
-            <button class="btn" [routerLink]="user.id" translate>BTN.DETAILS</button>
+            <button class="btn btn-outline-info btn-sm" [routerLink]="user.id" translate>BTN.DETAILS</button>
         </td>
     </tr>
     </tbody>
