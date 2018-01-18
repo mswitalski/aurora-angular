@@ -197,3 +197,10 @@ body {
 .card-header a {
     color: #000000;
 }
+
+.task-badge {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border: 1px solid #868e96;
+    color: #868e96;
+}

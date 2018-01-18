@@ -29,7 +29,7 @@
         <div class="card-text">
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="undone" role="tabpanel" aria-labelledby="undone-tab">
-                    <app-undone-tasks-list [listData]="undoneTasksList"></app-undone-tasks-list>
+                    <app-undone-tasks-list [listData]="undoneTasksList" [showActionButton]="false"></app-undone-tasks-list>
                 </div>
                 <div *ngIf="doneTasksList.length !== 0" class="tab-pane fade" id="done" role="tabpanel"
                      aria-labelledby="done-tab">

@@ -2,15 +2,15 @@
     <thead>
     <tr>
         <th translate>TASK.DONE-DATE</th>
-        <th translate>TASK.DEADLINE-DATE</th>
+        <th class="xs-hidden" translate>TASK.DEADLINE-DATE</th>
         <th translate>TASK.CONTENT</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let task of tasksList">
         <td>{{task.doneDate}}</td>
-        <td *ngIf="task.deadlineDate !== null && task.deadlineDate !== undefined">{{task.deadlineDate}}</td>
-        <td *ngIf="task.deadlineDate === null || task.deadlineDate === undefined">-</td>
+        <td *ngIf="task.deadlineDate !== null && task.deadlineDate !== undefined" class="xs-hidden">{{task.deadlineDate}}</td>
+        <td *ngIf="task.deadlineDate === null || task.deadlineDate === undefined" class="xs-hidden">-</td>
         <td>{{task.content}}</td>
     </tr>
     </tbody>
