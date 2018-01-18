@@ -29,12 +29,12 @@ export class LoginComponent extends AutoUnsubscriberComponent implements OnDestr
     }
 
     ngAfterViewInit(): void {
-        document.getElementById('content').classList.add('active');
+        document.getElementById('content').classList.add('w-100');
         document.getElementById('wrapper').classList.remove('navbar-margin');
     }
 
     ngOnDestroy(): void {
-        document.getElementById('content').classList.remove('active');
+        document.getElementById('content').classList.remove('w-100');
         document.getElementById('wrapper').classList.add('navbar-margin');
     }
 
