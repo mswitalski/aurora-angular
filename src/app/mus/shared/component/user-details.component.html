@@ -1,23 +1,43 @@
-<div>
-    {{ 'USER.USERNAME' | translate }}: {{selectedUser.username}} <br/>
-    {{ 'USER.EMAIL' | translate }}: {{selectedUser.email}} <br/>
-    {{ 'USER.NAME' | translate }}: {{selectedUser.name}} <br/>
-    {{ 'USER.SURNAME' | translate }}: {{selectedUser.surname}} <br/>
-    {{ 'USER.POSITION' | translate }}: {{selectedUser.position}} <br/>
-    <div *ngIf="selectedUser.duties.length !== 0">
-        {{ 'USER.DUTIES' | translate }}: <span>{{getFormattedDuties()}}</span>
-    </div>
-    {{ 'USER.GOALS' | translate }}: {{selectedUser.goals}}
-    <div *ngIf="extendedInformation">
-        {{ 'USER.ENABLED' | translate }}:
-        <span *ngIf="selectedUser.enabled" class="text-success" translate>YES</span>
-        <span *ngIf="!selectedUser.enabled" class="text-danger" translate>NO</span>
-        <br/>
-        <div *ngIf="selectedUser.roles">
-            {{ 'USER.ROLES' | translate }}:
-            <ul>
-                <li *ngFor="let role of selectedUser.roles" translate>ROLE.{{role.name}}</li>
-            </ul>
-        </div>
-    </div>
-</div>
+<table>
+    <tr>
+        <td class="text-bold pr-3" translate>USER.USERNAME</td>
+        <td>{{selectedUser.username}}</td>
+    </tr>
+    <tr>
+        <td class="text-bold pr-3" translate>USER.EMAIL</td>
+        <td>{{selectedUser.email}}</td>
+    </tr>
+    <tr>
+        <td class="text-bold pr-3" translate>USER.SURNAME</td>
+        <td>{{selectedUser.surname}}</td>
+    </tr>
+    <tr>
+        <td class="text-bold pr-3" translate>USER.NAME</td>
+        <td>{{selectedUser.name}}</td>
+    </tr>
+    <tr>
+        <td class="text-bold pr-3" translate>USER.POSITION</td>
+        <td>{{selectedUser.position}}</td>
+    </tr>
+    <tr *ngIf="selectedUser.duties.length !== 0">
+        <td class="text-bold pr-3" translate>USER.DUTIES</td>
+        <td>{{getFormattedDuties()}}</td>
+    </tr>
+    <tr>
+        <td class="text-bold pr-3" translate>USER.GOALS</td>
+        <td>{{selectedUser.goals}}</td>
+    </tr>
+    <tr *ngIf="extendedInformation">
+        <td class="text-bold pr-3" translate>USER.ENABLED</td>
+        <td *ngIf="selectedUser.enabled" class="text-success" translate>YES</td>
+        <td *ngIf="!selectedUser.enabled" class="text-danger" translate>NO</td>
+    </tr>
+    <tr *ngIf="extendedInformation">
+        <td class="text-bold pr-3" translate>USER.ROLES</td>
+        <td>
+            <span *ngFor="let role of selectedUser.roles; let isLast = last">
+                <span translate>ROLE.{{role.name}}</span>{{isLast ? '' : ', '}}
+            </span>
+        </td>
+    </tr>
+</table>

@@ -204,3 +204,11 @@ body {
     border: 1px solid #868e96;
     color: #868e96;
 }
+
+a.btn-danger, a.btn-danger:hover {
+    color: #ffffff !important;
+}
+
+.text-bold {
+    font-weight: bold;
+}

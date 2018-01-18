@@ -1,15 +1,26 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-12">
-            <h2 translate>HEADER.USER-MANAGEMENT</h2>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-users"></i> HEADER.USER-MANAGEMENT
+            <div class="float-right">
+                <button routerLink="/unitleader/users" class="btn btn-outline-secondary btn-sm">
+                    <i class="fa fa-angle-double-left fa-fw"></i> <span class="xs-hidden" translate>BTN.BACK</span>
+                </button>
+            </div>
+        </div>
+        <div class="card-subtitle text-muted" translate>
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i> {{'HEADER.USERS' | translate }}
+            <i class="fa fa-angle-double-right fa-fw"></i> {{user.surname}} {{user.name}}
+        </div>
+        <div class="card-text">
             <app-user-details [user]="user" [extendedInfo]="true"></app-user-details>
-            <a class="btn btn-lg btn-primary" routerLink="/unitleader/users" translate>BTN.BACK</a>
-            <a *ngIf="isEmployeeUser" class="btn btn-lg btn-primary" routerLink="edit" translate>BTN.EDIT-DETAILS</a>
-            <a *ngIf="isEmployeeUser" class="btn btn-lg btn-danger" (click)="deleteUser()" translate>BTN.DELETE</a>
+
             <hr/>
-            <a class="btn btn-lg btn-primary" routerLink="edit/duties" translate>BTN.EDIT-USER-DUTIES</a>
-            <a class="btn btn-lg btn-primary" routerLink="skills" translate>BTN.USER-SKILLS</a>
-            <a class="btn btn-lg btn-primary" routerLink="tasks" translate>BTN.USER-TASKS</a>
+            <a *ngIf="isEmployeeUser" class="btn btn-sm btn-outline-primary" routerLink="edit" translate>BTN.EDIT-DETAILS</a>
+            <a class="btn btn-sm btn-outline-primary" routerLink="edit/duties" translate>BTN.EDIT-USER-DUTIES</a>
+            <a class="btn btn-sm btn-outline-primary" routerLink="skills" translate>BTN.USER-SKILLS</a>
+            <a class="btn btn-sm btn-outline-primary" routerLink="tasks" translate>BTN.USER-TASKS</a>
+            <a *ngIf="isEmployeeUser" class="btn btn-sm btn-danger" (click)="deleteUser()" translate>BTN.DELETE</a>
         </div>
     </div>
 </div>
