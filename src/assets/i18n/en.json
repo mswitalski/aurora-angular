@@ -60,7 +60,8 @@
         "ACTIVE": "Active",
         "DONE": "Done",
         "STATISTICS": "Statistics",
-        "USER-TASKS": "Tasks"
+        "USER-TASKS": "Tasks",
+        "FILTER-LIST": "Filter list"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Bad username or/and password!",
@@ -90,6 +91,7 @@
         }
     },
     "HEADER": {
+        "HOME": "Home",
         "CREATE-USER": "Create new user",
         "GREETER": "Hello, {{name}}!",
         "PROFILE": "Your profile",

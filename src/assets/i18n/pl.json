@@ -60,7 +60,8 @@
         "ACTIVE": "Aktywne",
         "DONE": "Wykonane",
         "STATISTICS": "Statystyki",
-        "USER-TASKS": "Zadania"
+        "USER-TASKS": "Zadania",
+        "FILTER-LIST": "Filtruj list\u0119"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Podano nieprawid\u0142ow\u0105 nazw\u0119 użytkownika i/lub has\u0142o",
@@ -90,6 +91,7 @@
         }
     },
     "HEADER": {
+        "HOME": "Strona g\u0142\u00f3wna",
         "CREATE-USER": "Stw\u00f3rz nowego u\u017cytkownika",
         "GREETER": "Witaj, {{name}}!",
         "PROFILE": "Tw\u00f3j profil",
