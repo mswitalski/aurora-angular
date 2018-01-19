@@ -48,19 +48,19 @@
                 <thead>
                 <tr>
                     <th translate>FEEDBACK.AUTHOR</th>
-                    <th translate>FEEDBACK.SATISFIED</th>
+                    <th class="xs-hidden" translate>FEEDBACK.SATISFIED</th>
                     <th translate>FEEDBACK.CONTENT</th>
-                    <th translate>FEEDBACK.CREATE-DATE-TIME</th>
+                    <th class="md-hidden" translate>FEEDBACK.CREATE-DATE-TIME</th>
                     <th translate>HEADER.ACTION</th>
                 </tr>
                 </thead>
                 <tr *ngFor="let entry of feedback">
                     <td>{{entry.user.surname}} {{entry.user.name}}</td>
-                    <td *ngIf="entry.satisfied" translate>YES</td>
-                    <td *ngIf="!entry.satisfied" translate>NO</td>
+                    <td *ngIf="entry.satisfied" class="xs-hidden" translate>YES</td>
+                    <td *ngIf="!entry.satisfied" class="xs-hidden" translate>NO</td>
                     <td *ngIf="entry.studentFeedback.length !== 0">{{entry.studentFeedback}}</td>
                     <td *ngIf="entry.studentFeedback.length === 0">-</td>
-                    <td>{{entry.createDateTime}}</td>
+                    <td class="md-hidden">{{entry.createDateTime}}</td>
                     <td>
                         <button class="btn btn-sm btn-outline-danger" (click)="deleteFeedback(entry)" translate>BTN.DELETE</button>
                     </td>

@@ -3,14 +3,14 @@
     <tr>
         <th translate>USER.SURNAME</th>
         <th translate>USER.NAME</th>
-        <th translate>USER.EMAIL</th>
+        <th class="xs-hidden" translate>USER.EMAIL</th>
     </tr>
     </thead>
     <tbody *ngIf="usersList.length !== 0">
     <tr *ngFor="let user of usersList">
         <td>{{user.surname}}</td>
         <td>{{user.name}}</td>
-        <td>{{user.email}}</td>
+        <td class="xs-hidden">{{user.email}}</td>
     </tr>
     </tbody>
     <tbody *ngIf="usersList.length === 0">
