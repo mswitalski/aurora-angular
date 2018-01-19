@@ -1,9 +1,11 @@
+<p *ngIf="!isOutlookLogged" class="text-danger" translate>INTEGRATION.OUTLOOK-WARNING</p>
+<app-form-legend></app-form-legend>
 <form [formGroup]="trainingForm" (ngSubmit)="submitForm()">
     <fieldset [disabled]="isSubmitting">
         <fieldset class="form-group row">
-            <label for="training-name" class="col-md-2 col-form-label">{{ 'TRAINING.NAME' | translate }} <span
+            <label for="training-name" class="col-12 col-form-label">{{ 'TRAINING.NAME' | translate }} <span
                 class="text-danger">*</span></label>
-            <div class="col-md-5">
+            <div class="col-sm-6 col-lg-4 col-xl-3">
                 <input
                     id="training-name"
                     class="form-control"
@@ -18,9 +20,9 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="training-type" class="col-md-2 col-form-label">{{ 'TRAINING.TYPE' | translate }} <span
+            <label for="training-type" class="col-12 col-form-label">{{ 'TRAINING.TYPE' | translate }} <span
                 class="text-danger">*</span></label>
-            <div class="col-md-5">
+            <div class="col-sm-6 col-lg-4 col-xl-3">
                 <input
                     id="training-type"
                     class="form-control"
@@ -35,9 +37,9 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="training-location" class="col-md-2 col-form-label">{{ 'TRAINING.LOCATION' | translate }} <span
+            <label for="training-location" class="col-12 col-form-label">{{ 'TRAINING.LOCATION' | translate }} <span
                 class="text-danger">*</span></label>
-            <div class="col-md-5">
+            <div class="col-sm-6 col-lg-4 col-xl-3">
                 <input
                     id="training-location"
                     class="form-control"
@@ -52,7 +54,7 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="training-startDateTime" class="col-md-2 col-form-label">{{ 'TRAINING.START' | translate }} <span
+            <label for="training-startDateTime" class="col-12 col-form-label">{{ 'TRAINING.START' | translate }} <span
                 class="text-danger">*</span></label>
             <owl-date-time id="training-startDateTime"
                            formControlName="startDateTime"
@@ -61,13 +63,13 @@
                            [placeHolder]="'YYYY-MM-DD HH:mm'"
                            [min]="todayDate"
                            [required]="true"
-                           class="col-md-5"></owl-date-time>
+                           class="col-sm-6 col-lg-4 col-xl-3"></owl-date-time>
             <app-form-errors [serverErrors]="validationErrors"
                              [controlName]="'startDateTime'"
                              [formControl]="trainingForm.controls['startDateTime']" ngDefaultControl></app-form-errors>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="training-endDateTime" class="col-md-2 col-form-label">{{ 'TRAINING.END' | translate }} <span
+            <label for="training-endDateTime" class="col-12 col-form-label">{{ 'TRAINING.END' | translate }} <span
                 class="text-danger">*</span></label>
             <owl-date-time id="training-endDateTime"
                            formControlName="endDateTime"
@@ -76,16 +78,16 @@
                            [placeHolder]="'YYYY-MM-DD HH:mm'"
                            [min]="todayDate"
                            [required]="true"
-                           class="col-md-5"></owl-date-time>
+                           class="col-sm-6 col-lg-4 col-xl-3"></owl-date-time>
             <app-form-errors [serverErrors]="validationErrors"
                              [controlName]="'endDateTime'"
                              [formControl]="trainingForm.controls['endDateTime']" ngDefaultControl></app-form-errors>
         </fieldset>
 
         <fieldset class="form-group row">
-            <label class="col-md-2 col-form-label">{{ 'TRAINING.INTERNAL' | translate }} <span
+            <label class="col-12 col-form-label">{{ 'TRAINING.INTERNAL' | translate }} <span
                 class="text-danger">*</span></label>
-            <div class="form-check col-md-5">
+            <div class="form-check ml-3">
                 <label class="form-check-label" translate>
                     <input class="form-check-input" type="radio"
                            name="internal"
@@ -96,7 +98,7 @@
                     YES
                 </label>
             </div>
-            <div class="form-check col-md-5">
+            <div class="form-check ml-3">
                 <label class="form-check-label" translate>
                     <input class="form-check-input" type="radio"
                            name="internal"
@@ -111,9 +113,9 @@
         </fieldset>
 
         <fieldset class="form-group row">
-            <label for="training-description" class="col-md-2 col-form-label">{{ 'TRAINING.DESCRIPTION' | translate }}
+            <label for="training-description" class="col-12 col-form-label">{{ 'TRAINING.DESCRIPTION' | translate }}
                 <span class="text-danger">*</span></label>
-            <div class="col-md-5">
+            <div class="col-sm-6 col-lg-4 col-xl-3">
                 <textarea
                     id="training-description"
                     class="form-control"
@@ -128,13 +130,9 @@
                                  [maxLength]="validation.description.max" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
-        <app-form-legend></app-form-legend>
 
-        <p *ngIf="!isOutlookLogged" class="text-danger" translate>INTEGRATION.OUTLOOK-WARNING</p>
-        <button (click)="goBack()" type="button" class="btn btn-dark" translate>
-            BTN.BACK
-        </button>
-        <button [disabled]="!trainingForm.valid" type="submit" class="btn btn-success" translate>
+        <hr/>
+        <button [disabled]="!trainingForm.valid" type="submit" class="btn btn-sm btn-outline-success" translate>
             BTN.SAVE
         </button>
     </fieldset>

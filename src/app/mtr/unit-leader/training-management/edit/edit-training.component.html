@@ -1,4 +1,22 @@
-<h2 translate>HEADER.EDIT-TRAINING</h2>
-
-<app-training-form [response]="responseSubject.asObservable()" [editedTraining]="training"
-                   (formSubmitted)="submit($event)"></app-training-form>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-graduation-cap"></i> HEADER.EDIT-TRAINING
+            <div class="float-right">
+                <button [routerLink]="['/unitleader/trainings', training.id]" class="btn btn-outline-secondary btn-sm">
+                    <i class="fa fa-angle-double-left fa-fw"></i> <span class="xs-hidden" translate>BTN.BACK</span>
+                </button>
+            </div>
+        </div>
+        <div class="card-subtitle text-muted" translate>
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.TRAININGS' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{training.name}} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.EDIT-TRAINING' | translate }}
+        </div>
+        <div class="card-text">
+            <app-training-form [response]="responseSubject.asObservable()" [editedTraining]="training"
+                               (formSubmitted)="submit($event)"></app-training-form>
+        </div>
+    </div>
+</div>

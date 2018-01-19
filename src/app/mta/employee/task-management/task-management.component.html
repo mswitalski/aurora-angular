@@ -30,9 +30,9 @@
             </table>
 
             <hr />
-            <a *ngIf="!selectedTask.doneDate" class="btn btn-sm btn-outline-success" (click)="setAsDone()" translate>BTN.DONE</a>
-            <a class="btn btn-sm btn-outline-primary" routerLink="edit" translate>BTN.EDIT-DETAILS</a>
-            <a class="btn btn-sm btn-danger" (click)="deleteTask()" translate>BTN.DELETE</a>
+            <button *ngIf="!selectedTask.doneDate" class="btn btn-sm btn-outline-success" (click)="setAsDone()" type="button" translate>BTN.DONE</button>
+            <button class="btn btn-sm btn-outline-primary" routerLink="edit" type="button" translate>BTN.EDIT-DETAILS</button>
+            <button class="btn btn-sm btn-danger" (click)="deleteTask()" type="button" translate>BTN.DELETE</button>
         </div>
     </div>
 </div>

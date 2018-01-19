@@ -1,24 +1,39 @@
-<h2 translate>HEADER.EDIT-PARTICIPANTS</h2>
-
-<div class="row mb-2">
-    <div class="col-md-2 col-form-label" translate>TRAINING.PARTICIPANTS</div>
-    <div class="col-md-5">
-        <div *ngFor="let checkbox of usersCheckboxes">
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" [checked]="checkbox.value"
-                           (change)="checkbox.value = !checkbox.value">
-                    {{checkbox.item.surname}} {{checkbox.item.name}} ({{checkbox.item.email}})
-                </label>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-graduation-cap"></i> HEADER.EDIT-PARTICIPANTS
+            <div class="float-right">
+                <button [routerLink]="['/unitleader/trainings', training.id]" class="btn btn-outline-secondary btn-sm">
+                    <i class="fa fa-angle-double-left fa-fw"></i> <span class="xs-hidden" translate>BTN.BACK</span>
+                </button>
             </div>
+        </div>
+        <div class="card-subtitle text-muted" translate>
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.TRAININGS' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{training.name}} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.EDIT-PARTICIPANTS' | translate }}
+        </div>
+        <div class="card-text">
+            <p *ngIf="!isOutlookLogged" class="text-danger" translate>INTEGRATION.OUTLOOK-WARNING</p>
+            <div class="col-12 col-form-label" translate>TRAINING.PARTICIPANTS</div>
+            <div class="col-sm-6 col-lg-4 col-xl-3">
+                <div *ngFor="let checkbox of usersCheckboxes">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [checked]="checkbox.value"
+                                   (change)="checkbox.value = !checkbox.value">
+                            {{checkbox.item.surname}} {{checkbox.item.name}}
+                            <span class="text-muted text-italic">({{checkbox.item.email}})</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <hr/>
+            <button (click)="submitUsers()" type="button" class="btn btn-sm btn-outline-success" translate>
+                BTN.SAVE
+            </button>
         </div>
     </div>
 </div>
-
-<p *ngIf="!isOutlookLogged" class="text-danger" translate>INTEGRATION.OUTLOOK-WARNING</p>
-<button [routerLink]="['/unitleader/trainings', training.id]" type="button" class="btn btn-dark" translate>
-    BTN.BACK
-</button>
-<button (click)="submitUsers()" type="button" class="btn btn-success" translate>
-    BTN.SAVE
-</button>

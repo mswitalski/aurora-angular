@@ -1,4 +1,21 @@
-<h2 translate>HEADER.CREATE-TRAINING</h2>
-
-<app-training-form [response]="responseSubject.asObservable()"
-                   (formSubmitted)="submit($event)"></app-training-form>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-graduation-cap"></i> HEADER.CREATE-TRAINING
+            <div class="float-right">
+                <button routerLink="/unitleader/trainings" class="btn btn-outline-secondary btn-sm">
+                    <i class="fa fa-angle-double-left fa-fw"></i> <span class="xs-hidden" translate>BTN.BACK</span>
+                </button>
+            </div>
+        </div>
+        <div class="card-subtitle text-muted" translate>
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.TRAININGS' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.CREATE-TRAINING' | translate }}
+        </div>
+        <div class="card-text">
+            <app-training-form [response]="responseSubject.asObservable()"
+                               (formSubmitted)="submit($event)"></app-training-form>
+        </div>
+    </div>
+</div>

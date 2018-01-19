@@ -1,9 +1,10 @@
+<app-form-legend></app-form-legend>
 <form [formGroup]="taskForm" (ngSubmit)="submitForm()">
     <fieldset [disabled]="isSubmitting">
         <fieldset class="form-group row">
-            <label for="task-content" class="col-md-2 col-form-label">{{ 'TASK.CONTENT' | translate }} <span
+            <label for="task-content" class="col-12 col-form-label">{{ 'TASK.CONTENT' | translate }} <span
                 class="text-danger">*</span></label>
-            <div class="col-md-5">
+            <div class="col-sm-6 col-lg-4 col-xl-3">
                 <input
                     id="task-content"
                     class="form-control"
@@ -18,7 +19,7 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="task-deadlineDate" class="col-md-2 col-form-label">{{ 'TASK.DEADLINE-DATE' | translate
+            <label for="task-deadlineDate" class="col-12 col-form-label">{{ 'TASK.DEADLINE-DATE' | translate
                 }}</label>
             <owl-date-time id="task-deadlineDate"
                            formControlName="deadlineDate"
@@ -27,17 +28,14 @@
                            [placeHolder]="'YYYY-MM-DD'"
                            [min]="todayDate"
                            [type]="'calendar'"
-                           class="col-md-5"></owl-date-time>
+                           class="col-sm-6 col-lg-4 col-xl-3"></owl-date-time>
             <app-form-errors [serverErrors]="validationErrors"
                              [controlName]="'deadlineDate'"
                              [formControl]="taskForm.controls['deadlineDate']" ngDefaultControl></app-form-errors>
         </fieldset>
-        <app-form-legend></app-form-legend>
 
-        <button (click)="goBack()" type="button" class="btn btn-dark" translate>
-            BTN.BACK
-        </button>
-        <button [disabled]="!taskForm.valid" type="submit" class="btn btn-success" translate>
+        <hr/>
+        <button [disabled]="!taskForm.valid" type="submit" class="btn btn-sm btn-outline-success" translate>
             BTN.SAVE
         </button>
     </fieldset>
