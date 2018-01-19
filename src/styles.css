@@ -20,10 +20,8 @@ body {
     position: fixed;
     min-width: 250px;
     max-width: 250px;
-    min-height: 100vh;
     overflow-y: auto;
     transition: all 0.3s;
-    padding-bottom: 3em;
     color: #fff;
     top: 56px;
     bottom: 0;
@@ -228,4 +226,12 @@ a.btn-danger, a.btn-danger:hover {
 .owl-datetime-main-input {
     height: inherit;
     padding: .375rem .75rem;
+}
+
+.act-as-pointer {
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    border-radius: 0.1rem;
 }

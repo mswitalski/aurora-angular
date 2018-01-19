@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {AppComponent} from './app.component';
-import {AuthenticatedOnlyDirective, FooterComponent, HeaderComponent, SharedModule} from './msh';
+import {AuthenticatedOnlyDirective, HeaderComponent, SharedModule} from './msh';
 import {DashboardModule} from './mda';
 import {HttpErrorInterceptorService} from './msh/listener';
 import {LoginModule} from './mlo';
@@ -25,7 +25,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     declarations: [
         AppComponent,
         AuthenticatedOnlyDirective,
-        FooterComponent,
         HeaderComponent
     ],
     imports: [

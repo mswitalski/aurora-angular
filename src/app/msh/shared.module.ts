@@ -4,7 +4,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
-
 import {
     ApiService, AuthService, DutiesService, EvaluationsService, FeedbackService, JwtService, MentorsService,
     OutlookService, RolesService, SkillsService, TasksService, TrainingsService, UsersService
