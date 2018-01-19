@@ -59,7 +59,7 @@
     <tbody *ngIf="trainingsList.length !== 0">
     <tr *ngFor="let training of trainingsList">
         <td>{{training.name}}</td>
-        <td class="sm-hidden">{{training.startDateTime | date: 'dd-MM-yyyy HH:ss'}}</td>
+        <td class="sm-hidden">{{training.startDateTime | date: 'dd-MM-yyyy HH:mm'}}</td>
         <td class="md-hidden">{{training.location}}</td>
         <td>
             <button class="btn btn-outline-info btn-sm" [routerLink]="training.id" translate>BTN.DETAILS</button>

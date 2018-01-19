@@ -284,5 +284,11 @@
     },
     "INTEGRATION": {
         "OUTLOOK-WARNING": "Nie jeste\u015b zalogowany w us\u0142udze Outlook - \u017cadne zmiany wprowadzone do szkolenia nie b\u0119d\u0105 zapisane w Twoim kalendarzu"
+    },
+    "DASHBOARD": {
+        "GREETING": "Witaj, ",
+        "TODAY-IS": "Dzisiaj jest ",
+        "AT": ", godzina ",
+        "NICE-DAY": ". Mi\u0142ego dnia!"
     }
 }

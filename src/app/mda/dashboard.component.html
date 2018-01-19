@@ -1,2 +1,44 @@
-This is the dashboard component. <br/>
-It will be improved later on.
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title">
+            <i class="fa fa-child"></i>
+            <span translate>DASHBOARD.GREETING</span>{{loggedUser.name}} {{loggedUser.surname}}!
+        </div>
+        <div class="card-text">
+            <div class="tab-content">
+                {{'DASHBOARD.TODAY-IS' | translate}}
+                {{currentTime | date: 'dd-MM-yyyy'}}
+                {{'DASHBOARD.AT' | translate}}
+                {{currentTime | date: 'HH:mm:ss'}}
+                {{'DASHBOARD.NICE-DAY' | translate}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-3" *appShowEmployee="true">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-graduation-cap"></i> HEADER.TRAININGS
+        </div>
+        <div class="card-text">
+            <div class="tab-content">
+                <app-trainings-list [paginationData]="plannedPagedResults" [listData]="plannedTrainingsList"
+                                    (userInteracted)="loadPlannedListData($event)" [visibleSearch]="false"></app-trainings-list>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-3" *appShowEmployee="true">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-check-square-o"></i> HEADER.TASKS
+        </div>
+        <div class="card-text">
+            <div class="tab-content">
+                <app-undone-tasks-list [listData]="tasksList"></app-undone-tasks-list>
+            </div>
+        </div>
+    </div>
+</div>

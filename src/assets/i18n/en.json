@@ -285,5 +285,11 @@
     },
     "INTEGRATION": {
         "OUTLOOK-WARNING": "You are not logged in to Outlook - any changes made to training won't be saved in your calendar"
+    },
+    "DASHBOARD": {
+        "GREETING": "Hello, ",
+        "TODAY-IS": "Today is ",
+        "AT": " at ",
+        "NICE-DAY": ". Have a nice day!"
     }
 }
