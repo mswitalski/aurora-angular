@@ -1,15 +1,29 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-12">
-            <h2 translate>HEADER.SKILL-MANAGEMENT</h2>
-
-            <div>
-                {{ 'SKILL.NAME' | translate }}: {{selectedSkill.name}}
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-sliders"></i> HEADER.SKILL-MANAGEMENT
+            <div class="float-right">
+                <button routerLink="/unitleader/skills" class="btn btn-outline-secondary btn-sm">
+                    <i class="fa fa-angle-double-left fa-fw"></i> <span class="xs-hidden" translate>BTN.BACK</span>
+                </button>
             </div>
+        </div>
+        <div class="card-subtitle text-muted" translate>
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.SKILLS' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{selectedSkill.name}}
+        </div>
+        <div class="card-text">
+            <table>
+                <tr>
+                    <td class="text-bold pr-2" translate>SKILL.NAME</td>
+                    <td>{{selectedSkill.name}}</td>
+                </tr>
+            </table>
 
-            <a class="btn btn-lg btn-primary" routerLink="/unitleader/skills" translate>BTN.BACK</a>
-            <a class="btn btn-lg btn-primary" routerLink="edit" translate>BTN.EDIT-DETAILS</a>
-            <a class="btn btn-lg btn-danger" (click)="deleteSkill()" translate>BTN.DELETE</a>
+            <hr/>
+            <a class="btn btn-sm btn-outline-primary" routerLink="edit" translate>BTN.EDIT-DETAILS</a>
+            <a class="btn btn-sm btn-danger" (click)="deleteSkill()" translate>BTN.DELETE</a>
         </div>
     </div>
 </div>

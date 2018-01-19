@@ -52,7 +52,8 @@ export const moduleRouting: ModuleWithProviders = RouterModule.forChild([
         data: {title: 'TITLE.UNIT-LEADER.USER-SKILLS'},
         path: 'unitleader/users/:userId/skills',
         resolve: {
-            evaluations: EvaluationsListResolver
+            evaluations: EvaluationsListResolver,
+            user: CachedUserResolver
         }
     },
     {

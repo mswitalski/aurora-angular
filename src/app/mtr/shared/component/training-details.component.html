@@ -1,13 +1,31 @@
-<div>
-    {{ 'TRAINING.NAME' | translate }}: {{selectedTraining.name}} <br/>
-    {{ 'TRAINING.TYPE' | translate }}: {{selectedTraining.type}} <br/>
-    {{ 'TRAINING.LOCATION' | translate }}: {{selectedTraining.location}} <br/>
-    {{ 'TRAINING.START' | translate }}: {{selectedTraining.startDateTime | date:'dd-MM-yyyy HH:ss'}} <br/>
-    {{ 'TRAINING.END' | translate }}: {{selectedTraining.endDateTime | date:'dd-MM-yyyy HH:ss'}} <br/>
-    {{ 'TRAINING.INTERNAL' | translate }}:
-    <span *ngIf="selectedTraining.internal" translate>YES</span>
-    <span *ngIf="!selectedTraining.internal" translate>NO</span> <br/>
-
-    {{ 'TRAINING.PARTICIPANTS' | translate }}
-    <app-simple-users-list [listData]="selectedTraining.users"></app-simple-users-list>
-</div>
+<table>
+    <tr>
+        <td class="text-bold pr-3" translate>TRAINING.NAME</td>
+        <td>{{selectedTraining.name}}</td>
+    </tr>
+    <tr>
+        <td class="text-bold pr-3" translate>TRAINING.TYPE</td>
+        <td>{{selectedTraining.type}}</td>
+    </tr>
+    <tr>
+        <td class="text-bold pr-3" translate>TRAINING.LOCATION</td>
+        <td>{{selectedTraining.location}}</td>
+    </tr>
+    <tr>
+        <td class="text-bold pr-3" translate>TRAINING.START</td>
+        <td>{{selectedTraining.startDateTime | date:'dd-MM-yyyy HH:ss'}}</td>
+    </tr>
+    <tr>
+        <td class="text-bold pr-3" translate>TRAINING.END</td>
+        <td>{{selectedTraining.endDateTime | date:'dd-MM-yyyy HH:ss'}}</td>
+    </tr>
+    <tr>
+        <td class="text-bold pr-3" translate>TRAINING.INTERNAL</td>
+        <td *ngIf="selectedTraining.internal" translate>YES</td>
+        <td *ngIf="!selectedTraining.internal" translate>NO></td>
+    </tr>
+    <tr>
+        <td colspan="2" class="text-bold pr-3" translate>TRAINING.PARTICIPANTS</td>
+    </tr>
+</table>
+<app-simple-users-list [listData]="selectedTraining.users"></app-simple-users-list>

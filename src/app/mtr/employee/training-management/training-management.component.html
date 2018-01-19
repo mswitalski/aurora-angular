@@ -1,5 +1,20 @@
-<h2 translate>HEADER.TRAINING-DETAILS</h2>
-
-<app-training-details [training]="training"></app-training-details>
-
-<a class="btn btn-lg btn-primary" routerLink="/employee/trainings" translate>BTN.BACK</a>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-graduation-cap"></i> HEADER.TRAINING-DETAILS
+            <div class="float-right">
+                <button routerLink="/employee/trainings" class="btn btn-outline-secondary btn-sm">
+                    <i class="fa fa-angle-double-left fa-fw"></i> <span class="xs-hidden" translate>BTN.BACK</span>
+                </button>
+            </div>
+        </div>
+        <div class="card-subtitle text-muted" translate>
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.TRAININGS' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{training.name}}
+        </div>
+        <div class="card-text">
+            <app-training-details [training]="training"></app-training-details>
+        </div>
+    </div>
+</div>

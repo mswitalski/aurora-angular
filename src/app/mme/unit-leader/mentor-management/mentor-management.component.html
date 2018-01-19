@@ -1,40 +1,76 @@
-<h2 translate>HEADER.MENTOR-MANAGEMENT</h2>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-address-card-o"></i> HEADER.MENTOR-MANAGEMENT
+            <div class="float-right">
+                <button routerLink="/unitleader/mentors" class="btn btn-outline-secondary btn-sm">
+                    <i class="fa fa-angle-double-left fa-fw"></i> <span class="xs-hidden" translate>BTN.BACK</span>
+                </button>
+            </div>
+        </div>
+        <div class="card-subtitle text-muted" translate>
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i> {{'HEADER.MENTOR-MANAGEMENT' | translate }}
+            <i class="fa fa-angle-double-right fa-fw"></i> {{mentor.evaluation.user.surname}} {{mentor.evaluation.user.name}}
+            | {{mentor.evaluation.skill.name}}
+        </div>
+        <div class="card-text">
+            <table>
+                <tr>
+                    <td class="text-bold pr-3" translate>EMPLOYEE</td>
+                    <td>{{mentor.evaluation.user.surname}} {{mentor.evaluation.user.name}}</td>
+                </tr>
+                <tr>
+                    <td class="text-bold pr-3" translate>SKILL._</td>
+                    <td>{{mentor.evaluation.skill.name}}</td>
+                </tr>
+                <tr>
+                    <td class="text-bold pr-3" translate>SKILL.LEVEL</td>
+                    <td translate>SKILL-LEVEL.{{mentor.evaluation.leaderEvaluation}}</td>
+                </tr>
+                <tr>
+                    <td class="text-bold pr-3" translate>MENTOR.APPROVED</td>
+                    <td *ngIf="mentor.approved" translate>YES</td>
+                    <td  *ngIf="!mentor.approved" translate>NO</td>
+                </tr>
+                <tr>
+                    <td class="text-bold pr-3" translate>MENTOR.ACTIVE</td>
+                    <td *ngIf="mentor.active" translate>YES</td>
+                    <td *ngIf="!mentor.active" translate>NO</td>
+                </tr>
+                <tr *ngIf="feedback.length !== 0">
+                    <td colspan="2">
+                        <span class="text-bold" translate>MENTOR.OPINIONS</span>
+                    </td>
+                </tr>
+            </table>
+            <table *ngIf="feedback.length !== 0" class="table table-hover">
+                <thead>
+                <tr>
+                    <th translate>FEEDBACK.AUTHOR</th>
+                    <th translate>FEEDBACK.SATISFIED</th>
+                    <th translate>FEEDBACK.CONTENT</th>
+                    <th translate>FEEDBACK.CREATE-DATE-TIME</th>
+                    <th translate>HEADER.ACTION</th>
+                </tr>
+                </thead>
+                <tr *ngFor="let entry of feedback">
+                    <td>{{entry.user.surname}} {{entry.user.name}}</td>
+                    <td *ngIf="entry.satisfied" translate>YES</td>
+                    <td *ngIf="!entry.satisfied" translate>NO</td>
+                    <td *ngIf="entry.studentFeedback.length !== 0">{{entry.studentFeedback}}</td>
+                    <td *ngIf="entry.studentFeedback.length === 0">-</td>
+                    <td>{{entry.createDateTime}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-danger" (click)="deleteFeedback(entry)" translate>BTN.DELETE</button>
+                    </td>
+                </tr>
+            </table>
 
-{{ 'EMPLOYEE' | translate }}: {{mentor.evaluation.user.surname}} {{mentor.evaluation.user.name}} <br/>
-{{ 'SKILL._' | translate }}: {{mentor.evaluation.skill.name}} <br/>
-{{ 'SKILL.LEVEL' | translate }}: <span translate>SKILL-LEVEL.{{mentor.evaluation.leaderEvaluation}}</span> <br/>
-{{ 'MENTOR.APPROVED' | translate }}:
-<span *ngIf="mentor.approved" translate>YES</span>
-<span *ngIf="!mentor.approved" translate>NO</span> <br/>
-{{ 'MENTOR.ACTIVE' | translate }}:
-<span *ngIf="mentor.active" translate>YES</span>
-<span *ngIf="!mentor.active" translate>NO</span> <br/>
-
-<a class="btn btn-lg btn-primary" routerLink="/unitleader/mentors" translate>BTN.BACK</a>
-<a *ngIf="!mentor.approved" class="btn btn-lg btn-success" (click)="approveMentor()" translate>BTN.APPROVE</a>
-<a *ngIf="!mentor.active" class="btn btn-lg btn-success" (click)="activateMentor()" translate>BTN.ACTIVATE</a>
-<a *ngIf="mentor.active" class="btn btn-lg btn-success" (click)="deactivateMentor()" translate>BTN.DEACTIVATE</a>
-<a class="btn btn-lg btn-danger" (click)="deleteMentor()" translate>BTN.DELETE</a>
-
-<table *ngIf="feedback.length !== 0" class="table table-hover">
-    <thead>
-    <tr>
-        <th translate>EMPLOYEE</th>
-        <th translate>FEEDBACK.SATISFIED</th>
-        <th translate>FEEDBACK.CONTENT</th>
-        <th translate>FEEDBACK.CREATE-DATE-TIME</th>
-        <th translate>HEADER.ACTION</th>
-    </tr>
-    </thead>
-    <tr *ngFor="let entry of feedback">
-        <td>{{entry.user.surname}} {{entry.user.name}}</td>
-        <td *ngIf="entry.satisfied" translate>YES</td>
-        <td *ngIf="!entry.satisfied" translate>NO</td>
-        <td *ngIf="entry.studentFeedback.length !== 0">{{entry.studentFeedback}}</td>
-        <td *ngIf="entry.studentFeedback.length === 0">-</td>
-        <td>{{entry.createDateTime}}</td>
-        <td>
-            <button class="btn" (click)="deleteFeedback(entry)" translate>BTN.DELETE</button>
-        </td>
-    </tr>
-</table>
+            <hr/>
+            <a *ngIf="!mentor.approved" class="btn btn-sm btn-outline-success" (click)="approveMentor()" translate>BTN.APPROVE</a>
+            <a *ngIf="!mentor.active" class="btn btn-sm btn-outline-success" (click)="activateMentor()" translate>BTN.ACTIVATE</a>
+            <a *ngIf="mentor.active" class="btn btn-sm btn-outline-secondary" (click)="deactivateMentor()" translate>BTN.DEACTIVATE</a>
+            <a class="btn btn-sm btn-danger" (click)="deleteMentor()" translate>BTN.DELETE</a>
+        </div>
+    </div>
+</div>

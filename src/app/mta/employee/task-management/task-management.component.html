@@ -1,16 +1,38 @@
-<h2 translate>HEADER.TASK-MANAGEMENT</h2>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-check-square-o"></i> HEADER.TASK-MANAGEMENT
+            <div class="float-right">
+                <button routerLink="/employee/tasks" class="btn btn-outline-secondary btn-sm">
+                    <i class="fa fa-angle-double-left fa-fw"></i> <span class="xs-hidden" translate>BTN.BACK</span>
+                </button>
+            </div>
+        </div>
+        <div class="card-subtitle text-muted" translate>
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.TASKS' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{selectedTask.content}}
+        </div>
+        <div class="card-text">
+            <table>
+                <tr>
+                    <td class="text-bold pr-3" translate>TASK.CONTENT</td>
+                    <td>{{selectedTask.content}}</td>
+                </tr>
+                <tr *ngIf="selectedTask.deadlineDate !== null && selectedTask.deadlineDate !== undefined">
+                    <td class="text-bold pr-3" translate>TASK.DEADLINE-DATE</td>
+                    <td>{{selectedTask.deadlineDate | date:'dd-MM-yyyy'}}</td>
+                </tr>
+                <tr *ngIf="selectedTask.deadlineDate === null || selectedTask.deadlineDate === undefined">
+                    <td class="text-bold pr-3" translate>TASK.DEADLINE-DATE</td>
+                    <td>-</td>
+                </tr>
+            </table>
 
-<p>
-    {{ 'TASK.CONTENT' | translate }}: {{selectedTask.content}}
-</p>
-<p *ngIf="selectedTask.deadlineDate !== null && selectedTask.deadlineDate !== undefined">
-    {{ 'TASK.DEADLINE-DATE' | translate }}: {{selectedTask.deadlineDate | date:'dd-MM-yyyy'}}
-</p>
-<p *ngIf="selectedTask.deadlineDate === null || selectedTask.deadlineDate === undefined">
-    {{ 'TASK.DEADLINE-DATE' | translate }}: -
-</p>
-
-<a class="btn btn-lg btn-primary" routerLink="/employee/tasks" translate>BTN.BACK</a>
-<a *ngIf="!selectedTask.doneDate" class="btn btn-lg btn-success" (click)="setAsDone()" translate>BTN.DONE</a>
-<a class="btn btn-lg btn-primary" routerLink="edit" translate>BTN.EDIT-DETAILS</a>
-<a class="btn btn-lg btn-danger" (click)="deleteTask()" translate>BTN.DELETE</a>
+            <hr />
+            <a *ngIf="!selectedTask.doneDate" class="btn btn-sm btn-outline-success" (click)="setAsDone()" translate>BTN.DONE</a>
+            <a class="btn btn-sm btn-outline-primary" routerLink="edit" translate>BTN.EDIT-DETAILS</a>
+            <a class="btn btn-sm btn-danger" (click)="deleteTask()" translate>BTN.DELETE</a>
+        </div>
+    </div>
+</div>

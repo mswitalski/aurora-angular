@@ -1,16 +1,34 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-12">
-            <h2 translate>HEADER.DUTY-MANAGEMENT</h2>
-
-            {{ 'DUTY.NAME' | translate }}: {{duty.name}} <br/>
-            {{ 'DUTY.USERS' | translate }}:
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-file-text-o"></i> HEADER.DUTY-MANAGEMENT
+            <div class="float-right">
+                <button routerLink="/unitleader/duties" class="btn btn-outline-secondary btn-sm">
+                    <i class="fa fa-angle-double-left fa-fw"></i> <span class="xs-hidden" translate>BTN.BACK</span>
+                </button>
+            </div>
+        </div>
+        <div class="card-subtitle text-muted" translate>
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i> {{'HEADER.DUTIES' | translate }}
+            <i class="fa fa-angle-double-right fa-fw"></i> {{duty.name}}
+        </div>
+        <div class="card-text">
+            <table>
+                <tr>
+                    <td class="text-bold pr-3" translate>DUTY.NAME</td>
+                    <td>{{duty.name}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <span class="text-bold" translate>DUTY.USERS</span>
+                    </td>
+                </tr>
+            </table>
             <app-simple-users-list [listData]="duty.users"></app-simple-users-list>
-            <br/>
 
-            <a class="btn btn-lg btn-primary" routerLink="/unitleader/duties" translate>BTN.BACK</a>
-            <a class="btn btn-lg btn-primary" routerLink="edit" translate>BTN.EDIT-DETAILS</a>
-            <a class="btn btn-lg btn-danger" (click)="deleteDuty()" translate>BTN.DELETE</a>
+            <hr/>
+            <a class="btn btn-sm btn-outline-primary" routerLink="edit" translate>BTN.EDIT-DETAILS</a>
+            <a class="btn btn-sm btn-danger" (click)="deleteDuty()" translate>BTN.DELETE</a>
         </div>
     </div>
 </div>

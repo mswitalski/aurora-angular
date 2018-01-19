@@ -241,7 +241,8 @@
     },
     "MENTOR": {
         "APPROVED": "Approved",
-        "ACTIVE": "Active"
+        "ACTIVE": "Active",
+        "OPINIONS": "Opinions"
     },
     "SKILL": {
         "_": "Skill",
@@ -255,6 +256,7 @@
         "USERNAME-PATTERN": "Username may only contain lowercase, uppercase letters or numbers"
     },
     "FEEDBACK": {
+        "AUTHOR": "Author",
         "SATISFIED": "Satisfied",
         "CONTENT": "Content",
         "CREATE-DATE-TIME": "Date added"

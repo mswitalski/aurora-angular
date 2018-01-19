@@ -1,13 +1,47 @@
-<h2 translate>HEADER.EVALUATION-DETAILS</h2>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-file-text-o"></i> HEADER.EVALUATION-DETAILS
+            <div class="float-right">
+                <button [routerLink]="['/unitleader/users', evaluation.user.id,'skills']" class="btn btn-outline-secondary btn-sm">
+                    <i class="fa fa-angle-double-left fa-fw"></i> <span class="xs-hidden" translate>BTN.BACK</span>
+                </button>
+            </div>
+        </div>
+        <div class="card-subtitle text-muted" translate>
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.USERS' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{evaluation.user.surname}} {{evaluation.user.name}} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.EVALUATION-DETAILS' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{evaluation.skill.name}}
+        </div>
+        <div class="card-text">
+            <table>
+                <tr>
+                    <td class="text-bold pr-3" translate>SKILL.NAME</td>
+                    <td>{{evaluation.skill.name}}</td>
+                </tr>
+                <tr>
+                    <td class="text-bold pr-3" translate>EVALUATION.SELF-EVALUATION</td>
+                    <td translate>SKILL-LEVEL.{{evaluation.selfEvaluation}}</td>
+                </tr>
+                <tr>
+                    <td class="text-bold pr-3" translate>EVALUATION.SELF-EXPLANATION</td>
+                    <td>{{evaluation.selfExplanation}}</td>
+                </tr>
+                <tr>
+                    <td class="text-bold pr-3" translate>EVALUATION.LEADER-EVALUATION</td>
+                    <td translate>SKILL-LEVEL.{{evaluation.leaderEvaluation}}</td>
+                </tr>
+                <tr>
+                    <td class="text-bold pr-3" translate>EVALUATION.LEADER-EXPLANATION</td>
+                    <td>{{evaluation.leaderExplanation}}</td>
+                </tr>
+            </table>
 
-{{'SKILL.NAME' | translate}}: {{evaluation.skill.name}} <br/>
-{{'EVALUATION.SELF-EVALUATION' | translate}}: <span translate>SKILL-LEVEL.{{evaluation.selfEvaluation}}</span> <br/>
-{{'EVALUATION.SELF-EXPLANATION' | translate}}: {{evaluation.selfExplanation}} <br/>
-{{'EVALUATION.LEADER-EVALUATION' | translate}}: <span translate>SKILL-LEVEL.{{evaluation.leaderEvaluation}}</span> <br/>
-{{'EVALUATION.LEADER-EXPLANATION' | translate}}: {{evaluation.leaderExplanation}} <br/>
-<br/>
-
-<a class="btn btn-lg btn-primary" [routerLink]="['/unitleader/users', evaluation.user.id,'skills']"
-   translate>BTN.BACK</a>
-<a *ngIf="!isEvaluationOwner" class="btn btn-lg btn-primary" routerLink="edit" translate>BTN.EDIT-DETAILS</a>
-<a *ngIf="!isEvaluationOwner" class="btn btn-lg btn-danger" (click)="deleteEvaluation()" translate>BTN.DELETE</a>
+            <hr *ngIf="!isEvaluationOwner"/>
+            <a *ngIf="!isEvaluationOwner" class="btn btn-sm btn-outline-primary" routerLink="edit" translate>BTN.EDIT-DETAILS</a>
+            <a *ngIf="!isEvaluationOwner" class="btn btn-sm btn-danger" (click)="deleteEvaluation()" translate>BTN.DELETE</a>
+        </div>
+    </div>
+</div>
