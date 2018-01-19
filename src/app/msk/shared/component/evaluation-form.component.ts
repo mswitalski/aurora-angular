@@ -68,6 +68,7 @@ export class EvaluationFormComponent implements OnInit {
                 'leaderEvaluation': [''],
                 'leaderExplanation': [
                     '', [
+                        Validators.required,
                         Validators.maxLength(this.validation.leaderExplanation.max)
                     ]
                 ]
@@ -78,6 +79,7 @@ export class EvaluationFormComponent implements OnInit {
                 'selfEvaluation': [''],
                 'selfExplanation': [
                     '', [
+                        Validators.required,
                         Validators.maxLength(this.validation.selfExplanation.max)
                     ]
                 ]

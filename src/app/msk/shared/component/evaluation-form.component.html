@@ -1,32 +1,31 @@
+<app-form-legend></app-form-legend>
 <form [formGroup]="evaluationForm" (ngSubmit)="submitForm()">
     <fieldset [disabled]="isSubmitting">
-        <div *ngIf="!isEditAction" class="form-group row">
-            <div *ngIf="availableSkills.length !== 0">
-                <label class="col-md-2 col-form-label">{{ 'SKILL._' | translate }} <span
-                    class="text-danger">*</span></label>
-                <div *ngIf="skill === undefined" class="col-md-5">
-                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#evaluationsModal"
-                            translate>
-                        BTN.SELECT-SKILL
-                    </button>
-                </div>
-                <div *ngIf="skill !== undefined" class="col-md-5">
-                    {{skill.name}}
-                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#evaluationsModal"
-                            translate>
-                        BTN.CHANGE-SKILL
-                    </button>
-                </div>
-                <app-form-errors [serverErrors]="validationErrors"
-                                 [controlName]="'pair'"></app-form-errors>
+        <div *ngIf="!isEditAction && availableSkills.length !== 0" class="form-group row">
+            <label class="col-12 col-form-label">{{ 'SKILL._' | translate }} <span
+                class="text-danger">*</span></label>
+            <div *ngIf="skill === undefined" class="col-sm-6 col-lg-4 col-xl-3">
+                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#evaluationsModal"
+                        translate>
+                    BTN.SELECT-SKILL
+                </button>
             </div>
-            <div *ngIf="availableSkills.length === 0" translate>FORM.NO-SKILLS</div>
+            <div *ngIf="skill !== undefined" class="col-sm-6 col-lg-4 col-xl-3">
+                {{skill.name}}
+                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#evaluationsModal"
+                        translate>
+                    BTN.CHANGE-SKILL
+                </button>
+            </div>
+            <app-form-errors [serverErrors]="validationErrors"
+                             [controlName]="'pair'"></app-form-errors>
         </div>
+        <div *ngIf="!isEditAction && availableSkills.length === 0" translate>FORM.NO-SKILLS</div>
 
         <fieldset *ngIf="isUnitLeaderAction" class="form-group row">
-            <label for="evaluation-leaderEvaluation" class="col-md-2 col-form-label">{{ 'EVALUATION.LEADER-EVALUATION' |
+            <label for="evaluation-leaderEvaluation" class="col-12 col-form-label">{{ 'EVALUATION.LEADER-EVALUATION' |
                 translate }} <span class="text-danger">*</span></label>
-            <div class="col-md-5">
+            <div class="col-sm-6 col-lg-4 col-xl-3">
                 <select id="evaluation-leaderEvaluation" formControlName="leaderEvaluation"
                         [(ngModel)]="evaluation.leaderEvaluation" class="form-control">
                     <option *ngFor="let level of availableSkillLevels" [ngValue]="level.value" translate>{{level.text}}
@@ -35,9 +34,9 @@
             </div>
         </fieldset>
         <fieldset *ngIf="isUnitLeaderAction" class="form-group row">
-            <label for="evaluation-leaderExplanation" class="col-md-2 col-form-label">{{ 'EVALUATION.LEADER-EXPLANATION'
+            <label for="evaluation-leaderExplanation" class="col-12 col-form-label">{{ 'EVALUATION.LEADER-EXPLANATION'
                 | translate }} <span class="text-danger">*</span></label>
-            <div class="col-md-5">
+            <div class="col-sm-6 col-lg-4 col-xl-3">
                 <textarea
                     id="evaluation-leaderExplanation"
                     class="form-control"
@@ -55,18 +54,20 @@
         </fieldset>
 
         <fieldset *ngIf="!isUnitLeaderAction" class="form-group row">
-            <label for="evaluation-selfEvaluation" class="col-md-2 col-form-label"
+            <label for="evaluation-selfEvaluation" class="col-12 col-form-label"
             >{{ 'EVALUATION.SELF-EVALUATION' | translate }} <span class="text-danger">*</span></label>
-            <select id="evaluation-selfEvaluation" formControlName="selfEvaluation"
-                    [(ngModel)]="evaluation.selfEvaluation" class="form-control">
-                <option *ngFor="let level of availableSkillLevels" [ngValue]="level.value" translate>{{level.text}}
-                </option>
-            </select>
+            <div class="col-sm-6 col-lg-4 col-xl-3">
+                <select id="evaluation-selfEvaluation" formControlName="selfEvaluation"
+                        [(ngModel)]="evaluation.selfEvaluation" class="form-control">
+                    <option *ngFor="let level of availableSkillLevels" [ngValue]="level.value" translate>{{level.text}}
+                    </option>
+                </select>
+            </div>
         </fieldset>
         <fieldset *ngIf="!isUnitLeaderAction" class="form-group row">
-            <label for="evaluation-selfExplanation" class="col-md-2 col-form-label">{{ 'EVALUATION.SELF-EXPLANATION' |
+            <label for="evaluation-selfExplanation" class="col-12 col-form-label">{{ 'EVALUATION.SELF-EXPLANATION' |
                 translate }} <span class="text-danger">*</span></label>
-            <div class="col-md-5">
+            <div class="col-sm-6 col-lg-4 col-xl-3">
                 <textarea
                     id="evaluation-selfExplanation"
                     class="form-control"
@@ -82,12 +83,9 @@
                                  ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
-        <app-form-legend></app-form-legend>
 
-        <button (click)="goBack()" type="button" class="btn btn-dark" translate>
-            BTN.BACK
-        </button>
-        <button [disabled]="!evaluationForm.valid || skill === undefined" type="submit" class="btn btn-success"
+        <hr/>
+        <button [disabled]="!evaluationForm.valid || skill === undefined" type="submit" class="btn btn-sm btn-outline-success"
                 translate>
             BTN.SAVE
         </button>
@@ -99,20 +97,22 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="evaluationsModalLabel" translate>HEADER.SELECT-SKILL</h5>
+                <h5 class="modal-title" id="evaluationsModalLabel" translate>
+                    <i class="fa fa-sliders mr-1"></i> HEADER.SELECT-SKILL
+                </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <ul *ngFor="let skill of availableSkills">
-                    <li>
-                        <button (click)="selectSkill(skill)" data-dismiss="modal">{{skill.name}}</button>
+                <ul class="list-unstyled">
+                    <li *ngFor="let skill of availableSkills">
+                        <button (click)="selectSkill(skill)" class="btn btn-block btn-outline-secondary" data-dismiss="modal">{{skill.name}}</button>
                     </li>
                 </ul>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary" data-dismiss="modal" translate>BTN.CLOSE</button>
             </div>
         </div>
     </div>

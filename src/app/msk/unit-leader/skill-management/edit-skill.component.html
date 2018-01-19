@@ -1,4 +1,22 @@
-<h2 translate>HEADER.EDIT-SKILL</h2>
-
-<app-skill-form [editedSkill]="skill" [response]="responseSubject.asObservable()"
-                (formSubmitted)="submit($event)"></app-skill-form>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-sliders"></i> HEADER.EDIT-SKILL
+            <div class="float-right">
+                <button [routerLink]="['/unitleader/skills', skill.id]" class="btn btn-outline-secondary btn-sm">
+                    <i class="fa fa-angle-double-left fa-fw"></i> <span class="xs-hidden" translate>BTN.BACK</span>
+                </button>
+            </div>
+        </div>
+        <div class="card-subtitle text-muted" translate>
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.SKILLS' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{skill.name}} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.EDIT-SKILL' | translate }}
+        </div>
+        <div class="card-text">
+            <app-skill-form [editedSkill]="skill" [response]="responseSubject.asObservable()"
+                            (formSubmitted)="submit($event)"></app-skill-form>
+        </div>
+    </div>
+</div>

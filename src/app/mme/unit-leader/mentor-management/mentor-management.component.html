@@ -9,8 +9,9 @@
             </div>
         </div>
         <div class="card-subtitle text-muted" translate>
-            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i> {{'HEADER.MENTOR-MANAGEMENT' | translate }}
-            <i class="fa fa-angle-double-right fa-fw"></i> {{mentor.evaluation.user.surname}} {{mentor.evaluation.user.name}}
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.MENTORS' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{mentor.evaluation.user.surname}} {{mentor.evaluation.user.name}}
             | {{mentor.evaluation.skill.name}}
         </div>
         <div class="card-text">
@@ -67,10 +68,10 @@
             </table>
 
             <hr/>
-            <a *ngIf="!mentor.approved" class="btn btn-sm btn-outline-success" (click)="approveMentor()" translate>BTN.APPROVE</a>
-            <a *ngIf="!mentor.active" class="btn btn-sm btn-outline-success" (click)="activateMentor()" translate>BTN.ACTIVATE</a>
-            <a *ngIf="mentor.active" class="btn btn-sm btn-outline-secondary" (click)="deactivateMentor()" translate>BTN.DEACTIVATE</a>
-            <a class="btn btn-sm btn-danger" (click)="deleteMentor()" translate>BTN.DELETE</a>
+            <button *ngIf="!mentor.approved" class="btn btn-sm btn-outline-success" (click)="approveMentor()" type="button" translate>BTN.APPROVE</button>
+            <button *ngIf="!mentor.active" class="btn btn-sm btn-outline-success" (click)="activateMentor()" type="button" translate>BTN.ACTIVATE</button>
+            <button *ngIf="mentor.active" class="btn btn-sm btn-outline-secondary" (click)="deactivateMentor()" type="button" translate>BTN.DEACTIVATE</button>
+            <button class="btn btn-sm btn-danger" (click)="deleteMentor()" type="button" translate>BTN.DELETE</button>
         </div>
     </div>
 </div>

@@ -1,5 +1,22 @@
-<h2 translate>HEADER.ADD-EVALUATION</h2>
-
-<app-evaluation-form [isUnitLeader]="false"
-                     [response]="responseSubject.asObservable()" (formSubmitted)="submit($event)">
-</app-evaluation-form>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-sliders"></i> HEADER.ADD-EVALUATION
+            <div class="float-right">
+                <button routerLink="/employee/skills" class="btn btn-outline-secondary btn-sm">
+                    <i class="fa fa-angle-double-left fa-fw"></i> <span class="xs-hidden" translate>BTN.BACK</span>
+                </button>
+            </div>
+        </div>
+        <div class="card-subtitle text-muted" translate>
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.MY-SKILLS' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.ADD-EVALUATION' | translate }}
+        </div>
+        <div class="card-text">
+            <app-evaluation-form [isUnitLeader]="false"
+                                 [response]="responseSubject.asObservable()" (formSubmitted)="submit($event)">
+            </app-evaluation-form>
+        </div>
+    </div>
+</div>

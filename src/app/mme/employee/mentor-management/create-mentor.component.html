@@ -1,53 +1,68 @@
-<h2 translate>HEADER.ADD-MENTOR</h2>
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label">{{ 'SKILL._' | translate}} <span class="text-danger">*</span></label>
-    <div *ngIf="evaluations.length !== 0">
-        <div *ngIf="mentor.evaluation === undefined" class="col-md-5">
-            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#skillsModal" translate>
-                BTN.SELECT-SKILL
-            </button>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-address-card-o"></i> HEADER.ADD-MENTOR
+            <div class="float-right">
+                <button routerLink="/employee/mentors" class="btn btn-outline-secondary btn-sm">
+                    <i class="fa fa-angle-double-left fa-fw"></i> <span class="xs-hidden" translate>BTN.BACK</span>
+                </button>
+            </div>
         </div>
-        <div *ngIf="mentor.evaluation !== undefined" class="col-md-5">
-            {{mentor.evaluation.skill.name}}
-            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#skillsModal" translate>
-                BTN.CHANGE-SKILL
+        <div class="card-subtitle text-muted" translate>
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.MENTORS' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.ADD-MENTOR' | translate }}
+        </div>
+        <div class="card-text">
+            <app-form-legend></app-form-legend>
+            <div class="form-group row">
+                <label class="col-12 col-form-label">{{ 'SKILL._' | translate}} <span class="text-danger">*</span></label>
+                <div *ngIf="evaluations.length !== 0 && mentor.evaluation === undefined" class="col-sm-6 col-lg-4 col-xl-3">
+                    <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#skillsModal" translate>
+                        BTN.SELECT-SKILL
+                    </button>
+                </div>
+                <div *ngIf="evaluations.length !== 0 && mentor.evaluation !== undefined" class="col-sm-6 col-lg-4 col-xl-3">
+                    {{mentor.evaluation.skill.name}}
+                    <button *ngIf="evaluations.length > 1" type="button" class="btn btn-sm btn-outline-secondary ml-3" data-toggle="modal" data-target="#skillsModal" translate>
+                        BTN.CHANGE-SKILL
+                    </button>
+                </div>
+                <div *ngIf="evaluations.length === 0" translate>FORM.NO-SKILLS</div>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'evaluation'"></app-form-errors>
+            </div>
+
+            <hr/>
+            <button [disabled]="mentor.evaluation === undefined || isSubmitting" (click)="submit()" class="btn btn-sm btn-outline-success"
+                    translate>
+                BTN.SAVE
             </button>
         </div>
     </div>
-    <div *ngIf="evaluations.length === 0" translate>FORM.NO-SKILLS</div>
-    <app-form-errors [serverErrors]="validationErrors"
-                     [controlName]="'evaluation'"></app-form-errors>
 </div>
-
-<app-form-legend></app-form-legend>
-<button routerLink="/employee/mentors" type="button" class="btn btn-dark" translate>
-    BTN.BACK
-</button>
-<button [disabled]="mentor.evaluation === undefined || isSubmitting" (click)="submit()" class="btn btn-success"
-        translate>
-    BTN.SAVE
-</button>
 
 <div class="modal fade" id="skillsModal" tabindex="-1" role="dialog" aria-labelledby="skillsModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="skillsModalLabel" translate>BTN.SELECT-SKILL</h5>
+                <h5 class="modal-title" id="skillsModalLabel" translate>
+                    <i class="fa fa-sliders mr-1"></i> BTN.SELECT-SKILL
+                </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <ul *ngFor="let eval of evaluations">
-                    <li>
-                        <button (click)="selectEvaluation(eval)" data-dismiss="modal">{{eval.skill.name}}</button>
+                <ul class="list-unstyled">
+                    <li *ngFor="let eval of evaluations">
+                        <button (click)="selectEvaluation(eval)" class="btn btn-block btn-outline-secondary" data-dismiss="modal">{{eval.skill.name}}</button>
                     </li>
                 </ul>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary" data-dismiss="modal" translate>BTN.CLOSE</button>
             </div>
         </div>
     </div>

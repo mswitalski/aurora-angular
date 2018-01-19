@@ -61,7 +61,8 @@
         "DONE": "Done",
         "STATISTICS": "Statistics",
         "USER-TASKS": "Tasks",
-        "FILTER-LIST": "Filter list"
+        "FILTER-LIST": "Filter list",
+        "CLOSE": "Close"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Bad username or/and password!",

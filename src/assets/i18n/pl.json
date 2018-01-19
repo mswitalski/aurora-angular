@@ -61,7 +61,8 @@
         "DONE": "Wykonane",
         "STATISTICS": "Statystyki",
         "USER-TASKS": "Zadania",
-        "FILTER-LIST": "Filtruj list\u0119"
+        "FILTER-LIST": "Filtruj list\u0119",
+        "CLOSE": "Zamknij"
     },
     "ERROR": {
         "INVALID-CREDENTIALS": "Podano nieprawid\u0142ow\u0105 nazw\u0119 użytkownika i/lub has\u0142o",
