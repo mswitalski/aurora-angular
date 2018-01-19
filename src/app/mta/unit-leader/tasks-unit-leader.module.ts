@@ -5,6 +5,7 @@ import {moduleRouting} from './routes';
 import {CommonModule} from '@angular/common';
 import {SharedModule} from '../../msh';
 import {TasksSharedModule} from '../shared';
+import {UsersSharedModule} from '../../mus/shared';
 
 @NgModule({
     declarations: [
@@ -14,7 +15,8 @@ import {TasksSharedModule} from '../shared';
         CommonModule,
         moduleRouting,
         SharedModule,
-        TasksSharedModule
+        TasksSharedModule,
+        UsersSharedModule
     ],
     providers: [
         DoneTasksListResolver,

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TasksService} from '../../../msh/service';
 import {ActivatedRoute} from '@angular/router';
-import {ListEventData, PagedResults, Task, TasksStatistics} from '../../../msh/model';
+import {ListEventData, PagedResults, Task, TasksStatistics, User} from '../../../msh/model';
 
 @Component({
     templateUrl: './tasks-list.component.html'
@@ -12,6 +12,7 @@ export class TasksListComponent implements OnInit {
     doneTasksList: Task[];
     statistics: TasksStatistics;
     undoneTasksList: Task[];
+    user: User;
 
     constructor(private route: ActivatedRoute, private tasksService: TasksService) {
     }
@@ -21,6 +22,7 @@ export class TasksListComponent implements OnInit {
         this.donePagedResults = this.route.snapshot.data['donePagedResults'];
         this.doneTasksList = this.donePagedResults.content;
         this.statistics = this.route.snapshot.data['statistics'];
+        this.user = this.route.snapshot.data['user'];
     }
 
     loadListData(eventData: ListEventData): void {
