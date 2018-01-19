@@ -56,32 +56,34 @@
         <fieldset class="form-group row">
             <label for="training-startDateTime" class="col-12 col-form-label">{{ 'TRAINING.START' | translate }} <span
                 class="text-danger">*</span></label>
-            <owl-date-time id="training-startDateTime"
-                           formControlName="startDateTime"
-                           [(ngModel)]="startDate"
-                           [dateFormat]="'YYYY-MM-DD HH:mm'"
-                           [placeHolder]="'YYYY-MM-DD HH:mm'"
-                           [min]="todayDate"
-                           [required]="true"
-                           class="col-sm-6 col-lg-4 col-xl-3"></owl-date-time>
-            <app-form-errors [serverErrors]="validationErrors"
-                             [controlName]="'startDateTime'"
-                             [formControl]="trainingForm.controls['startDateTime']" ngDefaultControl></app-form-errors>
+            <div class="col-sm-6 col-lg-4 col-xl-3">
+                <owl-date-time id="training-startDateTime"
+                               formControlName="startDateTime"
+                               [(ngModel)]="startDate"
+                               [dateFormat]="'YYYY-MM-DD HH:mm'"
+                               [placeHolder]="'YYYY-MM-DD HH:mm'"
+                               [min]="todayDate"
+                               [required]="true"></owl-date-time>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'startDateTime'"
+                                 [formControl]="trainingForm.controls['startDateTime']" ngDefaultControl></app-form-errors>
+            </div>
         </fieldset>
         <fieldset class="form-group row">
             <label for="training-endDateTime" class="col-12 col-form-label">{{ 'TRAINING.END' | translate }} <span
                 class="text-danger">*</span></label>
-            <owl-date-time id="training-endDateTime"
-                           formControlName="endDateTime"
-                           [(ngModel)]="endDate"
-                           [dateFormat]="'YYYY-MM-DD HH:mm'"
-                           [placeHolder]="'YYYY-MM-DD HH:mm'"
-                           [min]="todayDate"
-                           [required]="true"
-                           class="col-sm-6 col-lg-4 col-xl-3"></owl-date-time>
-            <app-form-errors [serverErrors]="validationErrors"
-                             [controlName]="'endDateTime'"
-                             [formControl]="trainingForm.controls['endDateTime']" ngDefaultControl></app-form-errors>
+            <div class="col-sm-6 col-lg-4 col-xl-3">
+                <owl-date-time id="training-endDateTime"
+                               formControlName="endDateTime"
+                               [(ngModel)]="endDate"
+                               [dateFormat]="'YYYY-MM-DD HH:mm'"
+                               [placeHolder]="'YYYY-MM-DD HH:mm'"
+                               [min]="todayDate"
+                               [required]="true"></owl-date-time>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'endDateTime'"
+                                 [formControl]="trainingForm.controls['endDateTime']" ngDefaultControl></app-form-errors>
+            </div>
         </fieldset>
 
         <fieldset class="form-group row">

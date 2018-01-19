@@ -21,17 +21,18 @@
         <fieldset class="form-group row">
             <label for="task-deadlineDate" class="col-12 col-form-label">{{ 'TASK.DEADLINE-DATE' | translate
                 }}</label>
-            <owl-date-time id="task-deadlineDate"
-                           formControlName="deadlineDate"
-                           [(ngModel)]="deadlineDate"
-                           [dateFormat]="'YYYY-MM-DD'"
-                           [placeHolder]="'YYYY-MM-DD'"
-                           [min]="todayDate"
-                           [type]="'calendar'"
-                           class="col-sm-6 col-lg-4 col-xl-3"></owl-date-time>
-            <app-form-errors [serverErrors]="validationErrors"
-                             [controlName]="'deadlineDate'"
-                             [formControl]="taskForm.controls['deadlineDate']" ngDefaultControl></app-form-errors>
+            <div class="col-sm-6 col-lg-4 col-xl-3">
+                <owl-date-time id="task-deadlineDate"
+                               formControlName="deadlineDate"
+                               [(ngModel)]="deadlineDate"
+                               [dateFormat]="'YYYY-MM-DD'"
+                               [placeHolder]="'YYYY-MM-DD'"
+                               [min]="todayDate"
+                               [type]="'calendar'"></owl-date-time>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'deadlineDate'"
+                                 [formControl]="taskForm.controls['deadlineDate']" ngDefaultControl></app-form-errors>
+            </div>
         </fieldset>
 
         <hr/>
