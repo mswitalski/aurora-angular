@@ -1,9 +1,10 @@
+<app-form-legend></app-form-legend>
 <form [formGroup]="userForm" (ngSubmit)="submitForm()">
     <fieldset [disabled]="isSubmitting">
         <fieldset *ngIf="!isEditAction" class="form-group row">
-            <label for="user-username" class="col-md-2 col-form-label">{{ 'USER.USERNAME' | translate }} <span
+            <label for="user-username" class="col-12 col-form-label">{{ 'USER.USERNAME' | translate }} <span
                 class="text-danger">*</span></label>
-            <div class="col-md-5">
+            <div class="col-sm-6 col-lg-4 col-xl-3">
                 <input
                     id="user-username"
                     class="form-control"
@@ -20,9 +21,9 @@
             </div>
         </fieldset>
         <fieldset *ngIf="!isEditAction" class="form-group row">
-            <label for="user-password" class="col-md-2 col-form-label">{{ 'USER.PASSWORD' | translate }} <span
+            <label for="user-password" class="col-12 col-form-label">{{ 'USER.PASSWORD' | translate }} <span
                 class="text-danger">*</span></label>
-            <div class="col-md-5">
+            <div class="col-sm-6 col-lg-4 col-xl-3">
                 <input
                     id="user-password"
                     class="form-control"
@@ -38,9 +39,9 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="user-email" class="col-md-2 col-form-label">{{ 'USER.EMAIL' | translate }} <span
+            <label for="user-email" class="col-12 col-form-label">{{ 'USER.EMAIL' | translate }} <span
                 class="text-danger">*</span></label>
-            <div class="col-md-5">
+            <div class="col-sm-6 col-lg-4 col-xl-3">
                 <input
                     id="user-email"
                     class="form-control"
@@ -55,9 +56,9 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="user-name" class="col-md-2 col-form-label">{{ 'USER.NAME' | translate }} <span
+            <label for="user-name" class="col-12 col-form-label">{{ 'USER.NAME' | translate }} <span
                 class="text-danger">*</span></label>
-            <div class="col-md-5">
+            <div class="col-sm-6 col-lg-4 col-xl-3">
                 <input
                     id="user-name"
                     class="form-control"
@@ -73,9 +74,9 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="user-surname" class="col-md-2 col-form-label">{{ 'USER.SURNAME' | translate }} <span
+            <label for="user-surname" class="col-12 col-form-label">{{ 'USER.SURNAME' | translate }} <span
                 class="text-danger">*</span></label>
-            <div class="col-md-5">
+            <div class="col-sm-6 col-lg-4 col-xl-3">
                 <input
                     id="user-surname"
                     class="form-control"
@@ -91,9 +92,9 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="user-position" class="col-md-2 col-form-label">{{ 'USER.POSITION' | translate }} <span
+            <label for="user-position" class="col-12 col-form-label">{{ 'USER.POSITION' | translate }} <span
                 class="text-danger">*</span></label>
-            <div class="col-md-5">
+            <div class="col-sm-6 col-lg-4 col-xl-3">
                 <input
                     id="user-position"
                     class="form-control"
@@ -109,8 +110,8 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="user-goals" class="col-md-2 col-form-label">{{ 'USER.GOALS' | translate }}</label>
-            <div class="col-md-5">
+            <label for="user-goals" class="col-12 col-form-label">{{ 'USER.GOALS' | translate }}</label>
+            <div class="col-sm-6 col-lg-4 col-xl-3">
                 <textarea
                     id="user-goals"
                     class="form-control"
@@ -126,9 +127,9 @@
             </div>
         </fieldset>
         <fieldset class="form-group row">
-            <label for="user-enabled" class="col-md-2 col-form-label">{{ 'USER.ENABLED' | translate }} <span
+            <label for="user-enabled" class="col-12 col-form-label">{{ 'USER.ENABLED' | translate }} <span
                 class="text-danger">*</span></label>
-            <div class="col-md-5" id="user-enabled">
+            <div class="col-sm-6 col-lg-4 col-xl-3" id="user-enabled">
                 <div class="form-check form-check-inline">
                     <label class="form-check-label">
                         <input class="form-check-input" type="radio" formControlName="enabled" [value]="true"
@@ -146,24 +147,21 @@
             </div>
         </fieldset>
         <fieldset *ngIf="allowRolesSelect" class="form-group row">
-            <label for="user-roles" class="col-md-2 col-form-label">{{ 'USER.ROLES' | translate }}</label>
-            <div class="col-md-5" id="user-roles">
+            <label for="user-roles" class="col-12 col-form-label">{{ 'USER.ROLES' | translate }}</label>
+            <div class="col-sm-6 col-lg-4 col-xl-3" id="user-roles">
                 <div *ngFor="let role of availableRoles">
-                    <button *ngIf="!hasRole(role)" (click)="assignRole(role)" class="btn-camouflaged" translate><i
+                    <button *ngIf="!hasRole(role)" (click)="assignRole(role)" class="btn btn-my-link" translate><i
                         class="fa fa-square-o mr-2"></i>ROLE.{{role.name}}
                     </button>
-                    <button *ngIf="hasRole(role)" (click)="retractRole(role)" class="btn-camouflaged" translate><i
+                    <button *ngIf="hasRole(role)" (click)="retractRole(role)" class="btn btn-my-link" translate><i
                         class="fa fa-check-square-o mr-2"></i>ROLE.{{role.name}}
                     </button>
                 </div>
             </div>
         </fieldset>
-        <app-form-legend></app-form-legend>
 
-        <button (click)="goBack()" type="button" class="btn btn-dark" translate>
-            BTN.BACK
-        </button>
-        <button [disabled]="!userForm.valid" type="submit" class="btn btn-success" translate>
+        <hr/>
+        <button [disabled]="!userForm.valid" type="submit" class="btn btn-sm btn-outline-success" translate>
             BTN.SAVE
         </button>
     </fieldset>

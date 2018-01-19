@@ -1,3 +1,20 @@
-<h2 translate>HEADER.CREATE-DUTY</h2>
-
-<app-duty-form [response]="responseSubject.asObservable()" (formSubmitted)="submit($event)"></app-duty-form>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-file-text-o"></i> HEADER.CREATE-DUTY
+            <div class="float-right">
+                <button routerLink="/unitleader/duties" class="btn btn-outline-secondary btn-sm">
+                    <i class="fa fa-angle-double-left fa-fw"></i> <span class="xs-hidden" translate>BTN.BACK</span>
+                </button>
+            </div>
+        </div>
+        <div class="card-subtitle text-muted" translate>
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.DUTIES' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.CREATE-DUTY' | translate }}
+        </div>
+        <div class="card-text">
+            <app-duty-form [response]="responseSubject.asObservable()" (formSubmitted)="submit($event)"></app-duty-form>
+        </div>
+    </div>
+</div>

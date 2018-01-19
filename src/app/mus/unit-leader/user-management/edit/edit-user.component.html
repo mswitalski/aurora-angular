@@ -1,4 +1,22 @@
-<h2 translate>HEADER.EDIT-USER</h2>
-
-<app-user-form [editedUser]="user" [module]="'unitleader'" [response]="responseSubject.asObservable()"
-               (formSubmitted)="submit($event)"></app-user-form>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-users"></i> HEADER.EDIT-USER
+            <div class="float-right">
+                <button [routerLink]="['/unitleader/users/', user.id]" class="btn btn-outline-secondary btn-sm">
+                    <i class="fa fa-angle-double-left fa-fw"></i> <span class="xs-hidden" translate>BTN.BACK</span>
+                </button>
+            </div>
+        </div>
+        <div class="card-subtitle text-muted" translate>
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.USERS' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{user.surname}} {{user.name}} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.EDIT-USER' | translate }}
+        </div>
+        <div class="card-text">
+            <app-user-form [editedUser]="user" [module]="'unitleader'" [response]="responseSubject.asObservable()"
+                           (formSubmitted)="submit($event)"></app-user-form>
+        </div>
+    </div>
+</div>

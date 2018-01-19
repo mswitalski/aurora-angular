@@ -1,47 +1,62 @@
-<h2 translate>HEADER.EDIT-PROFILE</h2>
-
-<form [formGroup]="editProfileForm" (ngSubmit)="submitForm()">
-    <fieldset [disabled]="isSubmitting">
-        <fieldset class="form-group row">
-            <label for="user-name" class="col-md-2 col-form-label">{{ 'USER.NAME' | translate }} <span
-                class="text-danger">*</span></label>
-            <div class="col-md-5">
-                <input
-                    id="user-name"
-                    class="form-control"
-                    formControlName="name"
-                    [(ngModel)]="loggedUser.name"
-                    placeholder="{{ 'USER.NAME' | translate }}"
-                    type="text"/>
-                <app-form-errors [serverErrors]="validationErrors"
-                                 [controlName]="'name'"
-                                 [formControl]="editProfileForm.controls['name']"
-                                 [maxLength]="validation.name.max"
-                                 [minLength]="validation.name.min" ngDefaultControl></app-form-errors>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-user-o"></i> HEADER.EDIT-PROFILE
+            <div class="float-right">
+                <button routerLink="/profile" class="btn btn-outline-secondary btn-sm">
+                    <i class="fa fa-angle-double-left fa-fw"></i> <span class="xs-hidden" translate>BTN.BACK</span>
+                </button>
             </div>
-        </fieldset>
-        <fieldset class="form-group row">
-            <label for="user-surname" class="col-md-2 col-form-label">{{ 'USER.SURNAME' | translate }} <span
-                class="text-danger">*</span></label>
-            <div class="col-md-5">
-                <input
-                    id="user-surname"
-                    class="form-control"
-                    formControlName="surname"
-                    [(ngModel)]="loggedUser.surname"
-                    placeholder="{{ 'USER.SURNAME' | translate }}"
-                    type="text"/>
-                <app-form-errors [serverErrors]="validationErrors"
-                                 [controlName]="'surname'"
-                                 [formControl]="editProfileForm.controls['surname']"
-                                 [maxLength]="validation.surname.max"
-                                 [minLength]="validation.surname.min" ngDefaultControl></app-form-errors>
-            </div>
-        </fieldset>
-        <fieldset class="form-group row">
-            <label for="user-goals" class="col-md-2 col-form-label">{{ 'USER.GOALS' | translate }} <span
-                class="text-danger">*</span></label>
-            <div class="col-md-5">
+        </div>
+        <div class="card-subtitle text-muted" translate>
+            {{'HEADER.HOME' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.PROFILE' | translate }} <i class="fa fa-angle-double-right fa-fw"></i>
+            {{'HEADER.EDIT-PROFILE' | translate }}
+        </div>
+        <div class="card-text">
+            <app-form-legend></app-form-legend>
+            <form [formGroup]="editProfileForm" (ngSubmit)="submitForm()">
+                <fieldset [disabled]="isSubmitting">
+                    <fieldset class="form-group row">
+                        <label for="user-name" class="col-12 col-form-label">{{ 'USER.NAME' | translate }} <span
+                            class="text-danger">*</span></label>
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <input
+                                id="user-name"
+                                class="form-control"
+                                formControlName="name"
+                                [(ngModel)]="loggedUser.name"
+                                placeholder="{{ 'USER.NAME' | translate }}"
+                                type="text"/>
+                            <app-form-errors [serverErrors]="validationErrors"
+                                             [controlName]="'name'"
+                                             [formControl]="editProfileForm.controls['name']"
+                                             [maxLength]="validation.name.max"
+                                             [minLength]="validation.name.min" ngDefaultControl></app-form-errors>
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group row">
+                        <label for="user-surname" class="col-12 col-form-label">{{ 'USER.SURNAME' | translate }} <span
+                            class="text-danger">*</span></label>
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <input
+                                id="user-surname"
+                                class="form-control"
+                                formControlName="surname"
+                                [(ngModel)]="loggedUser.surname"
+                                placeholder="{{ 'USER.SURNAME' | translate }}"
+                                type="text"/>
+                            <app-form-errors [serverErrors]="validationErrors"
+                                             [controlName]="'surname'"
+                                             [formControl]="editProfileForm.controls['surname']"
+                                             [maxLength]="validation.surname.max"
+                                             [minLength]="validation.surname.min" ngDefaultControl></app-form-errors>
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group row">
+                        <label for="user-goals" class="col-12 col-form-label">{{ 'USER.GOALS' | translate }} <span
+                            class="text-danger">*</span></label>
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
                 <textarea
                     id="user-goals"
                     class="form-control"
@@ -50,19 +65,19 @@
                     placeholder="{{ 'USER.GOALS' | translate }}"
                     rows="3"
                     cols="50"></textarea>
-                <app-form-errors [serverErrors]="validationErrors"
-                                 [controlName]="'goals'"
-                                 [formControl]="editProfileForm.controls['goals']"
-                                 [maxLength]="validation.goals.max" ngDefaultControl></app-form-errors>
-            </div>
-        </fieldset>
-        <app-form-legend></app-form-legend>
+                            <app-form-errors [serverErrors]="validationErrors"
+                                             [controlName]="'goals'"
+                                             [formControl]="editProfileForm.controls['goals']"
+                                             [maxLength]="validation.goals.max" ngDefaultControl></app-form-errors>
+                        </div>
+                    </fieldset>
 
-        <button routerLink="/profile" type="button" class="btn btn-dark" translate>
-            BTN.BACK
-        </button>
-        <button [disabled]="!editProfileForm.valid" type="submit" class="btn btn-success" translate>
-            BTN.SAVE
-        </button>
-    </fieldset>
-</form>
+                    <hr/>
+                    <button [disabled]="!editProfileForm.valid" type="submit" class="btn btn-sm btn-outline-success" translate>
+                        BTN.SAVE
+                    </button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

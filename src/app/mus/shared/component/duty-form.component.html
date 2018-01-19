@@ -1,9 +1,10 @@
+<app-form-legend></app-form-legend>
 <form [formGroup]="dutyForm" (ngSubmit)="submitForm()">
     <fieldset [disabled]="isSubmitting">
         <fieldset class="form-group row">
-            <label for="duty-name" class="col-md-2 col-form-label">{{ 'DUTY.NAME' | translate }} <span
+            <label for="duty-name" class="col-12 col-form-label">{{ 'DUTY.NAME' | translate }} <span
                 class="text-danger">*</span></label>
-            <div class="col-md-5">
+            <div class="col-sm-6 col-lg-4 col-xl-3">
                 <input
                     id="duty-name"
                     class="form-control"
@@ -17,12 +18,9 @@
                                  [maxLength]="validation.name.max" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
-        <app-form-legend></app-form-legend>
 
-        <button (click)="goBack()" type="button" class="btn btn-dark" translate>
-            BTN.BACK
-        </button>
-        <button [disabled]="!dutyForm.valid" type="submit" class="btn btn-success" translate>
+        <hr/>
+        <button [disabled]="!dutyForm.valid" type="submit" class="btn btn-sm btn-outline-success" translate>
             BTN.SAVE
         </button>
     </fieldset>

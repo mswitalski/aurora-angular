@@ -212,3 +212,11 @@ a.btn-danger, a.btn-danger:hover {
 .text-bold {
     font-weight: bold;
 }
+
+.btn-my-link, .btn-my-link:hover {
+    font-weight: 400;
+    color: inherit;
+    background-color: transparent;
+    text-decoration: none;
+    cursor: pointer;
+}
