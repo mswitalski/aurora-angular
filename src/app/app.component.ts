@@ -8,7 +8,6 @@ import {environment} from '../environments/environment';
 
 @Component({
     selector: 'app-aurora',
-    styleUrls: ['./app.component.css'],
     templateUrl: './app.component.html'
 })
 export class AppComponent {

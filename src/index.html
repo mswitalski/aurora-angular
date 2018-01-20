@@ -10,7 +10,60 @@
     <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <script>window.__theme = 'bs4';</script>
-    <app-aurora>Loading...</app-aurora>
+    <app-aurora>
+        <style>
+            app-aurora {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            body {
+                background-color: #2e3133;
+                margin: 0;
+                padding: 0;
+            }
+            @-webkit-keyframes spinning {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                100% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                }
+            }
+            @keyframes spinning {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                100% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                }
+            }
+            .animation {
+                -webkit-animation: spinning 1.4s infinite linear;
+                animation: spinning 1.4s infinite linear;
+                -webkit-transform: translateZ(0);
+                -ms-transform: translateZ(0);
+                transform: translateZ(0);
+            }
+            .loader-base {
+                background-image: url("assets/img/loader-base.png");
+                width: 156px;
+                height: 156px;
+            }
+            .loader-spinner {
+                background-image: url("assets/img/loader-spinner.png");
+                width: 200px;
+                height: 200px;
+                margin-left: -178px;
+            }
+        </style>
+
+        <span class="loader-base"></span><span class="loader-spinner animation"></span>
+    </app-aurora>
 </body>
 </html>
