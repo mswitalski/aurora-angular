@@ -1,7 +1,13 @@
-<h2>{{ title }}</h2>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title" translate>
+            <i class="fa fa-exclamation-triangle"></i> {{ title }}
+        </div>
+        <div class="card-text">
+            {{ description }}
 
-<p>{{ description }}</p>
-
-<button class="btn btn-dark" routerLink="/">
-    {{ 'BTN.HOME' | translate }}
-</button>
+            <hr/>
+            <button class="btn btn-sm btn-outline-success" routerLink="/" translate>BTN.HOME</button>
+        </div>
+    </div>
+</div>
