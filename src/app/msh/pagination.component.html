@@ -1,13 +1,41 @@
 <div class="row">
     <div class="mx-auto">
-        <button class="btn" [disabled]="activePage === 0" (click)="firstPage()" translate>PAGINATION.FIRST</button>
-        <button class="btn mr-3" [disabled]="activePage === 0" (click)="previousPage()" translate>PAGINATION.PREV
+        <button class="btn btn-sm btn-outline-secondary xs-hidden"
+                [disabled]="activePage === 0" (click)="firstPage()" translate>
+            PAGINATION.FIRST
         </button>
+        <button class="btn btn-sm btn-outline-secondary xs-visible"
+                [disabled]="activePage === 0" (click)="firstPage()">
+            <i class="fa fa-fw fa-angle-double-left"></i>
+        </button>
+
+        <button class="btn btn-sm btn-outline-secondary xs-hidden mr-3"
+                [disabled]="activePage === 0" (click)="previousPage()" translate>
+            PAGINATION.PREV
+        </button>
+        <button class="btn btn-sm btn-outline-secondary xs-visible mr-3"
+                [disabled]="activePage === 0" (click)="previousPage()">
+            <i class="fa fa-fw fa-angle-left"></i>
+        </button>
+
         {{'PAGINATION.PAGE' | translate}} {{determineActivePage()}} {{'PAGINATION.OF' | translate}} {{totalPages}}
-        <button class="btn ml-3" [disabled]="activePage + 1 >= totalPages" (click)="nextPage()" translate>
+
+        <button class="btn btn-sm btn-outline-secondary xs-hidden ml-3"
+                [disabled]="activePage + 1 >= totalPages" (click)="nextPage()" translate>
             PAGINATION.NEXT
         </button>
-        <button class="btn" [disabled]="activePage + 1 >= totalPages" (click)="lastPage()" translate>PAGINATION.LAST
+        <button class="btn btn-sm btn-outline-secondary xs-visible ml-3"
+                [disabled]="activePage + 1 >= totalPages" (click)="nextPage()">
+            <i class="fa fa-fw fa-angle-right"></i>
+        </button>
+
+        <button class="btn btn-sm btn-outline-secondary xs-hidden"
+                [disabled]="activePage + 1 >= totalPages" (click)="lastPage()" translate>
+            PAGINATION.LAST
+        </button>
+        <button class="btn btn-sm btn-outline-secondary xs-visible"
+                [disabled]="activePage + 1 >= totalPages" (click)="lastPage()">
+            <i class="fa fa-fw fa-angle-double-right"></i>
         </button>
     </div>
 </div>

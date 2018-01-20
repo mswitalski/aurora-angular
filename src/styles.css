@@ -63,20 +63,6 @@ body {
     display: none;
 }
 
-@media (max-width: 768px) {
-    #sidebar {
-        margin-left: -250px;
-    }
-
-    #sidebar.active {
-        margin-left: 0;
-    }
-
-    #sidebar-toggle {
-        display: block;
-    }
-}
-
 #content {
     width: calc(100% - 250px);
     transition: all 0.3s;
@@ -103,6 +89,14 @@ body {
 
     #content.active {
         margin-right: -250px;
+    }
+
+    #sidebar.active {
+        margin-left: 0;
+    }
+
+    #sidebar-toggle {
+        display: block;
     }
 }
 
@@ -172,6 +166,16 @@ body {
 
 @media (max-width: 575px) {
     .xs-hidden {
+        display: none;
+    }
+
+    .xs-visible {
+        display: inline-block;
+    }
+}
+
+@media (min-width: 576px) {
+    .xs-visible {
         display: none;
     }
 }
