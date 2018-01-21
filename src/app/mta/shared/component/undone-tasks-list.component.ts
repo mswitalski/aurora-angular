@@ -14,7 +14,10 @@ export class UndoneTasksListComponent {
 
     @Input() set listData(data: Task[]) {
         this.tasksList = data;
-        this.prepareDateGroups();
+        
+        if (this.tasksList.length > 0) {
+            this.prepareDateGroups();
+        }
     }
 
     @Input() set showActionButton(flag: boolean) {
