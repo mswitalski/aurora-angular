@@ -44,6 +44,10 @@ export class EditPasswordComponent {
         return newPassword === repeated ? null : {notSame: true};
     }
 
+    getNewPasswords() {
+        return <FormGroup>this.editPasswordForm.controls['new-passwords'];
+    }
+
     submitForm(): void {
         this.isSubmitting = true;
         this.usersService.updateProfilePassword(this.formData).subscribe(

@@ -14,7 +14,7 @@ export class UndoneTasksListComponent {
 
     @Input() set listData(data: Task[]) {
         this.tasksList = data;
-        
+
         if (this.tasksList.length > 0) {
             this.prepareDateGroups();
         }
