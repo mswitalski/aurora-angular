@@ -22,16 +22,23 @@
                     <div class="form-check">
                         <label class="form-check-label">
                             <input class="form-check-input" type="checkbox" [checked]="checkbox.value"
-                                   (change)="checkbox.value = !checkbox.value">
+                                   (change)="checkbox.value = !checkbox.value" (click)="modifyCount(!checkbox.value)">
                             {{checkbox.item.surname}} {{checkbox.item.name}}
                             <span class="text-muted text-italic">({{checkbox.item.email}})</span>
                         </label>
                     </div>
                 </div>
+                <app-form-errors [serverErrors]="serverResponse"
+                                 [controlName]="'participantsLimit'" ngDefaultControl></app-form-errors>
+                <div>
+                    <span class="text-bold pr-3" translate>TRAINING.PARTICIPANTS</span>
+                    <span class="mr-3">{{selectedCheckboxes}} / {{training.participantsLimit}}</span>
+                    <span *ngIf="selectedCheckboxes > training.participantsLimit" class="text-danger" translate>FORM.OVER-LIMIT</span>
+                </div>
             </div>
 
             <hr/>
-            <button (click)="submitUsers()" type="button" class="btn btn-sm btn-outline-success" translate>
+            <button (click)="submitUsers()" [disabled]="selectedCheckboxes > training.participantsLimit" type="button" class="btn btn-sm btn-outline-success" translate>
                 BTN.SAVE
             </button>
         </div>

@@ -8,8 +8,13 @@ import {Training} from '../../../msh/model';
 export class TrainingDetailsComponent {
 
     selectedTraining: Training;
+    limits = false;
 
     @Input() set training(training: Training) {
         this.selectedTraining = training;
+    }
+
+    @Input() set showLimits(v: boolean) {
+        this.limits = v;
     }
 }

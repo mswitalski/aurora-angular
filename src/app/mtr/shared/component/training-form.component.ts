@@ -73,14 +73,16 @@ export class TrainingFormComponent {
                     Validators.maxLength(this.validation.description.max)
                 ]
             ],
+            'participantsLimit': [
+                '', [
+                    Validators.required,
+                    Validators.min(this.validation.participantsLimit.min)
+                ]
+            ],
             'internal': new FormControl(this.training.internal.toString()),
             'startDateTime': '',
             'endDateTime': ''
         });
-    }
-
-    goBack(): void {
-        this.location.back();
     }
 
     submitForm(): void {

@@ -37,6 +37,9 @@ export const validationConstraints = {
         location: {
             max: 50
         },
+        participantsLimit: {
+            min: 1
+        },
         description: {
             max: 500
         }

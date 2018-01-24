@@ -69,6 +69,7 @@
         "CONNECTION": "Nie mo\u017cna po\u0142\u0105czy\u0107 si\u0119 z serwerem. Prosimy spr\u00f3bowa\u0107 p\u00f3\u017aniej...",
         "REQUIRED": "To pole jest wymagane",
         "INVALID": "Podano nieprawid\u0142ow\u0105 warto\u015b\u0107 dla tego pola",
+        "MIN": "To pole mo\u017ce zawiera\u0107 liczby nie mniejsze ni\u017c {{value}}",
         "MIN-LEN": "To pole mo\u017ce zawiera\u0107 nie mniej ni\u017c {{value}} znaki/-\u00f3w",
         "MAX-LEN": "To pole mo\u017ce zawiera\u0107 nie mniej ni\u017c {{value}} znaki/-\u00f3w",
         "INVALID-REPEATED-PASSWORD": "Nale\u017cy poprawnie ponownie wpisa\u0107 nowe has\u0142o"
@@ -253,7 +254,8 @@
         "SKILL-NAME": "Nazwa umiej\u0119tno\u015bci",
         "NO-SKILLS": "Brak dost\u0119pnych umiej\u0119tno\u015bci",
         "FIELD-REQUIRED": "Oznacza pole wymagane",
-        "USERNAME-PATTERN": "Nazwa u\u017cytkownika mo\u017ce zawiera\u0107 jedynie ma\u0142e lub du\u017ce litery alfabetu \u0142aci\u0144skiego lub cyfry"
+        "USERNAME-PATTERN": "Nazwa u\u017cytkownika mo\u017ce zawiera\u0107 jedynie ma\u0142e lub du\u017ce litery alfabetu \u0142aci\u0144skiego lub cyfry",
+        "OVER-LIMIT": "Przekroczono limit"
     },
     "FEEDBACK": {
         "AUTHOR": "Autor",
@@ -280,7 +282,8 @@
         "START": "Rozpoczyna si\u0119 o",
         "END": "Ko\u0144czy si\u0119 o",
         "INTERNAL": "Wewn\u0119trzny",
-        "PARTICIPANTS": "Uczestnicy"
+        "PARTICIPANTS": "Uczestnicy",
+        "LIMIT": "Limit uczestnik\u00f3w"
     },
     "INTEGRATION": {
         "OUTLOOK-WARNING": "Nie jeste\u015b zalogowany w us\u0142udze Outlook - \u017cadne zmiany wprowadzone do szkolenia nie b\u0119d\u0105 zapisane w Twoim kalendarzu"

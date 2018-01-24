@@ -69,6 +69,7 @@
         "CONNECTION": "Could not connect to the server! Try again later...",
         "REQUIRED": "This field is required",
         "INVALID": "This field is incorrectly filled",
+        "MIN": "This field must contain number not less than {{value}}",
         "MIN-LEN": "This field must contain not less than {{value}} characters",
         "MAX-LEN": "This field must contain not more than {{value}} characters",
         "INVALID-REPEATED-PASSWORD": "You must correctly repeat the new password"
@@ -254,7 +255,8 @@
         "SKILL-NAME": "Skill name",
         "NO-SKILLS": "No skills available",
         "FIELD-REQUIRED": "Indicates required field",
-        "USERNAME-PATTERN": "Username may only contain lowercase, uppercase letters or numbers"
+        "USERNAME-PATTERN": "Username may only contain lowercase, uppercase letters or numbers",
+        "OVER-LIMIT": "Limit has been exceeded"
     },
     "FEEDBACK": {
         "AUTHOR": "Author",
@@ -281,7 +283,8 @@
         "START": "Begins at",
         "END": "Ends at",
         "INTERNAL": "Internal",
-        "PARTICIPANTS": "Participants"
+        "PARTICIPANTS": "Participants",
+        "LIMIT": "Participants limit"
     },
     "INTEGRATION": {
         "OUTLOOK-WARNING": "You are not logged in to Outlook - any changes made to training won't be saved in your calendar"

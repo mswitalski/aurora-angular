@@ -29,7 +29,10 @@
         <td>{{selectedTraining.description}}</td>
     </tr>
     <tr>
-        <td colspan="2" class="text-bold pr-3" translate>TRAINING.PARTICIPANTS</td>
+        <td class="text-bold pr-3" translate>TRAINING.PARTICIPANTS</td>
+        <td>
+            <span *ngIf="limits">{{selectedTraining.users.length}} / {{selectedTraining.participantsLimit}}</span>
+        </td>
     </tr>
 </table>
 <app-simple-users-list [listData]="selectedTraining.users"></app-simple-users-list>

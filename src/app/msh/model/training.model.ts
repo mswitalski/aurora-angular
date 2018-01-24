@@ -9,5 +9,6 @@ export class Training {
     startDateTime: string;
     endDateTime: string;
     internal = true;
+    participantsLimit: number;
     users: User[] = [];
 }

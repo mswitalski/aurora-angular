@@ -1,5 +1,6 @@
 <div *ngIf="control !== undefined && control.errors && !control.pristine" class="text-danger">
     <div [hidden]="!control.errors.required" translate>ERROR.REQUIRED</div>
+    <div [hidden]="!control.errors.min" translate [translateParams]="{value: min}">ERROR.MIN</div>
     <div [hidden]="!control.errors.minlength" translate [translateParams]="{value: minLen}">ERROR.MIN-LEN</div>
     <div [hidden]="!control.errors.maxlength" translate [translateParams]="{value: maxLen}">ERROR.MAX-LEN</div>
     <div [hidden]="!control.errors.email" translate>ERROR.INVALID</div>

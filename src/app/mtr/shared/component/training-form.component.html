@@ -85,6 +85,23 @@
                                  [formControl]="trainingForm.controls['endDateTime']" ngDefaultControl></app-form-errors>
             </div>
         </fieldset>
+        <fieldset class="form-group row">
+            <label for="training-participantsLimit" class="col-12 col-form-label">{{ 'TRAINING.LIMIT' | translate }} <span
+                class="text-danger">*</span></label>
+            <div class="col-sm-6 col-lg-4 col-xl-3">
+                <input
+                    id="training-participantsLimit"
+                    class="form-control"
+                    formControlName="participantsLimit"
+                    [(ngModel)]="training.participantsLimit"
+                    placeholder="{{ 'TRAINING.LIMIT' | translate }}"
+                    type="text"/>
+                <app-form-errors [serverErrors]="validationErrors"
+                                 [controlName]="'participantsLimit'"
+                                 [formControl]="trainingForm.controls['participantsLimit']"
+                                 [minNumber]="validation.participantsLimit.min" ngDefaultControl></app-form-errors>
+            </div>
+        </fieldset>
 
         <fieldset class="form-group row">
             <label class="col-12 col-form-label">{{ 'TRAINING.INTERNAL' | translate }} <span

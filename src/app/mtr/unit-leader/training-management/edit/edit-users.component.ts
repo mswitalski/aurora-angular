@@ -3,6 +3,7 @@ import {DataCheckbox, Training, User} from '../../../../msh/model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {OutlookService, TrainingsService} from '../../../../msh/service';
 import {ObjectsUtil} from '../../../../msh/util';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
     templateUrl: './edit-users.component.html'
@@ -13,6 +14,8 @@ export class EditUsersComponent implements OnInit {
     isSubmitting = false;
     training: Training;
     usersCheckboxes: DataCheckbox<User>[] = [];
+    selectedCheckboxes = 0;
+    serverResponse: HttpErrorResponse;
 
     constructor(private route: ActivatedRoute,
                 private router: Router,
@@ -26,6 +29,16 @@ export class EditUsersComponent implements OnInit {
         this.route.snapshot.data['users'].forEach(
             user => this.usersCheckboxes.push(new DataCheckbox(user, this.hasUser(user)))
         );
+        this.selectedCheckboxes = this.training.users.length;
+    }
+
+    modifyCount(v: boolean): void {
+        if (v) {
+            this.selectedCheckboxes++;
+
+        } else {
+            this.selectedCheckboxes--;
+        }
     }
 
     hasUser(user: User): boolean {
@@ -34,13 +47,18 @@ export class EditUsersComponent implements OnInit {
 
     submitUsers() {
         this.training.users = this.usersCheckboxes.filter(c => c.value).map(c => c.item);
+        this.isSubmitting = true;
         this.trainingsService.update(this.training).subscribe(
             () => {
                 const url = 'unitleader/trainings/' + this.training.id;
                 this.router.navigate([url]);
             },
             error => {
-                this.router.navigate(['/error/' + error.status], {skipLocationChange: true});
+                if (error.status === 400) {
+                    this.serverResponse = error.error;
+                }
+
+                this.isSubmitting = false;
             }
         );
     }
