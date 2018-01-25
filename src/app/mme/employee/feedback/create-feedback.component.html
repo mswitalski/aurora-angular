@@ -60,9 +60,9 @@
                                 NO
                             </label>
                         </div>
-                        <app-form-errors [serverErrors]="validationErrors"
-                                         [controlName]="'user'" ngDefaultControl></app-form-errors>
                     </fieldset>
+                    <app-form-errors [serverErrors]="validationErrors"
+                                     [controlName]="'user'" ngDefaultControl></app-form-errors>
 
                     <hr/>
                     <button [disabled]="!feedbackForm.valid" type="submit" class="btn btn-sm btn-outline-success" translate>
