@@ -90,6 +90,10 @@
         "412": {
             "TITLE": "Edit failed",
             "DESC": "You tried to update something while having outdated data"
+        },
+        "502": {
+            "TITLE": "Microsoft Outlook invalid response error",
+            "DESC": "An operation executed on the Microsoft Outlook API returned an invalid response"
         }
     },
     "HEADER": {

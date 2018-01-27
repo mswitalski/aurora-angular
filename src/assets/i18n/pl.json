@@ -90,6 +90,10 @@
         "412": {
             "TITLE": "Edycja nie powiod\u0142a si\u0119",
             "DESC": "Pr\u00f3bowa\u0142e\u015b edytowa\u0107 dane, kt\u00f3rych posiada\u0142e\u015b przestarza\u0142\u0105 kopi\u0119 - prosimy spr\u00f3bowa\u0107 ponownie"
+        },
+        "502": {
+            "TITLE": "Nieprawid\u0142owa odpowied\u017a z Microsoft Outlook",
+            "DESC": "Operacja wykonana z udzia\u0142em Microsoft Outlook API zwr\u00f3ci\u0142a nieprawid\u0142ow\u0105 odpowied\u017a"
         }
     },
     "HEADER": {

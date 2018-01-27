@@ -27,5 +27,5 @@ export const environment = {
             unitleader: 'UNIT_LEADER'
         }
     },
-    handledErrorCodes: ['401', '403', '404', '412']
+    handledErrorCodes: ['401', '403', '404', '412', '502']
 };
