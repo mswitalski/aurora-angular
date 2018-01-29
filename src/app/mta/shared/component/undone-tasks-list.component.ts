@@ -38,6 +38,9 @@ export class UndoneTasksListComponent {
                 this.assignDatedTaskToGroup(task);
             }
         });
+
+        this.removeEmptyGroups(this.dateGroups[1]);
+        this.removeEmptyGroups(this.dateGroups[0]);
     }
 
     private assignDatedTaskToGroup(task: Task): void {
@@ -58,6 +61,13 @@ export class UndoneTasksListComponent {
             } else {
                 group.addTask(task);
             }
+        }
+    }
+
+    private removeEmptyGroups(group: DateGroup): void {
+        if (group.tasks.length === 0) {
+            const index = this.dateGroups.indexOf(group, 0);
+            this.dateGroups.splice(index, 1);
         }
     }
 }
