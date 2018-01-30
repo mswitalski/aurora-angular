@@ -263,8 +263,8 @@
     },
     "FEEDBACK": {
         "AUTHOR": "Autor",
-        "SATISFIED": "Zadowolony",
-        "CONTENT": "Tre\u015b\u0107",
+        "SATISFIED": "Polecam",
+        "CONTENT": "Tre\u015b\u0107 opinii",
         "CREATE-DATE-TIME": "Data dodania"
     },
     "TASK": {
@@ -283,8 +283,8 @@
         "TYPE": "Rodzaj",
         "LOCATION": "Lokalizacja",
         "DESCRIPTION": "Opis",
-        "START": "Rozpoczyna si\u0119 o",
-        "END": "Ko\u0144czy si\u0119 o",
+        "START": "Termin rozpocz\u0119cia",
+        "END": "Termin zako\u0144czenia",
         "INTERNAL": "Wewn\u0119trzny",
         "PARTICIPANTS": "Uczestnicy",
         "LIMIT": "Limit uczestnik\u00f3w"
